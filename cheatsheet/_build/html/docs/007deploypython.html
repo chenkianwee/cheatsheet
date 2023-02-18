@@ -1,0 +1,711 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Deploy Python Package to PYPI &#8212; CKW Cheat Sheet</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Django" href="008django.html" />
+    <link rel="prev" title="Python" href="006conda.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">CKW Cheat Sheet</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="001intro.html">
+                    Welcome to CKW Cheat Sheet
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="002linux.html">
+   Linux commands
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="003docker.html">
+   Docker Commands
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="004vim.html">
+   Vim
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="005sql.html">
+   SQL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="006conda.html">
+   Python
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Deploy Python Package to PYPI
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="008django.html">
+   Django
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="009browserpy.html">
+   Python in the browser
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="010matplotlib.html">
+   Matplotlib Scripts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="011git.html">
+   Git commands
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="012opencv.html">
+   OpenCV
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="013pubbk.html">
+   Jupyter-book
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="013_1installation.html">
+     Installation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="013_2createbook.html">
+     Create a Book Template with Jupyter-book
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="013_3editbook.html">
+     Edit the Book
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="013_4addfig.html">
+     Add Figure in your book
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="013_5hyperref.html">
+     Reference to Other Documents, Hyperlink and Folder Structure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="013_6citation.html">
+     Adding a Citation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="013_7pubonline.html">
+     Publish your Book on Github
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="013_8pdf.html">
+     Generate PDF
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/007deploypython.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/docs/007deploypython.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ci-cd-with-github-action">
+   CI/CD with Github action
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generating-documentation-for-your-library-with-pdoc">
+   Generating documentation for your library with Pdoc
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#framework-for-writing-python-apps">
+   Framework for writing Python Apps
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Deploy Python Package to PYPI</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ci-cd-with-github-action">
+   CI/CD with Github action
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generating-documentation-for-your-library-with-pdoc">
+   Generating documentation for your library with Pdoc
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#framework-for-writing-python-apps">
+   Framework for writing Python Apps
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="deploy-python-package-to-pypi">
+<h1>Deploy Python Package to PYPI<a class="headerlink" href="#deploy-python-package-to-pypi" title="Permalink to this headline">#</a></h1>
+<p>This is written for a window system. Make changes accordingly to your OS.
+based on these:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://packaging.python.org/en/latest/tutorials/packaging-projects/">https://packaging.python.org/en/latest/tutorials/packaging-projects/</a></p></li>
+<li><p><a class="reference external" href="https://www.geeksforgeeks.org/command-line-scripts-python-packaging/">https://www.geeksforgeeks.org/command-line-scripts-python-packaging/</a></p></li>
+</ul>
+<ol>
+<li><p>Create a pyproject.toml in this project structure</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>myproject/
+├── LICENSE
+├── pyproject.toml
+├── README.md
+├── src/
+│   └── myproject/
+│       ├── __init__.py
+│       └── example.py
+└── tests/
+    |── myproject/
+</pre></div>
+</div>
+</li>
+<li><p>In the pyproject.toml setup the file in this structure.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">build</span><span class="o">-</span><span class="n">system</span><span class="p">]</span>
+<span class="n">requires</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;setuptools&gt;=61.0&quot;</span><span class="p">]</span>
+<span class="n">build</span><span class="o">-</span><span class="n">backend</span> <span class="o">=</span> <span class="s2">&quot;setuptools.build_meta&quot;</span>
+
+<span class="p">[</span><span class="n">project</span><span class="p">]</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;myproject&quot;</span>
+<span class="n">version</span> <span class="o">=</span> <span class="s2">&quot;0.0.1&quot;</span>
+<span class="n">authors</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;wwww&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;wwww@gmail.com&quot;</span> <span class="p">},</span>
+<span class="p">]</span>
+<span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;Python library&#39;</span>
+<span class="n">readme</span> <span class="o">=</span> <span class="s2">&quot;README.md&quot;</span>
+<span class="n">requires</span><span class="o">-</span><span class="n">python</span> <span class="o">=</span> <span class="s2">&quot;==3.11&quot;</span>
+<span class="n">classifiers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;License :: OSI Approved :: GNU General Public License v3 (GPLv3)&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;Programming Language :: Python :: 3.11&quot;</span><span class="p">]</span>
+<span class="n">dependencies</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;numpy==1.23.4&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;scipy==1.9.3&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;sympy==1.11.1&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;pyqtgraph==0.13.1&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;PyOpenGL==3.1.6&#39;</span><span class="p">]</span>
+
+<span class="p">[</span><span class="n">project</span><span class="o">.</span><span class="n">urls</span><span class="p">]</span>
+<span class="s2">&quot;Homepage&quot;</span> <span class="o">=</span> <span class="s2">&quot;https://wwww.com&quot;</span>
+<span class="s2">&quot;Bug Tracker&quot;</span> <span class="o">=</span> <span class="s2">&quot;https://www.com&quot;</span>
+
+<span class="p">[</span><span class="n">project</span><span class="o">.</span><span class="n">scripts</span><span class="p">]</span>
+<span class="n">raytracemrt</span> <span class="o">=</span> <span class="s2">&quot;raytracemrt.raytracemrt:main&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Make sure you have the build program installed.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">build</span>
+</pre></div>
+</div>
+</li>
+<li><p>Run this command from the same directory where pyproject.toml is located.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">py</span> <span class="o">-</span><span class="n">m</span> <span class="n">build</span>
+</pre></div>
+</div>
+</li>
+<li><p>Once successfully built, upload the files to PyPi with twine</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">twine</span>
+</pre></div>
+</div>
+</li>
+<li><p>You will need to specify your .pypirc file in your home directory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">distutils</span><span class="p">]</span>
+<span class="n">index</span><span class="o">-</span><span class="n">servers</span> <span class="o">=</span>
+    <span class="n">pypi</span>
+    <span class="n">testpypi</span>
+
+<span class="p">[</span><span class="n">pypi</span><span class="p">]</span>
+<span class="n">repository</span> <span class="o">=</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">upload</span><span class="o">.</span><span class="n">pypi</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">legacy</span><span class="o">/</span>
+<span class="n">username</span> <span class="o">=</span> <span class="n">__token__</span>
+<span class="n">password</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">PyPI</span> <span class="n">token</span><span class="o">&gt;</span>
+
+<span class="p">[</span><span class="n">testpypi</span><span class="p">]</span>
+<span class="n">repository</span> <span class="o">=</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">test</span><span class="o">.</span><span class="n">pypi</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">legacy</span><span class="o">/</span>
+<span class="n">username</span> <span class="o">=</span> <span class="n">__token__</span>
+<span class="n">password</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">PyPI</span> <span class="n">token</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Upload your build to the testpypi with the following command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">twine</span> <span class="n">upload</span> <span class="o">--</span><span class="n">repository</span> <span class="n">testpypi</span> <span class="n">dist</span><span class="o">/*</span> <span class="o">--</span><span class="n">verbose</span>
+</pre></div>
+</div>
+</li>
+<li><p>Install the library from testpypi with the following command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">index</span><span class="o">-</span><span class="n">url</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">test</span><span class="o">.</span><span class="n">pypi</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">simple</span><span class="o">/</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">deps</span> <span class="n">example</span><span class="o">-</span><span class="n">package</span><span class="o">-</span><span class="n">YOUR</span><span class="o">-</span><span class="n">USERNAME</span><span class="o">-</span><span class="n">HERE</span>  
+</pre></div>
+</div>
+</li>
+<li><p>Upload your build with the following command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">twine</span> <span class="n">upload</span> <span class="n">dist</span><span class="o">/*</span> <span class="o">--</span><span class="n">verbose</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<section id="ci-cd-with-github-action">
+<h2>CI/CD with Github action<a class="headerlink" href="#ci-cd-with-github-action" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.asapdevelopers.com/python-for-ci-cd/">https://www.asapdevelopers.com/python-for-ci-cd/</a></p></li>
+<li><p><a class="reference external" href="https://ron.sh/how-to-submit-a-package-to-pypi/">https://ron.sh/how-to-submit-a-package-to-pypi/</a></p></li>
+<li><p><a class="reference external" href="https://www.lambdatest.com/blog/jenkins-pipeline-tutorial/">https://www.lambdatest.com/blog/jenkins-pipeline-tutorial/</a></p></li>
+</ul>
+<ol>
+<li><p>Install Pytest to run test.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pytest</span>
+</pre></div>
+</div>
+</li>
+<li><p>create an empty <a class="reference external" href="http://conftest.py">conftest.py</a> file in the package you want to test. Create a tests folder in the package. Write the test in the test_example.py and place it in the tests folder.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>myproject/
+├── LICENSE
+├── pyproject.toml
+├── README.md
+├── src/
+│   └── myproject/
+│       ├── __init__.py
+│       └── example.py
+|       └── conftest.py
+└── tests/
+    |── test_example.py
+</pre></div>
+</div>
+</li>
+<li><p>go to the directory of your Python package and run the following command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pytest</span>
+</pre></div>
+</div>
+</li>
+<li><p>Using github actions to automate the testing. Go to the tab github actions -&gt; new workflow -&gt; Python application. Use the python application template. Create a requirement.txt file in your package if your package requires third party libraries.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>myproject/
+├── LICENSE
+├── pyproject.toml
+├── README.md
+├── requirements.txt
+├── src/
+│   └── myproject/
+│       ├── __init__.py
+│       └── example.py
+|       └── conftest.py
+└── tests/
+    |── test_example.py
+</pre></div>
+</div>
+</li>
+<li><p>example of a requirements.txt file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">numpy</span><span class="o">==</span><span class="mf">1.23.4</span>
+<span class="n">scipy</span><span class="o">==</span><span class="mf">1.9.3</span>
+</pre></div>
+</div>
+</li>
+<li><p>Any commits and the workflow will run. If there is an error you will be informed.</p></li>
+</ol>
+</section>
+<section id="generating-documentation-for-your-library-with-pdoc">
+<h2>Generating documentation for your library with Pdoc<a class="headerlink" href="#generating-documentation-for-your-library-with-pdoc" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pdoc.dev/docs/pdoc.html#deploying-to-github-pages">https://pdoc.dev/docs/pdoc.html#deploying-to-github-pages</a></p></li>
+</ul>
+<ol>
+<li><p>Install Pdoc</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pdoc</span>
+</pre></div>
+</div>
+</li>
+<li><p>Generate documentation for your project by specifying the directory your project is in and outputting it to a directory. HTML files will be generated.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pdoc</span> <span class="n">proj_directory</span> <span class="o">--</span><span class="n">output</span><span class="o">-</span><span class="nb">dir</span> <span class="o">./</span><span class="n">docs</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="framework-for-writing-python-apps">
+<h2>Framework for writing Python Apps<a class="headerlink" href="#framework-for-writing-python-apps" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://beeware.org">https://beeware.org</a></p></li>
+<li><p><a class="reference external" href="https://realpython.com/pyinstaller-python/#distribution-problems">https://realpython.com/pyinstaller-python/#distribution-problems</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ClimenteA/flaskwebgui">https://github.com/ClimenteA/flaskwebgui</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ClimenteA/pyvan">https://github.com/ClimenteA/pyvan</a></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="006conda.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Python</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="008django.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Django</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Kian Wee Chen<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
