@@ -2,6 +2,8 @@
 
 ## Ubuntu
 ### User
+[click here](#Read-and-Write-Text)
+
 sudo root
 ```
 sudo su - root
