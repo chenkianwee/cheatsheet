@@ -42,3 +42,18 @@
         - file: docs/030/032task3
         - file: docs/030/033task4
     ````
+6. refer to section in a document.
+
+    ```
+    [a link to this section](#section)
+    
+    if your section heading have space replace it with hyphens. All letters in small cap.
+    #read-and-write-text
+    ```
+    
+7. refer to a section in another document using hyperlink.
+
+    ```
+    if your section heading have space replace it with hyphens. All letters in small cap.
+    [something](002linux.html#read-and-write-text)
+    ```

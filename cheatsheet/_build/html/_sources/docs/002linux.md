@@ -2,6 +2,7 @@
 
 ## Ubuntu
 ### User
+
 sudo root
 ```
 sudo su - root
