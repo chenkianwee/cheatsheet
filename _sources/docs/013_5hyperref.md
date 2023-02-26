@@ -42,7 +42,7 @@
         - file: docs/030/032task3
         - file: docs/030/033task4
     ````
-6. refer to section in a document.[click here](#Jupyter-book)
+6. refer to section in a document.
 
     ```
     [a link to this section](#section)
