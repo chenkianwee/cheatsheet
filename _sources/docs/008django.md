@@ -1,4 +1,6 @@
 # Django
+- packaging django app (https://docs.djangoproject.com/en/4.2/intro/reusable-apps/)
+
 ## Django Commands
 django interactive shell
   ```
@@ -39,6 +41,7 @@ The instructions are based on these sources
     tail -f /var/log/gunicorn/dev.log
     ```
 ### Nginx subdirectories routing
+- Configure your nginx to serve applications with subdomaims [here](https://stackoverflow.com/questions/9905378/nginx-subdomain-configuration)
 - https://www.digitalocean.com/community/questions/nginx-subdirectory-returning-404
 - https://stackoverflow.com/questions/29587738/how-to-configure-nginx-to-pass-proxy-to-tomcat-on-centos
 
@@ -53,7 +56,7 @@ The instructions are based on these sources
     sudo add-apt-repository ppa:deadsnakes/ppa
     ```
     ```
-    sudo apt update 
+    sudo apt update 
     ```
     ```
     sudo apt install python3.11
