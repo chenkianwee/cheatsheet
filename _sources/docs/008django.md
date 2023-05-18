@@ -1,4 +1,5 @@
 # Django
+- good django tutorial: https://realpython.com/django-nginx-gunicorn/
 - packaging django app (https://docs.djangoproject.com/en/4.2/intro/reusable-apps/)
 
 ## Django Commands
