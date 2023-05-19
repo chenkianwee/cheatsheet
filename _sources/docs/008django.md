@@ -66,3 +66,22 @@ The instructions are based on these sources
     ```
     sudo apt install python3.11-venv
     ```
+## Django Resources
+- Django Tutorial
+    - https://www.w3schools.com/django/django_add_members.php 
+    - Upload file
+        - https://pythonguides.com/django-app-upload-files/
+    - Download file
+        - https://fedingo.com/how-to-download-file-in-django/
+    - Deployment with Gunicorn and Nginx
+        - https://realpython.com/django-nginx-gunicorn/
+        - subdomain and multiple locations
+            - https://stackoverflow.com/questions/9905378/nginx-subdomain-configuration
+    - Django + CesiumJS
+        - https://github.com/All4Gis/django-docker-cesium
+    - Django Desktop App
+        - https://github.com/ClimenteA/flaskwebgui
+    - Django REST API
+        - https://www.django-rest-framework.org/tutorial/quickstart/
+    - Django REACT
+        - https://blog.logrocket.com/using-react-django-create-app-tutorial/#how-send-data-django-react
