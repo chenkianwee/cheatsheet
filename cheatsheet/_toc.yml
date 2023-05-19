@@ -1,19 +1,25 @@
-format: jb-article
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
 root: docs/001intro
-sections:
-- file: docs/002linux
-- file: docs/003docker
-- file: docs/004vim
-- file: docs/005sql
-- file: docs/006conda
-- file: docs/007deploypython
-- file: docs/008django
-- file: docs/009browserpy
-- file: docs/010matplotlib
-- file: docs/011git
-- file: docs/012opencv
-- file: docs/013pubbk
-  sections:
+parts:
+- caption: Cheat Sheets
+  numbered: true
+  chapters:
+  - file: docs/002linux
+  - file: docs/003docker
+  - file: docs/004vim
+  - file: docs/005sql
+  - file: docs/006conda
+  - file: docs/007deploypython
+  - file: docs/008django
+  - file: docs/009browserpy
+  - file: docs/010matplotlib
+  - file: docs/011git
+  - file: docs/012opencv
+  - file: docs/013pubbk
+    sections:
     - file: docs/013_1installation
     - file: docs/013_2createbook
     - file: docs/013_3editbook
@@ -22,4 +28,6 @@ sections:
     - file: docs/013_6citation
     - file: docs/013_7pubonline
     - file: docs/013_8pdf
-- file: docs/014approach
+  - file: docs/014approach
+  - file: docs/015server
+  - file: docs/016jupyterlab

@@ -107,6 +107,13 @@ Unzip a file
 unzip filename
 ```
 
+### Terminal
+Ctrl+K: Cut the part of the line after the cursor, adding it to the clipboard.
+
+Ctrl+U: Cut the part of the line before the cursor, adding it to the clipboard.
+
+Ctrl+Y: Paste the last thing you cut from the clipboard. The y here stands for “yank”
+
 ### Shellscript
 Execute a shellscript
 ```

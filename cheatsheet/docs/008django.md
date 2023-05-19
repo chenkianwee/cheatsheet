@@ -1,4 +1,7 @@
 # Django
+- good django tutorial: https://realpython.com/django-nginx-gunicorn/
+- packaging django app (https://docs.djangoproject.com/en/4.2/intro/reusable-apps/)
+
 ## Django Commands
 django interactive shell
   ```
@@ -39,6 +42,7 @@ The instructions are based on these sources
     tail -f /var/log/gunicorn/dev.log
     ```
 ### Nginx subdirectories routing
+- Configure your nginx to serve applications with subdomaims [here](https://stackoverflow.com/questions/9905378/nginx-subdomain-configuration)
 - https://www.digitalocean.com/community/questions/nginx-subdirectory-returning-404
 - https://stackoverflow.com/questions/29587738/how-to-configure-nginx-to-pass-proxy-to-tomcat-on-centos
 
@@ -53,7 +57,7 @@ The instructions are based on these sources
     sudo add-apt-repository ppa:deadsnakes/ppa
     ```
     ```
-    sudo apt update 
+    sudo apt update 
     ```
     ```
     sudo apt install python3.11
@@ -62,3 +66,22 @@ The instructions are based on these sources
     ```
     sudo apt install python3.11-venv
     ```
+## Django Resources
+- Django Tutorial
+    - https://www.w3schools.com/django/django_add_members.php 
+    - Upload file
+        - https://pythonguides.com/django-app-upload-files/
+    - Download file
+        - https://fedingo.com/how-to-download-file-in-django/
+    - Deployment with Gunicorn and Nginx
+        - https://realpython.com/django-nginx-gunicorn/
+        - subdomain and multiple locations
+            - https://stackoverflow.com/questions/9905378/nginx-subdomain-configuration
+    - Django + CesiumJS
+        - https://github.com/All4Gis/django-docker-cesium
+    - Django Desktop App
+        - https://github.com/ClimenteA/flaskwebgui
+    - Django REST API
+        - https://www.django-rest-framework.org/tutorial/quickstart/
+    - Django REACT
+        - https://blog.logrocket.com/using-react-django-create-app-tutorial/#how-send-data-django-react

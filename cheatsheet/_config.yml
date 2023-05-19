@@ -1,8 +1,9 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: CKW Cheat Sheet
-author: Kian Wee Chen
+title: My sample book
+author: The Jupyter Book Community
+logo: logo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -13,6 +14,10 @@ execute:
 latex:
   latex_documents:
     targetname: book.tex
+
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+  - references.bib
 
 # Information about where the book exists on the web
 repository:
