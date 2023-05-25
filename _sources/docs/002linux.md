@@ -57,7 +57,6 @@ Copy file
 $ cp /path/to/file1 /path/to/file2
 
 $ cp -r /path/to/folder /path/to/folder
-
 ```
 Remove a file.
 ```
@@ -85,6 +84,12 @@ a=all users
 r=read
 w=write
 -=no permission
+```
+Change owner
+```
+sudo chown -cR owner:group folder path
+
+sudo chown -c owner:group file path
 ```
 Add directory
 ```
