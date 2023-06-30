@@ -111,7 +111,10 @@ Unzip a file
 ```
 unzip filename
 ```
-
+Search for a file or directory with a name
+```
+grep -r -i "name2search" /directory/to/search
+```
 ### Terminal
 Ctrl+K: Cut the part of the line after the cursor, adding it to the clipboard.
 

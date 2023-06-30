@@ -153,3 +153,6 @@ based on these:
 - https://realpython.com/pyinstaller-python/#distribution-problems
 - https://github.com/ClimenteA/flaskwebgui
 - https://github.com/ClimenteA/pyvan
+
+## Reducing numpy, scipy library size 
+- https://towardsdatascience.com/how-to-shrink-numpy-scipy-pandas-and-matplotlib-for-your-data-product-4ec8d7e86ee4
