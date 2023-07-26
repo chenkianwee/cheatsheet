@@ -1,6 +1,6 @@
 # Publish your Book on Github
 
-1. [Register a Github account](github.com)
+1. [Register a Github account](https://github.com)
 2. Once registered. Create a new repository as shown ({numref}`Figure %s <create_repo>`).
     ```{figure} /_static/steps/create_repo.png
     :scale: 80%

@@ -51,7 +51,7 @@
     #read-and-write-text
     ```
     
-7. refer to a section in another document using hyperlink.
+7. refer to a section in another document using hyperlink. Check your _build folder structure to put in the html file to referece accordingly.
 
     ```
     if your section heading have space replace it with hyphens. All letters in small cap.
