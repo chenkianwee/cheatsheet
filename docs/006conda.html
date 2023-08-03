@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>5. Python &#8212; My sample book</title>
   
@@ -44,6 +44,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -66,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="6. Deploy Python Package to PYPI" href="007deploypython.html" />
     <link rel="prev" title="4. SQL" href="005sql.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -387,9 +388,27 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="python">
-<h1><span class="section-number">5. </span>Python<a class="headerlink" href="#python" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">5. </span>Python<a class="headerlink" href="#python" title="Permalink to this heading">#</a></h1>
 <section id="id1">
-<h2><span class="section-number">5.1. </span>Python<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.1. </span>Python<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>install python for ubuntu <a class="reference external" href="https://computingforgeeks.com/how-to-install-python-on-ubuntu-linux/?expand_article=1">https://computingforgeeks.com/how-to-install-python-on-ubuntu-linux/?expand_article=1</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">software</span><span class="o">-</span><span class="n">properties</span><span class="o">-</span><span class="n">common</span> <span class="o">-</span><span class="n">y</span>
+<span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="p">:</span><span class="n">deadsnakes</span><span class="o">/</span><span class="n">ppa</span>
+<span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">python3</span><span class="mf">.11</span>
+<span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">pip</span>
+<span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">python3</span><span class="mf">.11</span><span class="o">-</span><span class="n">venv</span>
+<span class="n">python3</span><span class="mf">.11</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">chenkianwee</span><span class="o">/</span><span class="n">venv</span><span class="o">/</span><span class="n">geomie3d</span>
+</pre></div>
+</div>
+<p>if your spyder give this error msg</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Could not load the Qt platform plugin &quot;xcb&quot; in &quot;&quot; even though it was found.</span>
+<span class="n">This</span> <span class="n">application</span> <span class="n">failed</span> <span class="n">to</span> <span class="n">start</span> <span class="n">because</span> <span class="n">no</span> <span class="n">Qt</span> <span class="n">platform</span> <span class="n">plugin</span> <span class="n">could</span> <span class="n">be</span> <span class="n">initialized</span><span class="o">.</span> <span class="n">Reinstalling</span> <span class="n">the</span> <span class="n">application</span> <span class="n">may</span> <span class="n">fix</span> <span class="n">this</span> <span class="n">problem</span><span class="o">.</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+<p>install these libraries to solve the problem <a class="reference external" href="https://stackoverflow.com/questions/62391587/qt-could-not-find-the-qt-platform-plugin-xcb">https://stackoverflow.com/questions/62391587/qt-could-not-find-the-qt-platform-plugin-xcb</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">make</span> <span class="n">g</span><span class="o">++</span> <span class="n">pkg</span><span class="o">-</span><span class="n">config</span> <span class="n">libgl1</span><span class="o">-</span><span class="n">mesa</span><span class="o">-</span><span class="n">dev</span> <span class="n">libxcb</span><span class="o">*-</span><span class="n">dev</span> <span class="n">libfontconfig1</span><span class="o">-</span><span class="n">dev</span> <span class="n">libxkbcommon</span><span class="o">-</span><span class="n">x11</span><span class="o">-</span><span class="n">dev</span> <span class="n">python</span> <span class="n">libgtk</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+</div>
 <p>create a virtual environment with Python</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">py</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="n">c</span><span class="p">:</span>\<span class="n">path</span>\<span class="n">to</span>\<span class="n">new</span>\<span class="n">virtual</span>\<span class="n">environment</span>
 </pre></div>
@@ -400,7 +419,7 @@ document.write(`
 </div>
 </section>
 <section id="conda">
-<h2><span class="section-number">5.2. </span>Conda<a class="headerlink" href="#conda" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.2. </span>Conda<a class="headerlink" href="#conda" title="Permalink to this heading">#</a></h2>
 <p>create environment</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="n">myenv</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.9</span>
 </pre></div>

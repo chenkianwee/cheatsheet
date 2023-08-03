@@ -172,3 +172,24 @@ hostname
 ```
 ip addr show
 ```
+### Nvidia CUDA
+Configure ubuntu to detect nvidia gpu
+- https://www.linuxbabe.com/desktop-linux/switch-intel-nvidia-graphics-card-ubuntu
+
+- use this command to check which is the recommended driver
+    ```
+    sudo ubuntu-drivers devices
+    ```
+
+- before installing the driver. Check if you already have any nvidia driver installed. If so, remove them, so that you can install a fresh new driver
+    ```
+    sudo apt purge nvidia-*
+    ```
+
+- install the recommended device. My screen blackout when installing it. I had to force restart my computer. Everything seems to be fine after my hard restart. 
+    ```
+    sudo apt-get install nvidia-driver-535
+    ```
+
+- You can check if your system detects the graphic card by going to Settings -> about
+- you can change the primary graphic card to use with the nvidia-settings application

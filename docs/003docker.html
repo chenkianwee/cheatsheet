@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>2. Docker Commands &#8212; My sample book</title>
   
@@ -44,6 +44,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -66,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="3. Vim" href="004vim.html" />
     <link rel="prev" title="1. Linux commands" href="002linux.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -389,7 +390,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="docker-commands">
-<h1><span class="section-number">2. </span>Docker Commands<a class="headerlink" href="#docker-commands" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">2. </span>Docker Commands<a class="headerlink" href="#docker-commands" title="Permalink to this heading">#</a></h1>
 <p>Check for running container</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker ps
 </pre></div>
@@ -411,7 +412,7 @@ document.write(`
 </pre></div>
 </div>
 <section id="container">
-<h2><span class="section-number">2.1. </span>Container<a class="headerlink" href="#container" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.1. </span>Container<a class="headerlink" href="#container" title="Permalink to this heading">#</a></h2>
 <p>Go into the container</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker exec -it containername bash
 </pre></div>
@@ -450,7 +451,7 @@ document.write(`
 </div>
 </section>
 <section id="volume">
-<h2><span class="section-number">2.2. </span>Volume<a class="headerlink" href="#volume" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.2. </span>Volume<a class="headerlink" href="#volume" title="Permalink to this heading">#</a></h2>
 <p>Remove a volume</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker volume rm volume_name
 </pre></div>
@@ -461,7 +462,7 @@ document.write(`
 </div>
 </section>
 <section id="network">
-<h2><span class="section-number">2.3. </span>Network<a class="headerlink" href="#network" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.3. </span>Network<a class="headerlink" href="#network" title="Permalink to this heading">#</a></h2>
 <p>Remove a network</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker network rm network_name
 </pre></div>
@@ -476,7 +477,7 @@ document.write(`
 </div>
 </section>
 <section id="image">
-<h2><span class="section-number">2.4. </span>Image<a class="headerlink" href="#image" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.4. </span>Image<a class="headerlink" href="#image" title="Permalink to this heading">#</a></h2>
 <p>List all images</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker image ls
 </pre></div>

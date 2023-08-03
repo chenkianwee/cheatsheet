@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>19. Experiment procedure &#8212; My sample book</title>
   
@@ -44,6 +44,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -65,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="search" title="Search" href="../search.html" />
     <link rel="prev" title="18. Pandas scripts" href="019pandas.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -399,12 +400,12 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="experiment-procedure">
-<h1><span class="section-number">19. </span>Experiment procedure<a class="headerlink" href="#experiment-procedure" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">19. </span>Experiment procedure<a class="headerlink" href="#experiment-procedure" title="Permalink to this heading">#</a></h1>
 <section id="post-processing-data-of-iot-sensor-using-frost-server-and-mini-high-res-sensor">
-<h2><span class="section-number">19.1. </span>Post processing data of IoT sensor using FROST-Server and Mini &amp; High RES Sensor<a class="headerlink" href="#post-processing-data-of-iot-sensor-using-frost-server-and-mini-high-res-sensor" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">19.1. </span>Post processing data of IoT sensor using FROST-Server and Mini &amp; High RES Sensor<a class="headerlink" href="#post-processing-data-of-iot-sensor-using-frost-server-and-mini-high-res-sensor" title="Permalink to this heading">#</a></h2>
 <p>Here are some python scripts that might be useful for post processing the data after an experiment.</p>
 <section id="script-to-extract-data-from-the-frost-server-through-timescaledb-interface">
-<h3><span class="section-number">19.1.1. </span>Script to extract data from the FROST Server through timescaledb interface.<a class="headerlink" href="#script-to-extract-data-from-the-frost-server-through-timescaledb-interface" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">19.1.1. </span>Script to extract data from the FROST Server through timescaledb interface.<a class="headerlink" href="#script-to-extract-data-from-the-frost-server-through-timescaledb-interface" title="Permalink to this heading">#</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
 import psycopg2
 from sshtunnel import SSHTunnelForwarder
@@ -480,7 +481,7 @@ with open(res_path, &#39;w&#39;, newline=&#39;&#39;) as csvfile:
 </div>
 </section>
 <section id="combine-all-the-extracted-data-from-frost">
-<h3><span class="section-number">19.1.2. </span>Combine all the extracted data from FROST<a class="headerlink" href="#combine-all-the-extracted-data-from-frost" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">19.1.2. </span>Combine all the extracted data from FROST<a class="headerlink" href="#combine-all-the-extracted-data-from-frost" title="Permalink to this heading">#</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
 import os
 import pandas as pd
@@ -507,7 +508,7 @@ new_df.to_csv(res_path)
 </div>
 </section>
 <section id="process-the-combine-file">
-<h3><span class="section-number">19.1.3. </span>Process the combine file<a class="headerlink" href="#process-the-combine-file" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">19.1.3. </span>Process the combine file<a class="headerlink" href="#process-the-combine-file" title="Permalink to this heading">#</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
 import pandas as pd
 
@@ -524,7 +525,7 @@ df.to_csv(res_path)
 </div>
 </section>
 <section id="process-the-mini-res-data">
-<h3><span class="section-number">19.1.4. </span>Process the mini-res data<a class="headerlink" href="#process-the-mini-res-data" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">19.1.4. </span>Process the mini-res data<a class="headerlink" href="#process-the-mini-res-data" title="Permalink to this heading">#</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
 import pytz
 import pandas as pd
@@ -553,7 +554,7 @@ df_mini.to_csv(res_path)
 </div>
 </section>
 <section id="process-the-hires-sensor-data">
-<h3><span class="section-number">19.1.5. </span>Process the hiRES sensor data<a class="headerlink" href="#process-the-hires-sensor-data" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">19.1.5. </span>Process the hiRES sensor data<a class="headerlink" href="#process-the-hires-sensor-data" title="Permalink to this heading">#</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
 import pytz
 import pandas as pd
@@ -582,7 +583,7 @@ df_mini.to_csv(res_path)
 </div>
 </section>
 <section id="process-the-hires-ply-files-if-necessary">
-<h3><span class="section-number">19.1.6. </span>Process the hiRES ply files if necessary<a class="headerlink" href="#process-the-hires-ply-files-if-necessary" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">19.1.6. </span>Process the hiRES ply files if necessary<a class="headerlink" href="#process-the-hires-ply-files-if-necessary" title="Permalink to this heading">#</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
 import os 
 import dateutil
@@ -620,7 +621,7 @@ for filename in filenames:
 </div>
 </section>
 <section id="create-the-3d-model-of-the-space-for-projecting-hires-data">
-<h3><span class="section-number">19.1.7. </span>Create the 3d model of the space for projecting hiRES data<a class="headerlink" href="#create-the-3d-model-of-the-space-for-projecting-hires-data" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">19.1.7. </span>Create the 3d model of the space for projecting hiRES data<a class="headerlink" href="#create-the-3d-model-of-the-space-for-projecting-hires-data" title="Permalink to this heading">#</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
 import ezdxf
 import geomie3d
@@ -677,7 +678,7 @@ if __name__ == &#39;__main__&#39;:
 </div>
 </section>
 <section id="project-the-hires-data-onto-the-3d-model">
-<h3><span class="section-number">19.1.8. </span>Project the hiRES data onto the 3d model<a class="headerlink" href="#project-the-hires-data-onto-the-3d-model" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">19.1.8. </span>Project the hiRES data onto the 3d model<a class="headerlink" href="#project-the-hires-data-onto-the-3d-model" title="Permalink to this heading">#</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
 import os
 import copy
@@ -892,7 +893,7 @@ for cnt, ply_name in enumerate(ply_name_ls):
 </div>
 </section>
 <section id="visualize-the-mrt-and-air-temperature">
-<h3><span class="section-number">19.1.9. </span>Visualize the mrt and air temperature<a class="headerlink" href="#visualize-the-mrt-and-air-temperature" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">19.1.9. </span>Visualize the mrt and air temperature<a class="headerlink" href="#visualize-the-mrt-and-air-temperature" title="Permalink to this heading">#</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
 import pytz
 from dateutil import parser
@@ -996,7 +997,7 @@ geomie3d.utility.viz1axis_timeseries(data_dict_ls, graph_title , xaxis_label, ya
 </div>
 </section>
 <section id="visualize-spatial-time-series-data">
-<h3><span class="section-number">19.1.10. </span>Visualize spatial time-series data<a class="headerlink" href="#visualize-spatial-time-series-data" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">19.1.10. </span>Visualize spatial time-series data<a class="headerlink" href="#visualize-spatial-time-series-data" title="Permalink to this heading">#</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
 import os
 import pytz
@@ -1089,7 +1090,7 @@ geomie3d.viz.viz_st(topo_2dlist, results2d, topo_datetime_ls, xvalues2d, yvalues
 </div>
 </section>
 <section id="calculate-the-aust-of-the-space">
-<h3><span class="section-number">19.1.11. </span>calculate the aust of the space<a class="headerlink" href="#calculate-the-aust-of-the-space" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">19.1.11. </span>calculate the aust of the space<a class="headerlink" href="#calculate-the-aust-of-the-space" title="Permalink to this heading">#</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
 import os
 import dateutil
@@ -1167,7 +1168,7 @@ geomie3d.utility.write2csv(rows2d, aust_path)
 </div>
 </section>
 <section id="calculate-radiant-panels-load">
-<h3><span class="section-number">19.1.12. </span>Calculate radiant panels load<a class="headerlink" href="#calculate-radiant-panels-load" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">19.1.12. </span>Calculate radiant panels load<a class="headerlink" href="#calculate-radiant-panels-load" title="Permalink to this heading">#</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
 import pandas as pd 
 

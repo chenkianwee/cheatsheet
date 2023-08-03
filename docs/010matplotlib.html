@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>9. Matplotlib Scripts &#8212; My sample book</title>
   
@@ -44,6 +44,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -66,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="10. Git commands" href="011git.html" />
     <link rel="prev" title="8. Python in the browser" href="009browserpy.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -387,12 +388,12 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="matplotlib-scripts">
-<h1><span class="section-number">9. </span>Matplotlib Scripts<a class="headerlink" href="#matplotlib-scripts" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">9. </span>Matplotlib Scripts<a class="headerlink" href="#matplotlib-scripts" title="Permalink to this heading">#</a></h1>
 <section id="single-axis-time-series-visualization">
-<h2><span class="section-number">9.1. </span>Single-axis time-series visualization<a class="headerlink" href="#single-axis-time-series-visualization" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">9.1. </span>Single-axis time-series visualization<a class="headerlink" href="#single-axis-time-series-visualization" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">viz1axis_timeseries</span><span class="p">(</span><span class="n">data_dict_ls</span><span class="p">,</span> <span class="n">plot_title</span><span class="p">,</span> <span class="n">xaxis_label</span><span class="p">,</span> <span class="n">yaxis_label</span><span class="p">,</span> <span class="n">filepath</span><span class="p">,</span>
                         <span class="n">yaxis_lim</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">dateformat</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">legend_loc</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">tight_layout</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Viz timeseries data in a 1 axis x-y plot</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
@@ -506,11 +507,11 @@ document.write(`
 </div>
 </section>
 <section id="double-axis-time-series-visualization">
-<h2><span class="section-number">9.2. </span>Double-axis time-series visualization<a class="headerlink" href="#double-axis-time-series-visualization" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">9.2. </span>Double-axis time-series visualization<a class="headerlink" href="#double-axis-time-series-visualization" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">viz2axis_timeseries</span><span class="p">(</span><span class="n">y1_data_dict_ls</span><span class="p">,</span> <span class="n">y2_data_dict_ls</span><span class="p">,</span> <span class="n">plot_title</span><span class="p">,</span> <span class="n">xaxis_label</span><span class="p">,</span> <span class="n">yaxis1_label</span><span class="p">,</span>
                         <span class="n">yaxis2_label</span><span class="p">,</span> <span class="n">filepath</span><span class="p">,</span> <span class="n">yaxis1_lim</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">yaxis2_lim</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">yaxis2_color</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span>
                         <span class="n">dateformat</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">legend_loc1</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">legend_loc2</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">tight_layout</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Viz timeseries data in a 1 axis x-y plot</span>
 
 <span class="sd">    Parameters</span>
