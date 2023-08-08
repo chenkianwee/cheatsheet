@@ -193,3 +193,16 @@ Configure ubuntu to detect nvidia gpu
 
 - You can check if your system detects the graphic card by going to Settings -> about
 - you can change the primary graphic card to use with the nvidia-settings application
+
+### Make appimage as an ubuntu desktop app
+- https://askubuntu.com/questions/902672/registering-appimage-files-as-a-desktop-app?rq=1
+- for librecad
+```
+[Desktop Entry]
+Type=Application
+Name=Librecad
+Comment=Librecad
+Exec=/home/usr/Applications/LibreCAD-2.2.0.2-x86_64.AppImage
+Terminal=false
+Categories=Librecad,cad
+```

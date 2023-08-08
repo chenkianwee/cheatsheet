@@ -385,6 +385,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system">1.1.8. System</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#network">1.1.9. Network</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nvidia-cuda">1.1.10. Nvidia CUDA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-appimage-as-an-ubuntu-desktop-app">1.1.11. Make appimage as an ubuntu desktop app</a></li>
 </ul>
 </li>
 </ul>
@@ -606,6 +607,22 @@ $ rm -rf foldername #delete all folders in folders
 <li><p>you can change the primary graphic card to use with the nvidia-settings application</p></li>
 </ul>
 </section>
+<section id="make-appimage-as-an-ubuntu-desktop-app">
+<h3><span class="section-number">1.1.11. </span>Make appimage as an ubuntu desktop app<a class="headerlink" href="#make-appimage-as-an-ubuntu-desktop-app" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://askubuntu.com/questions/902672/registering-appimage-files-as-a-desktop-app?rq=1">https://askubuntu.com/questions/902672/registering-appimage-files-as-a-desktop-app?rq=1</a></p></li>
+<li><p>for librecad</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Desktop</span> <span class="n">Entry</span><span class="p">]</span>
+<span class="n">Type</span><span class="o">=</span><span class="n">Application</span>
+<span class="n">Name</span><span class="o">=</span><span class="n">Librecad</span>
+<span class="n">Comment</span><span class="o">=</span><span class="n">Librecad</span>
+<span class="n">Exec</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Applications</span><span class="o">/</span><span class="n">LibreCAD</span><span class="o">-</span><span class="mf">2.2.0.2</span><span class="o">-</span><span class="n">x86_64</span><span class="o">.</span><span class="n">AppImage</span>
+<span class="n">Terminal</span><span class="o">=</span><span class="n">false</span>
+<span class="n">Categories</span><span class="o">=</span><span class="n">Librecad</span><span class="p">,</span><span class="n">cad</span>
+</pre></div>
+</div>
+</section>
 </section>
 </section>
 
@@ -687,6 +704,7 @@ $ rm -rf foldername #delete all folders in folders
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system">1.1.8. System</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#network">1.1.9. Network</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nvidia-cuda">1.1.10. Nvidia CUDA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-appimage-as-an-ubuntu-desktop-app">1.1.11. Make appimage as an ubuntu desktop app</a></li>
 </ul>
 </li>
 </ul>
