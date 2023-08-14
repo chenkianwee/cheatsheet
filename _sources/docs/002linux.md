@@ -213,4 +213,5 @@ https://www.libreofficehelp.com/how-to-fix-libreoffice-requires-a-java-runtime-e
 
 #### Install new fonts
 - https://www.libreofficehelp.com/install-fonts-libreoffice-openoffice/#GNULinux_Ubuntu_Linux_Mint_Fedora_etc
-- download the font file ttf or otf, extract and put it in the share font folder in ubuntu.
+- download the font file ttf or otf here (https://www.dafont.com/search.php?q=linux+libertine) 
+- extract and put it in the share font folder in ubuntu, /usr/share/fonts.
