@@ -177,10 +177,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="014approach.html">13. Getting Things Done</a></li>
 <li class="toctree-l1"><a class="reference internal" href="015server.html">14. Hosting and Web Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="016jupyterlab.html">15. JupyterLab</a></li>
-<li class="toctree-l1"><a class="reference internal" href="017libreoffice.html">16. LibreOffice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="018geom.html">17. Computational geometry</a></li>
-<li class="toctree-l1"><a class="reference internal" href="019pandas.html">18. Pandas scripts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="020experiment.html">19. Experiment procedure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="017geom.html">16. Computational geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="018pandas.html">17. Pandas scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="019experiment.html">18. Experiment procedure</a></li>
 </ul>
 
     </div>
@@ -386,6 +385,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#network">1.1.9. Network</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nvidia-cuda">1.1.10. Nvidia CUDA</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-appimage-as-an-ubuntu-desktop-app">1.1.11. Make appimage as an ubuntu desktop app</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libreoffice">1.1.12. LibreOffice</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-new-fonts">1.1.12.1. Install new fonts</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -611,17 +614,30 @@ $ rm -rf foldername #delete all folders in folders
 <h3><span class="section-number">1.1.11. </span>Make appimage as an ubuntu desktop app<a class="headerlink" href="#make-appimage-as-an-ubuntu-desktop-app" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://askubuntu.com/questions/902672/registering-appimage-files-as-a-desktop-app?rq=1">https://askubuntu.com/questions/902672/registering-appimage-files-as-a-desktop-app?rq=1</a></p></li>
+<li><p><a class="reference external" href="https://askubuntu.com/questions/162612/how-can-i-add-an-application-to-the-list-of-open-with-applications">https://askubuntu.com/questions/162612/how-can-i-add-an-application-to-the-list-of-open-with-applications</a></p></li>
 <li><p>for librecad</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Desktop</span> <span class="n">Entry</span><span class="p">]</span>
 <span class="n">Type</span><span class="o">=</span><span class="n">Application</span>
 <span class="n">Name</span><span class="o">=</span><span class="n">Librecad</span>
 <span class="n">Comment</span><span class="o">=</span><span class="n">Librecad</span>
-<span class="n">Exec</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Applications</span><span class="o">/</span><span class="n">LibreCAD</span><span class="o">-</span><span class="mf">2.2.0.2</span><span class="o">-</span><span class="n">x86_64</span><span class="o">.</span><span class="n">AppImage</span>
+<span class="n">Exec</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">Applications</span><span class="o">/</span><span class="n">LibreCAD</span><span class="o">-</span><span class="mf">2.2.0.2</span><span class="o">-</span><span class="n">x86_64</span><span class="o">.</span><span class="n">AppImage</span> <span class="o">%</span><span class="n">F</span>
 <span class="n">Terminal</span><span class="o">=</span><span class="n">false</span>
 <span class="n">Categories</span><span class="o">=</span><span class="n">Librecad</span><span class="p">,</span><span class="n">cad</span>
 </pre></div>
 </div>
+</section>
+<section id="libreoffice">
+<h3><span class="section-number">1.1.12. </span>LibreOffice<a class="headerlink" href="#libreoffice" title="Permalink to this heading">#</a></h3>
+<p>Zotero plugin for libreoffice
+<a class="reference external" href="https://www.libreofficehelp.com/how-to-fix-libreoffice-requires-a-java-runtime-environment-error/">https://www.libreofficehelp.com/how-to-fix-libreoffice-requires-a-java-runtime-environment-error/</a></p>
+<section id="install-new-fonts">
+<h4><span class="section-number">1.1.12.1. </span>Install new fonts<a class="headerlink" href="#install-new-fonts" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.libreofficehelp.com/install-fonts-libreoffice-openoffice/#GNULinux_Ubuntu_Linux_Mint_Fedora_etc">https://www.libreofficehelp.com/install-fonts-libreoffice-openoffice/#GNULinux_Ubuntu_Linux_Mint_Fedora_etc</a></p></li>
+<li><p>download the font file ttf or otf, extract and put it in the share font folder in ubuntu.</p></li>
+</ul>
+</section>
 </section>
 </section>
 </section>
@@ -705,6 +721,10 @@ $ rm -rf foldername #delete all folders in folders
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#network">1.1.9. Network</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nvidia-cuda">1.1.10. Nvidia CUDA</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-appimage-as-an-ubuntu-desktop-app">1.1.11. Make appimage as an ubuntu desktop app</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libreoffice">1.1.12. LibreOffice</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-new-fonts">1.1.12.1. Install new fonts</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
