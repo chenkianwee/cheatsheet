@@ -197,7 +197,7 @@ Configure ubuntu to detect nvidia gpu
 ### Make appimage as an ubuntu desktop app
 - https://askubuntu.com/questions/902672/registering-appimage-files-as-a-desktop-app?rq=1
 - https://askubuntu.com/questions/162612/how-can-i-add-an-application-to-the-list-of-open-with-applications
-- for librecad
+1. for librecad
 ```
 [Desktop Entry]
 Type=Application
@@ -207,6 +207,7 @@ Exec=/home/usr/Applications/LibreCAD-2.2.0.2-x86_64.AppImage %F
 Terminal=false
 Categories=Librecad,cad
 ```
+2. put the file in ~/.local/share/applications 
 ### LibreOffice
 Zotero plugin for libreoffice
 https://www.libreofficehelp.com/how-to-fix-libreoffice-requires-a-java-runtime-environment-error/
