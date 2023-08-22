@@ -1,5 +1,5 @@
 # Pandas scripts
-Pandas script for processing data 
+## Pandas script for processing data 
 ```
 import pytz
 import pandas as pd
@@ -40,7 +40,7 @@ dt1 = df_mini.index.to_pydatetime()
 df_mini.to_csv(res_path)
 ```
 
-Combine the multiple dataframe in terms of columns
+## Combine the multiple dataframe in terms of columns
 ```
 import os
 import pandas as pd
@@ -63,7 +63,7 @@ for f in file_ls:
 new_df = pd.concat(df_ls, axis=1)
 new_df.to_csv(res_path)
 ```
-Viz data with matplotlib
+## Viz data with matplotlib
 ```
 import pytz
 from dateutil import parser

@@ -21,7 +21,7 @@
 
     Commit and sync the files onto the github repository
     ```
-6. Install ghp-import to compile and host your book on Github-pages. Go to your anaconda environment and activate your jupyterbook environment as shown here {doc}`013_1installation`. Once you activated the environment, execute this command.
+6. Install ghp-import to compile and host your book on Github-pages. Go to your anaconda environment and activate your jupyterbook environment as shown here {doc}`011_1installation`. Once you activated the environment, execute this command.
     ```
     pip install ghp-import
     ```
