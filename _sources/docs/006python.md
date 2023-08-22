@@ -220,6 +220,31 @@ based on these:
     ```
 3. Restart your vscode.
 
+### Folding in VScode
+- https://code.visualstudio.com/docs/editor/codebasics#_folding
+
+- fold a region
+    ```
+    ctrl + shift + [
+    ```
+- unfold a region
+    ```
+    ctrl + shift + ]
+    ```
+- fold all
+    ```
+    ctrl + k ctrl + 0
+    ```
+- unfold all
+    ```
+    ctrl + k ctrl + j
+    ```
+- define fold region 
+    ```
+    #region
+    #endregion
+    ```
+
 ## Python in the browser
 - https://jupyter.org/
 - https://pyodide.org/en/stable/
