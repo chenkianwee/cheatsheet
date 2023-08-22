@@ -111,7 +111,10 @@ Unzip a file
 ```
 unzip filename
 ```
-
+Search for a file or directory with a name
+```
+grep -r -i "name2search" /directory/to/search
+```
 ### Terminal
 Ctrl+K: Cut the part of the line after the cursor, adding it to the clipboard.
 
@@ -169,3 +172,47 @@ hostname
 ```
 ip addr show
 ```
+### Nvidia CUDA
+Configure ubuntu to detect nvidia gpu
+- https://www.linuxbabe.com/desktop-linux/switch-intel-nvidia-graphics-card-ubuntu
+
+- use this command to check which is the recommended driver
+    ```
+    sudo ubuntu-drivers devices
+    ```
+
+- before installing the driver. Check if you already have any nvidia driver installed. If so, remove them, so that you can install a fresh new driver
+    ```
+    sudo apt purge nvidia-*
+    ```
+
+- install the recommended device. My screen blackout when installing it. I had to force restart my computer. Everything seems to be fine after my hard restart. 
+    ```
+    sudo apt-get install nvidia-driver-535
+    ```
+
+- You can check if your system detects the graphic card by going to Settings -> about
+- you can change the primary graphic card to use with the nvidia-settings application
+
+### Make appimage as an ubuntu desktop app
+- https://askubuntu.com/questions/902672/registering-appimage-files-as-a-desktop-app?rq=1
+- https://askubuntu.com/questions/162612/how-can-i-add-an-application-to-the-list-of-open-with-applications
+1. for librecad
+```
+[Desktop Entry]
+Type=Application
+Name=Librecad
+Comment=Librecad
+Exec=/home/usr/Applications/LibreCAD-2.2.0.2-x86_64.AppImage %F
+Terminal=false
+Categories=Librecad,cad
+```
+2. put the file in ~/.local/share/applications 
+### LibreOffice
+Zotero plugin for libreoffice
+https://www.libreofficehelp.com/how-to-fix-libreoffice-requires-a-java-runtime-environment-error/
+
+#### Install new fonts
+- https://www.libreofficehelp.com/install-fonts-libreoffice-openoffice/#GNULinux_Ubuntu_Linux_Mint_Fedora_etc
+- download the font file ttf or otf here (https://www.dafont.com/search.php?q=linux+libertine) 
+- extract and put it in the share font folder in ubuntu, /usr/share/fonts.

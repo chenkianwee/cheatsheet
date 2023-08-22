@@ -1,0 +1,1348 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>16. Experiment procedure &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/017experiment';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="15. Pandas scripts" href="016pandas.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="001intro.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">My sample book</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="001intro.html">
+                    Welcome to CKW Cheat Sheet
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cheat Sheets</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="002linux.html">1. Linux commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="003docker.html">2. Docker Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="004vim.html">3. Vim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="005sql.html">4. SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="006python.html">5. Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="007pywebframe.html">6. Django</a></li>
+<li class="toctree-l1"><a class="reference internal" href="008matplotlib.html">7. Matplotlib Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="009git.html">8. Git commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="010opencv.html">9. OpenCV</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="011pubbk.html">10. Jupyter-book</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="011_1installation.html">10.1. Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="011_2createbook.html">10.2. Create a Book Template with Jupyter-book</a></li>
+<li class="toctree-l2"><a class="reference internal" href="011_3editbook.html">10.3. Edit the Book</a></li>
+<li class="toctree-l2"><a class="reference internal" href="011_4addfig.html">10.4. Add Figure in your book</a></li>
+<li class="toctree-l2"><a class="reference internal" href="011_5hyperref.html">10.5. Reference to Other Documents, Hyperlink and Folder Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="011_6citation.html">10.6. Adding a Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="011_7pubonline.html">10.7. Publish your Book on Github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="011_8pdf.html">10.8. Generate PDF</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="012approach.html">11. Getting Things Done</a></li>
+<li class="toctree-l1"><a class="reference internal" href="013server.html">12. Hosting and Web Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="014jupyterlab.html">13. JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="015geom.html">14. Computational geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="016pandas.html">15. Pandas scripts</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">16. Experiment procedure</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/017experiment.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/017experiment.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Experiment procedure</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-processing-data-of-iot-sensor-using-frost-server-and-mini-high-res-sensor">16.1. Post processing data of IoT sensor using FROST-Server and Mini &amp; High RES Sensor</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#script-to-extract-data-from-the-frost-server-through-timescaledb-interface">16.1.1. Script to extract data from the FROST Server through timescaledb interface.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combine-all-the-extracted-data-from-frost">16.1.2. Combine all the extracted data from FROST</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#process-the-combine-file">16.1.3. Process the combine file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#process-the-mini-res-data">16.1.4. Process the mini-res data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#process-the-hires-sensor-data">16.1.5. Process the hiRES sensor data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#process-the-hires-ply-files-if-necessary">16.1.6. Process the hiRES ply files if necessary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-3d-model-of-the-space-for-projecting-hires-data">16.1.7. Create the 3d model of the space for projecting hiRES data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#project-the-hires-data-onto-the-3d-model">16.1.8. Project the hiRES data onto the 3d model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-mrt-and-air-temperature">16.1.9. Visualize the mrt and air temperature</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-spatial-time-series-data">16.1.10. Visualize spatial time-series data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-aust-of-the-space">16.1.11. calculate the aust of the space</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-radiant-panels-load">16.1.12. Calculate radiant panels load</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="experiment-procedure">
+<h1><span class="section-number">16. </span>Experiment procedure<a class="headerlink" href="#experiment-procedure" title="Permalink to this heading">#</a></h1>
+<section id="post-processing-data-of-iot-sensor-using-frost-server-and-mini-high-res-sensor">
+<h2><span class="section-number">16.1. </span>Post processing data of IoT sensor using FROST-Server and Mini &amp; High RES Sensor<a class="headerlink" href="#post-processing-data-of-iot-sensor-using-frost-server-and-mini-high-res-sensor" title="Permalink to this heading">#</a></h2>
+<p>Here are some python scripts that might be useful for post processing the data after an experiment.</p>
+<section id="script-to-extract-data-from-the-frost-server-through-timescaledb-interface">
+<h3><span class="section-number">16.1.1. </span>Script to extract data from the FROST Server through timescaledb interface.<a class="headerlink" href="#script-to-extract-data-from-the-frost-server-through-timescaledb-interface" title="Permalink to this heading">#</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
+import psycopg2
+from sshtunnel import SSHTunnelForwarder
+import csv
+import pytz
+
+# input = [1, &#39;a006_panel_temp&#39;] # only for day 19072023 to 20072023
+# input = [2, &#39;arg001_panel_temp&#39;]
+# input = [5, &#39;bo001_outlet_air_temp&#39;]
+# input = [6, &#39;bo001_outlet_rel_humid&#39;]
+# input = [7, &#39;bo001_outlet_abs_humid&#39;]
+# input = [11, &#39;ph021_globe_temp&#39;]
+# input = [13, &#39;a010_air_temp&#39;]
+# input = [14, &#39;a010_rel_humid&#39;]
+input = [15, &#39;a010_abs_humid&#39;]
+
+ds_id = input[0]
+res_path = &#39;/home/usr/input[1] + &#39;.csv&#39;
+rows2d = [[&#39;datetime&#39;, input[1]]]
+st_time_str = &#39;2023-07-19 00:00:00-4&#39;
+end_time_str = &#39;2023-07-20 17:30:00-4&#39;
+#%% Function
+def get_data(ds_id, st_time_str, end_time_str):
+    PORT=5432
+    with SSHTunnelForwarder((&#39;chaosbox.edu&#39;),
+                            ssh_username=&#39;&#39;,
+                            ssh_password=&#39;&#39;,
+                            remote_bind_address=(&#39;localhost&#39;, PORT),
+                            local_bind_address=(&#39;localhost&#39;, PORT)):
+    
+        try:
+            conn = psycopg2.connect(dbname=&#39;spatempdb&#39;,
+                                    user=&#39;postgres&#39;,
+                                    host=&#39;localhost&#39;,
+                                    port = 5432,
+                                    password=&#39;postgres&#39;)
+            cursor = conn.cursor()
+            print(&#39;connected&#39;, cursor)
+        except:
+            print(&#39;notconnected&#39;)
+    
+        ds_id = str(ds_id) # the datastream id you want to query
+        st_time = st_time_str #&#39;2021-03-30 12:29:00-4&#39;
+        end_time = end_time_str #&#39;2021-03-30 13:29:00-4&#39;
+        
+        command =   &quot;&quot;&quot;
+                    SELECT &quot;RESULT_TIME&quot;, 
+                    &quot;RESULT_NUMBER&quot;
+                    FROM public.&quot;OBSERVATIONS&quot;
+                    WHERE &quot;DATASTREAM_ID&quot; = %s and &quot;RESULT_TIME&quot; &gt; &#39;%s&#39; and &quot;RESULT_TIME&quot; &lt; &#39;%s&#39;
+                    ORDER BY &quot;RESULT_TIME&quot; ASC;
+                    &quot;&quot;&quot; %(ds_id, st_time, end_time)
+    
+        cursor.execute(command)
+        rows = cursor.fetchall()
+        cursor.close()
+        return rows
+#%% Main
+rows1 = get_data(ds_id, st_time_str, end_time_str)
+for row in rows1:
+    local_time = row[0].astimezone(pytz.timezone(&#39;America/New_York&#39;))
+    lt_str = local_time.isoformat()
+    rows2d.append([lt_str, row[1]])
+
+with open(res_path, &#39;w&#39;, newline=&#39;&#39;) as csvfile: 
+    # creating a csv writer object 
+    csvwriter = csv.writer(csvfile) 
+    # writing the data rows 
+    csvwriter.writerows(rows2d)
+
+```
+</pre></div>
+</div>
+</section>
+<section id="combine-all-the-extracted-data-from-frost">
+<h3><span class="section-number">16.1.2. </span>Combine all the extracted data from FROST<a class="headerlink" href="#combine-all-the-extracted-data-from-frost" title="Permalink to this heading">#</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
+import os
+import pandas as pd
+
+iot_dir = &#39;/home/raw/&#39;
+res_path = &#39;/home/usrname/raw.csv&#39;
+
+file_ls = sorted(os.listdir(iot_dir))
+df_ls = []
+for f in file_ls:
+    fsplit = f.split(&#39;.&#39;)
+    ext = fsplit[-1]
+    if ext == &#39;csv&#39;:
+        filepath = os.path.join(iot_dir, f)
+        df = pd.read_csv(filepath, sep=&#39;,&#39;)
+        df[&#39;datetime&#39;] = pd.to_datetime(df[&#39;datetime&#39;])
+        df.set_index(&#39;datetime&#39;, inplace=True)
+        df_ls.append(df)
+        
+new_df = pd.concat(df_ls, axis=1)
+new_df.to_csv(res_path)
+```
+</pre></div>
+</div>
+</section>
+<section id="process-the-combine-file">
+<h3><span class="section-number">16.1.3. </span>Process the combine file<a class="headerlink" href="#process-the-combine-file" title="Permalink to this heading">#</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
+import pandas as pd
+
+iot_path = &#39;/home/usrname/raw.csv&#39;
+res_path = &#39;/home/usrname/iot.csv&#39;
+
+df = pd.read_csv(iot_path, sep=&#39;,&#39;)
+df[&#39;datetime&#39;] = pd.to_datetime(df[&#39;datetime&#39;])
+df.set_index(&#39;datetime&#39;, inplace=True)
+df = df.resample(&#39;1T&#39;).median()
+df.to_csv(res_path)
+```
+</pre></div>
+</div>
+</section>
+<section id="process-the-mini-res-data">
+<h3><span class="section-number">16.1.4. </span>Process the mini-res data<a class="headerlink" href="#process-the-mini-res-data" title="Permalink to this heading">#</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
+import pytz
+import pandas as pd
+
+mini_res_path = &#39;/home/usrname//RADICUBE.csv&#39;
+res_path = &#39;/home/usrname/minires.csv&#39;
+# read the csv
+df_mini = pd.read_csv(mini_res_path, sep = &#39;,&#39;)
+# convert the datetime string to datetime object
+df_mini[&#39;datetime&#39;] = df_mini[&#39;DD-MM-YYYY&#39;] + &#39;T&#39; + df_mini[&#39; HH:MM:SS&#39;]
+df_mini[&#39;datetime&#39;] = pd.to_datetime(df_mini[&#39;datetime&#39;], dayfirst=True, errors=&#39;coerce&#39;)
+df_mini = df_mini.dropna(subset=[&#39;datetime&#39;])
+df_mini[&#39;datetime&#39;] = df_mini[&#39;datetime&#39;] + pd.to_timedelta(&#39;2hour&#39;) # for mini res
+df_mini[&#39;datetime&#39;] = df_mini[&#39;datetime&#39;].dt.tz_localize(pytz.timezone(&#39;America/New_York&#39;))
+# set index with the datetime column
+df_mini.set_index(&#39;datetime&#39;, inplace=True)
+start_time_str = [&#39;21-07-2023 00:00:00&#39;, &#39;21-07-2023 18:30:00&#39;]
+se_time_dt = pd.to_datetime(start_time_str, dayfirst =True).tz_localize(pytz.timezone(&#39;America/New_York&#39;))
+df_mini = df_mini.loc[se_time_dt[0]:se_time_dt[1]]
+
+# resample the timeseries into 1 min interval taking the median of that minute
+df_mini = df_mini.resample(&#39;1T&#39;).median(numeric_only=True)
+df_mini.to_csv(res_path)
+```
+</pre></div>
+</div>
+</section>
+<section id="process-the-hires-sensor-data">
+<h3><span class="section-number">16.1.5. </span>Process the hiRES sensor data<a class="headerlink" href="#process-the-hires-sensor-data" title="Permalink to this heading">#</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
+import pytz
+import pandas as pd
+
+mini_res_path = &#39;/home/usrname/ThermalArrayDatalog.csv&#39;
+res_path = &#39;/home/usrname/highres.csv&#39;
+start_time_str = [&#39;21-07-2023 00:00:00&#39;, &#39;21-07-2023 19:00:00&#39;]
+# read the csv
+df_mini = pd.read_csv(mini_res_path, sep = &#39;,&#39;)
+# convert the datetime string to datetime object
+df_mini[&#39;datetime&#39;] = df_mini[&#39;MM-DD-YYYY&#39;] + &#39;T&#39; + df_mini[&#39; HH:MM:SS&#39;]
+df_mini[&#39;datetime&#39;] = pd.to_datetime(df_mini[&#39;datetime&#39;], dayfirst=True, errors=&#39;coerce&#39;)
+df_mini = df_mini.dropna(subset=[&#39;datetime&#39;])
+df_mini[&#39;datetime&#39;] = df_mini[&#39;datetime&#39;] - pd.to_timedelta(&#39;6hour&#39;) # for mini res
+df_mini[&#39;datetime&#39;] = df_mini[&#39;datetime&#39;].dt.tz_localize(pytz.timezone(&#39;America/New_York&#39;))
+# set index with the datetime column
+df_mini.set_index(&#39;datetime&#39;, inplace=True)
+se_time_dt = pd.to_datetime(start_time_str, dayfirst =True).tz_localize(pytz.timezone(&#39;America/New_York&#39;))
+df_mini = df_mini.loc[se_time_dt[0]:se_time_dt[1]]
+
+# resample the timeseries into 1 min interval taking the median of that minute
+df_mini = df_mini.resample(&#39;5T&#39;).median(numeric_only=True)
+df_mini.to_csv(res_path)
+```
+</pre></div>
+</div>
+</section>
+<section id="process-the-hires-ply-files-if-necessary">
+<h3><span class="section-number">16.1.6. </span>Process the hiRES ply files if necessary<a class="headerlink" href="#process-the-hires-ply-files-if-necessary" title="Permalink to this heading">#</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
+import os 
+import dateutil
+import datetime
+
+hires_dir = &#39;/home/usrname/20230721_highres&#39;
+se_dt_string = [&#39;2023-07-21T00:00:00&#39;, &#39;2023-07-21T23:59:59&#39;]
+
+filenames = sorted(os.listdir(hires_dir))
+# print(filenames)
+for filename in filenames:
+    path_split = filename.split(&#39;.&#39;)
+    ext = path_split[-1]
+    if ext == &#39;PLY&#39; or ext == &#39;BMP&#39;:
+        filename_only = path_split[0]
+        fn_split = filename_only.split(&#39;_&#39;)
+        date_str = fn_split[1]#.replace()
+        time_str = fn_split[2].replace(&#39;-&#39;, &#39;:&#39;)
+        datetime_str = date_str + &#39; &#39; + time_str
+        dt = dateutil.parser.parse(datetime_str)
+        dt = dt - datetime.timedelta(hours=6)
+        st_dt = dateutil.parser.parse(se_dt_string[0])
+        end_dt = dateutil.parser.parse(se_dt_string[1])
+        orig_path = os.path.join(hires_dir, filename)
+        if st_dt &lt;= dt &lt;= end_dt:
+            new_dt_str = dt.strftime(&#39;%m-%d-%y_%H-%M-%S&#39;)
+            new_filename = fn_split[0] + &#39;_&#39; + new_dt_str + &#39;_&#39; + fn_split[3] + &#39;.&#39; + ext
+            new_path = os.path.join(hires_dir, new_filename)
+            os.rename(orig_path, new_path)
+        else:
+            os.remove(orig_path)
+        
+```
+</pre></div>
+</div>
+</section>
+<section id="create-the-3d-model-of-the-space-for-projecting-hires-data">
+<h3><span class="section-number">16.1.7. </span>Create the 3d model of the space for projecting hiRES data<a class="headerlink" href="#create-the-3d-model-of-the-space-for-projecting-hires-data" title="Permalink to this heading">#</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
+import ezdxf
+import geomie3d
+
+dxf_path = &#39;/home/usrname/floorplan.dxf&#39;
+res_path1 = &#39;/home/usrname/room215.geomie3d&#39;
+res_path2 = &#39;/home/usrname/room025.geomie3d&#39;
+#%%Function
+def create_scene215():
+    doc = ezdxf.readfile(dxf_path)
+    msp = doc.modelspace()
+    
+    poly_pts = []
+    for e in msp:
+        if e.dxf.layer == &#39;walls&#39;:
+            if e.dxftype() == &#39;LINE&#39;:
+                st_pt = [round(e.dxf.start[0],6), round(e.dxf.start[1],6), round(e.dxf.start[2],6)]
+                end_pt = [round(e.dxf.end[0],6), round(e.dxf.end[1],6), round(e.dxf.end[2],6)]
+                poly_pts.append(st_pt)
+                poly_pts.append(end_pt)
+    
+    vlist = geomie3d.create.vertex_list(poly_pts)
+    vlist = geomie3d.modify.fuse_vertices(vlist)
+    poly = geomie3d.create.polygon_face_frm_verts(vlist)
+    ext = geomie3d.create.extrude_polygon_face(poly, [0,0,1], 2.4)
+    faces = geomie3d.get.faces_frm_solid(ext)
+    
+    rev_faces = []
+    for cnt,f in enumerate(faces):
+        f = geomie3d.modify.reverse_face_normal(f)
+        geomie3d.modify.update_topo_att(f, {&#39;name&#39;: &#39;surface&#39; + str(cnt)})
+        rev_faces.append(f)
+    
+    geomie3d.utility.write2geomie3d(rev_faces, res_path1)
+
+def create_scene025():
+    box = geomie3d.create.box(4.1, 3.8, 2.4)
+    mv_box = geomie3d.modify.move_topo(box, [0,0,0], ref_xyz = [0,0,-1.2])
+    srfs = geomie3d.get.faces_frm_solid(mv_box)
+    bdry_srfs = []
+    for cnt,s in enumerate(srfs):
+        new_s = geomie3d.modify.reverse_face_normal(s)
+        geomie3d.modify.update_topo_att(new_s, {&#39;name&#39;: &#39;surface&#39; + str(cnt)})
+        bdry_srfs.append(new_s)
+    
+    geomie3d.utility.write2geomie3d(bdry_srfs, res_path2)
+
+#%%Main
+if __name__ == &#39;__main__&#39;:
+    create_scene215()
+    create_scene025()
+```
+</pre></div>
+</div>
+</section>
+<section id="project-the-hires-data-onto-the-3d-model">
+<h3><span class="section-number">16.1.8. </span>Project the hiRES data onto the 3d model<a class="headerlink" href="#project-the-hires-data-onto-the-3d-model" title="Permalink to this heading">#</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
+import os
+import copy
+import statistics
+from pathlib import Path
+from time import perf_counter
+import geomie3d
+#%%Parameter
+therm_scan_dir = &#39;/home/usrname/_highres/&#39;
+scene_path = &#39;/home/usrname/model.geomie3d&#39;
+sensor_pos = [2.2, 2.3, 1]
+
+    
+viz = False
+#%%Function
+def write2ply(res_path, xyz_ls, temp_ls, header):
+    nvs = len(xyz_ls)
+    nvs_line = &#39;element vertex &#39; + str(nvs) + &#39;\n&#39;
+    v_cnt = 0
+    for cnt, h in enumerate(header):
+        hsplit = h.split(&#39; &#39;)
+        if hsplit[0] == &#39;element&#39;:
+            if hsplit[1] == &#39;vertex&#39;:
+                v_cnt = cnt
+    
+    header_w = header[:]
+    header_w[v_cnt] = nvs_line
+    for cnt,xyz in enumerate(xyz_ls):
+        temp = temp_ls[cnt]
+        v_str = str(xyz[0]) + &#39; &#39; + str(xyz[1]) + &#39; &#39; + str(xyz[2]) + &#39; &#39; + str(temp) + &#39;\n&#39;
+        header_w.append(v_str)
+    
+    f = open(res_path, &quot;w&quot;)
+    f.writelines(header_w)
+    f.close()
+    
+def check_ply_file(header):
+    ref_h = [&#39;ply&#39;, &#39;format ascii 1.0&#39;,
+             &#39;element vertex&#39;,
+             &#39;property float x&#39;, 
+             &#39;property float y&#39;, 
+             &#39;property float z&#39;, 
+             &#39;property float temperature&#39;, 
+             &#39;end_header&#39;]
+    
+    check = 0
+    for h in header:
+        h = h.lower()
+        h = h.replace(&#39;\n&#39;,&#39;&#39;)
+        
+        hsplit = h.split(&#39; &#39;)
+        if hsplit[0] == &#39;comment&#39;:
+            ctype = hsplit[1]
+            if ctype==&#39;date&#39; or ctype==&#39;time&#39; or ctype==&#39;sensorid&#39; or ctype==&#39;sensortype&#39;:
+                h = hsplit[0] + &#39; &#39; + ctype
+        
+        elif hsplit[0] == &#39;element&#39;:
+            if hsplit[1] == &#39;vertex&#39;:
+                h = hsplit[0] + &#39; &#39; + hsplit[1]
+                
+        if h in ref_h:
+            # print(h)
+            check+=1
+    
+    if check == 8:
+        return True
+    else:
+        return False
+    
+def read_therm_arr_ply(file_path):    
+    with open(file_path) as f:
+        lines = f.readlines()
+    nheaders = 8
+    #check if this is a valid chaosense file
+    headers = lines[0:nheaders]
+    isValid = check_ply_file(headers)
+    if isValid:
+        xyzs = []
+        verts_data = lines[nheaders:]
+        temp_ls = []
+        temp_dls = []
+        for v in verts_data:
+            v = v.replace(&#39;\n&#39;, &#39;&#39;)
+            v = v.replace(&#39;\t&#39;, &#39; &#39;)
+            vsplit = v.split(&#39; &#39;)
+            vsplit = list(map(float, vsplit))
+            xyzs.append(vsplit[0:3])
+            temp_dls.append({&#39;temperature&#39;:vsplit[3]})
+            temp_ls.append(vsplit[3])
+        
+        v_ls = geomie3d.create.vertex_list(xyzs, attributes_list=temp_dls)
+        return v_ls, temp_ls, headers
+    else:
+        return [], [], headers
+    
+def project(therm_scan_path, sensor_pos, scene_faces, viz = False):
+    verts_data, temp_ls, headers = read_therm_arr_ply(therm_scan_path)
+    cmp = geomie3d.create.composite(verts_data)
+    # axis = [0,0,1]
+    # rotation = 0
+    # cmp = geomie3d.modify.rotate_topo(cmp, axis, rotation)
+    verts_data = geomie3d.get.vertices_frm_composite(cmp)
+    #convert the verts to rays and 
+    rays = []
+    for vcnt,v in enumerate(verts_data):
+        temp = v.attributes[&#39;temperature&#39;]
+        ray = geomie3d.create.ray(sensor_pos, v.point.xyz, attributes = {&#39;temperature&#39;:temp, &#39;id&#39;: vcnt})
+        rays.append(ray)
+        
+    hrays,mrays,hit_faces,miss_faces = geomie3d.calculate.rays_faces_intersection(rays, scene_faces)
+    if viz == True:
+        geomie3d.viz.viz_falsecolour(verts_data, temp_ls)
+        vcmp = geomie3d.create.composite(verts_data)
+        mv_v = geomie3d.modify.move_topo(vcmp, sensor_pos)
+        mv_vs = geomie3d.get.vertices_frm_composite(mv_v)
+        
+        cmp = geomie3d.create.composite(scene_faces)
+        edges = geomie3d.get.edges_frm_composite(cmp)
+        geomie3d.viz.viz_falsecolour(mv_vs, temp_ls, other_topo_dlist=[{&#39;topo_list&#39;:edges, &#39;colour&#39;:&#39;white&#39;}])
+        viz_projection(hrays, mrays, scene_faces)
+    return hrays,mrays,hit_faces,miss_faces, headers
+
+def calc_avg_temp_srf(proj_face):
+    att = proj_face.attributes
+    if &#39;rays_faces_intersection&#39; in att:
+        int_att = att[&#39;rays_faces_intersection&#39;]
+        rays = int_att[&#39;ray&#39;]
+        if len(rays) !=0:
+            temp_ls = [r.attributes[&#39;temperature&#39;] for r in rays]
+            avg_temp = statistics.median(temp_ls)
+            geomie3d.modify.update_topo_att(proj_face, {&#39;temperature&#39;:avg_temp})
+            return avg_temp
+        else:
+            return None
+
+def viz_projection(hrays, mrays, scene_faces):
+    v_ls = []
+    temp_ls = []
+    for hray in hrays:
+        att = hray.attributes
+        att2 = att[&#39;rays_faces_intersection&#39;]
+        intersects = att2[&#39;intersection&#39;]
+        temp = att[&#39;temperature&#39;]
+        for intersect in intersects:
+            v = geomie3d.create.vertex(intersect, attributes={&#39;temperature&#39;:temp})
+            temp_ls.append(temp)
+            v_ls.append(v)
+    
+    cmp = geomie3d.create.composite(scene_faces)
+    edges = geomie3d.get.edges_frm_composite(cmp)
+    geomie3d.viz.viz_falsecolour(v_ls, temp_ls, 
+                                     other_topo_dlist=[{&#39;topo_list&#39;: edges, &#39;colour&#39;: &#39;white&#39;}], 
+                                     false_min_max_val=None)
+    
+#%%Main
+t0 = perf_counter()
+model_dict = geomie3d.utility.read_geomie3d(scene_path)
+bdry_srfs = model_dict[&#39;topo_list&#39;]
+
+if viz == True:
+    geomie3d.viz.viz([{&#39;topo_list&#39;: bdry_srfs, &#39;colour&#39;: &#39;blue&#39;}])
+
+#read the file and get all the vert data
+parent_path = Path(therm_scan_dir).parent.absolute()
+res_dir = os.path.join(parent_path, &#39;projected&#39;)
+if not os.path.isdir(res_dir): 
+    os.mkdir(res_dir)
+    
+ff_ls = sorted(os.listdir(therm_scan_dir))
+ply_name_ls = []
+for d in ff_ls:
+    file_ext = d.split(&#39;.&#39;)[-1].lower()
+    if file_ext == &#39;ply&#39;:
+        ply_name_ls.append(d)
+
+t1 = perf_counter()
+print(&#39;Time taken to process base scene (mins):&#39;, round((t1-t0)/60, 1))
+
+for cnt, ply_name in enumerate(ply_name_ls):
+    new_bdry_srfs = copy.deepcopy(bdry_srfs)
+    t2 = perf_counter()
+    ply_path = os.path.join(therm_scan_dir, ply_name)
+    hrays,mrays,hit_faces,miss_faces,header = project(ply_path, sensor_pos, new_bdry_srfs, viz=viz)
+    xyz_ls = []
+    temp_ls = []
+    for hray in hrays:
+        att = hray.attributes
+        int_att = att[&#39;rays_faces_intersection&#39;]
+        xyz = int_att[&#39;intersection&#39;][0]
+        fs = int_att[&#39;hit_face&#39;]
+        temp = att[&#39;temperature&#39;]
+        xyz_ls.append(xyz)
+        temp_ls.append(temp)
+    
+    for hf in hit_faces:
+        avg_temp = calc_avg_temp_srf(hf)
+        att = {&#39;name&#39;: hf.attributes[&#39;name&#39;], &#39;temperature&#39;: avg_temp}
+        geomie3d.modify.overwrite_topo_att(hf, att)
+        
+    # print(ttl_rays_cnt)
+    nsplit = ply_name.split(&#39;.&#39;)
+    res_path1 = os.path.join(res_dir, nsplit[0] + &#39;_projected.ply&#39; )
+    res_path2 = os.path.join(res_dir, nsplit[0] + &#39;_projected.geomie3d&#39; )
+    geomie3d.utility.write2geomie3d(hit_faces, res_path2)
+    write2ply(res_path1, xyz_ls, temp_ls, header)
+    t3 = perf_counter()
+    time_take = round((t3-t2)/60,1)
+    print(&#39;Time taken to project one file (mins):&#39;, time_take, cnt)
+
+```
+</pre></div>
+</div>
+</section>
+<section id="visualize-the-mrt-and-air-temperature">
+<h3><span class="section-number">16.1.9. </span>Visualize the mrt and air temperature<a class="headerlink" href="#visualize-the-mrt-and-air-temperature" title="Permalink to this heading">#</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
+import pytz
+from dateutil import parser
+import pandas as pd
+import geomie3d 
+
+#%% settings
+mini_res_path = &#39;/home/usrname/minires.csv&#39;
+high_res_path = &#39;/home/usrname/highres.csv&#39;
+iot_path = &#39;/home/usrname/iot.csv&#39;
+res_path = &#39;/home/usrname/res.png&#39;
+
+graph_title = &#39;Air vs MRT 2023-07-19&#39;
+ylim = [21.5, 25]
+start_time_str = [&#39;19-07-2023 08:00:00&#39;, &#39;19-07-2023 18:30:00&#39;]
+regions = [{&#39;label&#39;: &#39;vav on rad off&#39;, &#39;orientation&#39;: &#39;vertical&#39;, &#39;range&#39;: [&#39;19-07-2023 08:00:00&#39;, &#39;19-07-2023 12:30:00&#39;],&#39;colour&#39;: (1,0,0,0.3)},
+            {&#39;label&#39;: &#39;vav on rad on&#39;, &#39;orientation&#39;: &#39;vertical&#39;, &#39;range&#39;: [&#39;19-07-2023 12:30:00&#39;, &#39;19-07-2023 14:54:00&#39;],&#39;colour&#39;: (0,1,0,0.3)},
+            {&#39;label&#39;: &#39;vav off rad on&#39;, &#39;orientation&#39;: &#39;vertical&#39;, &#39;range&#39;: [&#39;19-07-2023 14:54:00&#39;, &#39;19-07-2023 16:35:00&#39;],&#39;colour&#39;: (0,0,1,0.3)},
+            {&#39;label&#39;: &#39;&#39;, &#39;orientation&#39;: &#39;vertical&#39;, &#39;range&#39;: [&#39;19-07-2023 16:35:00&#39;, &#39;19-07-2023 18:30:00&#39;],&#39;colour&#39;: (1,0,0,0.3)}]
+    
+#%% functions
+def naive_dt(dt):
+    ndt = []
+    for d in dt:
+        ndt.append(d.replace(tzinfo=None))
+    return ndt
+
+def convert_region_dates(regions):
+    for reg in regions:
+        new_range = [parser.parse(reg[&#39;range&#39;][0], dayfirst = True), parser.parse(reg[&#39;range&#39;][1], dayfirst = True)]
+        reg[&#39;range&#39;] = new_range
+    
+#%% Main
+se_time_dt = pd.to_datetime(start_time_str, dayfirst =True).tz_localize(pytz.timezone(&#39;America/New_York&#39;))
+
+#read mini_res
+df_mini = pd.read_csv(mini_res_path, sep = &#39;,&#39;)
+df_mini[&#39;datetime&#39;] = pd.to_datetime(df_mini[&#39;datetime&#39;])
+df_mini.set_index(&#39;datetime&#39;, inplace=True)
+df_mini = df_mini.loc[se_time_dt[0]:se_time_dt[1]]
+mrt = df_mini[&#39; TOTAL MLX LW&#39;]
+air_temp = df_mini[&#39; TEMP&#39;]
+diff = air_temp - mrt
+dt1 = df_mini.index.to_pydatetime()
+dt1 = naive_dt(dt1)
+
+# read highres
+df_high = pd.read_csv(high_res_path, sep = &#39;,&#39;)
+df_high[&#39;datetime&#39;] = pd.to_datetime(df_high[&#39;datetime&#39;])
+df_high.set_index(&#39;datetime&#39;, inplace=True)
+df_high = df_high.loc[se_time_dt[0]:se_time_dt[1]]
+mrt_highres = df_high[&#39; TOTAL HTPA LW&#39;]
+mrt_highres_mlx = df_high[&#39; TOTAL MLX LW&#39;]
+dt2 = df_high.index.to_pydatetime()
+dt2 = naive_dt(dt2)
+
+#read sht31
+df_air = pd.read_csv(iot_path, sep = &#39;,&#39;)
+df_air[&#39;datetime&#39;] = pd.to_datetime(df_air[&#39;datetime&#39;])
+df_air.set_index(&#39;datetime&#39;, inplace=True)
+df_air = df_air.loc[se_time_dt[0]:se_time_dt[1]]
+air_temp_sht31 = df_air[&#39;a010_air_temp&#39;]
+dt3 =  df_air.index.to_pydatetime()
+dt3 = naive_dt(dt3)
+
+
+#%% matplotlib
+data_dict_ls = []
+data_d = {&#39;datax&#39;:dt1, &#39;datay&#39;:mrt, &#39;linestyle&#39;:&#39;solid&#39;, &#39;linewidth&#39;: 1, &#39;marker&#39;:&#39;&#39;,
+          &#39;marker_size&#39;:2, &#39;color&#39;: &#39;r&#39;, &#39;label&#39;: &#39;mini_mrt&#39;}
+data_dict_ls.append(data_d)
+
+data_d = {&#39;datax&#39;:dt2, &#39;datay&#39;:mrt_highres, &#39;linestyle&#39;:&#39;solid&#39;, &#39;linewidth&#39;: 1, &#39;marker&#39;:&#39;&#39;,
+          &#39;marker_size&#39;:2, &#39;color&#39;: &#39;b&#39;, &#39;label&#39;: &#39;mrt_highres&#39;}
+data_dict_ls.append(data_d)
+
+data_d = {&#39;datax&#39;:dt2, &#39;datay&#39;:mrt_highres_mlx, &#39;linestyle&#39;:&#39;solid&#39;, &#39;linewidth&#39;: 1, &#39;marker&#39;:&#39;&#39;,
+          &#39;marker_size&#39;:2, &#39;color&#39;: &#39;k&#39;, &#39;label&#39;: &#39;mrt_highres_mlx&#39;}
+data_dict_ls.append(data_d)
+
+data_d = {&#39;datax&#39;:dt1, &#39;datay&#39;:air_temp, &#39;linestyle&#39;:&#39;dashed&#39;, &#39;linewidth&#39;: 1, &#39;marker&#39;:&#39;&#39;,
+          &#39;marker_size&#39;:2, &#39;color&#39;: &#39;g&#39;, &#39;label&#39;: &#39;mini_air&#39;}
+data_dict_ls.append(data_d)
+
+data_d = {&#39;datax&#39;:dt3, &#39;datay&#39;:air_temp_sht31, &#39;linestyle&#39;:&#39;dashed&#39;, &#39;linewidth&#39;: 1, &#39;marker&#39;:&#39;&#39;,
+          &#39;marker_size&#39;:2, &#39;color&#39;: &#39;c&#39;, &#39;label&#39;: &#39;air_temp_sht31&#39;}
+data_dict_ls.append(data_d)
+
+xaxis_label = &#39;Time (H)&#39;
+yaxis_label = &#39;Temp (degC)&#39;
+dateformat = &#39;%H:%M&#39;
+legend_loc = {&#39;loc&#39;: &#39;upper center&#39;, &#39;bbox_to_anchor&#39;: (0.45, -0.25), &#39;ncol&#39;:3}
+
+convert_region_dates(regions)
+geomie3d.utility.viz1axis_timeseries(data_dict_ls, graph_title , xaxis_label, yaxis_label, res_path, yaxis_lim = ylim, 
+                                      legend_loc = legend_loc, dateformat = dateformat, regions = regions, tight_layout = False)
+
+
+```
+</pre></div>
+</div>
+</section>
+<section id="visualize-spatial-time-series-data">
+<h3><span class="section-number">16.1.10. </span>Visualize spatial time-series data<a class="headerlink" href="#visualize-spatial-time-series-data" title="Permalink to this heading">#</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
+import os
+import pytz
+from time import perf_counter
+from dateutil.parser import parse
+
+import geomie3d
+import pandas as pd
+#%%Parameter
+proj_dir = &#39;/home/usrname/projected/&#39;
+highres_path = &#39;/home/usrname/highres.csv&#39;
+minires_path = &#39;/home/usrname/minires.csv&#39;
+
+#%%Function 
+def get_datetime_ply(ply_name):
+    nsplit = ply_name.split(&#39;_&#39;)
+    d = nsplit[1]
+    t = nsplit[2]
+    t = t.replace(&#39;-&#39;, &#39;:&#39;)
+    dt_str = d + &#39;T&#39; + t
+    dt = parse(dt_str)
+    local_time = dt.astimezone(pytz.timezone(&#39;America/New_York&#39;))
+    return local_time
+
+def convert_region_dates(regions):
+    for reg in regions:
+        new_range = [parse(reg[&#39;range&#39;][0] + &#39;-04:00&#39;, dayfirst = True), parse(reg[&#39;range&#39;][1] + &#39;-04:00&#39;, dayfirst = True)]
+        reg[&#39;range&#39;] = new_range
+        
+#%%Main
+t0 = perf_counter()
+#----------------------------------------------------------------------------------------------------------
+# read all the projected ply files and viz them
+ff_ls = sorted(os.listdir(proj_dir))
+
+topo_2dlist = []
+results2d = []
+topo_datetime_ls = []
+other_topo_2ddlist = []
+for d in ff_ls:
+    file_ext = d.split(&#39;.&#39;)[1].lower()
+    if file_ext == &#39;geomie3d&#39;:
+        dt = get_datetime_ply(d)
+        geomie_path = os.path.join(proj_dir, d)
+        model_dict = geomie3d.utility.read_geomie3d(geomie_path)
+        topo_list = model_dict[&#39;topo_list&#39;]
+        topo_list = [geomie3d.modify.reverse_face_normal(topo) for topo in topo_list]
+        temps = [topo.attributes[&#39;temperature&#39;] for topo in topo_list]
+        
+        topo_datetime_ls.append(dt)
+        topo_2dlist.append(topo_list)
+        results2d.append(temps)
+    
+#----------------------------------------------------------------------------------------------------------
+# get the high.res mrt
+df_hr = pd.read_csv(highres_path, sep = &#39;,&#39;)
+high_res_mrt = df_hr[&#39; TOTAL HTPA LW&#39;]
+datetime = pd.to_datetime(df_hr[&#39;datetime&#39;])
+datetime_hr  = datetime.dt.to_pydatetime()
+
+# get minires mrt and air temperature
+df_mr = pd.read_csv(minires_path, sep = &#39;,&#39;)
+mr_mrt = df_mr[&#39; TOTAL MLX LW&#39;]
+mr_air = df_mr[&#39; TEMP&#39;]
+datetime = pd.to_datetime(df_mr[&#39;datetime&#39;])
+datetime_mr  = datetime.dt.to_pydatetime()
+
+xvalues2d = [datetime_mr, datetime_mr, datetime_hr]
+yvalues2d = [mr_mrt, mr_air, high_res_mrt]
+colour_ls = [[255,255,255,150], [255,0,0,150], [0,255,0,150]]
+
+legend = [&#39;mini_mrt&#39;, &#39;mini_air&#39;, &#39;highres_mrt&#39;]
+
+regions = [{&#39;label&#39;: &#39;vav on rad off&#39;, &#39;orientation&#39;: &#39;vertical&#39;, &#39;range&#39;: [&#39;19-07-2023 08:00:00&#39;, &#39;19-07-2023 12:30:00&#39;],
+            &#39;colour&#39;: (255,0,0,80)},
+            {&#39;label&#39;: &#39;vav on rad on&#39;, &#39;orientation&#39;: &#39;vertical&#39;, &#39;range&#39;: [&#39;19-07-2023 12:30:00&#39;, &#39;19-07-2023 14:54:00&#39;],
+             &#39;colour&#39;: (0,255,0,80)},
+            {&#39;label&#39;: &#39;vav off rad on&#39;, &#39;orientation&#39;: &#39;vertical&#39;, &#39;range&#39;: [&#39;19-07-2023 14:54:00&#39;, &#39;19-07-2023 16:35:00&#39;],
+             &#39;colour&#39;: (0,0,255,80)},
+            {&#39;label&#39;: &#39;vav on rad off&#39;, &#39;orientation&#39;: &#39;vertical&#39;, &#39;range&#39;: [&#39;19-07-2023 16:35:00&#39;, &#39;19-07-2023 18:30:00&#39;],
+             &#39;colour&#39;: (255,0,0,80)}]
+
+convert_region_dates(regions)
+
+geomie3d.viz.viz_st(topo_2dlist, results2d, topo_datetime_ls, xvalues2d, yvalues2d, colour_ls, false_min_max_val=[15,28], 
+                    legend = legend, regions=regions, other_topo_2ddlist=other_topo_2ddlist, ylabel=&#39;Temperature&#39;, yunit=&#39;^oC&#39;)
+
+```
+</pre></div>
+</div>
+</section>
+<section id="calculate-the-aust-of-the-space">
+<h3><span class="section-number">16.1.11. </span>calculate the aust of the space<a class="headerlink" href="#calculate-the-aust-of-the-space" title="Permalink to this heading">#</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
+import os
+import dateutil
+
+import geomie3d
+#%% Parameters
+geomie3d_dir = &#39;/home/usrname/projected/&#39;
+aust_path = &#39;/home/usrname/aust.csv&#39;
+
+is_215 = False
+#%% Functions
+def calc_aust(face_list):
+    ttl_area = 0
+    for f in face_list:
+        area = round(geomie3d.calculate.face_area(f),2)
+        geomie3d.modify.update_topo_att(f, {&#39;area&#39;:area})
+        ttl_area += area
+    
+    aust = 0
+    for f in face_list:
+        area_weighted = round(f.attributes[&#39;area&#39;]/ttl_area,2)
+        area_temp = round(area_weighted * f.attributes[&#39;temperature&#39;],2)
+        aust += area_temp
+        geomie3d.modify.update_topo_att(f, {&#39;area_weighted_aust&#39;:area_weighted, &#39;area_temperature_aust&#39;: area_temp})
+    return round(aust,2)
+
+def calc_avg_srf_temp(face_list):
+    ttl_area = 0
+    for f in face_list:
+        area = round(geomie3d.calculate.face_area(f),2)
+        geomie3d.modify.update_topo_att(f, {&#39;area&#39;:area})
+        ttl_area += area
+    
+    avg = 0
+    for f in face_list:
+        area_weighted = round(f.attributes[&#39;area&#39;]/ttl_area,2)
+        area_temp = round(area_weighted * f.attributes[&#39;temperature&#39;],2)
+        avg += area_temp
+        geomie3d.modify.update_topo_att(f, {&#39;area_weighted&#39;:area_weighted, &#39;area_temperature&#39;: area_temp})
+    return round(avg,2)
+    
+#%% Main
+file_exts = sorted(os.listdir(geomie3d_dir))
+rows2d = [[&#39;datetime&#39;, &#39;aust&#39;, &#39;avg_srf_temp&#39;]]
+for fe in file_exts:
+    fe_split = fe.split(&#39;.&#39;)
+    ext = fe_split[-1]
+    if ext.lower() == &#39;geomie3d&#39;:
+        filename_only = fe_split[0]
+        fn_split = filename_only.split(&#39;_&#39;)
+        date_str = fn_split[1]#.replace()
+        time_str = fn_split[2].replace(&#39;-&#39;, &#39;:&#39;)
+        datetime_str = date_str + &#39; &#39; + time_str + &#39;-04:00&#39;
+        dt = dateutil.parser.parse(datetime_str)
+        dt_str = dt.isoformat()
+
+        geomie3d_path = os.path.join(geomie3d_dir, fe)
+        model_dict = geomie3d.utility.read_geomie3d(geomie3d_path)
+        topo_list = model_dict[&#39;topo_list&#39;]
+        if is_215:
+            non_pnl_srfs = topo_list[0:6]
+        else:
+            non_pnl_srfs = topo_list[0:5]
+            
+        aust = calc_aust(non_pnl_srfs)
+      
+        avg = calc_avg_srf_temp(topo_list)
+        rows2d.append([dt_str, aust, avg])
+        geomie3d.utility.write2geomie3d(topo_list, geomie3d_path)
+        # geomie3d.viz.viz([{&#39;topo_list&#39;: non_pnl_srfs , &#39;colour&#39;: &#39;blue&#39;, &#39;attribute&#39;: &#39;name&#39;}])
+
+geomie3d.utility.write2csv(rows2d, aust_path)
+```
+</pre></div>
+</div>
+</section>
+<section id="calculate-radiant-panels-load">
+<h3><span class="section-number">16.1.12. </span>Calculate radiant panels load<a class="headerlink" href="#calculate-radiant-panels-load" title="Permalink to this heading">#</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
+import pandas as pd 
+
+import geomie3d
+#%% Parameters
+iot_path = &#39;/home/usrname/iot.csv&#39;
+mini_path = &#39;/home/usrname/minires.csv&#39;
+aust_path = &#39;/home/usrname/aust.csv&#39;
+geomie3d_path = &#39;/home/usrname/room.geomie3d&#39;
+load_path = &#39;/home/usrname/load.csv&#39;
+
+#%% Functions
+def read_csv(path):
+    df = pd.read_csv(path, sep = &#39;,&#39;)
+    df[&#39;datetime&#39;] = pd.to_datetime(df[&#39;datetime&#39;], yearfirst=True)
+    df.set_index(&#39;datetime&#39;, inplace=True)
+    return df
+    
+#%% Main
+# read iot
+iot_df = read_csv(iot_path)
+iot_df = iot_df.resample(&#39;5T&#39;).median()
+# read mini
+mini_df = read_csv(mini_path)
+mini_df = mini_df.resample(&#39;5T&#39;).median()
+# read aust
+aust_df = read_csv(aust_path)
+aust_df = aust_df.resample(&#39;5T&#39;).median()
+# read model
+model_dict = geomie3d.utility.read_geomie3d(geomie3d_path)
+topo_list = model_dict[&#39;topo_list&#39;]
+pnl_srf = topo_list[-1]
+ceil_area = geomie3d.calculate.face_area(pnl_srf)
+pnl_area = ceil_area*0.8
+# calculate the rad loads
+iot_df[&#39;pnl_temp&#39;] = (iot_df[&#39;a006_panel_temp&#39;] + iot_df[&#39;arg001_panel_temp&#39;])/2
+aust_df[&#39;pnl_temp&#39;] = iot_df[&#39;pnl_temp&#39;]
+aust_df[&#39;qrad&#39;] = 5e-08 * (((iot_df[&#39;pnl_temp&#39;] + 273.15)**4) - ((aust_df[&#39;aust&#39;] + 273.15)**4)) 
+aust_df[&#39;qrad_area&#39;] = aust_df[&#39;qrad&#39;] * pnl_area
+aust_df = aust_df.drop([&#39;avg_srf_temp&#39;], axis=1)
+# calculate the cnv loads
+aust_df[&#39;pnl_air_diff&#39;] = aust_df[&#39;pnl_temp&#39;] - mini_df[&#39; TEMP&#39;]
+aust_df[&#39;qconv&#39;] = 2.13 * (aust_df[&#39;pnl_air_diff&#39;].abs()) ** 0.31 * aust_df[&#39;pnl_air_diff&#39;] 
+aust_df[&#39;qconv_area&#39;] = aust_df[&#39;qconv&#39;] * pnl_area
+
+aust_df.to_csv(load_path)
+```
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="016pandas.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">15. </span>Pandas scripts</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-processing-data-of-iot-sensor-using-frost-server-and-mini-high-res-sensor">16.1. Post processing data of IoT sensor using FROST-Server and Mini &amp; High RES Sensor</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#script-to-extract-data-from-the-frost-server-through-timescaledb-interface">16.1.1. Script to extract data from the FROST Server through timescaledb interface.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combine-all-the-extracted-data-from-frost">16.1.2. Combine all the extracted data from FROST</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#process-the-combine-file">16.1.3. Process the combine file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#process-the-mini-res-data">16.1.4. Process the mini-res data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#process-the-hires-sensor-data">16.1.5. Process the hiRES sensor data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#process-the-hires-ply-files-if-necessary">16.1.6. Process the hiRES ply files if necessary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-3d-model-of-the-space-for-projecting-hires-data">16.1.7. Create the 3d model of the space for projecting hiRES data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#project-the-hires-data-onto-the-3d-model">16.1.8. Project the hiRES data onto the 3d model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-mrt-and-air-temperature">16.1.9. Visualize the mrt and air temperature</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-spatial-time-series-data">16.1.10. Visualize spatial time-series data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-aust-of-the-space">16.1.11. calculate the aust of the space</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-radiant-panels-load">16.1.12. Calculate radiant panels load</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
