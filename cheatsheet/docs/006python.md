@@ -249,3 +249,6 @@ based on these:
 - https://jupyter.org/
 - https://pyodide.org/en/stable/
 - https://realpython.com/pyscript-python-in-browser/
+
+## Panda3d for 3D game development
+- https://github.com/ArsThaumaturgis/Panda3DTutorial.io
