@@ -14,3 +14,9 @@ Interesting software companies:
 - https://sartography.com/
 - https://braaannigan.github.io//
 - https://www.effibem.com/
+
+## Teaching digital AEC through the computational approach
+You need students to have knowledge on all of these 3 area
+- Models: BIM, GIS, Brick Schema
+- Domain Expertise: Architecture, MEP Engineering 
+- Programing: explore the models with ease
