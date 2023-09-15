@@ -375,19 +375,27 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="computational-geometry">
 <h1><span class="section-number">14. </span>Computational geometry<a class="headerlink" href="#computational-geometry" title="Permalink to this heading">#</a></h1>
-<ul class="simple">
-<li><p>Lines in 3d</p>
 <ul>
+<li><p>Lines in 3d</p>
+<ul class="simple">
 <li><p><a class="reference external" href="https://math.libretexts.org/Bookshelves/Calculus/CLP-3_Multivariable_Calculus_(Feldman_Rechnitzer_and_Yeager)/01%3A_Vectors_and_Geometry_in_Two_and_Three_Dimensions/1.05%3A_Equations_of_Lines_in_3d">https://math.libretexts.org/Bookshelves/Calculus/CLP-3_Multivariable_Calculus_(Feldman_Rechnitzer_and_Yeager)/01%3A_Vectors_and_Geometry_in_Two_and_Three_Dimensions/1.05%3A_Equations_of_Lines_in_3d</a></p></li>
 <li><p><a class="reference external" href="https://mathworld.wolfram.com/Point-LineDistance3-Dimensional.html">https://mathworld.wolfram.com/Point-LineDistance3-Dimensional.html</a></p></li>
 <li><p><a class="reference external" href="https://stackoverflow.com/questions/4858264/find-the-distance-from-a-3d-point-to-a-line-segment">https://stackoverflow.com/questions/4858264/find-the-distance-from-a-3d-point-to-a-line-segment</a></p></li>
 </ul>
 </li>
 <li><p>Clipping algorithm</p>
-<ul>
+<ul class="simple">
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Greiner%E2%80%93Hormann_clipping_algorithm">https://en.wikipedia.org/wiki/Greiner–Hormann_clipping_algorithm</a></p></li>
 <li><p><a class="reference external" href="https://davis.wpi.edu/~matt/courses/clipping/">https://davis.wpi.edu/~matt/courses/clipping/</a></p></li>
 </ul>
+</li>
+<li><p>transformation matrix to flip y-up gltf points to z-up</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+</pre></div>
+</div>
 </li>
 </ul>
 </section>
