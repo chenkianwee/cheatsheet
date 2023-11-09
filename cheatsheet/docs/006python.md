@@ -244,6 +244,11 @@ based on these:
     #region
     #endregion
     ```
+## Execute Python with Crontab 
+- https://stackoverflow.com/questions/8727935/execute-python-script-via-crontab
+- https://www.adminschoice.com/crontab-quick-reference
+- https://linuxize.com/post/cron-jobs-every-5-10-15-minutes/
+
 
 ## Python in the browser
 - https://jupyter.org/

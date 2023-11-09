@@ -85,3 +85,5 @@ The instructions are based on these sources
         - https://www.django-rest-framework.org/tutorial/quickstart/
     - Django REACT
         - https://blog.logrocket.com/using-react-django-create-app-tutorial/#how-send-data-django-react
+    - Data from Django to Javascript
+        - https://adamj.eu/tech/2022/10/06/how-to-safely-pass-data-to-javascript-in-a-django-template/

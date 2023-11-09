@@ -7,8 +7,7 @@
     ```
 3. You can generate the bibliography with this command. Remember to specify the right path to the .bib file. If the .bib file is in the previous folder specify it as "../references.bib"
     ````
-    ```
-    {bibliography} references.bib
+    ```{bibliography} references.bib
     ```
     ````
 ## Example

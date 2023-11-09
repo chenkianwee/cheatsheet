@@ -8,3 +8,12 @@
 - Clipping algorithm
     - https://en.wikipedia.org/wiki/Greiner%E2%80%93Hormann_clipping_algorithm
     - https://davis.wpi.edu/~matt/courses/clipping/
+
+- transformation matrix to flip y-up gltf points to z-up
+    ```
+    mat = np.array([[1, 0, 0, 0],
+                    [0, 0, -1, 0],
+                    [0, 1, 0, 0],
+                    [0, 0, 0, 1]])
+    ```
+    
