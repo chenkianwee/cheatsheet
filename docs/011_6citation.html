@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>10.6. Adding a Citation &#8212; My sample book</title>
+    <title>10.6. Adding a Citation &#8212; CKW cheatsheet</title>
   
   
   
@@ -137,7 +137,7 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
-    <p class="title logo__title">My sample book</p>
+    <p class="title logo__title">CKW cheatsheet</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -399,10 +399,17 @@ document.write(`
 </pre></div>
 </div>
 </li>
+<li><p>To make the citation author year add this configuration in the config.yml file</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx</span><span class="p">:</span>
+  <span class="n">config</span><span class="p">:</span>
+    <span class="n">bibtex_reference_style</span><span class="p">:</span> <span class="n">author_year</span>
+</pre></div>
+</div>
+</li>
 </ol>
 <section id="example">
 <h2><span class="section-number">10.6.1. </span>Example<a class="headerlink" href="#example" title="Permalink to this heading">#</a></h2>
-<p>I want to cite this article <span id="id1">[<a class="reference internal" href="#id3" title="Kian Wee Chen, Eric Teitelbaum, Forrest Meggers, Jovan Pantelic, and Adam Rysanek. Exploring membrane-assisted radiant cooling for designing comfortable naturally ventilated spaces in the tropics. Building Research &amp; Information, pages 1–13, November 2020. Publisher: Routledge. URL: https://doi.org/10.1080/09613218.2020.1847025, doi:10.1080/09613218.2020.1847025.">CTM+20</a>]</span>.</p>
+<p>I want to cite this article <span id="id1">[<a class="reference internal" href="#id3" title="Kian Wee Chen, Eric Teitelbaum, Forrest Meggers, Jovan Pantelic, and Adam Rysanek. Exploring membrane-assisted radiant cooling for designing comfortable naturally ventilated spaces in the tropics. Building Research &amp; Information, pages 1–13, November 2020. Publisher: Routledge. URL: https://doi.org/10.1080/09613218.2020.1847025, doi:10.1080/09613218.2020.1847025.">Chen <em>et al.</em>, 2020</a>]</span>.</p>
 </section>
 <section id="bibliography">
 <h2><span class="section-number">10.6.2. </span>Bibliography<a class="headerlink" href="#bibliography" title="Permalink to this heading">#</a></h2>
@@ -499,7 +506,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By Chen Kian Wee
 </p>
 
   </div>
