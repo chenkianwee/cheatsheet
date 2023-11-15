@@ -4,6 +4,10 @@
     ````
     {doc}`020steps`
     ````
+    - or like this if you like the visible text to be something else from the document title
+      ```
+      {doc}`text-that-will-appear <03_b3dplane>`
+      ```
 2. You can create a hyperlink with this command.
     ````
     [text that will appear in content](https://the-hyperlink.com)
@@ -42,7 +46,13 @@
         - file: docs/030/032task3
         - file: docs/030/033task4
     ````
-6. refer to section in a document.
+6. To refer to sections in a document. Make sure to add the following into the config.yml.
+  ```
+  sphinx:
+    config:
+      myst_heading_anchors: 3
+  ```
+7. refer to section in a document.
 
     ```
     [a link to this section](#section)
@@ -51,9 +61,11 @@
     #read-and-write-text
     ```
     
-7. refer to a section in another document using hyperlink. Check your _build folder structure to put in the html file to referece accordingly.
+8. refer to a section in another document using hyperlink. Check your _build folder structure to put in the html file to referece accordingly.
 
     ```
     if your section heading have space replace it with hyphens. All letters in small cap.
     [something](002linux.html#read-and-write-text)
+
+    ../ for file outside of this folder
     ```

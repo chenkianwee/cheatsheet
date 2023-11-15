@@ -10,6 +10,12 @@
     ```{bibliography} references.bib
     ```
     ````
+4. To make the citation author year add this configuration in the config.yml file
+    ```
+    sphinx:
+      config:
+        bibtex_reference_style: author_year
+    ```
 ## Example
 I want to cite this article {cite}`chen_exploring_2020`.
 

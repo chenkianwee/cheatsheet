@@ -1,14 +1,18 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: My sample book
-author: The Jupyter Book Community
-logo: logo.png
+title: CKW cheatsheet
+author: Chen Kian Wee
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
   execute_notebooks: force
+
+sphinx:
+  config:
+    myst_heading_anchors: 3
+    bibtex_reference_style: author_year
 
 # Define the name of the latex output file for PDF builds
 latex:
