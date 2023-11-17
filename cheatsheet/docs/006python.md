@@ -257,3 +257,6 @@ based on these:
 
 ## Panda3d for 3D game development
 - https://github.com/ArsThaumaturgis/Panda3DTutorial.io
+
+## Resources
+- Computer Scientist website on alot of python resources and career advice (https://third-bit.com/)
