@@ -10,7 +10,11 @@
 - Dynamic DNS service
     - https://wiki.debian.org/FreedomBox/Manual/DynamicDNS
     - https://ddns.freedombox.org/
-    - https://www.noip.com/about
+    - https://www.makeuseof.com/tag/5-best-dynamic-dns-providers-can-lookup-free-today/
+        - https://www.dynu.com/en-US/
+        - https://www.noip.com/about
+        - https://www.duckdns.org/
+
 - Article about which dynamic DNS service to use
     - https://www.makeuseof.com/tag/5-best-dynamic-dns-providers-can-lookup-free-today/
 - Forward Proxy and Reverse Proxy
