@@ -172,6 +172,31 @@ hostname
 ```
 ip addr show
 ```
+
+### Path
+Check the path list
+```
+echo $PATH
+```
+Add path to the back of the path list
+```
+export PATH=$PATH:/home/your/path
+```
+Add path to the front of the path list
+```
+export PATH=/home/your/path:$PATH
+```
+To permanently add the path for yourself (local user), you need to put the command in the .bashrc file or .profile file.
+```
+cd ~
+gedit .bashrc
+gedit .profile
+```
+To permanently add the path for everyone who uses the system, you need to put the command in the /etc/profile file.
+```
+sudo gedit /etc/profile
+```
+
 ### Nvidia CUDA
 Configure ubuntu to detect nvidia gpu
 - https://www.linuxbabe.com/desktop-linux/switch-intel-nvidia-graphics-card-ubuntu
@@ -216,3 +241,16 @@ https://www.libreofficehelp.com/how-to-fix-libreoffice-requires-a-java-runtime-e
 - https://www.libreofficehelp.com/install-fonts-libreoffice-openoffice/#GNULinux_Ubuntu_Linux_Mint_Fedora_etc
 - download the font file ttf or otf here (https://www.dafont.com/search.php?q=linux+libertine) 
 - extract and put it in the share font folder in ubuntu, /usr/share/fonts.
+
+### Install .run files
+- https://www.wikihow.com/Execute-.RUN-Files-in-Linux
+
+1. Make your file executable
+    ```
+    sudo chmod +x yourfilename.run
+    ```
+
+2. execute your file with this command
+    ```
+    sudo ./yourfilename.run
+    ```

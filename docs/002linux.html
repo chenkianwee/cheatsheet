@@ -381,12 +381,14 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-and-write-text">1.1.7. Read and Write Text</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system">1.1.8. System</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#network">1.1.9. Network</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nvidia-cuda">1.1.10. Nvidia CUDA</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-appimage-as-an-ubuntu-desktop-app">1.1.11. Make appimage as an ubuntu desktop app</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libreoffice">1.1.12. LibreOffice</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-new-fonts">1.1.12.1. Install new fonts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#path">1.1.10. Path</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nvidia-cuda">1.1.11. Nvidia CUDA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-appimage-as-an-ubuntu-desktop-app">1.1.12. Make appimage as an ubuntu desktop app</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libreoffice">1.1.13. LibreOffice</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-new-fonts">1.1.13.1. Install new fonts</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-run-files">1.1.14. Install .run files</a></li>
 </ul>
 </li>
 </ul>
@@ -584,8 +586,33 @@ $ rm -rf foldername #delete all folders in folders
 </pre></div>
 </div>
 </section>
+<section id="path">
+<h3><span class="section-number">1.1.10. </span>Path<a class="headerlink" href="#path" title="Permalink to this heading">#</a></h3>
+<p>Check the path list</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>echo $PATH
+</pre></div>
+</div>
+<p>Add path to the back of the path list</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export PATH=$PATH:/home/your/path
+</pre></div>
+</div>
+<p>Add path to the front of the path list</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export PATH=/home/your/path:$PATH
+</pre></div>
+</div>
+<p>To permanently add the path for yourself (local user), you need to put the command in the .bashrc file or .profile file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~</span>
+<span class="n">gedit</span> <span class="o">.</span><span class="n">bashrc</span>
+<span class="n">gedit</span> <span class="o">.</span><span class="n">profile</span>
+</pre></div>
+</div>
+<p>To permanently add the path for everyone who uses the system, you need to put the command in the /etc/profile file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">gedit</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">profile</span>
+</pre></div>
+</div>
+</section>
 <section id="nvidia-cuda">
-<h3><span class="section-number">1.1.10. </span>Nvidia CUDA<a class="headerlink" href="#nvidia-cuda" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.1.11. </span>Nvidia CUDA<a class="headerlink" href="#nvidia-cuda" title="Permalink to this heading">#</a></h3>
 <p>Configure ubuntu to detect nvidia gpu</p>
 <ul>
 <li><p><a class="reference external" href="https://www.linuxbabe.com/desktop-linux/switch-intel-nvidia-graphics-card-ubuntu">https://www.linuxbabe.com/desktop-linux/switch-intel-nvidia-graphics-card-ubuntu</a></p></li>
@@ -609,7 +636,7 @@ $ rm -rf foldername #delete all folders in folders
 </ul>
 </section>
 <section id="make-appimage-as-an-ubuntu-desktop-app">
-<h3><span class="section-number">1.1.11. </span>Make appimage as an ubuntu desktop app<a class="headerlink" href="#make-appimage-as-an-ubuntu-desktop-app" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.1.12. </span>Make appimage as an ubuntu desktop app<a class="headerlink" href="#make-appimage-as-an-ubuntu-desktop-app" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://askubuntu.com/questions/902672/registering-appimage-files-as-a-desktop-app?rq=1">https://askubuntu.com/questions/902672/registering-appimage-files-as-a-desktop-app?rq=1</a></p></li>
 <li><p><a class="reference external" href="https://askubuntu.com/questions/162612/how-can-i-add-an-application-to-the-list-of-open-with-applications">https://askubuntu.com/questions/162612/how-can-i-add-an-application-to-the-list-of-open-with-applications</a></p></li>
@@ -631,17 +658,35 @@ $ rm -rf foldername #delete all folders in folders
 </ol>
 </section>
 <section id="libreoffice">
-<h3><span class="section-number">1.1.12. </span>LibreOffice<a class="headerlink" href="#libreoffice" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.1.13. </span>LibreOffice<a class="headerlink" href="#libreoffice" title="Permalink to this heading">#</a></h3>
 <p>Zotero plugin for libreoffice
 <a class="reference external" href="https://www.libreofficehelp.com/how-to-fix-libreoffice-requires-a-java-runtime-environment-error/">https://www.libreofficehelp.com/how-to-fix-libreoffice-requires-a-java-runtime-environment-error/</a></p>
 <section id="install-new-fonts">
-<h4><span class="section-number">1.1.12.1. </span>Install new fonts<a class="headerlink" href="#install-new-fonts" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">1.1.13.1. </span>Install new fonts<a class="headerlink" href="#install-new-fonts" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.libreofficehelp.com/install-fonts-libreoffice-openoffice/#GNULinux_Ubuntu_Linux_Mint_Fedora_etc">https://www.libreofficehelp.com/install-fonts-libreoffice-openoffice/#GNULinux_Ubuntu_Linux_Mint_Fedora_etc</a></p></li>
 <li><p>download the font file ttf or otf here (<a class="reference external" href="https://www.dafont.com/search.php?q=linux+libertine">https://www.dafont.com/search.php?q=linux+libertine</a>)</p></li>
 <li><p>extract and put it in the share font folder in ubuntu, /usr/share/fonts.</p></li>
 </ul>
 </section>
+</section>
+<section id="install-run-files">
+<h3><span class="section-number">1.1.14. </span>Install .run files<a class="headerlink" href="#install-run-files" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.wikihow.com/Execute-.RUN-Files-in-Linux">https://www.wikihow.com/Execute-.RUN-Files-in-Linux</a></p></li>
+</ul>
+<ol class="arabic">
+<li><p>Make your file executable</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="n">yourfilename</span><span class="o">.</span><span class="n">run</span>
+</pre></div>
+</div>
+</li>
+<li><p>execute your file with this command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="o">./</span><span class="n">yourfilename</span><span class="o">.</span><span class="n">run</span>
+</pre></div>
+</div>
+</li>
+</ol>
 </section>
 </section>
 </section>
@@ -723,12 +768,14 @@ $ rm -rf foldername #delete all folders in folders
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-and-write-text">1.1.7. Read and Write Text</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system">1.1.8. System</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#network">1.1.9. Network</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nvidia-cuda">1.1.10. Nvidia CUDA</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-appimage-as-an-ubuntu-desktop-app">1.1.11. Make appimage as an ubuntu desktop app</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libreoffice">1.1.12. LibreOffice</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-new-fonts">1.1.12.1. Install new fonts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#path">1.1.10. Path</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nvidia-cuda">1.1.11. Nvidia CUDA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-appimage-as-an-ubuntu-desktop-app">1.1.12. Make appimage as an ubuntu desktop app</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libreoffice">1.1.13. LibreOffice</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-new-fonts">1.1.13.1. Install new fonts</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-run-files">1.1.14. Install .run files</a></li>
 </ul>
 </li>
 </ul>
