@@ -258,3 +258,19 @@ https://www.libreofficehelp.com/how-to-fix-libreoffice-requires-a-java-runtime-e
     ```
     sudo ./yourfilename.run
     ```
+
+### 7zip
+- https://www.e2encrypted.com/howtos/how-to-securely-encrypt-decrypt-with-7zip-via-command-line/
+
+Install 7zip
+```
+sudo apt install 7zip
+```
+zip a file with encryption
+```
+7zz a -mhe=on nameofyourfile.7z path/2/zip -p
+```
+extract a file
+```
+7zz x nameofyourfile.7z
+```

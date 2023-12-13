@@ -389,6 +389,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-run-files">1.1.14. Install .run files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zip">1.1.15. 7zip</a></li>
 </ul>
 </li>
 </ul>
@@ -692,6 +693,24 @@ $ rm -rf foldername #delete all folders in folders
 </li>
 </ol>
 </section>
+<section id="zip">
+<h3><span class="section-number">1.1.15. </span>7zip<a class="headerlink" href="#zip" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.e2encrypted.com/howtos/how-to-securely-encrypt-decrypt-with-7zip-via-command-line/">https://www.e2encrypted.com/howtos/how-to-securely-encrypt-decrypt-with-7zip-via-command-line/</a></p></li>
+</ul>
+<p>Install 7zip</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="mi">7</span><span class="nb">zip</span>
+</pre></div>
+</div>
+<p>zip a file with encryption</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">7</span><span class="n">zz</span> <span class="n">a</span> <span class="o">-</span><span class="n">mhe</span><span class="o">=</span><span class="n">on</span> <span class="n">nameofyourfile</span><span class="mf">.7</span><span class="n">z</span> <span class="n">path</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="nb">zip</span> <span class="o">-</span><span class="n">p</span>
+</pre></div>
+</div>
+<p>extract a file</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">7</span><span class="n">zz</span> <span class="n">x</span> <span class="n">nameofyourfile</span><span class="mf">.7</span><span class="n">z</span>
+</pre></div>
+</div>
+</section>
 </section>
 </section>
 
@@ -780,6 +799,7 @@ $ rm -rf foldername #delete all folders in folders
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-run-files">1.1.14. Install .run files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zip">1.1.15. 7zip</a></li>
 </ul>
 </li>
 </ul>
