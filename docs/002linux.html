@@ -416,25 +416,29 @@ document.write(`
 <section id="installation">
 <h3><span class="section-number">1.1.2. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h3>
 <p>Update the OS</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get update
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
 
-$ sudo apt-get upgrade
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">upgrade</span>
 </pre></div>
 </div>
 <p>Remove unnecessary files after an OS upgrade.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get autoremove
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">autoremove</span>
 </pre></div>
 </div>
 <p>Install an app</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get app_name
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">app_name</span>
 </pre></div>
 </div>
 <p>Check if program is installed</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo apt list --installed program_name
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="nb">list</span> <span class="o">--</span><span class="n">installed</span> <span class="n">program_name</span>
 </pre></div>
 </div>
 <p>Remove program</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get remove --auto-remove program_name
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">remove</span> <span class="o">--</span><span class="n">auto</span><span class="o">-</span><span class="n">remove</span> <span class="n">program_name</span>
+</pre></div>
+</div>
+<p>Purge program remove all config files</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">purge</span> <span class="n">program_name</span>
 </pre></div>
 </div>
 </section>
