@@ -10,25 +10,29 @@ sudo su - root
 ### Installation
 Update the OS
 ```
-$ sudo apt-get update
+sudo apt-get update
 
-$ sudo apt-get upgrade
+sudo apt-get upgrade
 ```
 Remove unnecessary files after an OS upgrade.
 ```
-$ sudo apt-get autoremove
+sudo apt-get autoremove
 ```
 Install an app
 ```
-$ sudo apt-get app_name
+sudo apt-get app_name
 ```
 Check if program is installed
 ```
-$ sudo apt list --installed program_name
+sudo apt list --installed program_name
 ```
 Remove program
 ```
-$ sudo apt-get remove --auto-remove program_name
+sudo apt-get remove --auto-remove program_name
+```
+Purge program remove all config files
+```
+sudo apt purge program_name
 ```
 
 ### File System
@@ -254,3 +258,19 @@ https://www.libreofficehelp.com/how-to-fix-libreoffice-requires-a-java-runtime-e
     ```
     sudo ./yourfilename.run
     ```
+
+### 7zip
+- https://www.e2encrypted.com/howtos/how-to-securely-encrypt-decrypt-with-7zip-via-command-line/
+
+Install 7zip
+```
+sudo apt install 7zip
+```
+zip a file with encryption
+```
+7zz a -mhe=on nameofyourfile.7z path/2/zip -p
+```
+extract a file
+```
+7zz x nameofyourfile.7z
+```
