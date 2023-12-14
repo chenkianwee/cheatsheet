@@ -9,14 +9,17 @@ Envision your goal so that you never lose sight of it. An example from experienc
 6. When proving the objective be clear about how it contirbutes to the project.
 ## Notes about software startup in AEC
 Interesting software companies:
+- https://www.ladybug.tools
+- https://cove.tools/
+- https://www.digitalbluefoam.com/
 - https://bigladdersoftware.com/
+- https://www.effibem.com/
 - https://sixfeetup.com/
 - https://sartography.com/
-- https://braaannigan.github.io//
-- https://www.effibem.com/
+- https://braaannigan.github.io/
 
 ## Teaching digital AEC through the computational approach
 You need students to have knowledge on all of these 3 area
-- Models: BIM, GIS, Brick Schema
+- Models: BIM, GIS, Brick Schema, OpenStudio Model, Control Description Language (CDL)
 - Domain Expertise: Architecture, MEP Engineering 
 - Programing: explore the models with ease
