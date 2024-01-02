@@ -20,6 +20,13 @@ Interesting software companies:
 
 ## Teaching digital AEC through the computational approach
 You need students to have knowledge on all of these 3 area
-- Models: BIM, GIS, Brick Schema, OpenStudio Model, Control Description Language (CDL)
+- Models: 
+    - Data Models: BIM, GIS, Brick Schema, OpenStudio Model, Control Description Language (CDL)
+    - Simulation Models: EnergyPlus, Radiance
 - Domain Expertise: Architecture, MEP Engineering 
 - Programing: explore the models with ease
+
+## Different level of computational design practice/research
+1. Data structures and algorithms: study and development of the most efficient data structure and algorithms to perform the required task.
+2. Software development: as no existing software solution satisfy your requirements, you develop your own software solution to achieve the task.
+3. Information technology: using the appropriate existing software to achieve the task.
