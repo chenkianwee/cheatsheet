@@ -227,20 +227,37 @@ Configure ubuntu to detect nvidia gpu
 - https://askubuntu.com/questions/902672/registering-appimage-files-as-a-desktop-app?rq=1
 - https://askubuntu.com/questions/162612/how-can-i-add-an-application-to-the-list-of-open-with-applications
 1. for librecad
-```
-[Desktop Entry]
-Type=Application
-Name=Librecad
-Comment=Librecad
-Exec=/home/usr/Applications/LibreCAD-2.2.0.2-x86_64.AppImage %F
-Terminal=false
-Categories=Librecad,cad
-```
+    ```
+    [Desktop Entry]
+    Type=Application
+    Name=Librecad
+    Comment=Librecad
+    Exec=/home/usr/Applications/LibreCAD-2.2.0.2-x86_64.AppImage %F
+    Terminal=false
+    Categories=Librecad,cad
+    ```
 2. put the file in ~/.local/share/applications 
+
 ### LibreOffice
 Zotero plugin for libreoffice
 https://www.libreofficehelp.com/how-to-fix-libreoffice-requires-a-java-runtime-environment-error/
 
+### Install Inkscape
+- https://www.linuxcapable.com/how-to-install-inkscape-on-ubuntu-linux/
+
+1. Install dependencies
+    ```
+    sudo apt install software-properties-common apt-transport-https
+    ```
+2. Import the PPA
+    ```
+    sudo add-apt-repository ppa:inkscape.dev/stable -y
+    ```
+3. Install inkscape
+    ```
+    sudo apt install inkscape
+    ```
+    
 #### Install new fonts
 - https://www.libreofficehelp.com/install-fonts-libreoffice-openoffice/#GNULinux_Ubuntu_Linux_Mint_Fedora_etc
 - download the font file ttf or otf here (https://www.dafont.com/search.php?q=linux+libertine) 
