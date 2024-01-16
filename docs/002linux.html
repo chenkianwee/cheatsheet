@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>1. Linux commands &#8212; CKW cheatsheet</title>
   
@@ -19,15 +19,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -75,7 +76,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -109,12 +119,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <header>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
   
+  </header>
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -129,9 +147,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="001intro.html">
+  
   
   
   
@@ -331,20 +351,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -383,14 +405,15 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#network">1.1.9. Network</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#path">1.1.10. Path</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nvidia-cuda">1.1.11. Nvidia CUDA</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-appimage-as-an-ubuntu-desktop-app">1.1.12. Make appimage as an ubuntu desktop app</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libreoffice">1.1.13. LibreOffice</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-inkscape">1.1.14. Install Inkscape</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thunderbird-outlook-sync">1.1.12. Thunderbird outlook sync</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-appimage-as-an-ubuntu-desktop-app">1.1.13. Make appimage as an ubuntu desktop app</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libreoffice">1.1.14. LibreOffice</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-new-fonts">1.1.14.1. Install new fonts</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-run-files">1.1.15. Install .run files</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zip">1.1.16. 7zip</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-inkscape">1.1.15. Install Inkscape</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-run-files">1.1.16. Install .run files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zip">1.1.17. 7zip</a></li>
 </ul>
 </li>
 </ul>
@@ -402,7 +425,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="linux-commands">
 <h1><span class="section-number">1. </span>Linux commands<a class="headerlink" href="#linux-commands" title="Permalink to this heading">#</a></h1>
@@ -641,13 +664,37 @@ $ rm -rf foldername #delete all folders in folders
 <li><p>you can change the primary graphic card to use with the nvidia-settings application</p></li>
 </ul>
 </section>
+<section id="thunderbird-outlook-sync">
+<h3><span class="section-number">1.1.12. </span>Thunderbird outlook sync<a class="headerlink" href="#thunderbird-outlook-sync" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://support.mozilla.org/en-US/questions/1363441">https://support.mozilla.org/en-US/questions/1363441</a></p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>Install these 2 add-on</p>
+<ul class="simple">
+<li><p>tbsync</p></li>
+<li><p>provider for exchange active sync</p></li>
+</ul>
+</li>
+<li><p>once installed go to tbsync -&gt; account action -&gt; add account -&gt; microsoft office 365</p>
+<ul class="simple">
+<li><p>key in the necessary credentials</p></li>
+</ul>
+</li>
+</ol>
+</section>
 <section id="make-appimage-as-an-ubuntu-desktop-app">
-<h3><span class="section-number">1.1.12. </span>Make appimage as an ubuntu desktop app<a class="headerlink" href="#make-appimage-as-an-ubuntu-desktop-app" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.1.13. </span>Make appimage as an ubuntu desktop app<a class="headerlink" href="#make-appimage-as-an-ubuntu-desktop-app" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://askubuntu.com/questions/902672/registering-appimage-files-as-a-desktop-app?rq=1">https://askubuntu.com/questions/902672/registering-appimage-files-as-a-desktop-app?rq=1</a></p></li>
 <li><p><a class="reference external" href="https://askubuntu.com/questions/162612/how-can-i-add-an-application-to-the-list-of-open-with-applications">https://askubuntu.com/questions/162612/how-can-i-add-an-application-to-the-list-of-open-with-applications</a></p></li>
 </ul>
 <ol class="arabic">
+<li><p>Make sure the appimage is executable</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="n">u</span><span class="o">+</span><span class="n">x</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">appimage</span>
+</pre></div>
+</div>
+</li>
 <li><p>for librecad</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Desktop</span> <span class="n">Entry</span><span class="p">]</span>
 <span class="n">Type</span><span class="o">=</span><span class="n">Application</span>
@@ -663,12 +710,20 @@ $ rm -rf foldername #delete all folders in folders
 </ol>
 </section>
 <section id="libreoffice">
-<h3><span class="section-number">1.1.13. </span>LibreOffice<a class="headerlink" href="#libreoffice" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.1.14. </span>LibreOffice<a class="headerlink" href="#libreoffice" title="Permalink to this heading">#</a></h3>
 <p>Zotero plugin for libreoffice
 <a class="reference external" href="https://www.libreofficehelp.com/how-to-fix-libreoffice-requires-a-java-runtime-environment-error/">https://www.libreofficehelp.com/how-to-fix-libreoffice-requires-a-java-runtime-environment-error/</a></p>
+<section id="install-new-fonts">
+<h4><span class="section-number">1.1.14.1. </span>Install new fonts<a class="headerlink" href="#install-new-fonts" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.libreofficehelp.com/install-fonts-libreoffice-openoffice/#GNULinux_Ubuntu_Linux_Mint_Fedora_etc">https://www.libreofficehelp.com/install-fonts-libreoffice-openoffice/#GNULinux_Ubuntu_Linux_Mint_Fedora_etc</a></p></li>
+<li><p>download the font file ttf or otf here (<a class="reference external" href="https://www.dafont.com/search.php?q=linux+libertine">https://www.dafont.com/search.php?q=linux+libertine</a>)</p></li>
+<li><p>extract and put it in the share font folder in ubuntu, /usr/share/fonts.</p></li>
+</ul>
+</section>
 </section>
 <section id="install-inkscape">
-<h3><span class="section-number">1.1.14. </span>Install Inkscape<a class="headerlink" href="#install-inkscape" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.1.15. </span>Install Inkscape<a class="headerlink" href="#install-inkscape" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.linuxcapable.com/how-to-install-inkscape-on-ubuntu-linux/">https://www.linuxcapable.com/how-to-install-inkscape-on-ubuntu-linux/</a></p></li>
 </ul>
@@ -689,17 +744,9 @@ $ rm -rf foldername #delete all folders in folders
 </div>
 </li>
 </ol>
-<section id="install-new-fonts">
-<h4><span class="section-number">1.1.14.1. </span>Install new fonts<a class="headerlink" href="#install-new-fonts" title="Permalink to this heading">#</a></h4>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.libreofficehelp.com/install-fonts-libreoffice-openoffice/#GNULinux_Ubuntu_Linux_Mint_Fedora_etc">https://www.libreofficehelp.com/install-fonts-libreoffice-openoffice/#GNULinux_Ubuntu_Linux_Mint_Fedora_etc</a></p></li>
-<li><p>download the font file ttf or otf here (<a class="reference external" href="https://www.dafont.com/search.php?q=linux+libertine">https://www.dafont.com/search.php?q=linux+libertine</a>)</p></li>
-<li><p>extract and put it in the share font folder in ubuntu, /usr/share/fonts.</p></li>
-</ul>
-</section>
 </section>
 <section id="install-run-files">
-<h3><span class="section-number">1.1.15. </span>Install .run files<a class="headerlink" href="#install-run-files" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.1.16. </span>Install .run files<a class="headerlink" href="#install-run-files" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.wikihow.com/Execute-.RUN-Files-in-Linux">https://www.wikihow.com/Execute-.RUN-Files-in-Linux</a></p></li>
 </ul>
@@ -717,7 +764,7 @@ $ rm -rf foldername #delete all folders in folders
 </ol>
 </section>
 <section id="zip">
-<h3><span class="section-number">1.1.16. </span>7zip<a class="headerlink" href="#zip" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.1.17. </span>7zip<a class="headerlink" href="#zip" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.e2encrypted.com/howtos/how-to-securely-encrypt-decrypt-with-7zip-via-command-line/">https://www.e2encrypted.com/howtos/how-to-securely-encrypt-decrypt-with-7zip-via-command-line/</a></p></li>
 </ul>
@@ -762,11 +809,10 @@ $ rm -rf foldername #delete all folders in folders
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="001intro.html"
@@ -786,10 +832,7 @@ $ rm -rf foldername #delete all folders in folders
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -797,6 +840,7 @@ $ rm -rf foldername #delete all folders in folders
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -816,14 +860,15 @@ $ rm -rf foldername #delete all folders in folders
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#network">1.1.9. Network</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#path">1.1.10. Path</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nvidia-cuda">1.1.11. Nvidia CUDA</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-appimage-as-an-ubuntu-desktop-app">1.1.12. Make appimage as an ubuntu desktop app</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libreoffice">1.1.13. LibreOffice</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-inkscape">1.1.14. Install Inkscape</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thunderbird-outlook-sync">1.1.12. Thunderbird outlook sync</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-appimage-as-an-ubuntu-desktop-app">1.1.13. Make appimage as an ubuntu desktop app</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libreoffice">1.1.14. LibreOffice</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-new-fonts">1.1.14.1. Install new fonts</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-run-files">1.1.15. Install .run files</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zip">1.1.16. 7zip</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-inkscape">1.1.15. Install Inkscape</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-run-files">1.1.16. Install .run files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zip">1.1.17. 7zip</a></li>
 </ul>
 </li>
 </ul>
@@ -847,6 +892,7 @@ By Chen Kian Wee
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2022.
@@ -873,8 +919,8 @@ By Chen Kian Wee
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
 
   <footer class="bd-footer">
   </footer>

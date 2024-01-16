@@ -220,6 +220,9 @@ based on these:
     ```
 3. Restart your vscode.
 
+### Selecting interpreter
+1. Ctrl + Shift + P, type in Python Interpretor and specify the path to the interpretor.
+
 ### Folding in VScode
 - https://code.visualstudio.com/docs/editor/codebasics#_folding
 
