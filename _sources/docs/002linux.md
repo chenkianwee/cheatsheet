@@ -236,11 +236,18 @@ Configure ubuntu to detect nvidia gpu
 ### Make appimage as an ubuntu desktop app
 - https://askubuntu.com/questions/902672/registering-appimage-files-as-a-desktop-app?rq=1
 - https://askubuntu.com/questions/162612/how-can-i-add-an-application-to-the-list-of-open-with-applications
+
 1. Make sure the appimage is executable
     ```
     chmod u+x path/to/appimage
     ```
-2. for librecad
+2. You might need to install the libfuse library for the appimage to work.
+    - https://github.com/OpenShot/openshot-qt/issues/4789
+    ```
+    sudo apt install libfuse2
+    ```
+
+3. for librecad
     ```
     [Desktop Entry]
     Type=Application
