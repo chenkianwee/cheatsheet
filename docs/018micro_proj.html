@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>14. Computational geometry &#8212; CKW cheatsheet</title>
+    <title>17. Projects with Micro-Controller &#8212; CKW cheatsheet</title>
   
   
   
@@ -62,11 +62,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/015geom';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/018micro_proj';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="15. Pandas scripts" href="016pandas.html" />
-    <link rel="prev" title="13. JupyterLab" href="014jupyterlab.html" />
+    <link rel="prev" title="16. Experiment procedure" href="017experiment.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -195,10 +194,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="012approach.html">11. Getting Things Done</a></li>
 <li class="toctree-l1"><a class="reference internal" href="013server.html">12. Hosting and Web Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="014jupyterlab.html">13. JupyterLab</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">14. Computational geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="015geom.html">14. Computational geometry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="016pandas.html">15. Pandas scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="017experiment.html">16. Experiment procedure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="018micro_proj.html">17. Projects with Micro-Controller</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">17. Projects with Micro-Controller</a></li>
 </ul>
 
     </div>
@@ -270,7 +269,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/015geom.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/018micro_proj.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -300,7 +299,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/docs/015geom.md" target="_blank"
+      <li><a href="../_sources/docs/018micro_proj.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -371,7 +370,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -382,11 +383,20 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Computational geometry</h1>
+    <h1>Projects with Micro-Controller</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-esp32-to-pc">17.1. Connecting ESP32 to PC</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wifi-extender-project">17.2. Wifi Extender Project</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -396,31 +406,61 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="computational-geometry">
-<h1><span class="section-number">14. </span>Computational geometry<a class="headerlink" href="#computational-geometry" title="Permalink to this heading">#</a></h1>
-<ul>
-<li><p>Lines in 3d</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="projects-with-micro-controller">
+<h1><span class="section-number">17. </span>Projects with Micro-Controller<a class="headerlink" href="#projects-with-micro-controller" title="Permalink to this heading">#</a></h1>
+<section id="connecting-esp32-to-pc">
+<h2><span class="section-number">17.1. </span>Connecting ESP32 to PC<a class="headerlink" href="#connecting-esp32-to-pc" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://math.libretexts.org/Bookshelves/Calculus/CLP-3_Multivariable_Calculus_(Feldman_Rechnitzer_and_Yeager)/01%3A_Vectors_and_Geometry_in_Two_and_Three_Dimensions/1.05%3A_Equations_of_Lines_in_3d">https://math.libretexts.org/Bookshelves/Calculus/CLP-3_Multivariable_Calculus_(Feldman_Rechnitzer_and_Yeager)/01%3A_Vectors_and_Geometry_in_Two_and_Three_Dimensions/1.05%3A_Equations_of_Lines_in_3d</a></p></li>
-<li><p><a class="reference external" href="https://mathworld.wolfram.com/Point-LineDistance3-Dimensional.html">https://mathworld.wolfram.com/Point-LineDistance3-Dimensional.html</a></p></li>
-<li><p><a class="reference external" href="https://stackoverflow.com/questions/4858264/find-the-distance-from-a-3d-point-to-a-line-segment">https://stackoverflow.com/questions/4858264/find-the-distance-from-a-3d-point-to-a-line-segment</a></p></li>
+<li><p><a class="reference external" href="https://www.bordergate.co.uk/configuring-an-esp32-in-ubuntu-22-04/">https://www.bordergate.co.uk/configuring-an-esp32-in-ubuntu-22-04/</a></p></li>
 </ul>
-</li>
-<li><p>Clipping algorithm</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Greiner%E2%80%93Hormann_clipping_algorithm">https://en.wikipedia.org/wiki/Greiner–Hormann_clipping_algorithm</a></p></li>
-<li><p><a class="reference external" href="https://davis.wpi.edu/~matt/courses/clipping/">https://davis.wpi.edu/~matt/courses/clipping/</a></p></li>
-</ul>
-</li>
-<li><p>transformation matrix to flip y-up gltf points to z-up</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-                <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-                <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-                <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<ol class="arabic">
+<li><p>check to see if your esp32 is connected to your pc. Key in lsusb and you should be able to see the bus information listed below</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lsusb</span> 
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Bus</span> <span class="mi">00</span><span class="n">x</span> <span class="n">Device</span> <span class="mi">00</span><span class="n">x</span><span class="p">:</span> <span class="n">ID</span> <span class="n">xxx</span><span class="p">:</span><span class="n">yyyy</span> <span class="n">Silicon</span> <span class="n">Labs</span> <span class="n">CP210x</span> <span class="n">UART</span> <span class="n">Bridge</span>
 </pre></div>
 </div>
 </li>
+<li><p>check for the tty. You shld see this at the very end.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">dmesg</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="n">xxxx</span><span class="o">.</span><span class="n">yyyy</span><span class="p">]</span> <span class="n">usb</span> <span class="mi">3</span><span class="o">-</span><span class="mi">7</span><span class="p">:</span> <span class="n">New</span> <span class="n">USB</span> <span class="n">device</span> <span class="n">strings</span><span class="p">:</span> <span class="n">Mfr</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">Product</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">SerialNumber</span><span class="o">=</span><span class="mi">3</span>
+<span class="p">[</span> <span class="n">xxxx</span><span class="o">.</span><span class="n">yyyy</span><span class="p">]</span> <span class="n">usb</span> <span class="mi">3</span><span class="o">-</span><span class="mi">7</span><span class="p">:</span> <span class="n">Product</span><span class="p">:</span> <span class="n">CP2104</span> <span class="n">USB</span> <span class="n">to</span> <span class="n">UART</span> <span class="n">Bridge</span> <span class="n">Controller</span>
+<span class="p">[</span> <span class="n">xxxx</span><span class="o">.</span><span class="n">yyyy</span><span class="p">]</span> <span class="n">usb</span> <span class="mi">3</span><span class="o">-</span><span class="mi">7</span><span class="p">:</span> <span class="n">Manufacturer</span><span class="p">:</span> <span class="n">Silicon</span> <span class="n">Labs</span>
+<span class="p">[</span> <span class="n">xxxx</span><span class="o">.</span><span class="n">yyyy</span><span class="p">]</span> <span class="n">usb</span> <span class="mi">3</span><span class="o">-</span><span class="mi">7</span><span class="p">:</span> <span class="n">SerialNumber</span><span class="p">:</span> <span class="n">xxxxx</span>
+<span class="p">[</span> <span class="n">xxxx</span><span class="o">.</span><span class="n">yyyy</span><span class="p">]</span> <span class="n">usbcore</span><span class="p">:</span> <span class="n">registered</span> <span class="n">new</span> <span class="n">interface</span> <span class="n">driver</span> <span class="n">usbserial_generic</span>
+<span class="p">[</span> <span class="n">xxxx</span><span class="o">.</span><span class="n">yyyy</span><span class="p">]</span> <span class="n">usbserial</span><span class="p">:</span> <span class="n">USB</span> <span class="n">Serial</span> <span class="n">support</span> <span class="n">registered</span> <span class="k">for</span> <span class="n">generic</span>
+<span class="p">[</span> <span class="n">xxxx</span><span class="o">.</span><span class="n">yyyy</span><span class="p">]</span> <span class="n">usbcore</span><span class="p">:</span> <span class="n">registered</span> <span class="n">new</span> <span class="n">interface</span> <span class="n">driver</span> <span class="n">cp210x</span>
+<span class="p">[</span> <span class="n">xxxx</span><span class="o">.</span><span class="n">yyyy</span><span class="p">]</span> <span class="n">usbserial</span><span class="p">:</span> <span class="n">USB</span> <span class="n">Serial</span> <span class="n">support</span> <span class="n">registered</span> <span class="k">for</span> <span class="n">cp210x</span>
+<span class="p">[</span> <span class="n">xxxx</span><span class="o">.</span><span class="n">yyyy</span><span class="p">]</span> <span class="n">cp210x</span> <span class="mi">3</span><span class="o">-</span><span class="mi">7</span><span class="p">:</span><span class="mf">1.0</span><span class="p">:</span> <span class="n">cp210x</span> <span class="n">converter</span> <span class="n">detected</span>
+<span class="p">[</span> <span class="n">xxxx</span><span class="o">.</span><span class="n">yyyy</span><span class="p">]</span> <span class="n">usb</span> <span class="mi">3</span><span class="o">-</span><span class="mi">7</span><span class="p">:</span> <span class="n">cp210x</span> <span class="n">converter</span> <span class="n">now</span> <span class="n">attached</span> <span class="n">to</span> <span class="n">ttyUSB0</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="wifi-extender-project">
+<h2><span class="section-number">17.2. </span>Wifi Extender Project<a class="headerlink" href="#wifi-extender-project" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="github reference external" href="https://github.com/martin-ger/esp32_nat_router">martin-ger/esp32_nat_router</a></p></li>
 </ul>
+<ol class="arabic">
+<li><p>Download the files from the above website</p></li>
+<li><p>Flash them into the controller.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">esptool</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">chip</span> <span class="n">esp32</span> \
+<span class="o">--</span><span class="n">before</span> <span class="n">default_reset</span> <span class="o">--</span><span class="n">after</span> <span class="n">hard_reset</span> <span class="n">write_flash</span> \
+<span class="o">-</span><span class="n">z</span> <span class="o">--</span><span class="n">flash_mode</span> <span class="n">dio</span> <span class="o">--</span><span class="n">flash_freq</span> <span class="mi">40</span><span class="n">m</span> <span class="o">--</span><span class="n">flash_size</span> <span class="n">detect</span> \
+<span class="mh">0x1000</span> <span class="n">build</span><span class="o">/</span><span class="n">esp32</span><span class="o">/</span><span class="n">bootloader</span><span class="o">.</span><span class="n">bin</span> \
+<span class="mh">0x8000</span> <span class="n">build</span><span class="o">/</span><span class="n">esp32</span><span class="o">/</span><span class="n">partitions</span><span class="o">.</span><span class="n">bin</span> \
+<span class="mh">0x10000</span> <span class="n">build</span><span class="o">/</span><span class="n">esp32</span><span class="o">/</span><span class="n">firmware</span><span class="o">.</span><span class="n">bin</span>
+</pre></div>
+</div>
+</li>
+<li><p>Go to 192.168.4.1 to access the configuration. Follow the instruction on the github website above for configuring your new wifi.</p></li>
+</ol>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -454,22 +494,13 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="014jupyterlab.html"
+       href="017experiment.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">13. </span>JupyterLab</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>Experiment procedure</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="016pandas.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">15. </span>Pandas scripts</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -478,7 +509,21 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-esp32-to-pc">17.1. Connecting ESP32 to PC</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wifi-extender-project">17.2. Wifi Extender Project</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

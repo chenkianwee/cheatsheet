@@ -198,6 +198,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="015geom.html">14. Computational geometry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="016pandas.html">15. Pandas scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="017experiment.html">16. Experiment procedure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="018micro_proj.html">17. Projects with Micro-Controller</a></li>
 </ul>
 
     </div>
@@ -540,28 +541,28 @@ based on these:</p>
 </pre></div>
 </div>
 </li>
-<li><p>You will need to specify your .pypirc file in your home directory.</p>
+<li><p>Upload your build to the testpypi with the following command. You will be asked to key in your token.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">twine</span> <span class="n">upload</span> <span class="o">--</span><span class="n">repository</span> <span class="n">testpypi</span> <span class="n">dist</span><span class="o">/*</span> <span class="o">--</span><span class="n">verbose</span>
+</pre></div>
+</div>
+<ul>
+<li><p>Alternatively you can store your credentials in a .pypirc file in your home directory.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">distutils</span><span class="p">]</span>
 <span class="n">index</span><span class="o">-</span><span class="n">servers</span> <span class="o">=</span>
     <span class="n">pypi</span>
     <span class="n">testpypi</span>
 
 <span class="p">[</span><span class="n">pypi</span><span class="p">]</span>
-<span class="n">repository</span> <span class="o">=</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">upload</span><span class="o">.</span><span class="n">pypi</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">legacy</span><span class="o">/</span>
 <span class="n">username</span> <span class="o">=</span> <span class="n">__token__</span>
 <span class="n">password</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">PyPI</span> <span class="n">token</span><span class="o">&gt;</span>
 
 <span class="p">[</span><span class="n">testpypi</span><span class="p">]</span>
-<span class="n">repository</span> <span class="o">=</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">test</span><span class="o">.</span><span class="n">pypi</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">legacy</span><span class="o">/</span>
 <span class="n">username</span> <span class="o">=</span> <span class="n">__token__</span>
 <span class="n">password</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">PyPI</span> <span class="n">token</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 </li>
-<li><p>Upload your build to the testpypi with the following command.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">twine</span> <span class="n">upload</span> <span class="o">--</span><span class="n">repository</span> <span class="n">testpypi</span> <span class="n">dist</span><span class="o">/*</span> <span class="o">--</span><span class="n">verbose</span>
-</pre></div>
-</div>
+</ul>
 </li>
 <li><p>Install the library from testpypi with the following command</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">index</span><span class="o">-</span><span class="n">url</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">test</span><span class="o">.</span><span class="n">pypi</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">simple</span><span class="o">/</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">deps</span> <span class="n">example</span><span class="o">-</span><span class="n">package</span><span class="o">-</span><span class="n">YOUR</span><span class="o">-</span><span class="n">USERNAME</span><span class="o">-</span><span class="n">HERE</span>  
@@ -645,7 +646,7 @@ based on these:</p>
 </div>
 </li>
 <li><p>Generate documentation for your project by specifying the directory your project is in and outputting it to a directory. HTML files will be generated.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pdoc</span> <span class="n">proj_directory</span> <span class="o">--</span><span class="n">output</span><span class="o">-</span><span class="nb">dir</span> <span class="o">./</span><span class="n">docs</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pdoc</span> <span class="o">-</span><span class="n">d</span> <span class="n">numpy</span> <span class="n">proj_directory</span> <span class="o">--</span><span class="n">output</span><span class="o">-</span><span class="nb">dir</span> <span class="o">./</span><span class="n">docs</span>
 </pre></div>
 </div>
 </li>
