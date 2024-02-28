@@ -223,20 +223,42 @@ Configure ubuntu to detect nvidia gpu
 - You can check if your system detects the graphic card by going to Settings -> about
 - you can change the primary graphic card to use with the nvidia-settings application
 
+### Thunderbird outlook sync
+- https://support.mozilla.org/en-US/questions/1363441
+
+1. Install these 2 add-on
+    - tbsync
+    - provider for exchange active sync
+
+2. once installed go to tbsync -> account action -> add account -> microsoft office 365
+    - key in the necessary credentials
+
 ### Make appimage as an ubuntu desktop app
 - https://askubuntu.com/questions/902672/registering-appimage-files-as-a-desktop-app?rq=1
 - https://askubuntu.com/questions/162612/how-can-i-add-an-application-to-the-list-of-open-with-applications
-1. for librecad
-```
-[Desktop Entry]
-Type=Application
-Name=Librecad
-Comment=Librecad
-Exec=/home/usr/Applications/LibreCAD-2.2.0.2-x86_64.AppImage %F
-Terminal=false
-Categories=Librecad,cad
-```
-2. put the file in ~/.local/share/applications 
+
+1. Make sure the appimage is executable
+    ```
+    chmod u+x path/to/appimage
+    ```
+2. You might need to install the libfuse library for the appimage to work.
+    - https://github.com/OpenShot/openshot-qt/issues/4789
+    ```
+    sudo apt install libfuse2
+    ```
+
+3. for librecad
+    ```
+    [Desktop Entry]
+    Type=Application
+    Name=Librecad
+    Comment=Librecad
+    Exec=/home/usr/Applications/LibreCAD-2.2.0.2-x86_64.AppImage %F
+    Terminal=false
+    Categories=Librecad,cad
+    ```
+3. put the file in ~/.local/share/applications 
+
 ### LibreOffice
 Zotero plugin for libreoffice
 https://www.libreofficehelp.com/how-to-fix-libreoffice-requires-a-java-runtime-environment-error/
@@ -245,6 +267,22 @@ https://www.libreofficehelp.com/how-to-fix-libreoffice-requires-a-java-runtime-e
 - https://www.libreofficehelp.com/install-fonts-libreoffice-openoffice/#GNULinux_Ubuntu_Linux_Mint_Fedora_etc
 - download the font file ttf or otf here (https://www.dafont.com/search.php?q=linux+libertine) 
 - extract and put it in the share font folder in ubuntu, /usr/share/fonts.
+
+### Install Inkscape
+- https://www.linuxcapable.com/how-to-install-inkscape-on-ubuntu-linux/
+
+1. Install dependencies
+    ```
+    sudo apt install software-properties-common apt-transport-https
+    ```
+2. Import the PPA
+    ```
+    sudo add-apt-repository ppa:inkscape.dev/stable -y
+    ```
+3. Install inkscape
+    ```
+    sudo apt install inkscape
+    ```
 
 ### Install .run files
 - https://www.wikihow.com/Execute-.RUN-Files-in-Linux

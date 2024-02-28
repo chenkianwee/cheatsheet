@@ -32,3 +32,4 @@ parts:
   - file: docs/015geom
   - file: docs/016pandas
   - file: docs/017experiment
+  - file: docs/018micro_proj

@@ -106,28 +106,26 @@ based on these:
     ```
     pip install --upgrade twine
     ```
-6. You will need to specify your .pypirc file in your home directory.
-    ```
-    [distutils]
-    index-servers =
-        pypi
-        testpypi
-
-    [pypi]
-    repository = https://upload.pypi.org/legacy/
-    username = __token__
-    password = <PyPI token>
-
-    [testpypi]
-    repository = https://test.pypi.org/legacy/
-    username = __token__
-    password = <PyPI token>
-    ```
-7. Upload your build to the testpypi with the following command.
+6. Upload your build to the testpypi with the following command. You will be asked to key in your token.
     ```
     twine upload --repository testpypi dist/* --verbose
     ```
-9. Install the library from testpypi with the following command
+    - Alternatively you can store your credentials in a .pypirc file in your home directory.
+        ```
+        [distutils]
+        index-servers =
+            pypi
+            testpypi
+
+        [pypi]
+        username = __token__
+        password = <PyPI token>
+
+        [testpypi]
+        username = __token__
+        password = <PyPI token>
+        ```
+7. Install the library from testpypi with the following command
     ```
     pip install --index-url https://test.pypi.org/simple/ --no-deps example-package-YOUR-USERNAME-HERE  
     ```
@@ -193,7 +191,7 @@ based on these:
     ```
 2. Generate documentation for your project by specifying the directory your project is in and outputting it to a directory. HTML files will be generated.
     ```
-    pdoc proj_directory --output-dir ./docs
+    pdoc -d numpy proj_directory --output-dir ./docs
     ```
 ## Framework for writing Python Apps
 - https://beeware.org
@@ -220,6 +218,9 @@ based on these:
     ```
 3. Restart your vscode.
 
+### Selecting interpreter
+1. Ctrl + Shift + P, type in Python Interpretor and specify the path to the interpretor.
+
 ### Folding in VScode
 - https://code.visualstudio.com/docs/editor/codebasics#_folding
 
@@ -244,6 +245,12 @@ based on these:
     #region
     #endregion
     ```
+### New window
+- create new window of current window
+    ```
+    ctrl + k
+    ```
+    - then press o
 ## Execute Python with Crontab 
 - https://stackoverflow.com/questions/8727935/execute-python-script-via-crontab
 - https://www.adminschoice.com/crontab-quick-reference
