@@ -245,6 +245,12 @@ based on these:
     #region
     #endregion
     ```
+### New window
+- create new window of current window
+    ```
+    ctrl + k
+    ```
+    - then press o
 ## Execute Python with Crontab 
 - https://stackoverflow.com/questions/8727935/execute-python-script-via-crontab
 - https://www.adminschoice.com/crontab-quick-reference
