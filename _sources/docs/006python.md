@@ -218,19 +218,52 @@ based on these:
     ```
 3. Restart your vscode.
 
-### Selecting interpreter
-1. Ctrl + Shift + P, type in Python Interpretor and specify the path to the interpretor.
+### VScode useful shortcut keys
+- Selecting interpreter
+    ```
+    Ctrl + Shift + P, type in Python Interpretor and specify the path to the interpretor.
+    ```
+- See all keyboard shortcut
+    ```
+    Ctrl + k Ctrl + s
+    ```
+- create new window of current window
+    ```
+    ctrl + k
+    ```
+    - then press o
 
 ### Folding in VScode
 - https://code.visualstudio.com/docs/editor/codebasics#_folding
 
-- fold a region
+- define fold region 
+    ```
+    #region
+    #endregion
+    ```
+- fold
     ```
     ctrl + shift + [
     ```
-- unfold a region
+
+- fold recursively
+    ```
+    ctrl + k ctrl + ]
+    ```
+
+- unfold
     ```
     ctrl + shift + ]
+    ```
+
+- unfold recursively
+    ```
+    ctrl + k ctrl + ]
+    ```
+
+- unfold a region
+    ```
+    ctrl + k ctrl + 9
     ```
 - fold all
     ```
@@ -240,17 +273,14 @@ based on these:
     ```
     ctrl + k ctrl + j
     ```
-- define fold region 
+
+- fold all regions
     ```
-    #region
-    #endregion
+    ctrl + k ctrl + 8
     ```
-### New window
-- create new window of current window
-    ```
-    ctrl + k
-    ```
-    - then press o
+
+
+
 ## Execute Python with Crontab 
 - https://stackoverflow.com/questions/8727935/execute-python-script-via-crontab
 - https://www.adminschoice.com/crontab-quick-reference

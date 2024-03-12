@@ -403,9 +403,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reducing-numpy-scipy-library-size">5.7. Reducing numpy, scipy library size</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vscode-python-ide">5.8. VScode Python IDE</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-pythonpath">5.8.1. Setting up PYTHONPATH</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-interpreter">5.8.2. Selecting interpreter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vscode-useful-shortcut-keys">5.8.2. VScode useful shortcut keys</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#folding-in-vscode">5.8.3. Folding in VScode</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-window">5.8.4. New window</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#execute-python-with-crontab">5.9. Execute Python with Crontab</a></li>
@@ -692,23 +691,61 @@ based on these:</p>
 <li><p>Restart your vscode.</p></li>
 </ol>
 </section>
-<section id="selecting-interpreter">
-<h3><span class="section-number">5.8.2. </span>Selecting interpreter<a class="headerlink" href="#selecting-interpreter" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>Ctrl + Shift + P, type in Python Interpretor and specify the path to the interpretor.</p></li>
-</ol>
+<section id="vscode-useful-shortcut-keys">
+<h3><span class="section-number">5.8.2. </span>VScode useful shortcut keys<a class="headerlink" href="#vscode-useful-shortcut-keys" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p>Selecting interpreter</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Ctrl</span> <span class="o">+</span> <span class="n">Shift</span> <span class="o">+</span> <span class="n">P</span><span class="p">,</span> <span class="nb">type</span> <span class="ow">in</span> <span class="n">Python</span> <span class="n">Interpretor</span> <span class="ow">and</span> <span class="n">specify</span> <span class="n">the</span> <span class="n">path</span> <span class="n">to</span> <span class="n">the</span> <span class="n">interpretor</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+<li><p>See all keyboard shortcut</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Ctrl</span> <span class="o">+</span> <span class="n">k</span> <span class="n">Ctrl</span> <span class="o">+</span> <span class="n">s</span>
+</pre></div>
+</div>
+</li>
+<li><p>create new window of current window</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ctrl</span> <span class="o">+</span> <span class="n">k</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>then press o</p></li>
+</ul>
+</li>
+</ul>
 </section>
 <section id="folding-in-vscode">
 <h3><span class="section-number">5.8.3. </span>Folding in VScode<a class="headerlink" href="#folding-in-vscode" title="Permalink to this heading">#</a></h3>
 <ul>
 <li><p><a class="reference external" href="https://code.visualstudio.com/docs/editor/codebasics#_folding">https://code.visualstudio.com/docs/editor/codebasics#_folding</a></p></li>
-<li><p>fold a region</p>
+<li><p>define fold region</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#region</span>
+<span class="c1">#endregion</span>
+</pre></div>
+</div>
+</li>
+<li><p>fold</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ctrl</span> <span class="o">+</span> <span class="n">shift</span> <span class="o">+</span> <span class="p">[</span>
 </pre></div>
 </div>
 </li>
-<li><p>unfold a region</p>
+<li><p>fold recursively</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ctrl</span> <span class="o">+</span> <span class="n">k</span> <span class="n">ctrl</span> <span class="o">+</span> <span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>unfold</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ctrl</span> <span class="o">+</span> <span class="n">shift</span> <span class="o">+</span> <span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>unfold recursively</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ctrl</span> <span class="o">+</span> <span class="n">k</span> <span class="n">ctrl</span> <span class="o">+</span> <span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>unfold a region</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ctrl</span> <span class="o">+</span> <span class="n">k</span> <span class="n">ctrl</span> <span class="o">+</span> <span class="mi">9</span>
 </pre></div>
 </div>
 </li>
@@ -722,24 +759,10 @@ based on these:</p>
 </pre></div>
 </div>
 </li>
-<li><p>define fold region</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#region</span>
-<span class="c1">#endregion</span>
+<li><p>fold all regions</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ctrl</span> <span class="o">+</span> <span class="n">k</span> <span class="n">ctrl</span> <span class="o">+</span> <span class="mi">8</span>
 </pre></div>
 </div>
-</li>
-</ul>
-</section>
-<section id="new-window">
-<h3><span class="section-number">5.8.4. </span>New window<a class="headerlink" href="#new-window" title="Permalink to this heading">#</a></h3>
-<ul>
-<li><p>create new window of current window</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ctrl</span> <span class="o">+</span> <span class="n">k</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>then press o</p></li>
-</ul>
 </li>
 </ul>
 </section>
@@ -847,9 +870,8 @@ based on these:</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reducing-numpy-scipy-library-size">5.7. Reducing numpy, scipy library size</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vscode-python-ide">5.8. VScode Python IDE</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-pythonpath">5.8.1. Setting up PYTHONPATH</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-interpreter">5.8.2. Selecting interpreter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vscode-useful-shortcut-keys">5.8.2. VScode useful shortcut keys</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#folding-in-vscode">5.8.3. Folding in VScode</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-window">5.8.4. New window</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#execute-python-with-crontab">5.9. Execute Python with Crontab</a></li>
