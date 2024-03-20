@@ -28,6 +28,7 @@ activate environment for ubuntu
 ```
 source bin/dir/activate
 ```
+
 ## Conda
 create environment
 ```
@@ -45,6 +46,7 @@ remove cache and unused cache packages
 ```
 conda clean -a
 ```
+
 ## Deploy Python Package to PYPI
 This is written for a window system. Make changes accordingly to your OS.
 based on these:
@@ -133,6 +135,7 @@ based on these:
     ```
     twine upload dist/* --verbose
     ```
+
 ## CI/CD with Github action
 - https://www.asapdevelopers.com/python-for-ci-cd/
 - https://ron.sh/how-to-submit-a-package-to-pypi/
@@ -193,14 +196,20 @@ based on these:
     ```
     pdoc -d numpy proj_directory --output-dir ./docs
     ```
+
 ## Framework for writing Python Apps
 - https://beeware.org
 - https://realpython.com/pyinstaller-python/#distribution-problems
 - https://github.com/ClimenteA/flaskwebgui
 - https://github.com/ClimenteA/pyvan
 
-## Reducing numpy, scipy library size 
+## Numpy and scipy resources
+### Reducing numpy, scipy library size 
 - https://towardsdatascience.com/how-to-shrink-numpy-scipy-pandas-and-matplotlib-for-your-data-product-4ec8d7e86ee4
+
+### Indexing and slicing on numpy
+- https://numpy.org/doc/stable/user/basics.indexing.html#
+
 
 ## VScode Python IDE
 - https://code.visualstudio.com/docs/python/environments
@@ -218,19 +227,52 @@ based on these:
     ```
 3. Restart your vscode.
 
-### Selecting interpreter
-1. Ctrl + Shift + P, type in Python Interpretor and specify the path to the interpretor.
+### VScode useful shortcut keys
+- Selecting interpreter
+    ```
+    Ctrl + Shift + P, type in Python Interpretor and specify the path to the interpretor.
+    ```
+- See all keyboard shortcut
+    ```
+    Ctrl + k Ctrl + s
+    ```
+- create new window of current window
+    ```
+    ctrl + k
+    ```
+    - then press o
 
 ### Folding in VScode
 - https://code.visualstudio.com/docs/editor/codebasics#_folding
 
-- fold a region
+- define fold region 
+    ```
+    #region
+    #endregion
+    ```
+- fold
     ```
     ctrl + shift + [
     ```
-- unfold a region
+
+- fold recursively
+    ```
+    ctrl + k ctrl + ]
+    ```
+
+- unfold
     ```
     ctrl + shift + ]
+    ```
+
+- unfold recursively
+    ```
+    ctrl + k ctrl + ]
+    ```
+
+- unfold a region
+    ```
+    ctrl + k ctrl + 9
     ```
 - fold all
     ```
@@ -240,22 +282,58 @@ based on these:
     ```
     ctrl + k ctrl + j
     ```
-- define fold region 
+
+- fold all regions
     ```
-    #region
-    #endregion
+    ctrl + k ctrl + 8
     ```
-### New window
-- create new window of current window
+    
+## Generate xml file from xsd using Python
+### Using generateDS.py to generate Python files from xsd
+- https://stackoverflow.com/questions/48928973/python-create-xml-from-xsd
+- the result was not very successful
+
+1. pip install the library generateDS.py
     ```
-    ctrl + k
+    pip install generateDS
     ```
-    - then press o
+2. Once it is installed you will be able to access it in your virtual environment by typing 'generateDS.py'
+
+3. Run the following command to generate python codes to write measure_xml
+    ```
+    generateDS.py -o osmod_measure.py -s osmod_measuresubs.py measure_v3.xsd 
+
+    ```
+### Using xmlschema
+- https://stackoverflow.com/questions/58283389/create-specific-xml-file-from-xsd-file-with-python
+- https://github.com/sissaschool/xmlschema/issues/395
+
+1. An example script
+    ```
+    import xmlschema
+    import json
+    from xml.etree.ElementTree import ElementTree
+
+    xsd_path = '/home/xsd/measure_v3.xsd'
+    xml_path = '/home/measure.xml'
+    res_path = '/home/measure_edited.xml'
+
+    schema = xmlschema.XMLSchema(xsd_path)
+    print(schema.is_valid(xml_path))
+    d = schema.to_dict(xml_path, preserve_root=True)
+    d['measure']['arguments'] = {'argument': [{'name': 'srf_temps',
+                                    'display_name': 'Surface Temperatures',
+                                    'description': 'Output the surface temperatures of each surface',
+                                    'type': 'Boolean', 'required': True, 'model_dependent': False}]}
+    json_data = json.dumps(d)
+    xml = xmlschema.from_json(json_data, schema=schema, preserve_root=True, path = 'measure')
+    ElementTree(xml).write(res_path)
+    ```
+
 ## Execute Python with Crontab 
 - https://stackoverflow.com/questions/8727935/execute-python-script-via-crontab
 - https://www.adminschoice.com/crontab-quick-reference
 - https://linuxize.com/post/cron-jobs-every-5-10-15-minutes/
-
 
 ## Python in the browser
 - https://jupyter.org/
@@ -265,5 +343,7 @@ based on these:
 ## Panda3d for 3D game development
 - https://github.com/ArsThaumaturgis/Panda3DTutorial.io
 
-## Resources
+## Resourcesself
 - Computer Scientist website on alot of python resources and career advice (https://third-bit.com/)
+- Useful online books on python: https://greenteapress.com/wp/
+- research software engineering with python: https://alan-turing-institute.github.io/rse-course/html/index.html#

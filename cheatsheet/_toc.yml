@@ -33,3 +33,4 @@ parts:
   - file: docs/016pandas
   - file: docs/017experiment
   - file: docs/018micro_proj
+  - file: docs/019snippet
