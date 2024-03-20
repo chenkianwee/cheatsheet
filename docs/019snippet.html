@@ -371,7 +371,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -387,6 +389,16 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-subprocess">18.1. Python subprocess</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-datetime">18.2. Python datetime</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-pathlib">18.3. Python Pathlib</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -398,8 +410,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="useful-code-snippets">
 <h1><span class="section-number">18. </span>Useful code snippets<a class="headerlink" href="#useful-code-snippets" title="Permalink to this heading">#</a></h1>
-<ul>
-<li><p>Python subprocess</p>
+<section id="python-subprocess">
+<h2><span class="section-number">18.1. </span>Python subprocess<a class="headerlink" href="#python-subprocess" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">subprocess</span>
 
@@ -412,8 +424,9 @@ document.write(`
 <span class="n">res</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">call_list</span><span class="p">)</span>
 </pre></div>
 </div>
-</li>
-<li><p>Python datetime</p>
+</section>
+<section id="python-datetime">
+<h2><span class="section-number">18.2. </span>Python datetime<a class="headerlink" href="#python-datetime" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
 <span class="kn">from</span> <span class="nn">dateutil.parser</span> <span class="kn">import</span> <span class="n">parse</span>
 <span class="kn">import</span> <span class="nn">pytz</span>
@@ -430,8 +443,9 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">dt_str</span><span class="p">)</span>
 </pre></div>
 </div>
-</li>
-<li><p>Pathlib</p>
+</section>
+<section id="python-pathlib">
+<h2><span class="section-number">18.3. </span>Python Pathlib<a class="headerlink" href="#python-pathlib" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
 <span class="n">join_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;/home/chenkianwee&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;this&#39;</span><span class="p">,</span><span class="s1">&#39;is&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;path&#39;</span><span class="p">)</span>
@@ -446,8 +460,7 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">filename</span><span class="o">.</span><span class="fm">__str__</span><span class="p">())</span>
 </pre></div>
 </div>
-</li>
-</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -496,7 +509,22 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-subprocess">18.1. Python subprocess</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-datetime">18.2. Python datetime</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-pathlib">18.3. Python Pathlib</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
