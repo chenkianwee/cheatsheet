@@ -21,7 +21,7 @@
     - https://www.duckdns.org/install.jsp
 
 - Port forwarding
-    - 
+    - https://portforward.com/how-to-port-forward/
 - Article about which dynamic DNS service to use
     - https://www.makeuseof.com/tag/5-best-dynamic-dns-providers-can-lookup-free-today/
 - Forward Proxy and Reverse Proxy

@@ -199,6 +199,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="016pandas.html">15. Pandas scripts</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">16. Experiment procedure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="018micro_proj.html">17. Projects with Micro-Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="019snippet.html">18. Useful code snippets</a></li>
 </ul>
 
     </div>
@@ -427,816 +428,792 @@ document.write(`
 <p>Here are some python scripts that might be useful for post processing the data after an experiment.</p>
 <section id="script-to-extract-data-from-the-frost-server-through-timescaledb-interface">
 <h3><span class="section-number">16.1.1. </span>Script to extract data from the FROST Server through timescaledb interface.<a class="headerlink" href="#script-to-extract-data-from-the-frost-server-through-timescaledb-interface" title="Permalink to this heading">#</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
-import psycopg2
-from sshtunnel import SSHTunnelForwarder
-import csv
-import pytz
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">psycopg2</span>
+<span class="kn">from</span> <span class="nn">sshtunnel</span> <span class="kn">import</span> <span class="n">SSHTunnelForwarder</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">import</span> <span class="nn">pytz</span>
 
-# input = [1, &#39;a006_panel_temp&#39;] # only for day 19072023 to 20072023
-# input = [2, &#39;arg001_panel_temp&#39;]
-# input = [5, &#39;bo001_outlet_air_temp&#39;]
-# input = [6, &#39;bo001_outlet_rel_humid&#39;]
-# input = [7, &#39;bo001_outlet_abs_humid&#39;]
-# input = [11, &#39;ph021_globe_temp&#39;]
-# input = [13, &#39;a010_air_temp&#39;]
-# input = [14, &#39;a010_rel_humid&#39;]
-input = [15, &#39;a010_abs_humid&#39;]
+<span class="c1"># input = [1, &#39;a006_panel_temp&#39;] # only for day 19072023 to 20072023</span>
+<span class="c1"># input = [2, &#39;arg001_panel_temp&#39;]</span>
+<span class="c1"># input = [5, &#39;bo001_outlet_air_temp&#39;]</span>
+<span class="c1"># input = [6, &#39;bo001_outlet_rel_humid&#39;]</span>
+<span class="c1"># input = [7, &#39;bo001_outlet_abs_humid&#39;]</span>
+<span class="c1"># input = [11, &#39;ph021_globe_temp&#39;]</span>
+<span class="c1"># input = [13, &#39;a010_air_temp&#39;]</span>
+<span class="c1"># input = [14, &#39;a010_rel_humid&#39;]</span>
+<span class="nb">input</span> <span class="o">=</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="s1">&#39;a010_abs_humid&#39;</span><span class="p">]</span>
 
-ds_id = input[0]
-res_path = &#39;/home/usr/input[1] + &#39;.csv&#39;
-rows2d = [[&#39;datetime&#39;, input[1]]]
-st_time_str = &#39;2023-07-19 00:00:00-4&#39;
-end_time_str = &#39;2023-07-20 17:30:00-4&#39;
-#%% Function
-def get_data(ds_id, st_time_str, end_time_str):
-    PORT=5432
-    with SSHTunnelForwarder((&#39;chaosbox.edu&#39;),
-                            ssh_username=&#39;&#39;,
-                            ssh_password=&#39;&#39;,
-                            remote_bind_address=(&#39;localhost&#39;, PORT),
-                            local_bind_address=(&#39;localhost&#39;, PORT)):
+<span class="n">ds_id</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">res_path</span> <span class="o">=</span> <span class="s1">&#39;/home/usr/input[1] + &#39;</span><span class="o">.</span><span class="n">csv</span><span class="s1">&#39;</span>
+<span class="n">rows2d</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;datetime&#39;</span><span class="p">,</span> <span class="nb">input</span><span class="p">[</span><span class="mi">1</span><span class="p">]]]</span>
+<span class="n">st_time_str</span> <span class="o">=</span> <span class="s1">&#39;2023-07-19 00:00:00-4&#39;</span>
+<span class="n">end_time_str</span> <span class="o">=</span> <span class="s1">&#39;2023-07-20 17:30:00-4&#39;</span>
+<span class="c1">#%% Function</span>
+<span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">ds_id</span><span class="p">,</span> <span class="n">st_time_str</span><span class="p">,</span> <span class="n">end_time_str</span><span class="p">):</span>
+    <span class="n">PORT</span><span class="o">=</span><span class="mi">5432</span>
+    <span class="k">with</span> <span class="n">SSHTunnelForwarder</span><span class="p">((</span><span class="s1">&#39;chaosbox.edu&#39;</span><span class="p">),</span>
+                            <span class="n">ssh_username</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+                            <span class="n">ssh_password</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+                            <span class="n">remote_bind_address</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="n">PORT</span><span class="p">),</span>
+                            <span class="n">local_bind_address</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="n">PORT</span><span class="p">)):</span>
     
-        try:
-            conn = psycopg2.connect(dbname=&#39;spatempdb&#39;,
-                                    user=&#39;postgres&#39;,
-                                    host=&#39;localhost&#39;,
-                                    port = 5432,
-                                    password=&#39;postgres&#39;)
-            cursor = conn.cursor()
-            print(&#39;connected&#39;, cursor)
-        except:
-            print(&#39;notconnected&#39;)
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">dbname</span><span class="o">=</span><span class="s1">&#39;spatempdb&#39;</span><span class="p">,</span>
+                                    <span class="n">user</span><span class="o">=</span><span class="s1">&#39;postgres&#39;</span><span class="p">,</span>
+                                    <span class="n">host</span><span class="o">=</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span>
+                                    <span class="n">port</span> <span class="o">=</span> <span class="mi">5432</span><span class="p">,</span>
+                                    <span class="n">password</span><span class="o">=</span><span class="s1">&#39;postgres&#39;</span><span class="p">)</span>
+            <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;connected&#39;</span><span class="p">,</span> <span class="n">cursor</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;notconnected&#39;</span><span class="p">)</span>
     
-        ds_id = str(ds_id) # the datastream id you want to query
-        st_time = st_time_str #&#39;2021-03-30 12:29:00-4&#39;
-        end_time = end_time_str #&#39;2021-03-30 13:29:00-4&#39;
+        <span class="n">ds_id</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">ds_id</span><span class="p">)</span> <span class="c1"># the datastream id you want to query</span>
+        <span class="n">st_time</span> <span class="o">=</span> <span class="n">st_time_str</span> <span class="c1">#&#39;2021-03-30 12:29:00-4&#39;</span>
+        <span class="n">end_time</span> <span class="o">=</span> <span class="n">end_time_str</span> <span class="c1">#&#39;2021-03-30 13:29:00-4&#39;</span>
         
-        command =   &quot;&quot;&quot;
-                    SELECT &quot;RESULT_TIME&quot;, 
-                    &quot;RESULT_NUMBER&quot;
-                    FROM public.&quot;OBSERVATIONS&quot;
-                    WHERE &quot;DATASTREAM_ID&quot; = %s and &quot;RESULT_TIME&quot; &gt; &#39;%s&#39; and &quot;RESULT_TIME&quot; &lt; &#39;%s&#39;
-                    ORDER BY &quot;RESULT_TIME&quot; ASC;
-                    &quot;&quot;&quot; %(ds_id, st_time, end_time)
+        <span class="n">command</span> <span class="o">=</span>   <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                    SELECT &quot;RESULT_TIME&quot;, </span>
+<span class="s2">                    &quot;RESULT_NUMBER&quot;</span>
+<span class="s2">                    FROM public.&quot;OBSERVATIONS&quot;</span>
+<span class="s2">                    WHERE &quot;DATASTREAM_ID&quot; = </span><span class="si">%s</span><span class="s2"> and &quot;RESULT_TIME&quot; &gt; &#39;</span><span class="si">%s</span><span class="s2">&#39; and &quot;RESULT_TIME&quot; &lt; &#39;</span><span class="si">%s</span><span class="s2">&#39;</span>
+<span class="s2">                    ORDER BY &quot;RESULT_TIME&quot; ASC;</span>
+<span class="s2">                    &quot;&quot;&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">ds_id</span><span class="p">,</span> <span class="n">st_time</span><span class="p">,</span> <span class="n">end_time</span><span class="p">)</span>
     
-        cursor.execute(command)
-        rows = cursor.fetchall()
-        cursor.close()
-        return rows
-#%% Main
-rows1 = get_data(ds_id, st_time_str, end_time_str)
-for row in rows1:
-    local_time = row[0].astimezone(pytz.timezone(&#39;America/New_York&#39;))
-    lt_str = local_time.isoformat()
-    rows2d.append([lt_str, row[1]])
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+        <span class="n">rows</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">rows</span>
+<span class="c1">#%% Main</span>
+<span class="n">rows1</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">ds_id</span><span class="p">,</span> <span class="n">st_time_str</span><span class="p">,</span> <span class="n">end_time_str</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows1</span><span class="p">:</span>
+    <span class="n">local_time</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="s1">&#39;America/New_York&#39;</span><span class="p">))</span>
+    <span class="n">lt_str</span> <span class="o">=</span> <span class="n">local_time</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
+    <span class="n">rows2d</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">lt_str</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
 
-with open(res_path, &#39;w&#39;, newline=&#39;&#39;) as csvfile: 
-    # creating a csv writer object 
-    csvwriter = csv.writer(csvfile) 
-    # writing the data rows 
-    csvwriter.writerows(rows2d)
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">res_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span> 
+    <span class="c1"># creating a csv writer object </span>
+    <span class="n">csvwriter</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">csvfile</span><span class="p">)</span> 
+    <span class="c1"># writing the data rows </span>
+    <span class="n">csvwriter</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">rows2d</span><span class="p">)</span>
 
-```
 </pre></div>
 </div>
 </section>
 <section id="combine-all-the-extracted-data-from-frost">
 <h3><span class="section-number">16.1.2. </span>Combine all the extracted data from FROST<a class="headerlink" href="#combine-all-the-extracted-data-from-frost" title="Permalink to this heading">#</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
-import os
-import pandas as pd
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-iot_dir = &#39;/home/raw/&#39;
-res_path = &#39;/home/usrname/raw.csv&#39;
+<span class="n">iot_dir</span> <span class="o">=</span> <span class="s1">&#39;/home/raw/&#39;</span>
+<span class="n">res_path</span> <span class="o">=</span> <span class="s1">&#39;/home/usrname/raw.csv&#39;</span>
 
-file_ls = sorted(os.listdir(iot_dir))
-df_ls = []
-for f in file_ls:
-    fsplit = f.split(&#39;.&#39;)
-    ext = fsplit[-1]
-    if ext == &#39;csv&#39;:
-        filepath = os.path.join(iot_dir, f)
-        df = pd.read_csv(filepath, sep=&#39;,&#39;)
-        df[&#39;datetime&#39;] = pd.to_datetime(df[&#39;datetime&#39;])
-        df.set_index(&#39;datetime&#39;, inplace=True)
-        df_ls.append(df)
+<span class="n">file_ls</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">iot_dir</span><span class="p">))</span>
+<span class="n">df_ls</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">file_ls</span><span class="p">:</span>
+    <span class="n">fsplit</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+    <span class="n">ext</span> <span class="o">=</span> <span class="n">fsplit</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">ext</span> <span class="o">==</span> <span class="s1">&#39;csv&#39;</span><span class="p">:</span>
+        <span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">iot_dir</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">])</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;datetime&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">df_ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
         
-new_df = pd.concat(df_ls, axis=1)
-new_df.to_csv(res_path)
-```
+<span class="n">new_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">df_ls</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">new_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">res_path</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="process-the-combine-file">
 <h3><span class="section-number">16.1.3. </span>Process the combine file<a class="headerlink" href="#process-the-combine-file" title="Permalink to this heading">#</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
-import pandas as pd
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-iot_path = &#39;/home/usrname/raw.csv&#39;
-res_path = &#39;/home/usrname/iot.csv&#39;
+<span class="n">iot_path</span> <span class="o">=</span> <span class="s1">&#39;/home/usrname/raw.csv&#39;</span>
+<span class="n">res_path</span> <span class="o">=</span> <span class="s1">&#39;/home/usrname/iot.csv&#39;</span>
 
-df = pd.read_csv(iot_path, sep=&#39;,&#39;)
-df[&#39;datetime&#39;] = pd.to_datetime(df[&#39;datetime&#39;])
-df.set_index(&#39;datetime&#39;, inplace=True)
-df = df.resample(&#39;1T&#39;).median()
-df.to_csv(res_path)
-```
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">iot_path</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;datetime&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;1T&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">res_path</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="process-the-mini-res-data">
 <h3><span class="section-number">16.1.4. </span>Process the mini-res data<a class="headerlink" href="#process-the-mini-res-data" title="Permalink to this heading">#</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
-import pytz
-import pandas as pd
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytz</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-mini_res_path = &#39;/home/usrname//RADICUBE.csv&#39;
-res_path = &#39;/home/usrname/minires.csv&#39;
-# read the csv
-df_mini = pd.read_csv(mini_res_path, sep = &#39;,&#39;)
-# convert the datetime string to datetime object
-df_mini[&#39;datetime&#39;] = df_mini[&#39;DD-MM-YYYY&#39;] + &#39;T&#39; + df_mini[&#39; HH:MM:SS&#39;]
-df_mini[&#39;datetime&#39;] = pd.to_datetime(df_mini[&#39;datetime&#39;], dayfirst=True, errors=&#39;coerce&#39;)
-df_mini = df_mini.dropna(subset=[&#39;datetime&#39;])
-df_mini[&#39;datetime&#39;] = df_mini[&#39;datetime&#39;] + pd.to_timedelta(&#39;2hour&#39;) # for mini res
-df_mini[&#39;datetime&#39;] = df_mini[&#39;datetime&#39;].dt.tz_localize(pytz.timezone(&#39;America/New_York&#39;))
-# set index with the datetime column
-df_mini.set_index(&#39;datetime&#39;, inplace=True)
-start_time_str = [&#39;21-07-2023 00:00:00&#39;, &#39;21-07-2023 18:30:00&#39;]
-se_time_dt = pd.to_datetime(start_time_str, dayfirst =True).tz_localize(pytz.timezone(&#39;America/New_York&#39;))
-df_mini = df_mini.loc[se_time_dt[0]:se_time_dt[1]]
+<span class="n">mini_res_path</span> <span class="o">=</span> <span class="s1">&#39;/home/usrname//RADICUBE.csv&#39;</span>
+<span class="n">res_path</span> <span class="o">=</span> <span class="s1">&#39;/home/usrname/minires.csv&#39;</span>
+<span class="c1"># read the csv</span>
+<span class="n">df_mini</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">mini_res_path</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="c1"># convert the datetime string to datetime object</span>
+<span class="n">df_mini</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_mini</span><span class="p">[</span><span class="s1">&#39;DD-MM-YYYY&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;T&#39;</span> <span class="o">+</span> <span class="n">df_mini</span><span class="p">[</span><span class="s1">&#39; HH:MM:SS&#39;</span><span class="p">]</span>
+<span class="n">df_mini</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_mini</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">],</span> <span class="n">dayfirst</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+<span class="n">df_mini</span> <span class="o">=</span> <span class="n">df_mini</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">])</span>
+<span class="n">df_mini</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_mini</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_timedelta</span><span class="p">(</span><span class="s1">&#39;2hour&#39;</span><span class="p">)</span> <span class="c1"># for mini res</span>
+<span class="n">df_mini</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_mini</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="s1">&#39;America/New_York&#39;</span><span class="p">))</span>
+<span class="c1"># set index with the datetime column</span>
+<span class="n">df_mini</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;datetime&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">start_time_str</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;21-07-2023 00:00:00&#39;</span><span class="p">,</span> <span class="s1">&#39;21-07-2023 18:30:00&#39;</span><span class="p">]</span>
+<span class="n">se_time_dt</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">start_time_str</span><span class="p">,</span> <span class="n">dayfirst</span> <span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="s1">&#39;America/New_York&#39;</span><span class="p">))</span>
+<span class="n">df_mini</span> <span class="o">=</span> <span class="n">df_mini</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">se_time_dt</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">se_time_dt</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
 
-# resample the timeseries into 1 min interval taking the median of that minute
-df_mini = df_mini.resample(&#39;1T&#39;).median(numeric_only=True)
-df_mini.to_csv(res_path)
-```
+<span class="c1"># resample the timeseries into 1 min interval taking the median of that minute</span>
+<span class="n">df_mini</span> <span class="o">=</span> <span class="n">df_mini</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;1T&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_mini</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">res_path</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="process-the-hires-sensor-data">
 <h3><span class="section-number">16.1.5. </span>Process the hiRES sensor data<a class="headerlink" href="#process-the-hires-sensor-data" title="Permalink to this heading">#</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
-import pytz
-import pandas as pd
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytz</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-mini_res_path = &#39;/home/usrname/ThermalArrayDatalog.csv&#39;
-res_path = &#39;/home/usrname/highres.csv&#39;
-start_time_str = [&#39;21-07-2023 00:00:00&#39;, &#39;21-07-2023 19:00:00&#39;]
-# read the csv
-df_mini = pd.read_csv(mini_res_path, sep = &#39;,&#39;)
-# convert the datetime string to datetime object
-df_mini[&#39;datetime&#39;] = df_mini[&#39;MM-DD-YYYY&#39;] + &#39;T&#39; + df_mini[&#39; HH:MM:SS&#39;]
-df_mini[&#39;datetime&#39;] = pd.to_datetime(df_mini[&#39;datetime&#39;], dayfirst=True, errors=&#39;coerce&#39;)
-df_mini = df_mini.dropna(subset=[&#39;datetime&#39;])
-df_mini[&#39;datetime&#39;] = df_mini[&#39;datetime&#39;] - pd.to_timedelta(&#39;6hour&#39;) # for mini res
-df_mini[&#39;datetime&#39;] = df_mini[&#39;datetime&#39;].dt.tz_localize(pytz.timezone(&#39;America/New_York&#39;))
-# set index with the datetime column
-df_mini.set_index(&#39;datetime&#39;, inplace=True)
-se_time_dt = pd.to_datetime(start_time_str, dayfirst =True).tz_localize(pytz.timezone(&#39;America/New_York&#39;))
-df_mini = df_mini.loc[se_time_dt[0]:se_time_dt[1]]
+<span class="n">mini_res_path</span> <span class="o">=</span> <span class="s1">&#39;/home/usrname/ThermalArrayDatalog.csv&#39;</span>
+<span class="n">res_path</span> <span class="o">=</span> <span class="s1">&#39;/home/usrname/highres.csv&#39;</span>
+<span class="n">start_time_str</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;21-07-2023 00:00:00&#39;</span><span class="p">,</span> <span class="s1">&#39;21-07-2023 19:00:00&#39;</span><span class="p">]</span>
+<span class="c1"># read the csv</span>
+<span class="n">df_mini</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">mini_res_path</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="c1"># convert the datetime string to datetime object</span>
+<span class="n">df_mini</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_mini</span><span class="p">[</span><span class="s1">&#39;MM-DD-YYYY&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;T&#39;</span> <span class="o">+</span> <span class="n">df_mini</span><span class="p">[</span><span class="s1">&#39; HH:MM:SS&#39;</span><span class="p">]</span>
+<span class="n">df_mini</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_mini</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">],</span> <span class="n">dayfirst</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+<span class="n">df_mini</span> <span class="o">=</span> <span class="n">df_mini</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">])</span>
+<span class="n">df_mini</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_mini</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_timedelta</span><span class="p">(</span><span class="s1">&#39;6hour&#39;</span><span class="p">)</span> <span class="c1"># for mini res</span>
+<span class="n">df_mini</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_mini</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="s1">&#39;America/New_York&#39;</span><span class="p">))</span>
+<span class="c1"># set index with the datetime column</span>
+<span class="n">df_mini</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;datetime&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">se_time_dt</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">start_time_str</span><span class="p">,</span> <span class="n">dayfirst</span> <span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="s1">&#39;America/New_York&#39;</span><span class="p">))</span>
+<span class="n">df_mini</span> <span class="o">=</span> <span class="n">df_mini</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">se_time_dt</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">se_time_dt</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
 
-# resample the timeseries into 1 min interval taking the median of that minute
-df_mini = df_mini.resample(&#39;5T&#39;).median(numeric_only=True)
-df_mini.to_csv(res_path)
-```
+<span class="c1"># resample the timeseries into 1 min interval taking the median of that minute</span>
+<span class="n">df_mini</span> <span class="o">=</span> <span class="n">df_mini</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;5T&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_mini</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">res_path</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="process-the-hires-ply-files-if-necessary">
 <h3><span class="section-number">16.1.6. </span>Process the hiRES ply files if necessary<a class="headerlink" href="#process-the-hires-ply-files-if-necessary" title="Permalink to this heading">#</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
-import os 
-import dateutil
-import datetime
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span> 
+<span class="kn">import</span> <span class="nn">dateutil</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
 
-hires_dir = &#39;/home/usrname/20230721_highres&#39;
-se_dt_string = [&#39;2023-07-21T00:00:00&#39;, &#39;2023-07-21T23:59:59&#39;]
+<span class="n">hires_dir</span> <span class="o">=</span> <span class="s1">&#39;/home/usrname/20230721_highres&#39;</span>
+<span class="n">se_dt_string</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;2023-07-21T00:00:00&#39;</span><span class="p">,</span> <span class="s1">&#39;2023-07-21T23:59:59&#39;</span><span class="p">]</span>
 
-filenames = sorted(os.listdir(hires_dir))
-# print(filenames)
-for filename in filenames:
-    path_split = filename.split(&#39;.&#39;)
-    ext = path_split[-1]
-    if ext == &#39;PLY&#39; or ext == &#39;BMP&#39;:
-        filename_only = path_split[0]
-        fn_split = filename_only.split(&#39;_&#39;)
-        date_str = fn_split[1]#.replace()
-        time_str = fn_split[2].replace(&#39;-&#39;, &#39;:&#39;)
-        datetime_str = date_str + &#39; &#39; + time_str
-        dt = dateutil.parser.parse(datetime_str)
-        dt = dt - datetime.timedelta(hours=6)
-        st_dt = dateutil.parser.parse(se_dt_string[0])
-        end_dt = dateutil.parser.parse(se_dt_string[1])
-        orig_path = os.path.join(hires_dir, filename)
-        if st_dt &lt;= dt &lt;= end_dt:
-            new_dt_str = dt.strftime(&#39;%m-%d-%y_%H-%M-%S&#39;)
-            new_filename = fn_split[0] + &#39;_&#39; + new_dt_str + &#39;_&#39; + fn_split[3] + &#39;.&#39; + ext
-            new_path = os.path.join(hires_dir, new_filename)
-            os.rename(orig_path, new_path)
-        else:
-            os.remove(orig_path)
+<span class="n">filenames</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">hires_dir</span><span class="p">))</span>
+<span class="c1"># print(filenames)</span>
+<span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span>
+    <span class="n">path_split</span> <span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+    <span class="n">ext</span> <span class="o">=</span> <span class="n">path_split</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">ext</span> <span class="o">==</span> <span class="s1">&#39;PLY&#39;</span> <span class="ow">or</span> <span class="n">ext</span> <span class="o">==</span> <span class="s1">&#39;BMP&#39;</span><span class="p">:</span>
+        <span class="n">filename_only</span> <span class="o">=</span> <span class="n">path_split</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">fn_split</span> <span class="o">=</span> <span class="n">filename_only</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
+        <span class="n">date_str</span> <span class="o">=</span> <span class="n">fn_split</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="c1">#.replace()</span>
+        <span class="n">time_str</span> <span class="o">=</span> <span class="n">fn_split</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">)</span>
+        <span class="n">datetime_str</span> <span class="o">=</span> <span class="n">date_str</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">time_str</span>
+        <span class="n">dt</span> <span class="o">=</span> <span class="n">dateutil</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">datetime_str</span><span class="p">)</span>
+        <span class="n">dt</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+        <span class="n">st_dt</span> <span class="o">=</span> <span class="n">dateutil</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">se_dt_string</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">end_dt</span> <span class="o">=</span> <span class="n">dateutil</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">se_dt_string</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">orig_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">hires_dir</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">st_dt</span> <span class="o">&lt;=</span> <span class="n">dt</span> <span class="o">&lt;=</span> <span class="n">end_dt</span><span class="p">:</span>
+            <span class="n">new_dt_str</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%m-</span><span class="si">%d</span><span class="s1">-%y_%H-%M-%S&#39;</span><span class="p">)</span>
+            <span class="n">new_filename</span> <span class="o">=</span> <span class="n">fn_split</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">new_dt_str</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">fn_split</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="n">ext</span>
+            <span class="n">new_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">hires_dir</span><span class="p">,</span> <span class="n">new_filename</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">orig_path</span><span class="p">,</span> <span class="n">new_path</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">orig_path</span><span class="p">)</span>
         
-```
 </pre></div>
 </div>
 </section>
 <section id="create-the-3d-model-of-the-space-for-projecting-hires-data">
 <h3><span class="section-number">16.1.7. </span>Create the 3d model of the space for projecting hiRES data<a class="headerlink" href="#create-the-3d-model-of-the-space-for-projecting-hires-data" title="Permalink to this heading">#</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
-import ezdxf
-import geomie3d
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ezdxf</span>
+<span class="kn">import</span> <span class="nn">geomie3d</span>
 
-dxf_path = &#39;/home/usrname/floorplan.dxf&#39;
-res_path1 = &#39;/home/usrname/room215.geomie3d&#39;
-res_path2 = &#39;/home/usrname/room025.geomie3d&#39;
-#%%Function
-def create_scene215():
-    doc = ezdxf.readfile(dxf_path)
-    msp = doc.modelspace()
+<span class="n">dxf_path</span> <span class="o">=</span> <span class="s1">&#39;/home/usrname/floorplan.dxf&#39;</span>
+<span class="n">res_path1</span> <span class="o">=</span> <span class="s1">&#39;/home/usrname/room215.geomie3d&#39;</span>
+<span class="n">res_path2</span> <span class="o">=</span> <span class="s1">&#39;/home/usrname/room025.geomie3d&#39;</span>
+<span class="c1">#%%Function</span>
+<span class="k">def</span> <span class="nf">create_scene215</span><span class="p">():</span>
+    <span class="n">doc</span> <span class="o">=</span> <span class="n">ezdxf</span><span class="o">.</span><span class="n">readfile</span><span class="p">(</span><span class="n">dxf_path</span><span class="p">)</span>
+    <span class="n">msp</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">modelspace</span><span class="p">()</span>
     
-    poly_pts = []
-    for e in msp:
-        if e.dxf.layer == &#39;walls&#39;:
-            if e.dxftype() == &#39;LINE&#39;:
-                st_pt = [round(e.dxf.start[0],6), round(e.dxf.start[1],6), round(e.dxf.start[2],6)]
-                end_pt = [round(e.dxf.end[0],6), round(e.dxf.end[1],6), round(e.dxf.end[2],6)]
-                poly_pts.append(st_pt)
-                poly_pts.append(end_pt)
+    <span class="n">poly_pts</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">msp</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">dxf</span><span class="o">.</span><span class="n">layer</span> <span class="o">==</span> <span class="s1">&#39;walls&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">dxftype</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;LINE&#39;</span><span class="p">:</span>
+                <span class="n">st_pt</span> <span class="o">=</span> <span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">dxf</span><span class="o">.</span><span class="n">start</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">6</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">dxf</span><span class="o">.</span><span class="n">start</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="mi">6</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">dxf</span><span class="o">.</span><span class="n">start</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="mi">6</span><span class="p">)]</span>
+                <span class="n">end_pt</span> <span class="o">=</span> <span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">dxf</span><span class="o">.</span><span class="n">end</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">6</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">dxf</span><span class="o">.</span><span class="n">end</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="mi">6</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">dxf</span><span class="o">.</span><span class="n">end</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="mi">6</span><span class="p">)]</span>
+                <span class="n">poly_pts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">st_pt</span><span class="p">)</span>
+                <span class="n">poly_pts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">end_pt</span><span class="p">)</span>
     
-    vlist = geomie3d.create.vertex_list(poly_pts)
-    vlist = geomie3d.modify.fuse_vertices(vlist)
-    poly = geomie3d.create.polygon_face_frm_verts(vlist)
-    ext = geomie3d.create.extrude_polygon_face(poly, [0,0,1], 2.4)
-    faces = geomie3d.get.faces_frm_solid(ext)
+    <span class="n">vlist</span> <span class="o">=</span> <span class="n">geomie3d</span><span class="o">.</span><span class="n">create</span><span class="o">.</span><span class="n">vertex_list</span><span class="p">(</span><span class="n">poly_pts</span><span class="p">)</span>
+    <span class="n">vlist</span> <span class="o">=</span> <span class="n">geomie3d</span><span class="o">.</span><span class="n">modify</span><span class="o">.</span><span class="n">fuse_vertices</span><span class="p">(</span><span class="n">vlist</span><span class="p">)</span>
+    <span class="n">poly</span> <span class="o">=</span> <span class="n">geomie3d</span><span class="o">.</span><span class="n">create</span><span class="o">.</span><span class="n">polygon_face_frm_verts</span><span class="p">(</span><span class="n">vlist</span><span class="p">)</span>
+    <span class="n">ext</span> <span class="o">=</span> <span class="n">geomie3d</span><span class="o">.</span><span class="n">create</span><span class="o">.</span><span class="n">extrude_polygon_face</span><span class="p">(</span><span class="n">poly</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="mf">2.4</span><span class="p">)</span>
+    <span class="n">faces</span> <span class="o">=</span> <span class="n">geomie3d</span><span class="o">.</span><span class="n">get</span><span class="o">.</span><span class="n">faces_frm_solid</span><span class="p">(</span><span class="n">ext</span><span class="p">)</span>
     
-    rev_faces = []
-    for cnt,f in enumerate(faces):
-        f = geomie3d.modify.reverse_face_normal(f)
-        geomie3d.modify.update_topo_att(f, {&#39;name&#39;: &#39;surface&#39; + str(cnt)})
-        rev_faces.append(f)
+    <span class="n">rev_faces</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">cnt</span><span class="p">,</span><span class="n">f</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">faces</span><span class="p">):</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">geomie3d</span><span class="o">.</span><span class="n">modify</span><span class="o">.</span><span class="n">reverse_face_normal</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="n">geomie3d</span><span class="o">.</span><span class="n">modify</span><span class="o">.</span><span class="n">update_topo_att</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;surface&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">cnt</span><span class="p">)})</span>
+        <span class="n">rev_faces</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
     
-    geomie3d.utility.write2geomie3d(rev_faces, res_path1)
+    <span class="n">geomie3d</span><span class="o">.</span><span class="n">utility</span><span class="o">.</span><span class="n">write2geomie3d</span><span class="p">(</span><span class="n">rev_faces</span><span class="p">,</span> <span class="n">res_path1</span><span class="p">)</span>
 
-def create_scene025():
-    box = geomie3d.create.box(4.1, 3.8, 2.4)
-    mv_box = geomie3d.modify.move_topo(box, [0,0,0], ref_xyz = [0,0,-1.2])
-    srfs = geomie3d.get.faces_frm_solid(mv_box)
-    bdry_srfs = []
-    for cnt,s in enumerate(srfs):
-        new_s = geomie3d.modify.reverse_face_normal(s)
-        geomie3d.modify.update_topo_att(new_s, {&#39;name&#39;: &#39;surface&#39; + str(cnt)})
-        bdry_srfs.append(new_s)
+<span class="k">def</span> <span class="nf">create_scene025</span><span class="p">():</span>
+    <span class="n">box</span> <span class="o">=</span> <span class="n">geomie3d</span><span class="o">.</span><span class="n">create</span><span class="o">.</span><span class="n">box</span><span class="p">(</span><span class="mf">4.1</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">,</span> <span class="mf">2.4</span><span class="p">)</span>
+    <span class="n">mv_box</span> <span class="o">=</span> <span class="n">geomie3d</span><span class="o">.</span><span class="n">modify</span><span class="o">.</span><span class="n">move_topo</span><span class="p">(</span><span class="n">box</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">ref_xyz</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mf">1.2</span><span class="p">])</span>
+    <span class="n">srfs</span> <span class="o">=</span> <span class="n">geomie3d</span><span class="o">.</span><span class="n">get</span><span class="o">.</span><span class="n">faces_frm_solid</span><span class="p">(</span><span class="n">mv_box</span><span class="p">)</span>
+    <span class="n">bdry_srfs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">cnt</span><span class="p">,</span><span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">srfs</span><span class="p">):</span>
+        <span class="n">new_s</span> <span class="o">=</span> <span class="n">geomie3d</span><span class="o">.</span><span class="n">modify</span><span class="o">.</span><span class="n">reverse_face_normal</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="n">geomie3d</span><span class="o">.</span><span class="n">modify</span><span class="o">.</span><span class="n">update_topo_att</span><span class="p">(</span><span class="n">new_s</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;surface&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">cnt</span><span class="p">)})</span>
+        <span class="n">bdry_srfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_s</span><span class="p">)</span>
     
-    geomie3d.utility.write2geomie3d(bdry_srfs, res_path2)
+    <span class="n">geomie3d</span><span class="o">.</span><span class="n">utility</span><span class="o">.</span><span class="n">write2geomie3d</span><span class="p">(</span><span class="n">bdry_srfs</span><span class="p">,</span> <span class="n">res_path2</span><span class="p">)</span>
 
-#%%Main
-if __name__ == &#39;__main__&#39;:
-    create_scene215()
-    create_scene025()
-```
+<span class="c1">#%%Main</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">create_scene215</span><span class="p">()</span>
+    <span class="n">create_scene025</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
 <section id="project-the-hires-data-onto-the-3d-model">
 <h3><span class="section-number">16.1.8. </span>Project the hiRES data onto the 3d model<a class="headerlink" href="#project-the-hires-data-onto-the-3d-model" title="Permalink to this heading">#</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
-import os
-import copy
-import statistics
-from pathlib import Path
-from time import perf_counter
-import geomie3d
-#%%Parameter
-therm_scan_dir = &#39;/home/usrname/_highres/&#39;
-scene_path = &#39;/home/usrname/model.geomie3d&#39;
-sensor_pos = [2.2, 2.3, 1]
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">statistics</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">perf_counter</span>
+<span class="kn">import</span> <span class="nn">geomie3d</span>
+<span class="c1">#%%Parameter</span>
+<span class="n">therm_scan_dir</span> <span class="o">=</span> <span class="s1">&#39;/home/usrname/_highres/&#39;</span>
+<span class="n">scene_path</span> <span class="o">=</span> <span class="s1">&#39;/home/usrname/model.geomie3d&#39;</span>
+<span class="n">sensor_pos</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.2</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 
     
-viz = False
-#%%Function
-def write2ply(res_path, xyz_ls, temp_ls, header):
-    nvs = len(xyz_ls)
-    nvs_line = &#39;element vertex &#39; + str(nvs) + &#39;\n&#39;
-    v_cnt = 0
-    for cnt, h in enumerate(header):
-        hsplit = h.split(&#39; &#39;)
-        if hsplit[0] == &#39;element&#39;:
-            if hsplit[1] == &#39;vertex&#39;:
-                v_cnt = cnt
+<span class="n">viz</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="c1">#%%Function</span>
+<span class="k">def</span> <span class="nf">write2ply</span><span class="p">(</span><span class="n">res_path</span><span class="p">,</span> <span class="n">xyz_ls</span><span class="p">,</span> <span class="n">temp_ls</span><span class="p">,</span> <span class="n">header</span><span class="p">):</span>
+    <span class="n">nvs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">xyz_ls</span><span class="p">)</span>
+    <span class="n">nvs_line</span> <span class="o">=</span> <span class="s1">&#39;element vertex &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">nvs</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+    <span class="n">v_cnt</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">cnt</span><span class="p">,</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">header</span><span class="p">):</span>
+        <span class="n">hsplit</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">hsplit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;element&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">hsplit</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;vertex&#39;</span><span class="p">:</span>
+                <span class="n">v_cnt</span> <span class="o">=</span> <span class="n">cnt</span>
     
-    header_w = header[:]
-    header_w[v_cnt] = nvs_line
-    for cnt,xyz in enumerate(xyz_ls):
-        temp = temp_ls[cnt]
-        v_str = str(xyz[0]) + &#39; &#39; + str(xyz[1]) + &#39; &#39; + str(xyz[2]) + &#39; &#39; + str(temp) + &#39;\n&#39;
-        header_w.append(v_str)
+    <span class="n">header_w</span> <span class="o">=</span> <span class="n">header</span><span class="p">[:]</span>
+    <span class="n">header_w</span><span class="p">[</span><span class="n">v_cnt</span><span class="p">]</span> <span class="o">=</span> <span class="n">nvs_line</span>
+    <span class="k">for</span> <span class="n">cnt</span><span class="p">,</span><span class="n">xyz</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">xyz_ls</span><span class="p">):</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">temp_ls</span><span class="p">[</span><span class="n">cnt</span><span class="p">]</span>
+        <span class="n">v_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">xyz</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">xyz</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">xyz</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">header_w</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v_str</span><span class="p">)</span>
     
-    f = open(res_path, &quot;w&quot;)
-    f.writelines(header_w)
-    f.close()
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">res_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">header_w</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     
-def check_ply_file(header):
-    ref_h = [&#39;ply&#39;, &#39;format ascii 1.0&#39;,
-             &#39;element vertex&#39;,
-             &#39;property float x&#39;, 
-             &#39;property float y&#39;, 
-             &#39;property float z&#39;, 
-             &#39;property float temperature&#39;, 
-             &#39;end_header&#39;]
+<span class="k">def</span> <span class="nf">check_ply_file</span><span class="p">(</span><span class="n">header</span><span class="p">):</span>
+    <span class="n">ref_h</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ply&#39;</span><span class="p">,</span> <span class="s1">&#39;format ascii 1.0&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;element vertex&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;property float x&#39;</span><span class="p">,</span> 
+                <span class="s1">&#39;property float y&#39;</span><span class="p">,</span> 
+                <span class="s1">&#39;property float z&#39;</span><span class="p">,</span> 
+                <span class="s1">&#39;property float temperature&#39;</span><span class="p">,</span> 
+                <span class="s1">&#39;end_header&#39;</span><span class="p">]</span>
     
-    check = 0
-    for h in header:
-        h = h.lower()
-        h = h.replace(&#39;\n&#39;,&#39;&#39;)
+    <span class="n">check</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">header</span><span class="p">:</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
         
-        hsplit = h.split(&#39; &#39;)
-        if hsplit[0] == &#39;comment&#39;:
-            ctype = hsplit[1]
-            if ctype==&#39;date&#39; or ctype==&#39;time&#39; or ctype==&#39;sensorid&#39; or ctype==&#39;sensortype&#39;:
-                h = hsplit[0] + &#39; &#39; + ctype
+        <span class="n">hsplit</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">hsplit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;comment&#39;</span><span class="p">:</span>
+            <span class="n">ctype</span> <span class="o">=</span> <span class="n">hsplit</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">ctype</span><span class="o">==</span><span class="s1">&#39;date&#39;</span> <span class="ow">or</span> <span class="n">ctype</span><span class="o">==</span><span class="s1">&#39;time&#39;</span> <span class="ow">or</span> <span class="n">ctype</span><span class="o">==</span><span class="s1">&#39;sensorid&#39;</span> <span class="ow">or</span> <span class="n">ctype</span><span class="o">==</span><span class="s1">&#39;sensortype&#39;</span><span class="p">:</span>
+                <span class="n">h</span> <span class="o">=</span> <span class="n">hsplit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">ctype</span>
         
-        elif hsplit[0] == &#39;element&#39;:
-            if hsplit[1] == &#39;vertex&#39;:
-                h = hsplit[0] + &#39; &#39; + hsplit[1]
+        <span class="k">elif</span> <span class="n">hsplit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;element&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">hsplit</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;vertex&#39;</span><span class="p">:</span>
+                <span class="n">h</span> <span class="o">=</span> <span class="n">hsplit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">hsplit</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
                 
-        if h in ref_h:
-            # print(h)
-            check+=1
+        <span class="k">if</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">ref_h</span><span class="p">:</span>
+            <span class="c1"># print(h)</span>
+            <span class="n">check</span><span class="o">+=</span><span class="mi">1</span>
     
-    if check == 8:
-        return True
-    else:
-        return False
+    <span class="k">if</span> <span class="n">check</span> <span class="o">==</span> <span class="mi">8</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
     
-def read_therm_arr_ply(file_path):    
-    with open(file_path) as f:
-        lines = f.readlines()
-    nheaders = 8
-    #check if this is a valid chaosense file
-    headers = lines[0:nheaders]
-    isValid = check_ply_file(headers)
-    if isValid:
-        xyzs = []
-        verts_data = lines[nheaders:]
-        temp_ls = []
-        temp_dls = []
-        for v in verts_data:
-            v = v.replace(&#39;\n&#39;, &#39;&#39;)
-            v = v.replace(&#39;\t&#39;, &#39; &#39;)
-            vsplit = v.split(&#39; &#39;)
-            vsplit = list(map(float, vsplit))
-            xyzs.append(vsplit[0:3])
-            temp_dls.append({&#39;temperature&#39;:vsplit[3]})
-            temp_ls.append(vsplit[3])
+<span class="k">def</span> <span class="nf">read_therm_arr_ply</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>    
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">nheaders</span> <span class="o">=</span> <span class="mi">8</span>
+    <span class="c1">#check if this is a valid chaosense file</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">nheaders</span><span class="p">]</span>
+    <span class="n">isValid</span> <span class="o">=</span> <span class="n">check_ply_file</span><span class="p">(</span><span class="n">headers</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">isValid</span><span class="p">:</span>
+        <span class="n">xyzs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">verts_data</span> <span class="o">=</span> <span class="n">lines</span><span class="p">[</span><span class="n">nheaders</span><span class="p">:]</span>
+        <span class="n">temp_ls</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">temp_dls</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">verts_data</span><span class="p">:</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
+            <span class="n">vsplit</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+            <span class="n">vsplit</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">vsplit</span><span class="p">))</span>
+            <span class="n">xyzs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vsplit</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+            <span class="n">temp_dls</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;temperature&#39;</span><span class="p">:</span><span class="n">vsplit</span><span class="p">[</span><span class="mi">3</span><span class="p">]})</span>
+            <span class="n">temp_ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vsplit</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
         
-        v_ls = geomie3d.create.vertex_list(xyzs, attributes_list=temp_dls)
-        return v_ls, temp_ls, headers
-    else:
-        return [], [], headers
+        <span class="n">v_ls</span> <span class="o">=</span> <span class="n">geomie3d</span><span class="o">.</span><span class="n">create</span><span class="o">.</span><span class="n">vertex_list</span><span class="p">(</span><span class="n">xyzs</span><span class="p">,</span> <span class="n">attributes_list</span><span class="o">=</span><span class="n">temp_dls</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">v_ls</span><span class="p">,</span> <span class="n">temp_ls</span><span class="p">,</span> <span class="n">headers</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[],</span> <span class="p">[],</span> <span class="n">headers</span>
     
-def project(therm_scan_path, sensor_pos, scene_faces, viz = False):
-    verts_data, temp_ls, headers = read_therm_arr_ply(therm_scan_path)
-    cmp = geomie3d.create.composite(verts_data)
-    # axis = [0,0,1]
-    # rotation = 0
-    # cmp = geomie3d.modify.rotate_topo(cmp, axis, rotation)
-    verts_data = geomie3d.get.vertices_frm_composite(cmp)
-    #convert the verts to rays and 
-    rays = []
-    for vcnt,v in enumerate(verts_data):
-        temp = v.attributes[&#39;temperature&#39;]
-        ray = geomie3d.create.ray(sensor_pos, v.point.xyz, attributes = {&#39;temperature&#39;:temp, &#39;id&#39;: vcnt})
-        rays.append(ray)
+<span class="k">def</span> <span class="nf">project</span><span class="p">(</span><span class="n">therm_scan_path</span><span class="p">,</span> <span class="n">sensor_pos</span><span class="p">,</span> <span class="n">scene_faces</span><span class="p">,</span> <span class="n">viz</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+    <span class="n">verts_data</span><span class="p">,</span> <span class="n">temp_ls</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">read_therm_arr_ply</span><span class="p">(</span><span class="n">therm_scan_path</span><span class="p">)</span>
+    <span class="n">cmp</span> <span class="o">=</span> <span class="n">geomie3d</span><span class="o">.</span><span class="n">create</span><span class="o">.</span><span class="n">composite</span><span class="p">(</span><span class="n">verts_data</span><span class="p">)</span>
+    <span class="c1"># axis = [0,0,1]</span>
+    <span class="c1"># rotation = 0</span>
+    <span class="c1"># cmp = geomie3d.modify.rotate_topo(cmp, axis, rotation)</span>
+    <span class="n">verts_data</span> <span class="o">=</span> <span class="n">geomie3d</span><span class="o">.</span><span class="n">get</span><span class="o">.</span><span class="n">vertices_frm_composite</span><span class="p">(</span><span class="n">cmp</span><span class="p">)</span>
+    <span class="c1">#convert the verts to rays and </span>
+    <span class="n">rays</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">vcnt</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">verts_data</span><span class="p">):</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s1">&#39;temperature&#39;</span><span class="p">]</span>
+        <span class="n">ray</span> <span class="o">=</span> <span class="n">geomie3d</span><span class="o">.</span><span class="n">create</span><span class="o">.</span><span class="n">ray</span><span class="p">(</span><span class="n">sensor_pos</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">point</span><span class="o">.</span><span class="n">xyz</span><span class="p">,</span> <span class="n">attributes</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;temperature&#39;</span><span class="p">:</span><span class="n">temp</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">vcnt</span><span class="p">})</span>
+        <span class="n">rays</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ray</span><span class="p">)</span>
         
-    hrays,mrays,hit_faces,miss_faces = geomie3d.calculate.rays_faces_intersection(rays, scene_faces)
-    if viz == True:
-        geomie3d.viz.viz_falsecolour(verts_data, temp_ls)
-        vcmp = geomie3d.create.composite(verts_data)
-        mv_v = geomie3d.modify.move_topo(vcmp, sensor_pos)
-        mv_vs = geomie3d.get.vertices_frm_composite(mv_v)
+    <span class="n">hrays</span><span class="p">,</span><span class="n">mrays</span><span class="p">,</span><span class="n">hit_faces</span><span class="p">,</span><span class="n">miss_faces</span> <span class="o">=</span> <span class="n">geomie3d</span><span class="o">.</span><span class="n">calculate</span><span class="o">.</span><span class="n">rays_faces_intersection</span><span class="p">(</span><span class="n">rays</span><span class="p">,</span> <span class="n">scene_faces</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">viz</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">geomie3d</span><span class="o">.</span><span class="n">viz</span><span class="o">.</span><span class="n">viz_falsecolour</span><span class="p">(</span><span class="n">verts_data</span><span class="p">,</span> <span class="n">temp_ls</span><span class="p">)</span>
+        <span class="n">vcmp</span> <span class="o">=</span> <span class="n">geomie3d</span><span class="o">.</span><span class="n">create</span><span class="o">.</span><span class="n">composite</span><span class="p">(</span><span class="n">verts_data</span><span class="p">)</span>
+        <span class="n">mv_v</span> <span class="o">=</span> <span class="n">geomie3d</span><span class="o">.</span><span class="n">modify</span><span class="o">.</span><span class="n">move_topo</span><span class="p">(</span><span class="n">vcmp</span><span class="p">,</span> <span class="n">sensor_pos</span><span class="p">)</span>
+        <span class="n">mv_vs</span> <span class="o">=</span> <span class="n">geomie3d</span><span class="o">.</span><span class="n">get</span><span class="o">.</span><span class="n">vertices_frm_composite</span><span class="p">(</span><span class="n">mv_v</span><span class="p">)</span>
         
-        cmp = geomie3d.create.composite(scene_faces)
-        edges = geomie3d.get.edges_frm_composite(cmp)
-        geomie3d.viz.viz_falsecolour(mv_vs, temp_ls, other_topo_dlist=[{&#39;topo_list&#39;:edges, &#39;colour&#39;:&#39;white&#39;}])
-        viz_projection(hrays, mrays, scene_faces)
-    return hrays,mrays,hit_faces,miss_faces, headers
+        <span class="n">cmp</span> <span class="o">=</span> <span class="n">geomie3d</span><span class="o">.</span><span class="n">create</span><span class="o">.</span><span class="n">composite</span><span class="p">(</span><span class="n">scene_faces</span><span class="p">)</span>
+        <span class="n">edges</span> <span class="o">=</span> <span class="n">geomie3d</span><span class="o">.</span><span class="n">get</span><span class="o">.</span><span class="n">edges_frm_composite</span><span class="p">(</span><span class="n">cmp</span><span class="p">)</span>
+        <span class="n">geomie3d</span><span class="o">.</span><span class="n">viz</span><span class="o">.</span><span class="n">viz_falsecolour</span><span class="p">(</span><span class="n">mv_vs</span><span class="p">,</span> <span class="n">temp_ls</span><span class="p">,</span> <span class="n">other_topo_dlist</span><span class="o">=</span><span class="p">[{</span><span class="s1">&#39;topo_list&#39;</span><span class="p">:</span><span class="n">edges</span><span class="p">,</span> <span class="s1">&#39;colour&#39;</span><span class="p">:</span><span class="s1">&#39;white&#39;</span><span class="p">}])</span>
+        <span class="n">viz_projection</span><span class="p">(</span><span class="n">hrays</span><span class="p">,</span> <span class="n">mrays</span><span class="p">,</span> <span class="n">scene_faces</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">hrays</span><span class="p">,</span><span class="n">mrays</span><span class="p">,</span><span class="n">hit_faces</span><span class="p">,</span><span class="n">miss_faces</span><span class="p">,</span> <span class="n">headers</span>
 
-def calc_avg_temp_srf(proj_face):
-    att = proj_face.attributes
-    if &#39;rays_faces_intersection&#39; in att:
-        int_att = att[&#39;rays_faces_intersection&#39;]
-        rays = int_att[&#39;ray&#39;]
-        if len(rays) !=0:
-            temp_ls = [r.attributes[&#39;temperature&#39;] for r in rays]
-            avg_temp = statistics.median(temp_ls)
-            geomie3d.modify.update_topo_att(proj_face, {&#39;temperature&#39;:avg_temp})
-            return avg_temp
-        else:
-            return None
+<span class="k">def</span> <span class="nf">calc_avg_temp_srf</span><span class="p">(</span><span class="n">proj_face</span><span class="p">):</span>
+    <span class="n">att</span> <span class="o">=</span> <span class="n">proj_face</span><span class="o">.</span><span class="n">attributes</span>
+    <span class="k">if</span> <span class="s1">&#39;rays_faces_intersection&#39;</span> <span class="ow">in</span> <span class="n">att</span><span class="p">:</span>
+        <span class="n">int_att</span> <span class="o">=</span> <span class="n">att</span><span class="p">[</span><span class="s1">&#39;rays_faces_intersection&#39;</span><span class="p">]</span>
+        <span class="n">rays</span> <span class="o">=</span> <span class="n">int_att</span><span class="p">[</span><span class="s1">&#39;ray&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">rays</span><span class="p">)</span> <span class="o">!=</span><span class="mi">0</span><span class="p">:</span>
+            <span class="n">temp_ls</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s1">&#39;temperature&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rays</span><span class="p">]</span>
+            <span class="n">avg_temp</span> <span class="o">=</span> <span class="n">statistics</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">temp_ls</span><span class="p">)</span>
+            <span class="n">geomie3d</span><span class="o">.</span><span class="n">modify</span><span class="o">.</span><span class="n">update_topo_att</span><span class="p">(</span><span class="n">proj_face</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;temperature&#39;</span><span class="p">:</span><span class="n">avg_temp</span><span class="p">})</span>
+            <span class="k">return</span> <span class="n">avg_temp</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
 
-def viz_projection(hrays, mrays, scene_faces):
-    v_ls = []
-    temp_ls = []
-    for hray in hrays:
-        att = hray.attributes
-        att2 = att[&#39;rays_faces_intersection&#39;]
-        intersects = att2[&#39;intersection&#39;]
-        temp = att[&#39;temperature&#39;]
-        for intersect in intersects:
-            v = geomie3d.create.vertex(intersect, attributes={&#39;temperature&#39;:temp})
-            temp_ls.append(temp)
-            v_ls.append(v)
+<span class="k">def</span> <span class="nf">viz_projection</span><span class="p">(</span><span class="n">hrays</span><span class="p">,</span> <span class="n">mrays</span><span class="p">,</span> <span class="n">scene_faces</span><span class="p">):</span>
+    <span class="n">v_ls</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">temp_ls</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">hray</span> <span class="ow">in</span> <span class="n">hrays</span><span class="p">:</span>
+        <span class="n">att</span> <span class="o">=</span> <span class="n">hray</span><span class="o">.</span><span class="n">attributes</span>
+        <span class="n">att2</span> <span class="o">=</span> <span class="n">att</span><span class="p">[</span><span class="s1">&#39;rays_faces_intersection&#39;</span><span class="p">]</span>
+        <span class="n">intersects</span> <span class="o">=</span> <span class="n">att2</span><span class="p">[</span><span class="s1">&#39;intersection&#39;</span><span class="p">]</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">att</span><span class="p">[</span><span class="s1">&#39;temperature&#39;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">intersect</span> <span class="ow">in</span> <span class="n">intersects</span><span class="p">:</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="n">geomie3d</span><span class="o">.</span><span class="n">create</span><span class="o">.</span><span class="n">vertex</span><span class="p">(</span><span class="n">intersect</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;temperature&#39;</span><span class="p">:</span><span class="n">temp</span><span class="p">})</span>
+            <span class="n">temp_ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+            <span class="n">v_ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
     
-    cmp = geomie3d.create.composite(scene_faces)
-    edges = geomie3d.get.edges_frm_composite(cmp)
-    geomie3d.viz.viz_falsecolour(v_ls, temp_ls, 
-                                     other_topo_dlist=[{&#39;topo_list&#39;: edges, &#39;colour&#39;: &#39;white&#39;}], 
-                                     false_min_max_val=None)
+    <span class="n">cmp</span> <span class="o">=</span> <span class="n">geomie3d</span><span class="o">.</span><span class="n">create</span><span class="o">.</span><span class="n">composite</span><span class="p">(</span><span class="n">scene_faces</span><span class="p">)</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="n">geomie3d</span><span class="o">.</span><span class="n">get</span><span class="o">.</span><span class="n">edges_frm_composite</span><span class="p">(</span><span class="n">cmp</span><span class="p">)</span>
+    <span class="n">geomie3d</span><span class="o">.</span><span class="n">viz</span><span class="o">.</span><span class="n">viz_falsecolour</span><span class="p">(</span><span class="n">v_ls</span><span class="p">,</span> <span class="n">temp_ls</span><span class="p">,</span> 
+                                        <span class="n">other_topo_dlist</span><span class="o">=</span><span class="p">[{</span><span class="s1">&#39;topo_list&#39;</span><span class="p">:</span> <span class="n">edges</span><span class="p">,</span> <span class="s1">&#39;colour&#39;</span><span class="p">:</span> <span class="s1">&#39;white&#39;</span><span class="p">}],</span> 
+                                        <span class="n">false_min_max_val</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
     
-#%%Main
-t0 = perf_counter()
-model_dict = geomie3d.utility.read_geomie3d(scene_path)
-bdry_srfs = model_dict[&#39;topo_list&#39;]
+<span class="c1">#%%Main</span>
+<span class="n">t0</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">model_dict</span> <span class="o">=</span> <span class="n">geomie3d</span><span class="o">.</span><span class="n">utility</span><span class="o">.</span><span class="n">read_geomie3d</span><span class="p">(</span><span class="n">scene_path</span><span class="p">)</span>
+<span class="n">bdry_srfs</span> <span class="o">=</span> <span class="n">model_dict</span><span class="p">[</span><span class="s1">&#39;topo_list&#39;</span><span class="p">]</span>
 
-if viz == True:
-    geomie3d.viz.viz([{&#39;topo_list&#39;: bdry_srfs, &#39;colour&#39;: &#39;blue&#39;}])
+<span class="k">if</span> <span class="n">viz</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">geomie3d</span><span class="o">.</span><span class="n">viz</span><span class="o">.</span><span class="n">viz</span><span class="p">([{</span><span class="s1">&#39;topo_list&#39;</span><span class="p">:</span> <span class="n">bdry_srfs</span><span class="p">,</span> <span class="s1">&#39;colour&#39;</span><span class="p">:</span> <span class="s1">&#39;blue&#39;</span><span class="p">}])</span>
 
-#read the file and get all the vert data
-parent_path = Path(therm_scan_dir).parent.absolute()
-res_dir = os.path.join(parent_path, &#39;projected&#39;)
-if not os.path.isdir(res_dir): 
-    os.mkdir(res_dir)
+<span class="c1">#read the file and get all the vert data</span>
+<span class="n">parent_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">therm_scan_dir</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span>
+<span class="n">res_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">parent_path</span><span class="p">,</span> <span class="s1">&#39;projected&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">res_dir</span><span class="p">):</span> 
+    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">res_dir</span><span class="p">)</span>
     
-ff_ls = sorted(os.listdir(therm_scan_dir))
-ply_name_ls = []
-for d in ff_ls:
-    file_ext = d.split(&#39;.&#39;)[-1].lower()
-    if file_ext == &#39;ply&#39;:
-        ply_name_ls.append(d)
+<span class="n">ff_ls</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">therm_scan_dir</span><span class="p">))</span>
+<span class="n">ply_name_ls</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">ff_ls</span><span class="p">:</span>
+    <span class="n">file_ext</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">file_ext</span> <span class="o">==</span> <span class="s1">&#39;ply&#39;</span><span class="p">:</span>
+        <span class="n">ply_name_ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 
-t1 = perf_counter()
-print(&#39;Time taken to process base scene (mins):&#39;, round((t1-t0)/60, 1))
+<span class="n">t1</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Time taken to process base scene (mins):&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">((</span><span class="n">t1</span><span class="o">-</span><span class="n">t0</span><span class="p">)</span><span class="o">/</span><span class="mi">60</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 
-for cnt, ply_name in enumerate(ply_name_ls):
-    new_bdry_srfs = copy.deepcopy(bdry_srfs)
-    t2 = perf_counter()
-    ply_path = os.path.join(therm_scan_dir, ply_name)
-    hrays,mrays,hit_faces,miss_faces,header = project(ply_path, sensor_pos, new_bdry_srfs, viz=viz)
-    xyz_ls = []
-    temp_ls = []
-    for hray in hrays:
-        att = hray.attributes
-        int_att = att[&#39;rays_faces_intersection&#39;]
-        xyz = int_att[&#39;intersection&#39;][0]
-        fs = int_att[&#39;hit_face&#39;]
-        temp = att[&#39;temperature&#39;]
-        xyz_ls.append(xyz)
-        temp_ls.append(temp)
+<span class="k">for</span> <span class="n">cnt</span><span class="p">,</span> <span class="n">ply_name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ply_name_ls</span><span class="p">):</span>
+    <span class="n">new_bdry_srfs</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">bdry_srfs</span><span class="p">)</span>
+    <span class="n">t2</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+    <span class="n">ply_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">therm_scan_dir</span><span class="p">,</span> <span class="n">ply_name</span><span class="p">)</span>
+    <span class="n">hrays</span><span class="p">,</span><span class="n">mrays</span><span class="p">,</span><span class="n">hit_faces</span><span class="p">,</span><span class="n">miss_faces</span><span class="p">,</span><span class="n">header</span> <span class="o">=</span> <span class="n">project</span><span class="p">(</span><span class="n">ply_path</span><span class="p">,</span> <span class="n">sensor_pos</span><span class="p">,</span> <span class="n">new_bdry_srfs</span><span class="p">,</span> <span class="n">viz</span><span class="o">=</span><span class="n">viz</span><span class="p">)</span>
+    <span class="n">xyz_ls</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">temp_ls</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">hray</span> <span class="ow">in</span> <span class="n">hrays</span><span class="p">:</span>
+        <span class="n">att</span> <span class="o">=</span> <span class="n">hray</span><span class="o">.</span><span class="n">attributes</span>
+        <span class="n">int_att</span> <span class="o">=</span> <span class="n">att</span><span class="p">[</span><span class="s1">&#39;rays_faces_intersection&#39;</span><span class="p">]</span>
+        <span class="n">xyz</span> <span class="o">=</span> <span class="n">int_att</span><span class="p">[</span><span class="s1">&#39;intersection&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">fs</span> <span class="o">=</span> <span class="n">int_att</span><span class="p">[</span><span class="s1">&#39;hit_face&#39;</span><span class="p">]</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">att</span><span class="p">[</span><span class="s1">&#39;temperature&#39;</span><span class="p">]</span>
+        <span class="n">xyz_ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">xyz</span><span class="p">)</span>
+        <span class="n">temp_ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
     
-    for hf in hit_faces:
-        avg_temp = calc_avg_temp_srf(hf)
-        att = {&#39;name&#39;: hf.attributes[&#39;name&#39;], &#39;temperature&#39;: avg_temp}
-        geomie3d.modify.overwrite_topo_att(hf, att)
+    <span class="k">for</span> <span class="n">hf</span> <span class="ow">in</span> <span class="n">hit_faces</span><span class="p">:</span>
+        <span class="n">avg_temp</span> <span class="o">=</span> <span class="n">calc_avg_temp_srf</span><span class="p">(</span><span class="n">hf</span><span class="p">)</span>
+        <span class="n">att</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">hf</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="s1">&#39;temperature&#39;</span><span class="p">:</span> <span class="n">avg_temp</span><span class="p">}</span>
+        <span class="n">geomie3d</span><span class="o">.</span><span class="n">modify</span><span class="o">.</span><span class="n">overwrite_topo_att</span><span class="p">(</span><span class="n">hf</span><span class="p">,</span> <span class="n">att</span><span class="p">)</span>
         
-    # print(ttl_rays_cnt)
-    nsplit = ply_name.split(&#39;.&#39;)
-    res_path1 = os.path.join(res_dir, nsplit[0] + &#39;_projected.ply&#39; )
-    res_path2 = os.path.join(res_dir, nsplit[0] + &#39;_projected.geomie3d&#39; )
-    geomie3d.utility.write2geomie3d(hit_faces, res_path2)
-    write2ply(res_path1, xyz_ls, temp_ls, header)
-    t3 = perf_counter()
-    time_take = round((t3-t2)/60,1)
-    print(&#39;Time taken to project one file (mins):&#39;, time_take, cnt)
+    <span class="c1"># print(ttl_rays_cnt)</span>
+    <span class="n">nsplit</span> <span class="o">=</span> <span class="n">ply_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+    <span class="n">res_path1</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">res_dir</span><span class="p">,</span> <span class="n">nsplit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;_projected.ply&#39;</span> <span class="p">)</span>
+    <span class="n">res_path2</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">res_dir</span><span class="p">,</span> <span class="n">nsplit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;_projected.geomie3d&#39;</span> <span class="p">)</span>
+    <span class="n">geomie3d</span><span class="o">.</span><span class="n">utility</span><span class="o">.</span><span class="n">write2geomie3d</span><span class="p">(</span><span class="n">hit_faces</span><span class="p">,</span> <span class="n">res_path2</span><span class="p">)</span>
+    <span class="n">write2ply</span><span class="p">(</span><span class="n">res_path1</span><span class="p">,</span> <span class="n">xyz_ls</span><span class="p">,</span> <span class="n">temp_ls</span><span class="p">,</span> <span class="n">header</span><span class="p">)</span>
+    <span class="n">t3</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+    <span class="n">time_take</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="n">t3</span><span class="o">-</span><span class="n">t2</span><span class="p">)</span><span class="o">/</span><span class="mi">60</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Time taken to project one file (mins):&#39;</span><span class="p">,</span> <span class="n">time_take</span><span class="p">,</span> <span class="n">cnt</span><span class="p">)</span>
 
-```
 </pre></div>
 </div>
 </section>
 <section id="visualize-the-mrt-and-air-temperature">
 <h3><span class="section-number">16.1.9. </span>Visualize the mrt and air temperature<a class="headerlink" href="#visualize-the-mrt-and-air-temperature" title="Permalink to this heading">#</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
-import pytz
-from dateutil import parser
-import pandas as pd
-import geomie3d 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytz</span>
+<span class="kn">from</span> <span class="nn">dateutil</span> <span class="kn">import</span> <span class="n">parser</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">geomie3d</span> 
 
-#%% settings
-mini_res_path = &#39;/home/usrname/minires.csv&#39;
-high_res_path = &#39;/home/usrname/highres.csv&#39;
-iot_path = &#39;/home/usrname/iot.csv&#39;
-res_path = &#39;/home/usrname/res.png&#39;
+<span class="c1">#%% settings</span>
+<span class="n">mini_res_path</span> <span class="o">=</span> <span class="s1">&#39;/home/usrname/minires.csv&#39;</span>
+<span class="n">high_res_path</span> <span class="o">=</span> <span class="s1">&#39;/home/usrname/highres.csv&#39;</span>
+<span class="n">iot_path</span> <span class="o">=</span> <span class="s1">&#39;/home/usrname/iot.csv&#39;</span>
+<span class="n">res_path</span> <span class="o">=</span> <span class="s1">&#39;/home/usrname/res.png&#39;</span>
 
-graph_title = &#39;Air vs MRT 2023-07-19&#39;
-ylim = [21.5, 25]
-start_time_str = [&#39;19-07-2023 08:00:00&#39;, &#39;19-07-2023 18:30:00&#39;]
-regions = [{&#39;label&#39;: &#39;vav on rad off&#39;, &#39;orientation&#39;: &#39;vertical&#39;, &#39;range&#39;: [&#39;19-07-2023 08:00:00&#39;, &#39;19-07-2023 12:30:00&#39;],&#39;colour&#39;: (1,0,0,0.3)},
-            {&#39;label&#39;: &#39;vav on rad on&#39;, &#39;orientation&#39;: &#39;vertical&#39;, &#39;range&#39;: [&#39;19-07-2023 12:30:00&#39;, &#39;19-07-2023 14:54:00&#39;],&#39;colour&#39;: (0,1,0,0.3)},
-            {&#39;label&#39;: &#39;vav off rad on&#39;, &#39;orientation&#39;: &#39;vertical&#39;, &#39;range&#39;: [&#39;19-07-2023 14:54:00&#39;, &#39;19-07-2023 16:35:00&#39;],&#39;colour&#39;: (0,0,1,0.3)},
-            {&#39;label&#39;: &#39;&#39;, &#39;orientation&#39;: &#39;vertical&#39;, &#39;range&#39;: [&#39;19-07-2023 16:35:00&#39;, &#39;19-07-2023 18:30:00&#39;],&#39;colour&#39;: (1,0,0,0.3)}]
+<span class="n">graph_title</span> <span class="o">=</span> <span class="s1">&#39;Air vs MRT 2023-07-19&#39;</span>
+<span class="n">ylim</span> <span class="o">=</span> <span class="p">[</span><span class="mf">21.5</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
+<span class="n">start_time_str</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;19-07-2023 08:00:00&#39;</span><span class="p">,</span> <span class="s1">&#39;19-07-2023 18:30:00&#39;</span><span class="p">]</span>
+<span class="n">regions</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;vav on rad off&#39;</span><span class="p">,</span> <span class="s1">&#39;orientation&#39;</span><span class="p">:</span> <span class="s1">&#39;vertical&#39;</span><span class="p">,</span> <span class="s1">&#39;range&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;19-07-2023 08:00:00&#39;</span><span class="p">,</span> <span class="s1">&#39;19-07-2023 12:30:00&#39;</span><span class="p">],</span><span class="s1">&#39;colour&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.3</span><span class="p">)},</span>
+            <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;vav on rad on&#39;</span><span class="p">,</span> <span class="s1">&#39;orientation&#39;</span><span class="p">:</span> <span class="s1">&#39;vertical&#39;</span><span class="p">,</span> <span class="s1">&#39;range&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;19-07-2023 12:30:00&#39;</span><span class="p">,</span> <span class="s1">&#39;19-07-2023 14:54:00&#39;</span><span class="p">],</span><span class="s1">&#39;colour&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.3</span><span class="p">)},</span>
+            <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;vav off rad on&#39;</span><span class="p">,</span> <span class="s1">&#39;orientation&#39;</span><span class="p">:</span> <span class="s1">&#39;vertical&#39;</span><span class="p">,</span> <span class="s1">&#39;range&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;19-07-2023 14:54:00&#39;</span><span class="p">,</span> <span class="s1">&#39;19-07-2023 16:35:00&#39;</span><span class="p">],</span><span class="s1">&#39;colour&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.3</span><span class="p">)},</span>
+            <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;orientation&#39;</span><span class="p">:</span> <span class="s1">&#39;vertical&#39;</span><span class="p">,</span> <span class="s1">&#39;range&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;19-07-2023 16:35:00&#39;</span><span class="p">,</span> <span class="s1">&#39;19-07-2023 18:30:00&#39;</span><span class="p">],</span><span class="s1">&#39;colour&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.3</span><span class="p">)}]</span>
     
-#%% functions
-def naive_dt(dt):
-    ndt = []
-    for d in dt:
-        ndt.append(d.replace(tzinfo=None))
-    return ndt
+<span class="c1">#%% functions</span>
+<span class="k">def</span> <span class="nf">naive_dt</span><span class="p">(</span><span class="n">dt</span><span class="p">):</span>
+    <span class="n">ndt</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">dt</span><span class="p">:</span>
+        <span class="n">ndt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="kc">None</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">ndt</span>
 
-def convert_region_dates(regions):
-    for reg in regions:
-        new_range = [parser.parse(reg[&#39;range&#39;][0], dayfirst = True), parser.parse(reg[&#39;range&#39;][1], dayfirst = True)]
-        reg[&#39;range&#39;] = new_range
+<span class="k">def</span> <span class="nf">convert_region_dates</span><span class="p">(</span><span class="n">regions</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">reg</span> <span class="ow">in</span> <span class="n">regions</span><span class="p">:</span>
+        <span class="n">new_range</span> <span class="o">=</span> <span class="p">[</span><span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">reg</span><span class="p">[</span><span class="s1">&#39;range&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">dayfirst</span> <span class="o">=</span> <span class="kc">True</span><span class="p">),</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">reg</span><span class="p">[</span><span class="s1">&#39;range&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">dayfirst</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)]</span>
+        <span class="n">reg</span><span class="p">[</span><span class="s1">&#39;range&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_range</span>
     
-#%% Main
-se_time_dt = pd.to_datetime(start_time_str, dayfirst =True).tz_localize(pytz.timezone(&#39;America/New_York&#39;))
+<span class="c1">#%% Main</span>
+<span class="n">se_time_dt</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">start_time_str</span><span class="p">,</span> <span class="n">dayfirst</span> <span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="s1">&#39;America/New_York&#39;</span><span class="p">))</span>
 
-#read mini_res
-df_mini = pd.read_csv(mini_res_path, sep = &#39;,&#39;)
-df_mini[&#39;datetime&#39;] = pd.to_datetime(df_mini[&#39;datetime&#39;])
-df_mini.set_index(&#39;datetime&#39;, inplace=True)
-df_mini = df_mini.loc[se_time_dt[0]:se_time_dt[1]]
-mrt = df_mini[&#39; TOTAL MLX LW&#39;]
-air_temp = df_mini[&#39; TEMP&#39;]
-diff = air_temp - mrt
-dt1 = df_mini.index.to_pydatetime()
-dt1 = naive_dt(dt1)
+<span class="c1">#read mini_res</span>
+<span class="n">df_mini</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">mini_res_path</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">df_mini</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_mini</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">])</span>
+<span class="n">df_mini</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;datetime&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_mini</span> <span class="o">=</span> <span class="n">df_mini</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">se_time_dt</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">se_time_dt</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">mrt</span> <span class="o">=</span> <span class="n">df_mini</span><span class="p">[</span><span class="s1">&#39; TOTAL MLX LW&#39;</span><span class="p">]</span>
+<span class="n">air_temp</span> <span class="o">=</span> <span class="n">df_mini</span><span class="p">[</span><span class="s1">&#39; TEMP&#39;</span><span class="p">]</span>
+<span class="n">diff</span> <span class="o">=</span> <span class="n">air_temp</span> <span class="o">-</span> <span class="n">mrt</span>
+<span class="n">dt1</span> <span class="o">=</span> <span class="n">df_mini</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_pydatetime</span><span class="p">()</span>
+<span class="n">dt1</span> <span class="o">=</span> <span class="n">naive_dt</span><span class="p">(</span><span class="n">dt1</span><span class="p">)</span>
 
-# read highres
-df_high = pd.read_csv(high_res_path, sep = &#39;,&#39;)
-df_high[&#39;datetime&#39;] = pd.to_datetime(df_high[&#39;datetime&#39;])
-df_high.set_index(&#39;datetime&#39;, inplace=True)
-df_high = df_high.loc[se_time_dt[0]:se_time_dt[1]]
-mrt_highres = df_high[&#39; TOTAL HTPA LW&#39;]
-mrt_highres_mlx = df_high[&#39; TOTAL MLX LW&#39;]
-dt2 = df_high.index.to_pydatetime()
-dt2 = naive_dt(dt2)
+<span class="c1"># read highres</span>
+<span class="n">df_high</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">high_res_path</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">df_high</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_high</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">])</span>
+<span class="n">df_high</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;datetime&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_high</span> <span class="o">=</span> <span class="n">df_high</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">se_time_dt</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">se_time_dt</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">mrt_highres</span> <span class="o">=</span> <span class="n">df_high</span><span class="p">[</span><span class="s1">&#39; TOTAL HTPA LW&#39;</span><span class="p">]</span>
+<span class="n">mrt_highres_mlx</span> <span class="o">=</span> <span class="n">df_high</span><span class="p">[</span><span class="s1">&#39; TOTAL MLX LW&#39;</span><span class="p">]</span>
+<span class="n">dt2</span> <span class="o">=</span> <span class="n">df_high</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_pydatetime</span><span class="p">()</span>
+<span class="n">dt2</span> <span class="o">=</span> <span class="n">naive_dt</span><span class="p">(</span><span class="n">dt2</span><span class="p">)</span>
 
-#read sht31
-df_air = pd.read_csv(iot_path, sep = &#39;,&#39;)
-df_air[&#39;datetime&#39;] = pd.to_datetime(df_air[&#39;datetime&#39;])
-df_air.set_index(&#39;datetime&#39;, inplace=True)
-df_air = df_air.loc[se_time_dt[0]:se_time_dt[1]]
-air_temp_sht31 = df_air[&#39;a010_air_temp&#39;]
-dt3 =  df_air.index.to_pydatetime()
-dt3 = naive_dt(dt3)
-
-
-#%% matplotlib
-data_dict_ls = []
-data_d = {&#39;datax&#39;:dt1, &#39;datay&#39;:mrt, &#39;linestyle&#39;:&#39;solid&#39;, &#39;linewidth&#39;: 1, &#39;marker&#39;:&#39;&#39;,
-          &#39;marker_size&#39;:2, &#39;color&#39;: &#39;r&#39;, &#39;label&#39;: &#39;mini_mrt&#39;}
-data_dict_ls.append(data_d)
-
-data_d = {&#39;datax&#39;:dt2, &#39;datay&#39;:mrt_highres, &#39;linestyle&#39;:&#39;solid&#39;, &#39;linewidth&#39;: 1, &#39;marker&#39;:&#39;&#39;,
-          &#39;marker_size&#39;:2, &#39;color&#39;: &#39;b&#39;, &#39;label&#39;: &#39;mrt_highres&#39;}
-data_dict_ls.append(data_d)
-
-data_d = {&#39;datax&#39;:dt2, &#39;datay&#39;:mrt_highres_mlx, &#39;linestyle&#39;:&#39;solid&#39;, &#39;linewidth&#39;: 1, &#39;marker&#39;:&#39;&#39;,
-          &#39;marker_size&#39;:2, &#39;color&#39;: &#39;k&#39;, &#39;label&#39;: &#39;mrt_highres_mlx&#39;}
-data_dict_ls.append(data_d)
-
-data_d = {&#39;datax&#39;:dt1, &#39;datay&#39;:air_temp, &#39;linestyle&#39;:&#39;dashed&#39;, &#39;linewidth&#39;: 1, &#39;marker&#39;:&#39;&#39;,
-          &#39;marker_size&#39;:2, &#39;color&#39;: &#39;g&#39;, &#39;label&#39;: &#39;mini_air&#39;}
-data_dict_ls.append(data_d)
-
-data_d = {&#39;datax&#39;:dt3, &#39;datay&#39;:air_temp_sht31, &#39;linestyle&#39;:&#39;dashed&#39;, &#39;linewidth&#39;: 1, &#39;marker&#39;:&#39;&#39;,
-          &#39;marker_size&#39;:2, &#39;color&#39;: &#39;c&#39;, &#39;label&#39;: &#39;air_temp_sht31&#39;}
-data_dict_ls.append(data_d)
-
-xaxis_label = &#39;Time (H)&#39;
-yaxis_label = &#39;Temp (degC)&#39;
-dateformat = &#39;%H:%M&#39;
-legend_loc = {&#39;loc&#39;: &#39;upper center&#39;, &#39;bbox_to_anchor&#39;: (0.45, -0.25), &#39;ncol&#39;:3}
-
-convert_region_dates(regions)
-geomie3d.utility.viz1axis_timeseries(data_dict_ls, graph_title , xaxis_label, yaxis_label, res_path, yaxis_lim = ylim, 
-                                      legend_loc = legend_loc, dateformat = dateformat, regions = regions, tight_layout = False)
+<span class="c1">#read sht31</span>
+<span class="n">df_air</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">iot_path</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">df_air</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_air</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">])</span>
+<span class="n">df_air</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;datetime&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_air</span> <span class="o">=</span> <span class="n">df_air</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">se_time_dt</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">se_time_dt</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">air_temp_sht31</span> <span class="o">=</span> <span class="n">df_air</span><span class="p">[</span><span class="s1">&#39;a010_air_temp&#39;</span><span class="p">]</span>
+<span class="n">dt3</span> <span class="o">=</span>  <span class="n">df_air</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_pydatetime</span><span class="p">()</span>
+<span class="n">dt3</span> <span class="o">=</span> <span class="n">naive_dt</span><span class="p">(</span><span class="n">dt3</span><span class="p">)</span>
 
 
-```
+<span class="c1">#%% matplotlib</span>
+<span class="n">data_dict_ls</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">data_d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;datax&#39;</span><span class="p">:</span><span class="n">dt1</span><span class="p">,</span> <span class="s1">&#39;datay&#39;</span><span class="p">:</span><span class="n">mrt</span><span class="p">,</span> <span class="s1">&#39;linestyle&#39;</span><span class="p">:</span><span class="s1">&#39;solid&#39;</span><span class="p">,</span> <span class="s1">&#39;linewidth&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;marker&#39;</span><span class="p">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;marker_size&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;mini_mrt&#39;</span><span class="p">}</span>
+<span class="n">data_dict_ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_d</span><span class="p">)</span>
+
+<span class="n">data_d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;datax&#39;</span><span class="p">:</span><span class="n">dt2</span><span class="p">,</span> <span class="s1">&#39;datay&#39;</span><span class="p">:</span><span class="n">mrt_highres</span><span class="p">,</span> <span class="s1">&#39;linestyle&#39;</span><span class="p">:</span><span class="s1">&#39;solid&#39;</span><span class="p">,</span> <span class="s1">&#39;linewidth&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;marker&#39;</span><span class="p">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;marker_size&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;mrt_highres&#39;</span><span class="p">}</span>
+<span class="n">data_dict_ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_d</span><span class="p">)</span>
+
+<span class="n">data_d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;datax&#39;</span><span class="p">:</span><span class="n">dt2</span><span class="p">,</span> <span class="s1">&#39;datay&#39;</span><span class="p">:</span><span class="n">mrt_highres_mlx</span><span class="p">,</span> <span class="s1">&#39;linestyle&#39;</span><span class="p">:</span><span class="s1">&#39;solid&#39;</span><span class="p">,</span> <span class="s1">&#39;linewidth&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;marker&#39;</span><span class="p">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;marker_size&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;mrt_highres_mlx&#39;</span><span class="p">}</span>
+<span class="n">data_dict_ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_d</span><span class="p">)</span>
+
+<span class="n">data_d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;datax&#39;</span><span class="p">:</span><span class="n">dt1</span><span class="p">,</span> <span class="s1">&#39;datay&#39;</span><span class="p">:</span><span class="n">air_temp</span><span class="p">,</span> <span class="s1">&#39;linestyle&#39;</span><span class="p">:</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="s1">&#39;linewidth&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;marker&#39;</span><span class="p">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;marker_size&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;mini_air&#39;</span><span class="p">}</span>
+<span class="n">data_dict_ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_d</span><span class="p">)</span>
+
+<span class="n">data_d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;datax&#39;</span><span class="p">:</span><span class="n">dt3</span><span class="p">,</span> <span class="s1">&#39;datay&#39;</span><span class="p">:</span><span class="n">air_temp_sht31</span><span class="p">,</span> <span class="s1">&#39;linestyle&#39;</span><span class="p">:</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="s1">&#39;linewidth&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;marker&#39;</span><span class="p">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;marker_size&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;air_temp_sht31&#39;</span><span class="p">}</span>
+<span class="n">data_dict_ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_d</span><span class="p">)</span>
+
+<span class="n">xaxis_label</span> <span class="o">=</span> <span class="s1">&#39;Time (H)&#39;</span>
+<span class="n">yaxis_label</span> <span class="o">=</span> <span class="s1">&#39;Temp (degC)&#39;</span>
+<span class="n">dateformat</span> <span class="o">=</span> <span class="s1">&#39;%H:%M&#39;</span>
+<span class="n">legend_loc</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;loc&#39;</span><span class="p">:</span> <span class="s1">&#39;upper center&#39;</span><span class="p">,</span> <span class="s1">&#39;bbox_to_anchor&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.45</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.25</span><span class="p">),</span> <span class="s1">&#39;ncol&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+
+<span class="n">convert_region_dates</span><span class="p">(</span><span class="n">regions</span><span class="p">)</span>
+<span class="n">geomie3d</span><span class="o">.</span><span class="n">utility</span><span class="o">.</span><span class="n">viz1axis_timeseries</span><span class="p">(</span><span class="n">data_dict_ls</span><span class="p">,</span> <span class="n">graph_title</span> <span class="p">,</span> <span class="n">xaxis_label</span><span class="p">,</span> <span class="n">yaxis_label</span><span class="p">,</span> <span class="n">res_path</span><span class="p">,</span> <span class="n">yaxis_lim</span> <span class="o">=</span> <span class="n">ylim</span><span class="p">,</span> 
+                                        <span class="n">legend_loc</span> <span class="o">=</span> <span class="n">legend_loc</span><span class="p">,</span> <span class="n">dateformat</span> <span class="o">=</span> <span class="n">dateformat</span><span class="p">,</span> <span class="n">regions</span> <span class="o">=</span> <span class="n">regions</span><span class="p">,</span> <span class="n">tight_layout</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+
+
 </pre></div>
 </div>
 </section>
 <section id="visualize-spatial-time-series-data">
 <h3><span class="section-number">16.1.10. </span>Visualize spatial time-series data<a class="headerlink" href="#visualize-spatial-time-series-data" title="Permalink to this heading">#</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
-import os
-import pytz
-from time import perf_counter
-from dateutil.parser import parse
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pytz</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">perf_counter</span>
+<span class="kn">from</span> <span class="nn">dateutil.parser</span> <span class="kn">import</span> <span class="n">parse</span>
 
-import geomie3d
-import pandas as pd
-#%%Parameter
-proj_dir = &#39;/home/usrname/projected/&#39;
-highres_path = &#39;/home/usrname/highres.csv&#39;
-minires_path = &#39;/home/usrname/minires.csv&#39;
+<span class="kn">import</span> <span class="nn">geomie3d</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="c1">#%%Parameter</span>
+<span class="n">proj_dir</span> <span class="o">=</span> <span class="s1">&#39;/home/usrname/projected/&#39;</span>
+<span class="n">highres_path</span> <span class="o">=</span> <span class="s1">&#39;/home/usrname/highres.csv&#39;</span>
+<span class="n">minires_path</span> <span class="o">=</span> <span class="s1">&#39;/home/usrname/minires.csv&#39;</span>
 
-#%%Function 
-def get_datetime_ply(ply_name):
-    nsplit = ply_name.split(&#39;_&#39;)
-    d = nsplit[1]
-    t = nsplit[2]
-    t = t.replace(&#39;-&#39;, &#39;:&#39;)
-    dt_str = d + &#39;T&#39; + t
-    dt = parse(dt_str)
-    local_time = dt.astimezone(pytz.timezone(&#39;America/New_York&#39;))
-    return local_time
+<span class="c1">#%%Function </span>
+<span class="k">def</span> <span class="nf">get_datetime_ply</span><span class="p">(</span><span class="n">ply_name</span><span class="p">):</span>
+    <span class="n">nsplit</span> <span class="o">=</span> <span class="n">ply_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">nsplit</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">nsplit</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">)</span>
+    <span class="n">dt_str</span> <span class="o">=</span> <span class="n">d</span> <span class="o">+</span> <span class="s1">&#39;T&#39;</span> <span class="o">+</span> <span class="n">t</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">dt_str</span><span class="p">)</span>
+    <span class="n">local_time</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="s1">&#39;America/New_York&#39;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">local_time</span>
 
-def convert_region_dates(regions):
-    for reg in regions:
-        new_range = [parse(reg[&#39;range&#39;][0] + &#39;-04:00&#39;, dayfirst = True), parse(reg[&#39;range&#39;][1] + &#39;-04:00&#39;, dayfirst = True)]
-        reg[&#39;range&#39;] = new_range
+<span class="k">def</span> <span class="nf">convert_region_dates</span><span class="p">(</span><span class="n">regions</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">reg</span> <span class="ow">in</span> <span class="n">regions</span><span class="p">:</span>
+        <span class="n">new_range</span> <span class="o">=</span> <span class="p">[</span><span class="n">parse</span><span class="p">(</span><span class="n">reg</span><span class="p">[</span><span class="s1">&#39;range&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;-04:00&#39;</span><span class="p">,</span> <span class="n">dayfirst</span> <span class="o">=</span> <span class="kc">True</span><span class="p">),</span> <span class="n">parse</span><span class="p">(</span><span class="n">reg</span><span class="p">[</span><span class="s1">&#39;range&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;-04:00&#39;</span><span class="p">,</span> <span class="n">dayfirst</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)]</span>
+        <span class="n">reg</span><span class="p">[</span><span class="s1">&#39;range&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_range</span>
         
-#%%Main
-t0 = perf_counter()
-#----------------------------------------------------------------------------------------------------------
-# read all the projected ply files and viz them
-ff_ls = sorted(os.listdir(proj_dir))
+<span class="c1">#%%Main</span>
+<span class="n">t0</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+<span class="c1">#----------------------------------------------------------------------------------------------------------</span>
+<span class="c1"># read all the projected ply files and viz them</span>
+<span class="n">ff_ls</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">proj_dir</span><span class="p">))</span>
 
-topo_2dlist = []
-results2d = []
-topo_datetime_ls = []
-other_topo_2ddlist = []
-for d in ff_ls:
-    file_ext = d.split(&#39;.&#39;)[1].lower()
-    if file_ext == &#39;geomie3d&#39;:
-        dt = get_datetime_ply(d)
-        geomie_path = os.path.join(proj_dir, d)
-        model_dict = geomie3d.utility.read_geomie3d(geomie_path)
-        topo_list = model_dict[&#39;topo_list&#39;]
-        topo_list = [geomie3d.modify.reverse_face_normal(topo) for topo in topo_list]
-        temps = [topo.attributes[&#39;temperature&#39;] for topo in topo_list]
+<span class="n">topo_2dlist</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">results2d</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">topo_datetime_ls</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">other_topo_2ddlist</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">ff_ls</span><span class="p">:</span>
+    <span class="n">file_ext</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">file_ext</span> <span class="o">==</span> <span class="s1">&#39;geomie3d&#39;</span><span class="p">:</span>
+        <span class="n">dt</span> <span class="o">=</span> <span class="n">get_datetime_ply</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+        <span class="n">geomie_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">proj_dir</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+        <span class="n">model_dict</span> <span class="o">=</span> <span class="n">geomie3d</span><span class="o">.</span><span class="n">utility</span><span class="o">.</span><span class="n">read_geomie3d</span><span class="p">(</span><span class="n">geomie_path</span><span class="p">)</span>
+        <span class="n">topo_list</span> <span class="o">=</span> <span class="n">model_dict</span><span class="p">[</span><span class="s1">&#39;topo_list&#39;</span><span class="p">]</span>
+        <span class="n">topo_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">geomie3d</span><span class="o">.</span><span class="n">modify</span><span class="o">.</span><span class="n">reverse_face_normal</span><span class="p">(</span><span class="n">topo</span><span class="p">)</span> <span class="k">for</span> <span class="n">topo</span> <span class="ow">in</span> <span class="n">topo_list</span><span class="p">]</span>
+        <span class="n">temps</span> <span class="o">=</span> <span class="p">[</span><span class="n">topo</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s1">&#39;temperature&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">topo</span> <span class="ow">in</span> <span class="n">topo_list</span><span class="p">]</span>
         
-        topo_datetime_ls.append(dt)
-        topo_2dlist.append(topo_list)
-        results2d.append(temps)
+        <span class="n">topo_datetime_ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+        <span class="n">topo_2dlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">topo_list</span><span class="p">)</span>
+        <span class="n">results2d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temps</span><span class="p">)</span>
     
-#----------------------------------------------------------------------------------------------------------
-# get the high.res mrt
-df_hr = pd.read_csv(highres_path, sep = &#39;,&#39;)
-high_res_mrt = df_hr[&#39; TOTAL HTPA LW&#39;]
-datetime = pd.to_datetime(df_hr[&#39;datetime&#39;])
-datetime_hr  = datetime.dt.to_pydatetime()
+<span class="c1">#----------------------------------------------------------------------------------------------------------</span>
+<span class="c1"># get the high.res mrt</span>
+<span class="n">df_hr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">highres_path</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">high_res_mrt</span> <span class="o">=</span> <span class="n">df_hr</span><span class="p">[</span><span class="s1">&#39; TOTAL HTPA LW&#39;</span><span class="p">]</span>
+<span class="n">datetime</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_hr</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">])</span>
+<span class="n">datetime_hr</span>  <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">to_pydatetime</span><span class="p">()</span>
 
-# get minires mrt and air temperature
-df_mr = pd.read_csv(minires_path, sep = &#39;,&#39;)
-mr_mrt = df_mr[&#39; TOTAL MLX LW&#39;]
-mr_air = df_mr[&#39; TEMP&#39;]
-datetime = pd.to_datetime(df_mr[&#39;datetime&#39;])
-datetime_mr  = datetime.dt.to_pydatetime()
+<span class="c1"># get minires mrt and air temperature</span>
+<span class="n">df_mr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">minires_path</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">mr_mrt</span> <span class="o">=</span> <span class="n">df_mr</span><span class="p">[</span><span class="s1">&#39; TOTAL MLX LW&#39;</span><span class="p">]</span>
+<span class="n">mr_air</span> <span class="o">=</span> <span class="n">df_mr</span><span class="p">[</span><span class="s1">&#39; TEMP&#39;</span><span class="p">]</span>
+<span class="n">datetime</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_mr</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">])</span>
+<span class="n">datetime_mr</span>  <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">to_pydatetime</span><span class="p">()</span>
 
-xvalues2d = [datetime_mr, datetime_mr, datetime_hr]
-yvalues2d = [mr_mrt, mr_air, high_res_mrt]
-colour_ls = [[255,255,255,150], [255,0,0,150], [0,255,0,150]]
+<span class="n">xvalues2d</span> <span class="o">=</span> <span class="p">[</span><span class="n">datetime_mr</span><span class="p">,</span> <span class="n">datetime_mr</span><span class="p">,</span> <span class="n">datetime_hr</span><span class="p">]</span>
+<span class="n">yvalues2d</span> <span class="o">=</span> <span class="p">[</span><span class="n">mr_mrt</span><span class="p">,</span> <span class="n">mr_air</span><span class="p">,</span> <span class="n">high_res_mrt</span><span class="p">]</span>
+<span class="n">colour_ls</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">150</span><span class="p">],</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">150</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">150</span><span class="p">]]</span>
 
-legend = [&#39;mini_mrt&#39;, &#39;mini_air&#39;, &#39;highres_mrt&#39;]
+<span class="n">legend</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mini_mrt&#39;</span><span class="p">,</span> <span class="s1">&#39;mini_air&#39;</span><span class="p">,</span> <span class="s1">&#39;highres_mrt&#39;</span><span class="p">]</span>
 
-regions = [{&#39;label&#39;: &#39;vav on rad off&#39;, &#39;orientation&#39;: &#39;vertical&#39;, &#39;range&#39;: [&#39;19-07-2023 08:00:00&#39;, &#39;19-07-2023 12:30:00&#39;],
-            &#39;colour&#39;: (255,0,0,80)},
-            {&#39;label&#39;: &#39;vav on rad on&#39;, &#39;orientation&#39;: &#39;vertical&#39;, &#39;range&#39;: [&#39;19-07-2023 12:30:00&#39;, &#39;19-07-2023 14:54:00&#39;],
-             &#39;colour&#39;: (0,255,0,80)},
-            {&#39;label&#39;: &#39;vav off rad on&#39;, &#39;orientation&#39;: &#39;vertical&#39;, &#39;range&#39;: [&#39;19-07-2023 14:54:00&#39;, &#39;19-07-2023 16:35:00&#39;],
-             &#39;colour&#39;: (0,0,255,80)},
-            {&#39;label&#39;: &#39;vav on rad off&#39;, &#39;orientation&#39;: &#39;vertical&#39;, &#39;range&#39;: [&#39;19-07-2023 16:35:00&#39;, &#39;19-07-2023 18:30:00&#39;],
-             &#39;colour&#39;: (255,0,0,80)}]
+<span class="n">regions</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;vav on rad off&#39;</span><span class="p">,</span> <span class="s1">&#39;orientation&#39;</span><span class="p">:</span> <span class="s1">&#39;vertical&#39;</span><span class="p">,</span> <span class="s1">&#39;range&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;19-07-2023 08:00:00&#39;</span><span class="p">,</span> <span class="s1">&#39;19-07-2023 12:30:00&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;colour&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">80</span><span class="p">)},</span>
+            <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;vav on rad on&#39;</span><span class="p">,</span> <span class="s1">&#39;orientation&#39;</span><span class="p">:</span> <span class="s1">&#39;vertical&#39;</span><span class="p">,</span> <span class="s1">&#39;range&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;19-07-2023 12:30:00&#39;</span><span class="p">,</span> <span class="s1">&#39;19-07-2023 14:54:00&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;colour&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">80</span><span class="p">)},</span>
+            <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;vav off rad on&#39;</span><span class="p">,</span> <span class="s1">&#39;orientation&#39;</span><span class="p">:</span> <span class="s1">&#39;vertical&#39;</span><span class="p">,</span> <span class="s1">&#39;range&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;19-07-2023 14:54:00&#39;</span><span class="p">,</span> <span class="s1">&#39;19-07-2023 16:35:00&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;colour&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">80</span><span class="p">)},</span>
+            <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;vav on rad off&#39;</span><span class="p">,</span> <span class="s1">&#39;orientation&#39;</span><span class="p">:</span> <span class="s1">&#39;vertical&#39;</span><span class="p">,</span> <span class="s1">&#39;range&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;19-07-2023 16:35:00&#39;</span><span class="p">,</span> <span class="s1">&#39;19-07-2023 18:30:00&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;colour&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">80</span><span class="p">)}]</span>
 
-convert_region_dates(regions)
+<span class="n">convert_region_dates</span><span class="p">(</span><span class="n">regions</span><span class="p">)</span>
 
-geomie3d.viz.viz_st(topo_2dlist, results2d, topo_datetime_ls, xvalues2d, yvalues2d, colour_ls, false_min_max_val=[15,28], 
-                    legend = legend, regions=regions, other_topo_2ddlist=other_topo_2ddlist, ylabel=&#39;Temperature&#39;, yunit=&#39;^oC&#39;)
+<span class="n">geomie3d</span><span class="o">.</span><span class="n">viz</span><span class="o">.</span><span class="n">viz_st</span><span class="p">(</span><span class="n">topo_2dlist</span><span class="p">,</span> <span class="n">results2d</span><span class="p">,</span> <span class="n">topo_datetime_ls</span><span class="p">,</span> <span class="n">xvalues2d</span><span class="p">,</span> <span class="n">yvalues2d</span><span class="p">,</span> <span class="n">colour_ls</span><span class="p">,</span> <span class="n">false_min_max_val</span><span class="o">=</span><span class="p">[</span><span class="mi">15</span><span class="p">,</span><span class="mi">28</span><span class="p">],</span> 
+                    <span class="n">legend</span> <span class="o">=</span> <span class="n">legend</span><span class="p">,</span> <span class="n">regions</span><span class="o">=</span><span class="n">regions</span><span class="p">,</span> <span class="n">other_topo_2ddlist</span><span class="o">=</span><span class="n">other_topo_2ddlist</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Temperature&#39;</span><span class="p">,</span> <span class="n">yunit</span><span class="o">=</span><span class="s1">&#39;^oC&#39;</span><span class="p">)</span>
 
-```
 </pre></div>
 </div>
 </section>
 <section id="calculate-the-aust-of-the-space">
 <h3><span class="section-number">16.1.11. </span>calculate the aust of the space<a class="headerlink" href="#calculate-the-aust-of-the-space" title="Permalink to this heading">#</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
-import os
-import dateutil
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">dateutil</span>
 
-import geomie3d
-#%% Parameters
-geomie3d_dir = &#39;/home/usrname/projected/&#39;
-aust_path = &#39;/home/usrname/aust.csv&#39;
+<span class="kn">import</span> <span class="nn">geomie3d</span>
+<span class="c1">#%% Parameters</span>
+<span class="n">geomie3d_dir</span> <span class="o">=</span> <span class="s1">&#39;/home/usrname/projected/&#39;</span>
+<span class="n">aust_path</span> <span class="o">=</span> <span class="s1">&#39;/home/usrname/aust.csv&#39;</span>
 
-is_215 = False
-#%% Functions
-def calc_aust(face_list):
-    ttl_area = 0
-    for f in face_list:
-        area = round(geomie3d.calculate.face_area(f),2)
-        geomie3d.modify.update_topo_att(f, {&#39;area&#39;:area})
-        ttl_area += area
+<span class="n">is_215</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="c1">#%% Functions</span>
+<span class="k">def</span> <span class="nf">calc_aust</span><span class="p">(</span><span class="n">face_list</span><span class="p">):</span>
+    <span class="n">ttl_area</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">face_list</span><span class="p">:</span>
+        <span class="n">area</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">geomie3d</span><span class="o">.</span><span class="n">calculate</span><span class="o">.</span><span class="n">face_area</span><span class="p">(</span><span class="n">f</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">geomie3d</span><span class="o">.</span><span class="n">modify</span><span class="o">.</span><span class="n">update_topo_att</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;area&#39;</span><span class="p">:</span><span class="n">area</span><span class="p">})</span>
+        <span class="n">ttl_area</span> <span class="o">+=</span> <span class="n">area</span>
     
-    aust = 0
-    for f in face_list:
-        area_weighted = round(f.attributes[&#39;area&#39;]/ttl_area,2)
-        area_temp = round(area_weighted * f.attributes[&#39;temperature&#39;],2)
-        aust += area_temp
-        geomie3d.modify.update_topo_att(f, {&#39;area_weighted_aust&#39;:area_weighted, &#39;area_temperature_aust&#39;: area_temp})
-    return round(aust,2)
+    <span class="n">aust</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">face_list</span><span class="p">:</span>
+        <span class="n">area_weighted</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">ttl_area</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">area_temp</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">area_weighted</span> <span class="o">*</span> <span class="n">f</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s1">&#39;temperature&#39;</span><span class="p">],</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">aust</span> <span class="o">+=</span> <span class="n">area_temp</span>
+        <span class="n">geomie3d</span><span class="o">.</span><span class="n">modify</span><span class="o">.</span><span class="n">update_topo_att</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;area_weighted_aust&#39;</span><span class="p">:</span><span class="n">area_weighted</span><span class="p">,</span> <span class="s1">&#39;area_temperature_aust&#39;</span><span class="p">:</span> <span class="n">area_temp</span><span class="p">})</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">aust</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 
-def calc_avg_srf_temp(face_list):
-    ttl_area = 0
-    for f in face_list:
-        area = round(geomie3d.calculate.face_area(f),2)
-        geomie3d.modify.update_topo_att(f, {&#39;area&#39;:area})
-        ttl_area += area
+<span class="k">def</span> <span class="nf">calc_avg_srf_temp</span><span class="p">(</span><span class="n">face_list</span><span class="p">):</span>
+    <span class="n">ttl_area</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">face_list</span><span class="p">:</span>
+        <span class="n">area</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">geomie3d</span><span class="o">.</span><span class="n">calculate</span><span class="o">.</span><span class="n">face_area</span><span class="p">(</span><span class="n">f</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">geomie3d</span><span class="o">.</span><span class="n">modify</span><span class="o">.</span><span class="n">update_topo_att</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;area&#39;</span><span class="p">:</span><span class="n">area</span><span class="p">})</span>
+        <span class="n">ttl_area</span> <span class="o">+=</span> <span class="n">area</span>
     
-    avg = 0
-    for f in face_list:
-        area_weighted = round(f.attributes[&#39;area&#39;]/ttl_area,2)
-        area_temp = round(area_weighted * f.attributes[&#39;temperature&#39;],2)
-        avg += area_temp
-        geomie3d.modify.update_topo_att(f, {&#39;area_weighted&#39;:area_weighted, &#39;area_temperature&#39;: area_temp})
-    return round(avg,2)
+    <span class="n">avg</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">face_list</span><span class="p">:</span>
+        <span class="n">area_weighted</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">ttl_area</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">area_temp</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">area_weighted</span> <span class="o">*</span> <span class="n">f</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s1">&#39;temperature&#39;</span><span class="p">],</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">avg</span> <span class="o">+=</span> <span class="n">area_temp</span>
+        <span class="n">geomie3d</span><span class="o">.</span><span class="n">modify</span><span class="o">.</span><span class="n">update_topo_att</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;area_weighted&#39;</span><span class="p">:</span><span class="n">area_weighted</span><span class="p">,</span> <span class="s1">&#39;area_temperature&#39;</span><span class="p">:</span> <span class="n">area_temp</span><span class="p">})</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">avg</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
     
-#%% Main
-file_exts = sorted(os.listdir(geomie3d_dir))
-rows2d = [[&#39;datetime&#39;, &#39;aust&#39;, &#39;avg_srf_temp&#39;]]
-for fe in file_exts:
-    fe_split = fe.split(&#39;.&#39;)
-    ext = fe_split[-1]
-    if ext.lower() == &#39;geomie3d&#39;:
-        filename_only = fe_split[0]
-        fn_split = filename_only.split(&#39;_&#39;)
-        date_str = fn_split[1]#.replace()
-        time_str = fn_split[2].replace(&#39;-&#39;, &#39;:&#39;)
-        datetime_str = date_str + &#39; &#39; + time_str + &#39;-04:00&#39;
-        dt = dateutil.parser.parse(datetime_str)
-        dt_str = dt.isoformat()
+<span class="c1">#%% Main</span>
+<span class="n">file_exts</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">geomie3d_dir</span><span class="p">))</span>
+<span class="n">rows2d</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;datetime&#39;</span><span class="p">,</span> <span class="s1">&#39;aust&#39;</span><span class="p">,</span> <span class="s1">&#39;avg_srf_temp&#39;</span><span class="p">]]</span>
+<span class="k">for</span> <span class="n">fe</span> <span class="ow">in</span> <span class="n">file_exts</span><span class="p">:</span>
+    <span class="n">fe_split</span> <span class="o">=</span> <span class="n">fe</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+    <span class="n">ext</span> <span class="o">=</span> <span class="n">fe_split</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">ext</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;geomie3d&#39;</span><span class="p">:</span>
+        <span class="n">filename_only</span> <span class="o">=</span> <span class="n">fe_split</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">fn_split</span> <span class="o">=</span> <span class="n">filename_only</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
+        <span class="n">date_str</span> <span class="o">=</span> <span class="n">fn_split</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="c1">#.replace()</span>
+        <span class="n">time_str</span> <span class="o">=</span> <span class="n">fn_split</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">)</span>
+        <span class="n">datetime_str</span> <span class="o">=</span> <span class="n">date_str</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">time_str</span> <span class="o">+</span> <span class="s1">&#39;-04:00&#39;</span>
+        <span class="n">dt</span> <span class="o">=</span> <span class="n">dateutil</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">datetime_str</span><span class="p">)</span>
+        <span class="n">dt_str</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
 
-        geomie3d_path = os.path.join(geomie3d_dir, fe)
-        model_dict = geomie3d.utility.read_geomie3d(geomie3d_path)
-        topo_list = model_dict[&#39;topo_list&#39;]
-        if is_215:
-            non_pnl_srfs = topo_list[0:6]
-        else:
-            non_pnl_srfs = topo_list[0:5]
+        <span class="n">geomie3d_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">geomie3d_dir</span><span class="p">,</span> <span class="n">fe</span><span class="p">)</span>
+        <span class="n">model_dict</span> <span class="o">=</span> <span class="n">geomie3d</span><span class="o">.</span><span class="n">utility</span><span class="o">.</span><span class="n">read_geomie3d</span><span class="p">(</span><span class="n">geomie3d_path</span><span class="p">)</span>
+        <span class="n">topo_list</span> <span class="o">=</span> <span class="n">model_dict</span><span class="p">[</span><span class="s1">&#39;topo_list&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">is_215</span><span class="p">:</span>
+            <span class="n">non_pnl_srfs</span> <span class="o">=</span> <span class="n">topo_list</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">non_pnl_srfs</span> <span class="o">=</span> <span class="n">topo_list</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
             
-        aust = calc_aust(non_pnl_srfs)
-      
-        avg = calc_avg_srf_temp(topo_list)
-        rows2d.append([dt_str, aust, avg])
-        geomie3d.utility.write2geomie3d(topo_list, geomie3d_path)
-        # geomie3d.viz.viz([{&#39;topo_list&#39;: non_pnl_srfs , &#39;colour&#39;: &#39;blue&#39;, &#39;attribute&#39;: &#39;name&#39;}])
+        <span class="n">aust</span> <span class="o">=</span> <span class="n">calc_aust</span><span class="p">(</span><span class="n">non_pnl_srfs</span><span class="p">)</span>
+        
+        <span class="n">avg</span> <span class="o">=</span> <span class="n">calc_avg_srf_temp</span><span class="p">(</span><span class="n">topo_list</span><span class="p">)</span>
+        <span class="n">rows2d</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">dt_str</span><span class="p">,</span> <span class="n">aust</span><span class="p">,</span> <span class="n">avg</span><span class="p">])</span>
+        <span class="n">geomie3d</span><span class="o">.</span><span class="n">utility</span><span class="o">.</span><span class="n">write2geomie3d</span><span class="p">(</span><span class="n">topo_list</span><span class="p">,</span> <span class="n">geomie3d_path</span><span class="p">)</span>
+        <span class="c1"># geomie3d.viz.viz([{&#39;topo_list&#39;: non_pnl_srfs , &#39;colour&#39;: &#39;blue&#39;, &#39;attribute&#39;: &#39;name&#39;}])</span>
 
-geomie3d.utility.write2csv(rows2d, aust_path)
-```
+<span class="n">geomie3d</span><span class="o">.</span><span class="n">utility</span><span class="o">.</span><span class="n">write2csv</span><span class="p">(</span><span class="n">rows2d</span><span class="p">,</span> <span class="n">aust_path</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="calculate-radiant-panels-load">
 <h3><span class="section-number">16.1.12. </span>Calculate radiant panels load<a class="headerlink" href="#calculate-radiant-panels-load" title="Permalink to this heading">#</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
-import pandas as pd 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
 
-import geomie3d
-#%% Parameters
-iot_path = &#39;/home/usrname/iot.csv&#39;
-mini_path = &#39;/home/usrname/minires.csv&#39;
-aust_path = &#39;/home/usrname/aust.csv&#39;
-geomie3d_path = &#39;/home/usrname/room.geomie3d&#39;
-load_path = &#39;/home/usrname/load.csv&#39;
+<span class="kn">import</span> <span class="nn">geomie3d</span>
+<span class="c1">#%% Parameters</span>
+<span class="n">iot_path</span> <span class="o">=</span> <span class="s1">&#39;/home/usrname/iot.csv&#39;</span>
+<span class="n">mini_path</span> <span class="o">=</span> <span class="s1">&#39;/home/usrname/minires.csv&#39;</span>
+<span class="n">aust_path</span> <span class="o">=</span> <span class="s1">&#39;/home/usrname/aust.csv&#39;</span>
+<span class="n">geomie3d_path</span> <span class="o">=</span> <span class="s1">&#39;/home/usrname/room.geomie3d&#39;</span>
+<span class="n">load_path</span> <span class="o">=</span> <span class="s1">&#39;/home/usrname/load.csv&#39;</span>
 
-#%% Functions
-def read_csv(path):
-    df = pd.read_csv(path, sep = &#39;,&#39;)
-    df[&#39;datetime&#39;] = pd.to_datetime(df[&#39;datetime&#39;], yearfirst=True)
-    df.set_index(&#39;datetime&#39;, inplace=True)
-    return df
+<span class="c1">#%% Functions</span>
+<span class="k">def</span> <span class="nf">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">],</span> <span class="n">yearfirst</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;datetime&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span>
     
-#%% Main
-# read iot
-iot_df = read_csv(iot_path)
-iot_df = iot_df.resample(&#39;5T&#39;).median()
-# read mini
-mini_df = read_csv(mini_path)
-mini_df = mini_df.resample(&#39;5T&#39;).median()
-# read aust
-aust_df = read_csv(aust_path)
-aust_df = aust_df.resample(&#39;5T&#39;).median()
-# read model
-model_dict = geomie3d.utility.read_geomie3d(geomie3d_path)
-topo_list = model_dict[&#39;topo_list&#39;]
-pnl_srf = topo_list[-1]
-ceil_area = geomie3d.calculate.face_area(pnl_srf)
-pnl_area = ceil_area*0.8
-# calculate the rad loads
-iot_df[&#39;pnl_temp&#39;] = (iot_df[&#39;a006_panel_temp&#39;] + iot_df[&#39;arg001_panel_temp&#39;])/2
-aust_df[&#39;pnl_temp&#39;] = iot_df[&#39;pnl_temp&#39;]
-aust_df[&#39;qrad&#39;] = 5e-08 * (((iot_df[&#39;pnl_temp&#39;] + 273.15)**4) - ((aust_df[&#39;aust&#39;] + 273.15)**4)) 
-aust_df[&#39;qrad_area&#39;] = aust_df[&#39;qrad&#39;] * pnl_area
-aust_df = aust_df.drop([&#39;avg_srf_temp&#39;], axis=1)
-# calculate the cnv loads
-aust_df[&#39;pnl_air_diff&#39;] = aust_df[&#39;pnl_temp&#39;] - mini_df[&#39; TEMP&#39;]
-aust_df[&#39;qconv&#39;] = 2.13 * (aust_df[&#39;pnl_air_diff&#39;].abs()) ** 0.31 * aust_df[&#39;pnl_air_diff&#39;] 
-aust_df[&#39;qconv_area&#39;] = aust_df[&#39;qconv&#39;] * pnl_area
+<span class="c1">#%% Main</span>
+<span class="c1"># read iot</span>
+<span class="n">iot_df</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="n">iot_path</span><span class="p">)</span>
+<span class="n">iot_df</span> <span class="o">=</span> <span class="n">iot_df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;5T&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="c1"># read mini</span>
+<span class="n">mini_df</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="n">mini_path</span><span class="p">)</span>
+<span class="n">mini_df</span> <span class="o">=</span> <span class="n">mini_df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;5T&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="c1"># read aust</span>
+<span class="n">aust_df</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="n">aust_path</span><span class="p">)</span>
+<span class="n">aust_df</span> <span class="o">=</span> <span class="n">aust_df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;5T&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="c1"># read model</span>
+<span class="n">model_dict</span> <span class="o">=</span> <span class="n">geomie3d</span><span class="o">.</span><span class="n">utility</span><span class="o">.</span><span class="n">read_geomie3d</span><span class="p">(</span><span class="n">geomie3d_path</span><span class="p">)</span>
+<span class="n">topo_list</span> <span class="o">=</span> <span class="n">model_dict</span><span class="p">[</span><span class="s1">&#39;topo_list&#39;</span><span class="p">]</span>
+<span class="n">pnl_srf</span> <span class="o">=</span> <span class="n">topo_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ceil_area</span> <span class="o">=</span> <span class="n">geomie3d</span><span class="o">.</span><span class="n">calculate</span><span class="o">.</span><span class="n">face_area</span><span class="p">(</span><span class="n">pnl_srf</span><span class="p">)</span>
+<span class="n">pnl_area</span> <span class="o">=</span> <span class="n">ceil_area</span><span class="o">*</span><span class="mf">0.8</span>
+<span class="c1"># calculate the rad loads</span>
+<span class="n">iot_df</span><span class="p">[</span><span class="s1">&#39;pnl_temp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">iot_df</span><span class="p">[</span><span class="s1">&#39;a006_panel_temp&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">iot_df</span><span class="p">[</span><span class="s1">&#39;arg001_panel_temp&#39;</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">aust_df</span><span class="p">[</span><span class="s1">&#39;pnl_temp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">iot_df</span><span class="p">[</span><span class="s1">&#39;pnl_temp&#39;</span><span class="p">]</span>
+<span class="n">aust_df</span><span class="p">[</span><span class="s1">&#39;qrad&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">5e-08</span> <span class="o">*</span> <span class="p">(((</span><span class="n">iot_df</span><span class="p">[</span><span class="s1">&#39;pnl_temp&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mf">273.15</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span> <span class="o">-</span> <span class="p">((</span><span class="n">aust_df</span><span class="p">[</span><span class="s1">&#39;aust&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mf">273.15</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">))</span> 
+<span class="n">aust_df</span><span class="p">[</span><span class="s1">&#39;qrad_area&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">aust_df</span><span class="p">[</span><span class="s1">&#39;qrad&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">pnl_area</span>
+<span class="n">aust_df</span> <span class="o">=</span> <span class="n">aust_df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;avg_srf_temp&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># calculate the cnv loads</span>
+<span class="n">aust_df</span><span class="p">[</span><span class="s1">&#39;pnl_air_diff&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">aust_df</span><span class="p">[</span><span class="s1">&#39;pnl_temp&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">mini_df</span><span class="p">[</span><span class="s1">&#39; TEMP&#39;</span><span class="p">]</span>
+<span class="n">aust_df</span><span class="p">[</span><span class="s1">&#39;qconv&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.13</span> <span class="o">*</span> <span class="p">(</span><span class="n">aust_df</span><span class="p">[</span><span class="s1">&#39;pnl_air_diff&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">())</span> <span class="o">**</span> <span class="mf">0.31</span> <span class="o">*</span> <span class="n">aust_df</span><span class="p">[</span><span class="s1">&#39;pnl_air_diff&#39;</span><span class="p">]</span> 
+<span class="n">aust_df</span><span class="p">[</span><span class="s1">&#39;qconv_area&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">aust_df</span><span class="p">[</span><span class="s1">&#39;qconv&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">pnl_area</span>
 
-aust_df.to_csv(load_path)
-```
+<span class="n">aust_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">load_path</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

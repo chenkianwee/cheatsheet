@@ -199,6 +199,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="016pandas.html">15. Pandas scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="017experiment.html">16. Experiment procedure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="018micro_proj.html">17. Projects with Micro-Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="019snippet.html">18. Useful code snippets</a></li>
 </ul>
 
     </div>
@@ -400,17 +401,26 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ci-cd-with-github-action">5.4. CI/CD with Github action</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-documentation-for-your-library-with-pdoc">5.5. Generating documentation for your library with Pdoc</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#framework-for-writing-python-apps">5.6. Framework for writing Python Apps</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reducing-numpy-scipy-library-size">5.7. Reducing numpy, scipy library size</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-and-scipy-resources">5.7. Numpy and scipy resources</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reducing-numpy-scipy-library-size">5.7.1. Reducing numpy, scipy library size</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-and-slicing-on-numpy">5.7.2. Indexing and slicing on numpy</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vscode-python-ide">5.8. VScode Python IDE</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-pythonpath">5.8.1. Setting up PYTHONPATH</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vscode-useful-shortcut-keys">5.8.2. VScode useful shortcut keys</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#folding-in-vscode">5.8.3. Folding in VScode</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#execute-python-with-crontab">5.9. Execute Python with Crontab</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-in-the-browser">5.10. Python in the browser</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#panda3d-for-3d-game-development">5.11. Panda3d for 3D game development</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">5.12. Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-xml-file-from-xsd-using-python">5.9. Generate xml file from xsd using Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-generateds-py-to-generate-python-files-from-xsd">5.9.1. Using generateDS.py to generate Python files from xsd</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-xmlschema">5.9.2. Using xmlschema</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#execute-python-with-crontab">5.10. Execute Python with Crontab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-in-the-browser">5.11. Python in the browser</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#panda3d-for-3d-game-development">5.12. Panda3d for 3D game development</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resourcesself">5.13. Resourcesself</a></li>
 </ul>
             </nav>
         </div>
@@ -661,11 +671,20 @@ based on these:</p>
 <li><p><a class="github reference external" href="https://github.com/ClimenteA/pyvan">ClimenteA/pyvan</a></p></li>
 </ul>
 </section>
+<section id="numpy-and-scipy-resources">
+<h2><span class="section-number">5.7. </span>Numpy and scipy resources<a class="headerlink" href="#numpy-and-scipy-resources" title="Permalink to this heading">#</a></h2>
 <section id="reducing-numpy-scipy-library-size">
-<h2><span class="section-number">5.7. </span>Reducing numpy, scipy library size<a class="headerlink" href="#reducing-numpy-scipy-library-size" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">5.7.1. </span>Reducing numpy, scipy library size<a class="headerlink" href="#reducing-numpy-scipy-library-size" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://towardsdatascience.com/how-to-shrink-numpy-scipy-pandas-and-matplotlib-for-your-data-product-4ec8d7e86ee4">https://towardsdatascience.com/how-to-shrink-numpy-scipy-pandas-and-matplotlib-for-your-data-product-4ec8d7e86ee4</a></p></li>
 </ul>
+</section>
+<section id="indexing-and-slicing-on-numpy">
+<h3><span class="section-number">5.7.2. </span>Indexing and slicing on numpy<a class="headerlink" href="#indexing-and-slicing-on-numpy" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/user/basics.indexing.html#">https://numpy.org/doc/stable/user/basics.indexing.html#</a></p></li>
+</ul>
+</section>
 </section>
 <section id="vscode-python-ide">
 <h2><span class="section-number">5.8. </span>VScode Python IDE<a class="headerlink" href="#vscode-python-ide" title="Permalink to this heading">#</a></h2>
@@ -767,8 +786,63 @@ based on these:</p>
 </ul>
 </section>
 </section>
+<section id="generate-xml-file-from-xsd-using-python">
+<h2><span class="section-number">5.9. </span>Generate xml file from xsd using Python<a class="headerlink" href="#generate-xml-file-from-xsd-using-python" title="Permalink to this heading">#</a></h2>
+<section id="using-generateds-py-to-generate-python-files-from-xsd">
+<h3><span class="section-number">5.9.1. </span>Using <a class="reference external" href="http://generateDS.py">generateDS.py</a> to generate Python files from xsd<a class="headerlink" href="#using-generateds-py-to-generate-python-files-from-xsd" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/48928973/python-create-xml-from-xsd">https://stackoverflow.com/questions/48928973/python-create-xml-from-xsd</a></p></li>
+<li><p>the result was not very successful</p></li>
+</ul>
+<ol class="arabic">
+<li><p>pip install the library <a class="reference external" href="http://generateDS.py">generateDS.py</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">generateDS</span>
+</pre></div>
+</div>
+</li>
+<li><p>Once it is installed you will be able to access it in your virtual environment by typing ‘<a class="reference external" href="http://generateDS.py">generateDS.py</a>’</p></li>
+<li><p>Run the following command to generate python codes to write measure_xml</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">generateDS</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">o</span> <span class="n">osmod_measure</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">s</span> <span class="n">osmod_measuresubs</span><span class="o">.</span><span class="n">py</span> <span class="n">measure_v3</span><span class="o">.</span><span class="n">xsd</span> 
+
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="using-xmlschema">
+<h3><span class="section-number">5.9.2. </span>Using xmlschema<a class="headerlink" href="#using-xmlschema" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/58283389/create-specific-xml-file-from-xsd-file-with-python">https://stackoverflow.com/questions/58283389/create-specific-xml-file-from-xsd-file-with-python</a></p></li>
+<li><p><a class="github reference external" href="https://github.com/sissaschool/xmlschema/issues/395">sissaschool/xmlschema#395</a></p></li>
+</ul>
+<ol class="arabic">
+<li><p>An example script</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xmlschema</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">xml.etree.ElementTree</span> <span class="kn">import</span> <span class="n">ElementTree</span>
+
+<span class="n">xsd_path</span> <span class="o">=</span> <span class="s1">&#39;/home/xsd/measure_v3.xsd&#39;</span>
+<span class="n">xml_path</span> <span class="o">=</span> <span class="s1">&#39;/home/measure.xml&#39;</span>
+<span class="n">res_path</span> <span class="o">=</span> <span class="s1">&#39;/home/measure_edited.xml&#39;</span>
+
+<span class="n">schema</span> <span class="o">=</span> <span class="n">xmlschema</span><span class="o">.</span><span class="n">XMLSchema</span><span class="p">(</span><span class="n">xsd_path</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">schema</span><span class="o">.</span><span class="n">is_valid</span><span class="p">(</span><span class="n">xml_path</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">schema</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="n">xml_path</span><span class="p">,</span> <span class="n">preserve_root</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">d</span><span class="p">[</span><span class="s1">&#39;measure&#39;</span><span class="p">][</span><span class="s1">&#39;arguments&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;argument&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;srf_temps&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;display_name&#39;</span><span class="p">:</span> <span class="s1">&#39;Surface Temperatures&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;Output the surface temperatures of each surface&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;Boolean&#39;</span><span class="p">,</span> <span class="s1">&#39;required&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;model_dependent&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}]}</span>
+<span class="n">json_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="n">xml</span> <span class="o">=</span> <span class="n">xmlschema</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="n">json_data</span><span class="p">,</span> <span class="n">schema</span><span class="o">=</span><span class="n">schema</span><span class="p">,</span> <span class="n">preserve_root</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;measure&#39;</span><span class="p">)</span>
+<span class="n">ElementTree</span><span class="p">(</span><span class="n">xml</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">res_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
 <section id="execute-python-with-crontab">
-<h2><span class="section-number">5.9. </span>Execute Python with Crontab<a class="headerlink" href="#execute-python-with-crontab" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.10. </span>Execute Python with Crontab<a class="headerlink" href="#execute-python-with-crontab" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://stackoverflow.com/questions/8727935/execute-python-script-via-crontab">https://stackoverflow.com/questions/8727935/execute-python-script-via-crontab</a></p></li>
 <li><p><a class="reference external" href="https://www.adminschoice.com/crontab-quick-reference">https://www.adminschoice.com/crontab-quick-reference</a></p></li>
@@ -776,7 +850,7 @@ based on these:</p>
 </ul>
 </section>
 <section id="python-in-the-browser">
-<h2><span class="section-number">5.10. </span>Python in the browser<a class="headerlink" href="#python-in-the-browser" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.11. </span>Python in the browser<a class="headerlink" href="#python-in-the-browser" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://jupyter.org/">https://jupyter.org/</a></p></li>
 <li><p><a class="reference external" href="https://pyodide.org/en/stable/">https://pyodide.org/en/stable/</a></p></li>
@@ -784,15 +858,17 @@ based on these:</p>
 </ul>
 </section>
 <section id="panda3d-for-3d-game-development">
-<h2><span class="section-number">5.11. </span>Panda3d for 3D game development<a class="headerlink" href="#panda3d-for-3d-game-development" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.12. </span>Panda3d for 3D game development<a class="headerlink" href="#panda3d-for-3d-game-development" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="github reference external" href="https://github.com/ArsThaumaturgis/Panda3DTutorial.io">ArsThaumaturgis/Panda3DTutorial.io</a></p></li>
 </ul>
 </section>
-<section id="resources">
-<h2><span class="section-number">5.12. </span>Resources<a class="headerlink" href="#resources" title="Permalink to this heading">#</a></h2>
+<section id="resourcesself">
+<h2><span class="section-number">5.13. </span>Resourcesself<a class="headerlink" href="#resourcesself" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Computer Scientist website on alot of python resources and career advice (<a class="reference external" href="https://third-bit.com/">https://third-bit.com/</a>)</p></li>
+<li><p>Useful online books on python: <a class="reference external" href="https://greenteapress.com/wp/">https://greenteapress.com/wp/</a></p></li>
+<li><p>research software engineering with python: <a class="reference external" href="https://alan-turing-institute.github.io/rse-course/html/index.html#">https://alan-turing-institute.github.io/rse-course/html/index.html#</a></p></li>
 </ul>
 </section>
 </section>
@@ -867,17 +943,26 @@ based on these:</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ci-cd-with-github-action">5.4. CI/CD with Github action</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-documentation-for-your-library-with-pdoc">5.5. Generating documentation for your library with Pdoc</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#framework-for-writing-python-apps">5.6. Framework for writing Python Apps</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reducing-numpy-scipy-library-size">5.7. Reducing numpy, scipy library size</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-and-scipy-resources">5.7. Numpy and scipy resources</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reducing-numpy-scipy-library-size">5.7.1. Reducing numpy, scipy library size</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-and-slicing-on-numpy">5.7.2. Indexing and slicing on numpy</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vscode-python-ide">5.8. VScode Python IDE</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-pythonpath">5.8.1. Setting up PYTHONPATH</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vscode-useful-shortcut-keys">5.8.2. VScode useful shortcut keys</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#folding-in-vscode">5.8.3. Folding in VScode</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#execute-python-with-crontab">5.9. Execute Python with Crontab</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-in-the-browser">5.10. Python in the browser</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#panda3d-for-3d-game-development">5.11. Panda3d for 3D game development</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">5.12. Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-xml-file-from-xsd-using-python">5.9. Generate xml file from xsd using Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-generateds-py-to-generate-python-files-from-xsd">5.9.1. Using generateDS.py to generate Python files from xsd</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-xmlschema">5.9.2. Using xmlschema</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#execute-python-with-crontab">5.10. Execute Python with Crontab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-in-the-browser">5.11. Python in the browser</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#panda3d-for-3d-game-development">5.12. Panda3d for 3D game development</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resourcesself">5.13. Resourcesself</a></li>
 </ul>
   </nav></div>
 

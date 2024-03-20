@@ -9,6 +9,9 @@
     - https://en.wikipedia.org/wiki/Greiner%E2%80%93Hormann_clipping_algorithm
     - https://davis.wpi.edu/~matt/courses/clipping/
 
+- Point in polygon
+    - https://en.wikipedia.org/wiki/Point_in_polygon#Winding_number_algorithm
+
 - transformation matrix to flip y-up gltf points to z-up
     ```
     mat = np.array([[1, 0, 0, 0],
