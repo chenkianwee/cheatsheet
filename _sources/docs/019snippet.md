@@ -31,3 +31,19 @@
     dt_str = dt_utc.isoformat(timespec='minutes')
     print(dt_str)
     ```
+
+- Pathlib 
+    ```
+    from pathlib import Path
+
+    join_path = Path('/home/chenkianwee').joinpath('this','is','a','path')
+    parent = Path(__file__).parent
+    level2up = Path(__file__).parent.parent
+    filename = Path(__file__).name
+    cwd = Path.cwd()
+    print(cwd)
+    print(join_path)
+    # to turn the path into str you can either to str() or .__str__()
+    print(str(parent))
+    print(filename.__str__())
+    ```
