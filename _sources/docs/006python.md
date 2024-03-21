@@ -340,10 +340,21 @@ based on these:
 - https://pyodide.org/en/stable/
 - https://realpython.com/pyscript-python-in-browser/
 
+### Jupyter lab shortcut key
+- change cell to markdown
+    ```
+    Esc + m
+    ```
+
+- change cell to code
+    ```
+    Esc + y
+    ```
+
 ## Panda3d for 3D game development
 - https://github.com/ArsThaumaturgis/Panda3DTutorial.io
 
-## Resourcesself
+## Resources
 - Computer Scientist website on alot of python resources and career advice (https://third-bit.com/)
 - Useful online books on python: https://greenteapress.com/wp/
 - research software engineering with python: https://alan-turing-institute.github.io/rse-course/html/index.html#

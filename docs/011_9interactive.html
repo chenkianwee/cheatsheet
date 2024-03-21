@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>11. Getting Things Done &#8212; CKW cheatsheet</title>
+    <title>10.9. Interactive visualization with Jupyter-book &#8212; CKW cheatsheet</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/012approach';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/011_9interactive';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="12. Hosting and Web Server" href="013server.html" />
-    <link rel="prev" title="10.9. Interactive visualization with Jupyter-book" href="011_9interactive.html" />
+    <link rel="next" title="11. Getting Things Done" href="012approach.html" />
+    <link rel="prev" title="10.8. Generate PDF" href="011_8pdf.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -181,7 +181,7 @@
 <li class="toctree-l1"><a class="reference internal" href="008matplotlib.html">7. Matplotlib Scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="009git.html">8. Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="010opencv.html">9. OpenCV</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="011pubbk.html">10. Jupyter-book</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="011pubbk.html">10. Jupyter-book</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="011_1installation.html">10.1. Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="011_2createbook.html">10.2. Create a Book Template with Jupyter-book</a></li>
 <li class="toctree-l2"><a class="reference internal" href="011_3editbook.html">10.3. Edit the Book</a></li>
@@ -190,10 +190,10 @@
 <li class="toctree-l2"><a class="reference internal" href="011_6citation.html">10.6. Adding a Citation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="011_7pubonline.html">10.7. Publish your Book on Github</a></li>
 <li class="toctree-l2"><a class="reference internal" href="011_8pdf.html">10.8. Generate PDF</a></li>
-<li class="toctree-l2"><a class="reference internal" href="011_9interactive.html">10.9. Interactive visualization with Jupyter-book</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">10.9. Interactive visualization with Jupyter-book</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Getting Things Done</a></li>
+<li class="toctree-l1"><a class="reference internal" href="012approach.html">11. Getting Things Done</a></li>
 <li class="toctree-l1"><a class="reference internal" href="013server.html">12. Hosting and Web Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="014jupyterlab.html">13. JupyterLab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="015geom.html">14. Computational geometry</a></li>
@@ -272,7 +272,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/012approach.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/011_9interactive.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -302,7 +302,7 @@
       
       
       
-      <li><a href="../_sources/docs/012approach.md" target="_blank"
+      <li><a href="../_sources/docs/011_9interactive.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -386,7 +386,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Getting Things Done</h1>
+    <h1>Interactive visualization with Jupyter-book</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -396,10 +396,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#approaching-a-project">11.1. Approaching a Project</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes-about-software-startup-in-aec">11.2. Notes about software startup in AEC</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teaching-digital-aec-through-the-computational-approach">11.3. Teaching digital AEC through the computational approach</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#different-level-of-computational-design-practice-research">11.4. Different level of computational design practice/research</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hide-markdown">10.9.1. Hide Markdown</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-jupyter">10.9.2. Project Jupyter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-lab-for-writing-ipynb-files">10.9.3. Jupyter lab for writing ipynb files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-jupyter-notebook-with-vscode">10.9.3.1. Edit jupyter notebook with vscode</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotly-for-generating-interactive-visualization-on-jupyter-book">10.9.4. Plotly for generating interactive visualization on Jupyter-book</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hide-or-remove-code-cell-content">10.9.5. Hide or remove code cell content</a></li>
 </ul>
             </nav>
         </div>
@@ -411,55 +415,104 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="getting-things-done">
-<h1><span class="section-number">11. </span>Getting Things Done<a class="headerlink" href="#getting-things-done" title="Link to this heading">#</a></h1>
-<section id="approaching-a-project">
-<h2><span class="section-number">11.1. </span>Approaching a Project<a class="headerlink" href="#approaching-a-project" title="Link to this heading">#</a></h2>
-<p>Envision your goal so that you never lose sight of it. An example from experience when starting a research project. When you have an idea. Envision the final deliverables for the project.</p>
-<ol class="arabic simple">
-<li><p>When writing the proposal for the project, envision the number of papers/reports you are going to publish from the project.</p></li>
-<li><p>When writing each paper, have a clear objective for the paper, and write the abstract, introduction and literature review section of the paper before doing any experiment/modeling.</p></li>
-<li><p>When working on the experiment/modeling exercise for the paper be clear about what data you need to collect for the paper.</p></li>
-<li><p>When collecting data from the experiment/modeling be clear about what you want to find and how it will be visualize and presented in your paper.</p></li>
-<li><p>When visualizing and presenting the data be clear how the data is proving the objective.</p></li>
-<li><p>When proving the objective be clear about how it contirbutes to the project.</p></li>
+  <section class="tex2jax_ignore mathjax_ignore" id="interactive-visualization-with-jupyter-book">
+<h1><span class="section-number">10.9. </span>Interactive visualization with Jupyter-book<a class="headerlink" href="#interactive-visualization-with-jupyter-book" title="Link to this heading">#</a></h1>
+<section id="hide-markdown">
+<h2><span class="section-number">10.9.1. </span>Hide Markdown<a class="headerlink" href="#hide-markdown" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://jupyterbook.org/en/stable/content/components.html#dropdowns">https://jupyterbook.org/en/stable/content/components.html#dropdowns</a></p></li>
+</ul>
+<ol class="arabic">
+<li><p>Hide codes with the {toggle} directive</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    ```{toggle} my dropdown
+    dropdown content 
+    ```
+</pre></div>
+</div>
+</li>
 </ol>
 </section>
-<section id="notes-about-software-startup-in-aec">
-<h2><span class="section-number">11.2. </span>Notes about software startup in AEC<a class="headerlink" href="#notes-about-software-startup-in-aec" title="Link to this heading">#</a></h2>
-<p>Interesting software companies:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.ladybug.tools">https://www.ladybug.tools</a></p></li>
-<li><p><a class="reference external" href="https://cove.tools/">https://cove.tools/</a></p></li>
-<li><p><a class="reference external" href="https://www.digitalbluefoam.com/">https://www.digitalbluefoam.com/</a></p></li>
-<li><p><a class="reference external" href="https://bigladdersoftware.com/">https://bigladdersoftware.com/</a></p></li>
-<li><p><a class="reference external" href="https://www.effibem.com/">https://www.effibem.com/</a></p></li>
-<li><p><a class="reference external" href="https://sixfeetup.com/">https://sixfeetup.com/</a></p></li>
-<li><p><a class="reference external" href="https://sartography.com/">https://sartography.com/</a></p></li>
-<li><p><a class="reference external" href="https://braaannigan.github.io/">https://braaannigan.github.io/</a></p></li>
-<li><p><a class="reference external" href="https://d-alchemy.com/">https://d-alchemy.com/</a></p></li>
-</ul>
+<section id="project-jupyter">
+<h2><span class="section-number">10.9.2. </span>Project Jupyter<a class="headerlink" href="#project-jupyter" title="Link to this heading">#</a></h2>
+<p>Jupyter-book is able to generate interactive graphs with Jupyter notebook files. First of all we will need to be able to create and edit .ipynb files. Jupyter lab is a web-based coding environment. It can be used together with Jupyter-book to produce interactive web-based visualizations that will be very useful for communication of modeling results and collaborations.</p>
 </section>
-<section id="teaching-digital-aec-through-the-computational-approach">
-<h2><span class="section-number">11.3. </span>Teaching digital AEC through the computational approach<a class="headerlink" href="#teaching-digital-aec-through-the-computational-approach" title="Link to this heading">#</a></h2>
-<p>You need students to have knowledge on all of these 3 area</p>
+<section id="jupyter-lab-for-writing-ipynb-files">
+<h2><span class="section-number">10.9.3. </span>Jupyter lab for writing ipynb files<a class="headerlink" href="#jupyter-lab-for-writing-ipynb-files" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><p>Install jupyter lab with the following command. Refer to <a class="reference external" href="https://jupyter.org/install">https://jupyter.org/install</a> for more information</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">jupyterlab</span>
+</pre></div>
+</div>
+</li>
+<li><p>Launch jupyter lab with the command in the terminal</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span> <span class="n">lab</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<section id="edit-jupyter-notebook-with-vscode">
+<h3><span class="section-number">10.9.3.1. </span>Edit jupyter notebook with vscode<a class="headerlink" href="#edit-jupyter-notebook-with-vscode" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Models:</p>
-<ul>
-<li><p>Data Models: BIM, GIS, Brick Schema, OpenStudio Model, Control Description Language (CDL)</p></li>
-<li><p>Simulation Models: EnergyPlus, Radiance</p></li>
+<li><p><a class="reference external" href="https://code.visualstudio.com/docs/datascience/jupyter-notebooks">https://code.visualstudio.com/docs/datascience/jupyter-notebooks</a></p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>Activate the command palette(Ctrl + Shift + p), ‘Python: Select Interpreter’. Select an interpreter that has jupyter lab installed on the environment.</p></li>
+<li><p>Open a ipynb file. You can edit the file in vscode.</p></li>
+<li><p>To execute the file you will need a running jupyter lab instance. Launch you jupyter lab and connect your vscode to the jupyter lab session.</p>
+<ul class="simple">
+<li><p>you will need a url to connect to the jupyter lab session. When you launch ur jupyter lab session in the terminal. A url with token will be provided. You just have to copy and paste that url into the vscode.</p></li>
 </ul>
 </li>
-<li><p>Domain Expertise: Architecture, MEP Engineering</p></li>
-<li><p>Programing: explore the models with ease</p></li>
-</ul>
+</ol>
 </section>
-<section id="different-level-of-computational-design-practice-research">
-<h2><span class="section-number">11.4. </span>Different level of computational design practice/research<a class="headerlink" href="#different-level-of-computational-design-practice-research" title="Link to this heading">#</a></h2>
+</section>
+<section id="plotly-for-generating-interactive-visualization-on-jupyter-book">
+<h2><span class="section-number">10.9.4. </span>Plotly for generating interactive visualization on Jupyter-book<a class="headerlink" href="#plotly-for-generating-interactive-visualization-on-jupyter-book" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>you can install plotly by following these instructions <a class="reference external" href="https://plotly.com/python/getting-started/">https://plotly.com/python/getting-started/</a></p></li>
+<li><p>refer to jupyter-book documentation here (<a class="reference external" href="https://jupyterbook.org/en/stable/interactive/interactive.html">https://jupyterbook.org/en/stable/interactive/interactive.html</a>)</p></li>
+</ul>
+<ol class="arabic">
+<li><p>Install plotly</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">plotly</span><span class="o">==</span><span class="mf">5.20.0</span>
+</pre></div>
+</div>
+</li>
+<li><p>Refer to various example scripts to generate interactive graphs (<a class="reference external" href="https://jupyterbook.org/en/stable/interactive/interactive.html#plotly">https://jupyterbook.org/en/stable/interactive/interactive.html#plotly</a>)</p></li>
+<li><p>Load require.js into your jupyter-book to show the graphs. Include the below settings to your _config.yml</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx</span><span class="p">:</span>
+    <span class="n">config</span><span class="p">:</span>
+        <span class="n">html_js_files</span><span class="p">:</span>
+        <span class="o">-</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">cdnjs</span><span class="o">.</span><span class="n">cloudflare</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ajax</span><span class="o">/</span><span class="n">libs</span><span class="o">/</span><span class="n">require</span><span class="o">.</span><span class="n">js</span><span class="o">/</span><span class="mf">2.3.4</span><span class="o">/</span><span class="n">require</span><span class="o">.</span><span class="n">min</span><span class="o">.</span><span class="n">js</span>
+</pre></div>
+</div>
+</li>
+<li><p>A error might be generated with showing plotly interactive plots. You can suppress the error with this command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx</span><span class="p">:</span>
+    <span class="n">config</span><span class="p">:</span>
+        <span class="n">suppress_warnings</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;mystnb.unknown_mime_type&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="hide-or-remove-code-cell-content">
+<h2><span class="section-number">10.9.5. </span>Hide or remove code cell content<a class="headerlink" href="#hide-or-remove-code-cell-content" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://jupyterbook.org/en/stable/interactive/hiding.html#hide-code-cell-content">https://jupyterbook.org/en/stable/interactive/hiding.html#hide-code-cell-content</a></p></li>
+<li><p>for jupyter lab or jupyter notebook refer to this guide (<a class="reference external" href="https://jupyterbook.org/en/stable/content/metadata.html#jupyter-cell-tags">https://jupyterbook.org/en/stable/content/metadata.html#jupyter-cell-tags</a>)</p></li>
+</ul>
 <ol class="arabic simple">
-<li><p>Data structures and algorithms: study and development of the most efficient data structure and algorithms to perform the required task.</p></li>
-<li><p>Software development: as no existing software solution satisfy your requirements, you develop your own software solution to achieve the task.</p></li>
-<li><p>Information technology: using the appropriate existing software to achieve the task.</p></li>
+<li><p>On vscode editor. Click on the code cell, click on … (more actions) -&gt; Add Cell Tag. Then iinput the following tags to hide or remove the cell.</p>
+<ul class="simple">
+<li><p>hide-input: hide the input code cell</p></li>
+<li><p>hide-output: hide the output code cell</p></li>
+<li><p>hide-cell: hide both the input and output</p></li>
+<li><p>remove-input: remove the code cell</p></li>
+<li><p>remove-ouput: remove the output</p></li>
+<li><p>remove-cell: remove both input and output</p></li>
+</ul>
+</li>
 </ol>
 </section>
 </section>
@@ -495,20 +548,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="011_9interactive.html"
+       href="011_8pdf.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">10.9. </span>Interactive visualization with Jupyter-book</p>
+        <p class="prev-next-title"><span class="section-number">10.8. </span>Generate PDF</p>
       </div>
     </a>
     <a class="right-next"
-       href="013server.html"
+       href="012approach.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">12. </span>Hosting and Web Server</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Getting Things Done</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -528,10 +581,14 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#approaching-a-project">11.1. Approaching a Project</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes-about-software-startup-in-aec">11.2. Notes about software startup in AEC</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teaching-digital-aec-through-the-computational-approach">11.3. Teaching digital AEC through the computational approach</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#different-level-of-computational-design-practice-research">11.4. Different level of computational design practice/research</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hide-markdown">10.9.1. Hide Markdown</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-jupyter">10.9.2. Project Jupyter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-lab-for-writing-ipynb-files">10.9.3. Jupyter lab for writing ipynb files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-jupyter-notebook-with-vscode">10.9.3.1. Edit jupyter notebook with vscode</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotly-for-generating-interactive-visualization-on-jupyter-book">10.9.4. Plotly for generating interactive visualization on Jupyter-book</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hide-or-remove-code-cell-content">10.9.5. Hide or remove code cell content</a></li>
 </ul>
   </nav></div>
 
