@@ -54,3 +54,16 @@ from itertools import chain
 xyz_2dlist = [[[0,0,0], [1,1,1]], [[2,2,2]]]
 flat = list(chain.from_iterable(xyz_2dlist))
 ```
+
+## Python parallel computing
+```
+import multiprocessing as mp
+def addition(x: float, y: float ) -> float:
+    z = x + y
+    return z
+
+pool = mp.Pool(mp.cpu_count())
+results = pool.starmap(addition, [[1.5, 2.2], [3.1, 4.2], [5.6, 6.2]])
+pool.close()
+print(results)
+```
