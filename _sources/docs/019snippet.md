@@ -13,6 +13,7 @@ print(res.stdout)
 print(res.stderr)
 res = subprocess.call(call_list)
 ```
+
 ## Python datetime
 ```
 import datetime
@@ -30,6 +31,7 @@ dt_utc = dt.replace(tzinfo=pytz.utc)
 dt_str = dt_utc.isoformat(timespec='minutes')
 print(dt_str)
 ```
+
 ## Python Pathlib
 ```
 from pathlib import Path
@@ -44,4 +46,11 @@ print(join_path)
 # to turn the path into str you can either to str() or .__str__()
 print(str(parent))
 print(filename.__str__())
+```
+
+## Python Chain to flatten one dimension of a list
+```
+from itertools import chain
+xyz_2dlist = [[[0,0,0], [1,1,1]], [[2,2,2]]]
+flat = list(chain.from_iterable(xyz_2dlist))
 ```
