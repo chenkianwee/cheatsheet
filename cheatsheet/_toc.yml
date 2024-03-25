@@ -26,6 +26,7 @@ parts:
     - file: docs/011_6citation
     - file: docs/011_7pubonline
     - file: docs/011_8pdf
+    - file: docs/011_9interactive
   - file: docs/012approach
   - file: docs/013server
   - file: docs/014jupyterlab

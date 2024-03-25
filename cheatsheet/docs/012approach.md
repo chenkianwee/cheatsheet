@@ -18,6 +18,7 @@ Interesting software companies:
 - https://sartography.com/
 - https://braaannigan.github.io/
 - https://d-alchemy.com/
+- https://diroots.com/
 
 ## Teaching digital AEC through the computational approach
 You need students to have knowledge on all of these 3 area
