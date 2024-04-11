@@ -1,4 +1,6 @@
 # Getting Things Done
+“If a craftsman wishes to do a good job, he must first sharpen his tools.” （工欲善其事，必先利其器）
+
 ## Approaching a Project 
 Envision your goal so that you never lose sight of it. An example from experience when starting a research project. When you have an idea. Envision the final deliverables for the project.
 1. When writing the proposal for the project, envision the number of papers/reports you are going to publish from the project.
@@ -19,6 +21,25 @@ Interesting software companies:
 - https://braaannigan.github.io/
 - https://d-alchemy.com/
 - https://diroots.com/
+
+## Open source funding/revenue
+- https://opensource.guide/
+- https://www.heavybit.com/library/video/commercial-open-source-business-strategies
+- https://www.linkedin.com/advice/0/what-most-effective-ways-fund-sustain-open-source
+- https://fundedby.community/#blog
+
+### Funding
+- https://nlnet.nl/
+- https://www.opentech.fund/funds/free-and-open-source-software-sustainability-fund/
+- https://foundation.mozilla.org/en/what-we-fund/awards/mozilla-technology-fund-mtf/call-for-proposals/
+- https://sloan.org/programs
+- https://sequoiacap.com/oss
+- https://cesium.com/cesium-ecosystem-grants/
+- Python foundation for vitual events: https://www.python.org/psf/grants/faq/
+
+### Revenue
+- https://opencollective.com/
+- https://github.com/sponsors
 
 ## Teaching digital AEC through the computational approach
 You need students to have knowledge on all of these 3 area

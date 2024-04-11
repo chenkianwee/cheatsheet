@@ -1,9 +1,8 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
@@ -29,39 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/003docker';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -160,7 +155,18 @@ const thebe_selector_output = ".output, .cell_output"
     <p class="title logo__title">CKW cheatsheet</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -182,15 +188,15 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="009git.html">8. Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="010opencv.html">9. OpenCV</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="011pubbk.html">10. Jupyter-book</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="011_1installation.html">10.1. Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="011_2createbook.html">10.2. Create a Book Template with Jupyter-book</a></li>
-<li class="toctree-l2"><a class="reference internal" href="011_3editbook.html">10.3. Edit the Book</a></li>
-<li class="toctree-l2"><a class="reference internal" href="011_4addfig.html">10.4. Add Figure in your book</a></li>
-<li class="toctree-l2"><a class="reference internal" href="011_5hyperref.html">10.5. Reference to Other Documents, Hyperlink and Folder Structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="011_6citation.html">10.6. Adding a Citation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="011_7pubonline.html">10.7. Publish your Book on Github</a></li>
-<li class="toctree-l2"><a class="reference internal" href="011_8pdf.html">10.8. Generate PDF</a></li>
-<li class="toctree-l2"><a class="reference internal" href="011_9interactive.html">10.9. Interactive visualization with Jupyter-book</a></li>
+<li class="toctree-l2"><a class="reference internal" href="011_1installation.html">10.3. Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="011_2createbook.html">10.4. Create a Book Template with Jupyter-book</a></li>
+<li class="toctree-l2"><a class="reference internal" href="011_3editbook.html">10.5. Edit the Book</a></li>
+<li class="toctree-l2"><a class="reference internal" href="011_4addfig.html">10.6. Add Figure in your book</a></li>
+<li class="toctree-l2"><a class="reference internal" href="011_5hyperref.html">10.7. Reference to Other Documents, Hyperlink and Folder Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="011_6citation.html">10.8. Adding a Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="011_7pubonline.html">10.9. Publish your Book on Github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="011_8pdf.html">10.10. Generate PDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="011_9interactive.html">10.11. Interactive visualization with Jupyter-book</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="012approach.html">11. Getting Things Done</a></li>
@@ -412,7 +418,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="docker-commands">
-<h1><span class="section-number">2. </span>Docker Commands<a class="headerlink" href="#docker-commands" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">2. </span>Docker Commands<a class="headerlink" href="#docker-commands" title="Link to this heading">#</a></h1>
 <p>Check for running container</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker ps
 </pre></div>
@@ -434,7 +440,7 @@ document.write(`
 </pre></div>
 </div>
 <section id="container">
-<h2><span class="section-number">2.1. </span>Container<a class="headerlink" href="#container" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1. </span>Container<a class="headerlink" href="#container" title="Link to this heading">#</a></h2>
 <p>Go into the container</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker exec -it containername bash
 </pre></div>
@@ -473,7 +479,7 @@ document.write(`
 </div>
 </section>
 <section id="volume">
-<h2><span class="section-number">2.2. </span>Volume<a class="headerlink" href="#volume" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2. </span>Volume<a class="headerlink" href="#volume" title="Link to this heading">#</a></h2>
 <p>Remove a volume</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker volume rm volume_name
 </pre></div>
@@ -484,7 +490,7 @@ document.write(`
 </div>
 </section>
 <section id="network">
-<h2><span class="section-number">2.3. </span>Network<a class="headerlink" href="#network" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.3. </span>Network<a class="headerlink" href="#network" title="Link to this heading">#</a></h2>
 <p>Remove a network</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker network rm network_name
 </pre></div>
@@ -499,7 +505,7 @@ document.write(`
 </div>
 </section>
 <section id="image">
-<h2><span class="section-number">2.4. </span>Image<a class="headerlink" href="#image" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.4. </span>Image<a class="headerlink" href="#image" title="Link to this heading">#</a></h2>
 <p>List all images</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker image ls
 </pre></div>
@@ -615,7 +621,7 @@ By Chen Kian Wee
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

@@ -19,4 +19,14 @@
                     [0, 1, 0, 0],
                     [0, 0, 0, 1]])
     ```
-    
+
+- matrice multiplication
+    - https://gamedev.stackexchange.com/questions/72044/why-do-we-use-4x4-matrices-to-transform-things-in-3d
+    - map 4x4 from 1 cs to another cs: https://gamedev.stackexchange.com/questions/203073/how-to-convert-a-4x4-matrix-transformation-to-another-coordinate-system
+
+- point plane distance: https://mathworld.wolfram.com/Point-PlaneDistance.html
+- closest point to triangle: https://gdbooks.gitbooks.io/3dcollisions/content/Chapter4/closest_point_to_triangle.html
+    - this algorithm will probably work for polygon too
+- Gilbert–Johnson–Keerthi: https://stackoverflow.com/questions/2433298/distance-from-a-point-to-a-polyhedron-or-to-a-polygon
+- point in a convex solid: https://stackoverflow.com/questions/34379859/check-if-a-3d-point-lies-inside-a-3d-platonic-solid
+- boolean two polyhedron: https://liris.cnrs.fr/Documents/Liris-4883.pdf
