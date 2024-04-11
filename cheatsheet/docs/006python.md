@@ -241,6 +241,10 @@ based on these:
     ctrl + k
     ```
     - then press o
+- activate hover hints
+    ```
+    Ctrl + k Ctrl + i
+    ```
 
 ### Folding in VScode
 - https://code.visualstudio.com/docs/editor/codebasics#_folding

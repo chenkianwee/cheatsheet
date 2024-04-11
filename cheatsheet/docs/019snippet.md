@@ -20,6 +20,8 @@ import datetime
 from dateutil.parser import parse
 import pytz
 
+print(pytz.common_timezones)
+print(pytz.all_timezones)
 datestr = '2024-03-20T03:25:00+00:00'
 dt = parse(datestr, yearfirst=True)
 # converts the datetime to new tz
@@ -66,4 +68,11 @@ pool = mp.Pool(mp.cpu_count())
 results = pool.starmap(addition, [[1.5, 2.2], [3.1, 4.2], [5.6, 6.2]])
 pool.close()
 print(results)
+```
+
+## Numpy create empty nan array
+```
+import numpy as np
+a = np.empty((3,3,))
+a.fill(np.nan)
 ```
