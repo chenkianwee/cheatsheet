@@ -76,3 +76,116 @@ import numpy as np
 a = np.empty((3,3,))
 a.fill(np.nan)
 ```
+
+## OpenStudio Python
+```
+import openstudio
+from openstudio import model as osmod
+
+m = osmod.Model()
+mat = osmod.StandardOpaqueMaterial(m)
+mat.setThickness(0.3)
+print(mat)
+
+epw_path = '/home/chenkianwee/kianwee_work/get/projects/grundfos/model/epw/SGP_SG_Changi.Intl.AP.486980_TMYx.2007-2021.epw'
+epwfile = openstudio.openstudioutilitiesfiletypes.EpwFile(epw_path)
+
+m = osmod.exampleModel()
+oswf = m.getWeatherFile()
+oswf.setWeatherFile(m, epwfile)
+
+things = osmod.getSurfaces(m)
+for thing in things:
+    print('construction', thing.isConstructionDefaulted())
+    print('ufactor', thing.uFactor())
+    print('type', thing.surfaceType())
+    
+    vs = thing.vertices()
+    for v in vs:
+        print(type(v))
+        print(v.x(), v.y(), v.z())
+    
+things = osmod.getBuildingStorys(m)
+for thing in things:
+    print(thing)
+    
+ft = openstudio.energyplus.ForwardTranslator()
+idf = ft.translateModel(m)
+path = '/home/chenkianwee/kianwee_work/out.idf'
+idf.save(path, True)
+
+path = '/home/chenkianwee/kianwee_work/test.osm'
+m.save(path, True)
+```
+
+## IFCopenShell Python
+```
+import ifcopenshell
+import ifcopenshell.geom
+import numpy as np
+from pathlib import Path
+
+ifc_path = Path(__file__).parent.parent
+ifc_path = ifc_path.joinpath('ifc', 'arch_eg-Building.ifc')
+# ifc_path = '/home/chenkianwee/kianwee_work/get/projects/grundfos/model/ifc/grundfos-Building.ifc'
+print(ifc_path)
+model = ifcopenshell.open(ifc_path)
+
+print(model.schema) # May return IFC2X3, IFC4, or IFC4X3.
+print(type(model.by_id(1)))
+
+walls = model.by_type('IfcWall')
+mats = model.by_type('IfcSurfaceStyle')
+print(mats)
+for w in walls:
+    print(w)
+    print(w.get_info())
+    psets = ifcopenshell.util.element.get_psets(w)
+    print(psets)
+
+    container = ifcopenshell.util.element.get_container(w)
+    print(container)
+
+    mat = ifcopenshell.util.element.get_materials(w)
+    print(mat)
+
+    settings = ifcopenshell.geom.settings()
+    shape = ifcopenshell.geom.create_shape(settings, w)
+    verts = shape.geometry.verts # X Y Z of vertices in flattened list e.g. [v1x, v1y, v1z, v2x, v2y, v2z, ...]
+    faces = shape.geometry.faces # Indices of vertices per triangle face e.g. [f1v1, f1v2, f1v3, f2v1, f2v2, f2v3, ...]
+    edges = shape.geometry.edges # closer to the original geometry
+    # print(len(verts))
+    verts3 = np.reshape(verts, (int(len(verts)/3), 3))
+    att_ls = []
+    for vc,v in enumerate(verts3):
+        att_ls.append({'id':vc})
+
+    edge_pts = np.reshape(edges, [int(len(edges)/2),2])
+```
+
+## Ladybug Tool Python
+```
+from ladybug.sql import SQLiteResult
+from pathlib import Path
+
+# eplusout_sql_path = Path(__file__).parent.joinpath('ifc2osm_eg_result', 'ifc2osm_eg_result_wrkflw', 'run', 'eplusout.sql')
+eplusout_sql_path = Path('/home/chenkianwee/kianwee_work/get/projects/grundfos/model/osmod/grundfos/grundfos_wrkflw/run/eplusout.sql')
+sql_obj = SQLiteResult(eplusout_sql_path.__str__())
+avail_output_names = sql_obj.available_outputs
+run_indxs = sql_obj.run_period_indices
+print(avail_output_names)
+# print(run_indxs)
+data = sql_obj.data_collections_by_output_name_run_period('Zone Air Temperature', 3)
+for d in data:
+    print(d)
+print(len(data))
+print(data[1].header.analysis_period)
+print(data[1].header.metadata)
+# data_collect = sql_obj.data_collections_by_output_name('Zone Air Relative Humidity')
+# print(data_collect)
+# zone_air_year = data_collect[2]
+# dts = zone_air_year.datetimes
+# print(dts[10].isoformat())
+# for a_zair in zone_air_year:
+#     print(a_zair)
+```

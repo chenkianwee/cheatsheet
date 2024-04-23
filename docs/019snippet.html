@@ -407,6 +407,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-chain-to-flatten-one-dimension-of-a-list">18.4. Python Chain to flatten one dimension of a list</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-parallel-computing">18.5. Python parallel computing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-create-empty-nan-array">18.6. Numpy create empty nan array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openstudio-python">18.7. OpenStudio Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ifcopenshell-python">18.8. IFCopenShell Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ladybug-tool-python">18.9. Ladybug Tool Python</a></li>
 </ul>
             </nav>
         </div>
@@ -503,6 +506,122 @@ document.write(`
 </pre></div>
 </div>
 </section>
+<section id="openstudio-python">
+<h2><span class="section-number">18.7. </span>OpenStudio Python<a class="headerlink" href="#openstudio-python" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">openstudio</span>
+<span class="kn">from</span> <span class="nn">openstudio</span> <span class="kn">import</span> <span class="n">model</span> <span class="k">as</span> <span class="n">osmod</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">osmod</span><span class="o">.</span><span class="n">Model</span><span class="p">()</span>
+<span class="n">mat</span> <span class="o">=</span> <span class="n">osmod</span><span class="o">.</span><span class="n">StandardOpaqueMaterial</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">mat</span><span class="o">.</span><span class="n">setThickness</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+
+<span class="n">epw_path</span> <span class="o">=</span> <span class="s1">&#39;/home/chenkianwee/kianwee_work/get/projects/grundfos/model/epw/SGP_SG_Changi.Intl.AP.486980_TMYx.2007-2021.epw&#39;</span>
+<span class="n">epwfile</span> <span class="o">=</span> <span class="n">openstudio</span><span class="o">.</span><span class="n">openstudioutilitiesfiletypes</span><span class="o">.</span><span class="n">EpwFile</span><span class="p">(</span><span class="n">epw_path</span><span class="p">)</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">osmod</span><span class="o">.</span><span class="n">exampleModel</span><span class="p">()</span>
+<span class="n">oswf</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">getWeatherFile</span><span class="p">()</span>
+<span class="n">oswf</span><span class="o">.</span><span class="n">setWeatherFile</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">epwfile</span><span class="p">)</span>
+
+<span class="n">things</span> <span class="o">=</span> <span class="n">osmod</span><span class="o">.</span><span class="n">getSurfaces</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">thing</span> <span class="ow">in</span> <span class="n">things</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;construction&#39;</span><span class="p">,</span> <span class="n">thing</span><span class="o">.</span><span class="n">isConstructionDefaulted</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ufactor&#39;</span><span class="p">,</span> <span class="n">thing</span><span class="o">.</span><span class="n">uFactor</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="n">thing</span><span class="o">.</span><span class="n">surfaceType</span><span class="p">())</span>
+    
+    <span class="n">vs</span> <span class="o">=</span> <span class="n">thing</span><span class="o">.</span><span class="n">vertices</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">vs</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">x</span><span class="p">(),</span> <span class="n">v</span><span class="o">.</span><span class="n">y</span><span class="p">(),</span> <span class="n">v</span><span class="o">.</span><span class="n">z</span><span class="p">())</span>
+    
+<span class="n">things</span> <span class="o">=</span> <span class="n">osmod</span><span class="o">.</span><span class="n">getBuildingStorys</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">thing</span> <span class="ow">in</span> <span class="n">things</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">thing</span><span class="p">)</span>
+    
+<span class="n">ft</span> <span class="o">=</span> <span class="n">openstudio</span><span class="o">.</span><span class="n">energyplus</span><span class="o">.</span><span class="n">ForwardTranslator</span><span class="p">()</span>
+<span class="n">idf</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">translateModel</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/home/chenkianwee/kianwee_work/out.idf&#39;</span>
+<span class="n">idf</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/home/chenkianwee/kianwee_work/test.osm&#39;</span>
+<span class="n">m</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="ifcopenshell-python">
+<h2><span class="section-number">18.8. </span>IFCopenShell Python<a class="headerlink" href="#ifcopenshell-python" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ifcopenshell</span>
+<span class="kn">import</span> <span class="nn">ifcopenshell.geom</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">ifc_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span>
+<span class="n">ifc_path</span> <span class="o">=</span> <span class="n">ifc_path</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;ifc&#39;</span><span class="p">,</span> <span class="s1">&#39;arch_eg-Building.ifc&#39;</span><span class="p">)</span>
+<span class="c1"># ifc_path = &#39;/home/chenkianwee/kianwee_work/get/projects/grundfos/model/ifc/grundfos-Building.ifc&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ifc_path</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">ifc_path</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">schema</span><span class="p">)</span> <span class="c1"># May return IFC2X3, IFC4, or IFC4X3.</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span>
+
+<span class="n">walls</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">by_type</span><span class="p">(</span><span class="s1">&#39;IfcWall&#39;</span><span class="p">)</span>
+<span class="n">mats</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">by_type</span><span class="p">(</span><span class="s1">&#39;IfcSurfaceStyle&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mats</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">walls</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">get_info</span><span class="p">())</span>
+    <span class="n">psets</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">get_psets</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">psets</span><span class="p">)</span>
+
+    <span class="n">container</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">get_container</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">container</span><span class="p">)</span>
+
+    <span class="n">mat</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">get_materials</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+
+    <span class="n">settings</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">geom</span><span class="o">.</span><span class="n">settings</span><span class="p">()</span>
+    <span class="n">shape</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">geom</span><span class="o">.</span><span class="n">create_shape</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+    <span class="n">verts</span> <span class="o">=</span> <span class="n">shape</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">verts</span> <span class="c1"># X Y Z of vertices in flattened list e.g. [v1x, v1y, v1z, v2x, v2y, v2z, ...]</span>
+    <span class="n">faces</span> <span class="o">=</span> <span class="n">shape</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">faces</span> <span class="c1"># Indices of vertices per triangle face e.g. [f1v1, f1v2, f1v3, f2v1, f2v2, f2v3, ...]</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="n">shape</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">edges</span> <span class="c1"># closer to the original geometry</span>
+    <span class="c1"># print(len(verts))</span>
+    <span class="n">verts3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">verts</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">),</span> <span class="mi">3</span><span class="p">))</span>
+    <span class="n">att_ls</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">vc</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">verts3</span><span class="p">):</span>
+        <span class="n">att_ls</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="n">vc</span><span class="p">})</span>
+
+    <span class="n">edge_pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="ladybug-tool-python">
+<h2><span class="section-number">18.9. </span>Ladybug Tool Python<a class="headerlink" href="#ladybug-tool-python" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ladybug.sql</span> <span class="kn">import</span> <span class="n">SQLiteResult</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="c1"># eplusout_sql_path = Path(__file__).parent.joinpath(&#39;ifc2osm_eg_result&#39;, &#39;ifc2osm_eg_result_wrkflw&#39;, &#39;run&#39;, &#39;eplusout.sql&#39;)</span>
+<span class="n">eplusout_sql_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;/home/chenkianwee/kianwee_work/get/projects/grundfos/model/osmod/grundfos/grundfos_wrkflw/run/eplusout.sql&#39;</span><span class="p">)</span>
+<span class="n">sql_obj</span> <span class="o">=</span> <span class="n">SQLiteResult</span><span class="p">(</span><span class="n">eplusout_sql_path</span><span class="o">.</span><span class="fm">__str__</span><span class="p">())</span>
+<span class="n">avail_output_names</span> <span class="o">=</span> <span class="n">sql_obj</span><span class="o">.</span><span class="n">available_outputs</span>
+<span class="n">run_indxs</span> <span class="o">=</span> <span class="n">sql_obj</span><span class="o">.</span><span class="n">run_period_indices</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">avail_output_names</span><span class="p">)</span>
+<span class="c1"># print(run_indxs)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">sql_obj</span><span class="o">.</span><span class="n">data_collections_by_output_name_run_period</span><span class="p">(</span><span class="s1">&#39;Zone Air Temperature&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">analysis_period</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+<span class="c1"># data_collect = sql_obj.data_collections_by_output_name(&#39;Zone Air Relative Humidity&#39;)</span>
+<span class="c1"># print(data_collect)</span>
+<span class="c1"># zone_air_year = data_collect[2]</span>
+<span class="c1"># dts = zone_air_year.datetimes</span>
+<span class="c1"># print(dts[10].isoformat())</span>
+<span class="c1"># for a_zair in zone_air_year:</span>
+<span class="c1">#     print(a_zair)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -566,6 +685,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-chain-to-flatten-one-dimension-of-a-list">18.4. Python Chain to flatten one dimension of a list</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-parallel-computing">18.5. Python parallel computing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-create-empty-nan-array">18.6. Numpy create empty nan array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openstudio-python">18.7. OpenStudio Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ifcopenshell-python">18.8. IFCopenShell Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ladybug-tool-python">18.9. Ladybug Tool Python</a></li>
 </ul>
   </nav></div>
 
