@@ -34,6 +34,21 @@ dt_str = dt_utc.isoformat(timespec='minutes')
 print(dt_str)
 ```
 
+```
+def gen_days(start_yr: int, start_mth: int, start_day:int, end_yr: int, end_mth: int, end_day:int):
+    start_date = datetime(start_yr, start_mth, start_day)
+    end_date = datetime(end_yr, end_mth, end_day)
+    delta = timedelta(days=1)
+
+    date_list = []
+    current_date = start_date
+    while current_date <= end_date:
+        pd_datetime = pd.to_datetime(current_date)
+        date_list.append(pd_datetime)
+        current_date += delta
+    return date_list
+```
+
 ## Python Pathlib
 ```
 from pathlib import Path
@@ -188,4 +203,27 @@ print(data[1].header.metadata)
 # print(dts[10].isoformat())
 # for a_zair in zone_air_year:
 #     print(a_zair)
+```
+## Pandas read csv with no header and resample
+```
+import pandas as pd
+from pathlib import Path
+
+csv_path = Path(__file__).parent.parent.parent.joinpath('data', 'Alex_Thesis_Data', 'Panel_Data', 'Run2And.csv')
+df = pd.read_csv(csv_path, header=None)
+print(df.iloc[:, 0])
+# df.iloc[:, 0] = pd.to_datetime(df.iloc[:, 0])
+df[0] = pd.to_datetime(df[0])
+df.set_index(0, inplace=True)
+df = df.resample('5min').median()
+```
+
+## Pandas read csv with header and resample
+```
+import pandas as pd 
+
+df = pd.read_csv(path, sep = ',')
+df['datetime'] = pd.to_datetime(df['datetime'], yearfirst=True)
+df.set_index('datetime', inplace=True)
+df = df.resample('5min').median()
 ```
