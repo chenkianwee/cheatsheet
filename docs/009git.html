@@ -403,7 +403,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github">8.1. Github</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github-pages-with-jekyll">8.1.1. Github Pages with Jekyll</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github-pages-with-jekyll">8.1.1. Github Pages with Jekyll</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jekyll-themes-github-pages">8.1.1.1. Jekyll themes github pages</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -476,7 +479,7 @@ document.write(`
 </pre></div>
 </div>
 </li>
-<li><p>Create a repository (<a class="reference external" href="https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-a-repository-for-your-site">https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-a-repository-for-your-site</a>). Set the github pages to execute from the maain branch and root/</p></li>
+<li><p>Create a repository (<a class="reference external" href="https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-a-repository-for-your-site">https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-a-repository-for-your-site</a>). Set the github pages to execute from the main branch and root/</p></li>
 <li><p>Git clone the repository into your local directory. Go to the directory where you want to keep the files.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">your_directory</span>
 </pre></div>
@@ -520,6 +523,15 @@ document.write(`
 </div>
 </li>
 </ol>
+<section id="jekyll-themes-github-pages">
+<h4><span class="section-number">8.1.1.1. </span>Jekyll themes github pages<a class="headerlink" href="#jekyll-themes-github-pages" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>go to folder _data -&gt; navigation.yml and you can make changes to the categories on the navigation bar accordingly.</p></li>
+<li><p>go to the folder _pages and look for the .md or .html file to make changes.</p></li>
+<li><p>at the top of the file you can see the html it is using for the formatting in the _layouts folder</p></li>
+<li><p>you can change the css by going to linked css used in the _sass folder.</p></li>
+</ol>
+</section>
 </section>
 </section>
 </section>
@@ -589,7 +601,10 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github">8.1. Github</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github-pages-with-jekyll">8.1.1. Github Pages with Jekyll</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github-pages-with-jekyll">8.1.1. Github Pages with Jekyll</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jekyll-themes-github-pages">8.1.1.1. Jekyll themes github pages</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
