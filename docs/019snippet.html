@@ -402,16 +402,16 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-subprocess">18.1. Python subprocess</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-datetime">18.2. Python datetime</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-pathlib">18.3. Python Pathlib</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-chain-to-flatten-one-dimension-of-a-list">18.4. Python Chain to flatten one dimension of a list</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-parallel-computing">18.5. Python parallel computing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-create-empty-nan-array">18.6. Numpy create empty nan array</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openstudio-python">18.7. OpenStudio Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ifcopenshell-python">18.8. IFCopenShell Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ladybug-tool-python">18.9. Ladybug Tool Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-read-csv-with-no-header-and-resample">18.10. Pandas read csv with no header and resample</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-read-csv-with-header-and-resample">18.11. Pandas read csv with header and resample</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-argparse">18.2. Python argparse</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-datetime">18.3. Python datetime</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-pathlib">18.4. Python Pathlib</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-chain-to-flatten-one-dimension-of-a-list">18.5. Python Chain to flatten one dimension of a list</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-parallel-computing">18.6. Python parallel computing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-create-empty-nan-array">18.7. Numpy create empty nan array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">18.8. Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openstudio-python">18.9. OpenStudio Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ifcopenshell-python">18.10. IFCopenShell Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ladybug-tool-python">18.11. Ladybug Tool Python</a></li>
 </ul>
             </nav>
         </div>
@@ -427,243 +427,388 @@ document.write(`
 <h1><span class="section-number">18. </span>Useful code snippets<a class="headerlink" href="#useful-code-snippets" title="Link to this heading">#</a></h1>
 <section id="python-subprocess">
 <h2><span class="section-number">18.1. </span>Python subprocess<a class="headerlink" href="#python-subprocess" title="Link to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">subprocess</span>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+code snippet<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import sys
+import subprocess
 
-<span class="n">pyexe</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">executable</span>
-<span class="n">pyscript</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_path</span><span class="p">,</span> <span class="s2">&quot;gcw_answer.py&quot;</span> <span class="p">)</span>
-<span class="n">call_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">pyexe</span><span class="p">,</span> <span class="n">pyscript</span><span class="p">,</span> <span class="n">parm1</span><span class="p">,</span> <span class="n">parm2</span><span class="p">,</span> <span class="n">parm3</span><span class="p">]</span> 
-<span class="n">res</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">call_list</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">call_list</span><span class="p">)</span>
+pyexe = sys.executable
+pyscript = os.path.join(self.current_path, &quot;gcw_answer.py&quot; )
+call_list = [pyexe, pyscript, parm1, parm2, parm3] 
+res = subprocess.run(call_list, capture_output=True, text=True)
+print(res.stdout)
+print(res.stderr)
+res = subprocess.call(call_list)
 </pre></div>
 </div>
-</section>
+</div>
+</details></section>
+<section id="python-argparse">
+<h2><span class="section-number">18.2. </span>Python argparse<a class="headerlink" href="#python-argparse" title="Link to this heading">#</a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+code snippet<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def parse_args():
+    # create parser object
+    parser = argparse.ArgumentParser(description = &quot;Project &amp; Caculate MRT of your Chaosense Data&quot;)
+
+    # defining arguments for parser object
+    # a file path
+    parser.add_argument(&#39;-s&#39;, &#39;--scan&#39;, type = str,
+                        metavar = &#39;filepath&#39;, default = None,
+                        help = &#39;The ply file to process&#39;)
+                        
+    # when nargs is added you will get a list
+    parser.add_argument(&#39;-x&#39;, &#39;--xyz&#39;, type = float, nargs = 3,
+                        metavar = (&#39;posX&#39;, &#39;posY&#39;, &#39;posZ&#39;), default = None,
+                        help = &quot;The position of the sensor&quot;)
+    
+    parser.add_argument(&#39;-z&#39;, &#39;--voxel_size&#39;, type = float, nargs = 1,
+                        metavar = &#39;voxel size&#39;, default = None,
+                        help = &quot;The size of the voxel&quot;)
+    
+    parser.add_argument(&#39;-g&#39;, &#39;--grid&#39;, type = float, nargs = 4,
+                        metavar = (&#39;Length(m)&#39;,&#39;Width(m)&#39;,&#39;Height(m)&#39;, &#39;Buffer(m)&#39;), 
+                        help = &#39;Defining the grid with these dimensions&#39;)
+    
+    # boolean flag
+    parser.add_argument(&#39;-v&#39;, &#39;--viz&#39;, action = &#39;store_true&#39;, default=False,
+                        help = &#39;visualize the calculation procedure if turned on&#39;)
+    
+    # parse the arguments from standard input
+    args = parser.parse_args()
+    return args
+
+def main():
+    args = parse_args()
+    scan_path = args.scan
+    sensor_pos = args.xyz
+    rm_dim = args.space_dim
+    voxel_size = args.voxel_size[0]
+    grid_dim = args.grid
+    viz = args.viz
+</pre></div>
+</div>
+</div>
+</details></section>
 <section id="python-datetime">
-<h2><span class="section-number">18.2. </span>Python datetime<a class="headerlink" href="#python-datetime" title="Link to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
-<span class="kn">from</span> <span class="nn">dateutil.parser</span> <span class="kn">import</span> <span class="n">parse</span>
-<span class="kn">import</span> <span class="nn">pytz</span>
+<h2><span class="section-number">18.3. </span>Python datetime<a class="headerlink" href="#python-datetime" title="Link to this heading">#</a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+code snippet<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import datetime
+from dateutil.parser import parse
+import pytz
 
-<span class="nb">print</span><span class="p">(</span><span class="n">pytz</span><span class="o">.</span><span class="n">common_timezones</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pytz</span><span class="o">.</span><span class="n">all_timezones</span><span class="p">)</span>
-<span class="n">datestr</span> <span class="o">=</span> <span class="s1">&#39;2024-03-20T03:25:00+00:00&#39;</span>
-<span class="n">dt</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">datestr</span><span class="p">,</span> <span class="n">yearfirst</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="c1"># converts the datetime to new tz</span>
-<span class="n">dt_tz</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="s1">&#39;America/New_York&#39;</span><span class="p">))</span>
-<span class="n">dt_str</span> <span class="o">=</span> <span class="n">dt_tz</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dt_str</span><span class="p">)</span>
-<span class="c1"># replace the datetime tz</span>
-<span class="n">dt_utc</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="n">pytz</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
-<span class="n">dt_str</span> <span class="o">=</span> <span class="n">dt_utc</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(</span><span class="n">timespec</span><span class="o">=</span><span class="s1">&#39;minutes&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dt_str</span><span class="p">)</span>
+print(pytz.common_timezones)
+print(pytz.all_timezones)
+datestr = &#39;2024-03-20T03:25:00+00:00&#39;
+dt = parse(datestr, yearfirst=True)
+# converts the datetime to new tz
+dt_tz = dt.astimezone(pytz.timezone(&#39;America/New_York&#39;))
+dt_str = dt_tz.isoformat()
+print(dt_str)
+# replace the datetime tz
+dt_utc = dt.replace(tzinfo=pytz.utc)
+dt_str = dt_utc.isoformat(timespec=&#39;minutes&#39;)
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gen_days</span><span class="p">(</span><span class="n">start_yr</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">start_mth</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">start_day</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">end_yr</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">end_mth</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">end_day</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span>
-    <span class="n">start_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="n">start_yr</span><span class="p">,</span> <span class="n">start_mth</span><span class="p">,</span> <span class="n">start_day</span><span class="p">)</span>
-    <span class="n">end_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="n">end_yr</span><span class="p">,</span> <span class="n">end_mth</span><span class="p">,</span> <span class="n">end_day</span><span class="p">)</span>
-    <span class="n">delta</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<p class="sd-card-text">print(dt_str)</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+gen days function<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def gen_days(start_yr: int, start_mth: int, start_day:int, end_yr: int, end_mth: int, end_day:int):
+    start_date = datetime(start_yr, start_mth, start_day)
+    end_date = datetime(end_yr, end_mth, end_day)
+    delta = timedelta(days=1)
 
-    <span class="n">date_list</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">current_date</span> <span class="o">=</span> <span class="n">start_date</span>
-    <span class="k">while</span> <span class="n">current_date</span> <span class="o">&lt;=</span> <span class="n">end_date</span><span class="p">:</span>
-        <span class="n">pd_datetime</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">current_date</span><span class="p">)</span>
-        <span class="n">date_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd_datetime</span><span class="p">)</span>
-        <span class="n">current_date</span> <span class="o">+=</span> <span class="n">delta</span>
-    <span class="k">return</span> <span class="n">date_list</span>
+    date_list = []
+    current_date = start_date
+    while current_date &lt;= end_date:
+        pd_datetime = pd.to_datetime(current_date)
+        date_list.append(pd_datetime)
+        current_date += delta
+    return date_list
 </pre></div>
 </div>
-</section>
+</div>
+</details></section>
 <section id="python-pathlib">
-<h2><span class="section-number">18.3. </span>Python Pathlib<a class="headerlink" href="#python-pathlib" title="Link to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<h2><span class="section-number">18.4. </span>Python Pathlib<a class="headerlink" href="#python-pathlib" title="Link to this heading">#</a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+code snippet<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>from pathlib import Path
 
-<span class="n">join_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;/home/chenkianwee&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;this&#39;</span><span class="p">,</span><span class="s1">&#39;is&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;path&#39;</span><span class="p">)</span>
-<span class="n">parent</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span>
-<span class="n">level2up</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">name</span>
-<span class="n">cwd</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">cwd</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">join_path</span><span class="p">)</span>
-<span class="c1"># to turn the path into str you can either to str() or .__str__()</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">parent</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">filename</span><span class="o">.</span><span class="fm">__str__</span><span class="p">())</span>
+join_path = Path(&#39;/home/chenkianwee&#39;).joinpath(&#39;this&#39;,&#39;is&#39;,&#39;a&#39;,&#39;path&#39;)
+parent = Path(__file__).parent
+level2up = Path(__file__).parent.parent
+filename = Path(__file__).name
+cwd = Path.cwd()
+print(cwd)
+print(join_path)
+# to turn the path into str you can either to str() or .__str__()
+print(str(parent))
+print(filename.__str__())
 </pre></div>
 </div>
-</section>
+</div>
+</details></section>
 <section id="python-chain-to-flatten-one-dimension-of-a-list">
-<h2><span class="section-number">18.4. </span>Python Chain to flatten one dimension of a list<a class="headerlink" href="#python-chain-to-flatten-one-dimension-of-a-list" title="Link to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">chain</span>
-<span class="n">xyz_2dlist</span> <span class="o">=</span> <span class="p">[[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]]]</span>
-<span class="n">flat</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">from_iterable</span><span class="p">(</span><span class="n">xyz_2dlist</span><span class="p">))</span>
+<h2><span class="section-number">18.5. </span>Python Chain to flatten one dimension of a list<a class="headerlink" href="#python-chain-to-flatten-one-dimension-of-a-list" title="Link to this heading">#</a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+code snippet<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>from itertools import chain
+xyz_2dlist = [[[0,0,0], [1,1,1]], [[2,2,2]]]
+flat = list(chain.from_iterable(xyz_2dlist))
 </pre></div>
 </div>
-</section>
+</div>
+</details></section>
 <section id="python-parallel-computing">
-<h2><span class="section-number">18.5. </span>Python parallel computing<a class="headerlink" href="#python-parallel-computing" title="Link to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">multiprocessing</span> <span class="k">as</span> <span class="nn">mp</span>
-<span class="k">def</span> <span class="nf">addition</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">float</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-    <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
-    <span class="k">return</span> <span class="n">z</span>
+<h2><span class="section-number">18.6. </span>Python parallel computing<a class="headerlink" href="#python-parallel-computing" title="Link to this heading">#</a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+code snippet<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import multiprocessing as mp
+def addition(x: float, y: float ) -&gt; float:
+    z = x + y
+    return z
 
-<span class="n">pool</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">Pool</span><span class="p">(</span><span class="n">mp</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">())</span>
-<span class="n">results</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">starmap</span><span class="p">(</span><span class="n">addition</span><span class="p">,</span> <span class="p">[[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.1</span><span class="p">,</span> <span class="mf">4.2</span><span class="p">],</span> <span class="p">[</span><span class="mf">5.6</span><span class="p">,</span> <span class="mf">6.2</span><span class="p">]])</span>
-<span class="n">pool</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+pool = mp.Pool(mp.cpu_count())
+results = pool.starmap(addition, [[1.5, 2.2], [3.1, 4.2], [5.6, 6.2]])
+pool.close()
+print(results)
 </pre></div>
 </div>
-</section>
+</div>
+</details></section>
 <section id="numpy-create-empty-nan-array">
-<h2><span class="section-number">18.6. </span>Numpy create empty nan array<a class="headerlink" href="#numpy-create-empty-nan-array" title="Link to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,))</span>
-<span class="n">a</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<h2><span class="section-number">18.7. </span>Numpy create empty nan array<a class="headerlink" href="#numpy-create-empty-nan-array" title="Link to this heading">#</a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+code snippet<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import numpy as np
+a = np.empty((3,3,))
+a.fill(np.nan)
 </pre></div>
 </div>
-</section>
+</div>
+</details></section>
+<section id="pandas">
+<h2><span class="section-number">18.8. </span>Pandas<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+read csv with no header and resample<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import pandas as pd
+from pathlib import Path
+
+csv_path = Path(__file__).parent.parent.parent.joinpath(&#39;data&#39;, &#39;Alex_Thesis_Data&#39;, &#39;Panel_Data&#39;, &#39;Run2And.csv&#39;)
+df = pd.read_csv(csv_path, header=None)
+print(df.iloc[:, 0])
+# df.iloc[:, 0] = pd.to_datetime(df.iloc[:, 0])
+df[0] = pd.to_datetime(df[0])
+df.set_index(0, inplace=True)
+df = df.resample(&#39;5min&#39;).median()
+</pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+read csv with header and resample<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import pandas as pd 
+
+df = pd.read_csv(path, sep = &#39;,&#39;)
+df[&#39;datetime&#39;] = pd.to_datetime(df[&#39;datetime&#39;], yearfirst=True)
+df.set_index(&#39;datetime&#39;, inplace=True)
+df = df.resample(&#39;5min&#39;).median()
+</pre></div>
+</div>
+</div>
+</details></section>
 <section id="openstudio-python">
-<h2><span class="section-number">18.7. </span>OpenStudio Python<a class="headerlink" href="#openstudio-python" title="Link to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">openstudio</span>
-<span class="kn">from</span> <span class="nn">openstudio</span> <span class="kn">import</span> <span class="n">model</span> <span class="k">as</span> <span class="n">osmod</span>
+<h2><span class="section-number">18.9. </span>OpenStudio Python<a class="headerlink" href="#openstudio-python" title="Link to this heading">#</a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+code snippet<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import openstudio
+from openstudio import model as osmod
 
-<span class="n">m</span> <span class="o">=</span> <span class="n">osmod</span><span class="o">.</span><span class="n">Model</span><span class="p">()</span>
-<span class="n">mat</span> <span class="o">=</span> <span class="n">osmod</span><span class="o">.</span><span class="n">StandardOpaqueMaterial</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-<span class="n">mat</span><span class="o">.</span><span class="n">setThickness</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+m = osmod.Model()
+mat = osmod.StandardOpaqueMaterial(m)
+mat.setThickness(0.3)
+print(mat)
 
-<span class="n">epw_path</span> <span class="o">=</span> <span class="s1">&#39;/home/chenkianwee/kianwee_work/get/projects/grundfos/model/epw/SGP_SG_Changi.Intl.AP.486980_TMYx.2007-2021.epw&#39;</span>
-<span class="n">epwfile</span> <span class="o">=</span> <span class="n">openstudio</span><span class="o">.</span><span class="n">openstudioutilitiesfiletypes</span><span class="o">.</span><span class="n">EpwFile</span><span class="p">(</span><span class="n">epw_path</span><span class="p">)</span>
+epw_path = &#39;/home/chenkianwee/kianwee_work/get/projects/grundfos/model/epw/SGP_SG_Changi.Intl.AP.486980_TMYx.2007-2021.epw&#39;
+epwfile = openstudio.openstudioutilitiesfiletypes.EpwFile(epw_path)
 
-<span class="n">m</span> <span class="o">=</span> <span class="n">osmod</span><span class="o">.</span><span class="n">exampleModel</span><span class="p">()</span>
-<span class="n">oswf</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">getWeatherFile</span><span class="p">()</span>
-<span class="n">oswf</span><span class="o">.</span><span class="n">setWeatherFile</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">epwfile</span><span class="p">)</span>
+m = osmod.exampleModel()
+oswf = m.getWeatherFile()
+oswf.setWeatherFile(m, epwfile)
 
-<span class="n">things</span> <span class="o">=</span> <span class="n">osmod</span><span class="o">.</span><span class="n">getSurfaces</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">thing</span> <span class="ow">in</span> <span class="n">things</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;construction&#39;</span><span class="p">,</span> <span class="n">thing</span><span class="o">.</span><span class="n">isConstructionDefaulted</span><span class="p">())</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ufactor&#39;</span><span class="p">,</span> <span class="n">thing</span><span class="o">.</span><span class="n">uFactor</span><span class="p">())</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="n">thing</span><span class="o">.</span><span class="n">surfaceType</span><span class="p">())</span>
+things = osmod.getSurfaces(m)
+for thing in things:
+    print(&#39;construction&#39;, thing.isConstructionDefaulted())
+    print(&#39;ufactor&#39;, thing.uFactor())
+    print(&#39;type&#39;, thing.surfaceType())
     
-    <span class="n">vs</span> <span class="o">=</span> <span class="n">thing</span><span class="o">.</span><span class="n">vertices</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">vs</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">x</span><span class="p">(),</span> <span class="n">v</span><span class="o">.</span><span class="n">y</span><span class="p">(),</span> <span class="n">v</span><span class="o">.</span><span class="n">z</span><span class="p">())</span>
+    vs = thing.vertices()
+    for v in vs:
+        print(type(v))
+        print(v.x(), v.y(), v.z())
     
-<span class="n">things</span> <span class="o">=</span> <span class="n">osmod</span><span class="o">.</span><span class="n">getBuildingStorys</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">thing</span> <span class="ow">in</span> <span class="n">things</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">thing</span><span class="p">)</span>
+things = osmod.getBuildingStorys(m)
+for thing in things:
+    print(thing)
     
-<span class="n">ft</span> <span class="o">=</span> <span class="n">openstudio</span><span class="o">.</span><span class="n">energyplus</span><span class="o">.</span><span class="n">ForwardTranslator</span><span class="p">()</span>
-<span class="n">idf</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">translateModel</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-<span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/home/chenkianwee/kianwee_work/out.idf&#39;</span>
-<span class="n">idf</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+ft = openstudio.energyplus.ForwardTranslator()
+idf = ft.translateModel(m)
+path = &#39;/home/chenkianwee/kianwee_work/out.idf&#39;
+idf.save(path, True)
 
-<span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/home/chenkianwee/kianwee_work/test.osm&#39;</span>
-<span class="n">m</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+path = &#39;/home/chenkianwee/kianwee_work/test.osm&#39;
+m.save(path, True)
 </pre></div>
 </div>
-</section>
+</div>
+</details></section>
 <section id="ifcopenshell-python">
-<h2><span class="section-number">18.8. </span>IFCopenShell Python<a class="headerlink" href="#ifcopenshell-python" title="Link to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ifcopenshell</span>
-<span class="kn">import</span> <span class="nn">ifcopenshell.geom</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<h2><span class="section-number">18.10. </span>IFCopenShell Python<a class="headerlink" href="#ifcopenshell-python" title="Link to this heading">#</a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+code snippet<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import ifcopenshell
+import ifcopenshell.geom
+import numpy as np
+from pathlib import Path
 
-<span class="n">ifc_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span>
-<span class="n">ifc_path</span> <span class="o">=</span> <span class="n">ifc_path</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;ifc&#39;</span><span class="p">,</span> <span class="s1">&#39;arch_eg-Building.ifc&#39;</span><span class="p">)</span>
-<span class="c1"># ifc_path = &#39;/home/chenkianwee/kianwee_work/get/projects/grundfos/model/ifc/grundfos-Building.ifc&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ifc_path</span><span class="p">)</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">ifc_path</span><span class="p">)</span>
+ifc_path = Path(__file__).parent.parent
+ifc_path = ifc_path.joinpath(&#39;ifc&#39;, &#39;arch_eg-Building.ifc&#39;)
+# ifc_path = &#39;/home/chenkianwee/kianwee_work/get/projects/grundfos/model/ifc/grundfos-Building.ifc&#39;
+print(ifc_path)
+model = ifcopenshell.open(ifc_path)
 
-<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">schema</span><span class="p">)</span> <span class="c1"># May return IFC2X3, IFC4, or IFC4X3.</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span>
+print(model.schema) # May return IFC2X3, IFC4, or IFC4X3.
+print(type(model.by_id(1)))
 
-<span class="n">walls</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">by_type</span><span class="p">(</span><span class="s1">&#39;IfcWall&#39;</span><span class="p">)</span>
-<span class="n">mats</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">by_type</span><span class="p">(</span><span class="s1">&#39;IfcSurfaceStyle&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mats</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">walls</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">get_info</span><span class="p">())</span>
-    <span class="n">psets</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">get_psets</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">psets</span><span class="p">)</span>
+walls = model.by_type(&#39;IfcWall&#39;)
+mats = model.by_type(&#39;IfcSurfaceStyle&#39;)
+print(mats)
+for w in walls:
+    print(w)
+    print(w.get_info())
+    psets = ifcopenshell.util.element.get_psets(w)
+    print(psets)
 
-    <span class="n">container</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">get_container</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">container</span><span class="p">)</span>
+    container = ifcopenshell.util.element.get_container(w)
+    print(container)
 
-    <span class="n">mat</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">get_materials</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+    mat = ifcopenshell.util.element.get_materials(w)
+    print(mat)
 
-    <span class="n">settings</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">geom</span><span class="o">.</span><span class="n">settings</span><span class="p">()</span>
-    <span class="n">shape</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">geom</span><span class="o">.</span><span class="n">create_shape</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
-    <span class="n">verts</span> <span class="o">=</span> <span class="n">shape</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">verts</span> <span class="c1"># X Y Z of vertices in flattened list e.g. [v1x, v1y, v1z, v2x, v2y, v2z, ...]</span>
-    <span class="n">faces</span> <span class="o">=</span> <span class="n">shape</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">faces</span> <span class="c1"># Indices of vertices per triangle face e.g. [f1v1, f1v2, f1v3, f2v1, f2v2, f2v3, ...]</span>
-    <span class="n">edges</span> <span class="o">=</span> <span class="n">shape</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">edges</span> <span class="c1"># closer to the original geometry</span>
-    <span class="c1"># print(len(verts))</span>
-    <span class="n">verts3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">verts</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">),</span> <span class="mi">3</span><span class="p">))</span>
-    <span class="n">att_ls</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">vc</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">verts3</span><span class="p">):</span>
-        <span class="n">att_ls</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="n">vc</span><span class="p">})</span>
+    settings = ifcopenshell.geom.settings()
+    shape = ifcopenshell.geom.create_shape(settings, w)
+    verts = shape.geometry.verts # X Y Z of vertices in flattened list e.g. [v1x, v1y, v1z, v2x, v2y, v2z, ...]
+    faces = shape.geometry.faces # Indices of vertices per triangle face e.g. [f1v1, f1v2, f1v3, f2v1, f2v2, f2v3, ...]
+    edges = shape.geometry.edges # closer to the original geometry
+    # print(len(verts))
+    verts3 = np.reshape(verts, (int(len(verts)/3), 3))
+    att_ls = []
+    for vc,v in enumerate(verts3):
+        att_ls.append({&#39;id&#39;:vc})
 
-    <span class="n">edge_pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span><span class="mi">2</span><span class="p">])</span>
+    edge_pts = np.reshape(edges, [int(len(edges)/2),2])
 </pre></div>
 </div>
-</section>
+</div>
+</details></section>
 <section id="ladybug-tool-python">
-<h2><span class="section-number">18.9. </span>Ladybug Tool Python<a class="headerlink" href="#ladybug-tool-python" title="Link to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ladybug.sql</span> <span class="kn">import</span> <span class="n">SQLiteResult</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<h2><span class="section-number">18.11. </span>Ladybug Tool Python<a class="headerlink" href="#ladybug-tool-python" title="Link to this heading">#</a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+code snippet<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>from ladybug.sql import SQLiteResult
+from pathlib import Path
 
-<span class="c1"># eplusout_sql_path = Path(__file__).parent.joinpath(&#39;ifc2osm_eg_result&#39;, &#39;ifc2osm_eg_result_wrkflw&#39;, &#39;run&#39;, &#39;eplusout.sql&#39;)</span>
-<span class="n">eplusout_sql_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;/home/chenkianwee/kianwee_work/get/projects/grundfos/model/osmod/grundfos/grundfos_wrkflw/run/eplusout.sql&#39;</span><span class="p">)</span>
-<span class="n">sql_obj</span> <span class="o">=</span> <span class="n">SQLiteResult</span><span class="p">(</span><span class="n">eplusout_sql_path</span><span class="o">.</span><span class="fm">__str__</span><span class="p">())</span>
-<span class="n">avail_output_names</span> <span class="o">=</span> <span class="n">sql_obj</span><span class="o">.</span><span class="n">available_outputs</span>
-<span class="n">run_indxs</span> <span class="o">=</span> <span class="n">sql_obj</span><span class="o">.</span><span class="n">run_period_indices</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">avail_output_names</span><span class="p">)</span>
-<span class="c1"># print(run_indxs)</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">sql_obj</span><span class="o">.</span><span class="n">data_collections_by_output_name_run_period</span><span class="p">(</span><span class="s1">&#39;Zone Air Temperature&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">analysis_period</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
-<span class="c1"># data_collect = sql_obj.data_collections_by_output_name(&#39;Zone Air Relative Humidity&#39;)</span>
-<span class="c1"># print(data_collect)</span>
-<span class="c1"># zone_air_year = data_collect[2]</span>
-<span class="c1"># dts = zone_air_year.datetimes</span>
-<span class="c1"># print(dts[10].isoformat())</span>
-<span class="c1"># for a_zair in zone_air_year:</span>
-<span class="c1">#     print(a_zair)</span>
+# eplusout_sql_path = Path(__file__).parent.joinpath(&#39;ifc2osm_eg_result&#39;, &#39;ifc2osm_eg_result_wrkflw&#39;, &#39;run&#39;, &#39;eplusout.sql&#39;)
+eplusout_sql_path = Path(&#39;/home/chenkianwee/kianwee_work/get/projects/grundfos/model/osmod/grundfos/grundfos_wrkflw/run/eplusout.sql&#39;)
+sql_obj = SQLiteResult(eplusout_sql_path.__str__())
+avail_output_names = sql_obj.available_outputs
+run_indxs = sql_obj.run_period_indices
+print(avail_output_names)
+# print(run_indxs)
+data = sql_obj.data_collections_by_output_name_run_period(&#39;Zone Air Temperature&#39;, 3)
+for d in data:
+    print(d)
+print(len(data))
+print(data[1].header.analysis_period)
+print(data[1].header.metadata)
+# data_collect = sql_obj.data_collections_by_output_name(&#39;Zone Air Relative Humidity&#39;)
+# print(data_collect)
+# zone_air_year = data_collect[2]
+# dts = zone_air_year.datetimes
+# print(dts[10].isoformat())
+# for a_zair in zone_air_year:
+#     print(a_zair)
 </pre></div>
 </div>
-</section>
-<section id="pandas-read-csv-with-no-header-and-resample">
-<h2><span class="section-number">18.10. </span>Pandas read csv with no header and resample<a class="headerlink" href="#pandas-read-csv-with-no-header-and-resample" title="Link to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-
-<span class="n">csv_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;Alex_Thesis_Data&#39;</span><span class="p">,</span> <span class="s1">&#39;Panel_Data&#39;</span><span class="p">,</span> <span class="s1">&#39;Run2And.csv&#39;</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csv_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
-<span class="c1"># df.iloc[:, 0] = pd.to_datetime(df.iloc[:, 0])</span>
-<span class="n">df</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;5min&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
-</pre></div>
 </div>
-</section>
-<section id="pandas-read-csv-with-header-and-resample">
-<h2><span class="section-number">18.11. </span>Pandas read csv with header and resample<a class="headerlink" href="#pandas-read-csv-with-header-and-resample" title="Link to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">],</span> <span class="n">yearfirst</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;datetime&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;5min&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
-</pre></div>
-</div>
-</section>
+</details></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -722,16 +867,16 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-subprocess">18.1. Python subprocess</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-datetime">18.2. Python datetime</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-pathlib">18.3. Python Pathlib</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-chain-to-flatten-one-dimension-of-a-list">18.4. Python Chain to flatten one dimension of a list</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-parallel-computing">18.5. Python parallel computing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-create-empty-nan-array">18.6. Numpy create empty nan array</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openstudio-python">18.7. OpenStudio Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ifcopenshell-python">18.8. IFCopenShell Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ladybug-tool-python">18.9. Ladybug Tool Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-read-csv-with-no-header-and-resample">18.10. Pandas read csv with no header and resample</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-read-csv-with-header-and-resample">18.11. Pandas read csv with header and resample</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-argparse">18.2. Python argparse</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-datetime">18.3. Python datetime</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-pathlib">18.4. Python Pathlib</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-chain-to-flatten-one-dimension-of-a-list">18.5. Python Chain to flatten one dimension of a list</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-parallel-computing">18.6. Python parallel computing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-create-empty-nan-array">18.7. Numpy create empty nan array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">18.8. Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openstudio-python">18.9. OpenStudio Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ifcopenshell-python">18.10. IFCopenShell Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ladybug-tool-python">18.11. Ladybug Tool Python</a></li>
 </ul>
   </nav></div>
 
