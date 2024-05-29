@@ -407,11 +407,12 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-pathlib">18.4. Python Pathlib</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-chain-to-flatten-one-dimension-of-a-list">18.5. Python Chain to flatten one dimension of a list</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-parallel-computing">18.6. Python parallel computing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-create-empty-nan-array">18.7. Numpy create empty nan array</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">18.8. Pandas</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openstudio-python">18.9. OpenStudio Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ifcopenshell-python">18.10. IFCopenShell Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ladybug-tool-python">18.11. Ladybug Tool Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-xml-etree-elementtree">18.7. Python xml.etree.ElementTree</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-create-empty-nan-array">18.8. Numpy create empty nan array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">18.9. Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openstudio-python">18.10. OpenStudio Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ifcopenshell-python">18.11. IFCopenShell Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ladybug-tool-python">18.12. Ladybug Tool Python</a></li>
 </ul>
             </nav>
         </div>
@@ -466,7 +467,7 @@ code snippet<div class="sd-summary-down docutils">
     parser.add_argument(&#39;-s&#39;, &#39;--scan&#39;, type = str,
                         metavar = &#39;filepath&#39;, default = None,
                         help = &#39;The ply file to process&#39;)
-                        
+
     # when nargs is added you will get a list
     parser.add_argument(&#39;-x&#39;, &#39;--xyz&#39;, type = float, nargs = 3,
                         metavar = (&#39;posX&#39;, &#39;posY&#39;, &#39;posZ&#39;), default = None,
@@ -614,8 +615,31 @@ print(results)
 </div>
 </div>
 </details></section>
+<section id="python-xml-etree-elementtree">
+<h2><span class="section-number">18.7. </span>Python xml.etree.ElementTree<a class="headerlink" href="#python-xml-etree-elementtree" title="Link to this heading">#</a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+code snippet<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import xml.etree.ElementTree as ET
+
+measure_xmlpath = str(Path(measure_dir_orig).joinpath(&#39;measure.xml&#39;))
+tree = ET.parse(measure_xmlpath)
+root = tree.getroot()
+for child in root:
+    child_name = child.tag
+    if child_name == &#39;attributes&#39;:
+        for child2 in child:
+            name = child2.find(&#39;name&#39;).text
+</pre></div>
+</div>
+</div>
+</details></section>
 <section id="numpy-create-empty-nan-array">
-<h2><span class="section-number">18.7. </span>Numpy create empty nan array<a class="headerlink" href="#numpy-create-empty-nan-array" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.8. </span>Numpy create empty nan array<a class="headerlink" href="#numpy-create-empty-nan-array" title="Link to this heading">#</a></h2>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 code snippet<div class="sd-summary-down docutils">
@@ -631,7 +655,7 @@ a.fill(np.nan)
 </div>
 </details></section>
 <section id="pandas">
-<h2><span class="section-number">18.8. </span>Pandas<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.9. </span>Pandas<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h2>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 read csv with no header and resample<div class="sd-summary-down docutils">
@@ -670,7 +694,7 @@ df = df.resample(&#39;5min&#39;).median()
 </div>
 </details></section>
 <section id="openstudio-python">
-<h2><span class="section-number">18.9. </span>OpenStudio Python<a class="headerlink" href="#openstudio-python" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.10. </span>OpenStudio Python<a class="headerlink" href="#openstudio-python" title="Link to this heading">#</a></h2>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 code snippet<div class="sd-summary-down docutils">
@@ -720,7 +744,7 @@ m.save(path, True)
 </div>
 </details></section>
 <section id="ifcopenshell-python">
-<h2><span class="section-number">18.10. </span>IFCopenShell Python<a class="headerlink" href="#ifcopenshell-python" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.11. </span>IFCopenShell Python<a class="headerlink" href="#ifcopenshell-python" title="Link to this heading">#</a></h2>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 code snippet<div class="sd-summary-down docutils">
@@ -774,7 +798,7 @@ for w in walls:
 </div>
 </details></section>
 <section id="ladybug-tool-python">
-<h2><span class="section-number">18.11. </span>Ladybug Tool Python<a class="headerlink" href="#ladybug-tool-python" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.12. </span>Ladybug Tool Python<a class="headerlink" href="#ladybug-tool-python" title="Link to this heading">#</a></h2>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 code snippet<div class="sd-summary-down docutils">
@@ -872,11 +896,12 @@ print(data[1].header.metadata)
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-pathlib">18.4. Python Pathlib</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-chain-to-flatten-one-dimension-of-a-list">18.5. Python Chain to flatten one dimension of a list</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-parallel-computing">18.6. Python parallel computing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-create-empty-nan-array">18.7. Numpy create empty nan array</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">18.8. Pandas</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openstudio-python">18.9. OpenStudio Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ifcopenshell-python">18.10. IFCopenShell Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ladybug-tool-python">18.11. Ladybug Tool Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-xml-etree-elementtree">18.7. Python xml.etree.ElementTree</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-create-empty-nan-array">18.8. Numpy create empty nan array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">18.9. Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openstudio-python">18.10. OpenStudio Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ifcopenshell-python">18.11. IFCopenShell Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ladybug-tool-python">18.12. Ladybug Tool Python</a></li>
 </ul>
   </nav></div>
 

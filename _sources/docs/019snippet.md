@@ -25,7 +25,7 @@
         parser.add_argument('-s', '--scan', type = str,
                             metavar = 'filepath', default = None,
                             help = 'The ply file to process')
-                            
+
         # when nargs is added you will get a list
         parser.add_argument('-x', '--xyz', type = float, nargs = 3,
                             metavar = ('posX', 'posY', 'posZ'), default = None,
@@ -126,6 +126,20 @@ print(dt_str)
     results = pool.starmap(addition, [[1.5, 2.2], [3.1, 4.2], [5.6, 6.2]])
     pool.close()
     print(results)
+```
+
+## Python xml.etree.ElementTree
+```{dropdown} code snippet
+    import xml.etree.ElementTree as ET
+
+    measure_xmlpath = str(Path(measure_dir_orig).joinpath('measure.xml'))
+    tree = ET.parse(measure_xmlpath)
+    root = tree.getroot()
+    for child in root:
+        child_name = child.tag
+        if child_name == 'attributes':
+            for child2 in child:
+                name = child2.find('name').text
 ```
 
 ## Numpy create empty nan array
