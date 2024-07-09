@@ -142,11 +142,46 @@ print(dt_str)
                 name = child2.find('name').text
 ```
 
+## Python json 
+```{dropdown} code snippet
+    with open(wrkflw_path) as wrkflw_f:
+        data = json.load(wrkflw_f)
+        steps = data['steps']
+        for step in steps:
+            dirname = step['measure_dir_name']
+
+    with open(wrkflw_path, "w") as out_file:
+        json.dump(data, out_file)
+```
+
 ## Numpy create empty nan array
 ```{dropdown} code snippet
     import numpy as np
     a = np.empty((3,3,))
     a.fill(np.nan)
+```
+
+## Numpy indexing 
+```{dropdown} code snippet
+    x = np.array([[0,0,1],
+                 [1,1,2]])
+    # get the first 2 columns of the array
+    print(x[:, 1:3])
+```
+
+```{dropdown} code snippet
+    x = [[
+            [0,0,1],
+            [1,1,2]
+        ],
+        [
+            [1,1,0],
+            [2,2,2] 
+        ]]
+
+    x = np.array(x)
+    # get the first of each set and last 2 columns of each point
+    print(x[:, 0:1, 1:3])
 ```
 
 ## Pandas 

@@ -245,7 +245,10 @@ based on these:
     ```
     Ctrl + k Ctrl + i
     ```
-
+- go to terminal
+    ```
+    Ctrl + `
+    ```
 ### Folding in VScode
 - https://code.visualstudio.com/docs/editor/codebasics#_folding
 

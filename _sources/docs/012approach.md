@@ -21,6 +21,12 @@ Interesting software companies:
 - https://braaannigan.github.io/
 - https://d-alchemy.com/
 - https://diroots.com/
+- https://geometrygym.wordpress.com/
+- https://www.wallacei.com/
+
+Taiwan:
+- https://rccn.dev/zh/
+- https://bimstudio.tabc.org.tw/
 
 ## Open source funding/revenue
 - https://opensource.guide/
