@@ -23,9 +23,12 @@ Interesting software companies:
 - https://diroots.com/
 - https://geometrygym.wordpress.com/
 - https://www.wallacei.com/
+- https://www.shapediver.com/
+- https://github.com/tt-acm
+- Digital Twinning: https://www.dripvisual.com/
 
 Taiwan:
-- https://rccn.dev/zh/
+- https://rccn.dev/zh/https://www.shapediver.com/pricing
 - https://bimstudio.tabc.org.tw/
 
 ## Open source funding/revenue

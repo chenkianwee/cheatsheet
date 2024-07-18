@@ -1,5 +1,12 @@
 # Useful code snippets
 
+## Python dictionary
+```{dropdown} code snippet
+    # move a key to the front 
+    chosen_pset = {'Name': chosen_pset.pop('Name'), **chosen_pset}
+    # move a key to the back
+    chosen_pset['Name] = chosen_pset.pop('Name')
+```
 ## Python subprocess
 ```{dropdown} code snippet
     import sys
@@ -152,6 +159,11 @@ print(dt_str)
 
     with open(wrkflw_path, "w") as out_file:
         json.dump(data, out_file)
+
+    # pretty json
+    pretty_json_data = json.dumps(mat_json, indent=4)
+    with open(csv_path, 'w') as f:
+        f.write(pretty_json_data)
 ```
 
 ## Numpy create empty nan array
