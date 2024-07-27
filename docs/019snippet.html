@@ -412,10 +412,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-json">18.9. Python json</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-create-empty-nan-array">18.10. Numpy create empty nan array</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-indexing">18.11. Numpy indexing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">18.12. Pandas</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openstudio-python">18.13. OpenStudio Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ifcopenshell-python">18.14. IFCopenShell Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ladybug-tool-python">18.15. Ladybug Tool Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-vectorize-double-for-loop">18.12. Numpy vectorize double for loop</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">18.13. Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openstudio-python">18.14. OpenStudio Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ifcopenshell-python">18.15. IFCopenShell Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ladybug-tool-python">18.16. Ladybug Tool Python</a></li>
 </ul>
             </nav>
         </div>
@@ -739,8 +740,38 @@ print(x[:, 0:1, 1:3])
 </div>
 </div>
 </details></section>
+<section id="numpy-vectorize-double-for-loop">
+<h2><span class="section-number">18.12. </span>Numpy vectorize double for loop<a class="headerlink" href="#numpy-vectorize-double-for-loop" title="Link to this heading">#</a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+code snippet<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>xyzs = [[0,0,1], [0,0,2], [0,0,3]]
+polyxyzs = [[[1,1,1], [2,2,2], [3,3,3]], [[4,4,4], [5,5,5], [6,6,6]]]
+
+xyzs_rep = np.repeat(xyzs, repeats=len(polyxyzs), axis=0)
+print(xyzs_rep)
+
+polyxyzs_rep = np.tile(polyxyzs, (len(xyzs), 1, 1))
+print(polyxyzs_rep)
+
+xyzs1 = [[0,0,1], [0,0,2], [0,0,3]]
+xyzs2 = [[1,1,1], [2,2,2], [3,3,3]]
+
+xyzs1_rep = np.repeat(xyzs1, repeats=len(xyzs2), axis=0)
+print(xyzs1_rep)
+
+xyzs2_rep = np.tile(xyzs2, (len(xyzs1), 1))
+print(xyzs2_rep)
+</pre></div>
+</div>
+</div>
+</details></section>
 <section id="pandas">
-<h2><span class="section-number">18.12. </span>Pandas<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.13. </span>Pandas<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h2>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 read csv with no header and resample<div class="sd-summary-down docutils">
@@ -779,7 +810,7 @@ df = df.resample(&#39;5min&#39;).median()
 </div>
 </details></section>
 <section id="openstudio-python">
-<h2><span class="section-number">18.13. </span>OpenStudio Python<a class="headerlink" href="#openstudio-python" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.14. </span>OpenStudio Python<a class="headerlink" href="#openstudio-python" title="Link to this heading">#</a></h2>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 code snippet<div class="sd-summary-down docutils">
@@ -829,7 +860,7 @@ m.save(path, True)
 </div>
 </details></section>
 <section id="ifcopenshell-python">
-<h2><span class="section-number">18.14. </span>IFCopenShell Python<a class="headerlink" href="#ifcopenshell-python" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.15. </span>IFCopenShell Python<a class="headerlink" href="#ifcopenshell-python" title="Link to this heading">#</a></h2>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 code snippet<div class="sd-summary-down docutils">
@@ -883,7 +914,7 @@ for w in walls:
 </div>
 </details></section>
 <section id="ladybug-tool-python">
-<h2><span class="section-number">18.15. </span>Ladybug Tool Python<a class="headerlink" href="#ladybug-tool-python" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.16. </span>Ladybug Tool Python<a class="headerlink" href="#ladybug-tool-python" title="Link to this heading">#</a></h2>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 code snippet<div class="sd-summary-down docutils">
@@ -986,10 +1017,11 @@ print(data[1].header.metadata)
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-json">18.9. Python json</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-create-empty-nan-array">18.10. Numpy create empty nan array</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-indexing">18.11. Numpy indexing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">18.12. Pandas</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openstudio-python">18.13. OpenStudio Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ifcopenshell-python">18.14. IFCopenShell Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ladybug-tool-python">18.15. Ladybug Tool Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-vectorize-double-for-loop">18.12. Numpy vectorize double for loop</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">18.13. Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openstudio-python">18.14. OpenStudio Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ifcopenshell-python">18.15. IFCopenShell Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ladybug-tool-python">18.16. Ladybug Tool Python</a></li>
 </ul>
   </nav></div>
 

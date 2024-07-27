@@ -7,6 +7,7 @@
     # move a key to the back
     chosen_pset['Name] = chosen_pset.pop('Name')
 ```
+
 ## Python subprocess
 ```{dropdown} code snippet
     import sys
@@ -194,6 +195,27 @@ print(dt_str)
     x = np.array(x)
     # get the first of each set and last 2 columns of each point
     print(x[:, 0:1, 1:3])
+```
+
+## Numpy vectorize double for loop
+```{dropdown} code snippet
+    xyzs = [[0,0,1], [0,0,2], [0,0,3]]
+    polyxyzs = [[[1,1,1], [2,2,2], [3,3,3]], [[4,4,4], [5,5,5], [6,6,6]]]
+
+    xyzs_rep = np.repeat(xyzs, repeats=len(polyxyzs), axis=0)
+    print(xyzs_rep)
+
+    polyxyzs_rep = np.tile(polyxyzs, (len(xyzs), 1, 1))
+    print(polyxyzs_rep)
+
+    xyzs1 = [[0,0,1], [0,0,2], [0,0,3]]
+    xyzs2 = [[1,1,1], [2,2,2], [3,3,3]]
+
+    xyzs1_rep = np.repeat(xyzs1, repeats=len(xyzs2), axis=0)
+    print(xyzs1_rep)
+
+    xyzs2_rep = np.tile(xyzs2, (len(xyzs1), 1))
+    print(xyzs2_rep)
 ```
 
 ## Pandas 
