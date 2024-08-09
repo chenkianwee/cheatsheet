@@ -27,3 +27,4 @@
 - Gilbert–Johnson–Keerthi: https://stackoverflow.com/questions/2433298/distance-from-a-point-to-a-polyhedron-or-to-a-polygon
 - point in a convex solid: https://stackoverflow.com/questions/34379859/check-if-a-3d-point-lies-inside-a-3d-platonic-solid
 - boolean two polyhedron: https://liris.cnrs.fr/Documents/Liris-4883.pdf
+- Delauney algorithms: https://github.com/HakanSeven12/Delaunator-Python?tab=readme-ov-file
