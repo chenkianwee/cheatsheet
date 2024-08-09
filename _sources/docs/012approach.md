@@ -11,6 +11,7 @@ Envision your goal so that you never lose sight of it. An example from experienc
 6. When proving the objective be clear about how it contirbutes to the project.
 ## Notes about software startup in AEC
 Interesting software companies:
+- https://rapidlasso.de/
 - https://www.ladybug.tools
 - https://cove.tools/
 - https://www.digitalbluefoam.com/
