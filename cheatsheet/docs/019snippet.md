@@ -1,5 +1,13 @@
 # Useful code snippets
 
+## Python dictionary
+```{dropdown} code snippet
+    # move a key to the front 
+    chosen_pset = {'Name': chosen_pset.pop('Name'), **chosen_pset}
+    # move a key to the back
+    chosen_pset['Name] = chosen_pset.pop('Name')
+```
+
 ## Python subprocess
 ```{dropdown} code snippet
     import sys
@@ -100,6 +108,10 @@ print(dt_str)
     parent = Path(__file__).parent
     level2up = Path(__file__).parent.parent
     filename = Path(__file__).name
+    
+    # get all the file in the dirctory
+    files = Path(json_dir).glob('*.json')
+
     cwd = Path.cwd()
     print(cwd)
     print(join_path)
@@ -142,11 +154,72 @@ print(dt_str)
                 name = child2.find('name').text
 ```
 
+## Python json 
+```{dropdown} code snippet
+    with open(wrkflw_path) as wrkflw_f:
+        data = json.load(wrkflw_f)
+        steps = data['steps']
+        for step in steps:
+            dirname = step['measure_dir_name']
+
+    with open(wrkflw_path, "w") as out_file:
+        json.dump(data, out_file)
+
+    # pretty json
+    pretty_json_data = json.dumps(mat_json, indent=4)
+    with open(csv_path, 'w') as f:
+        f.write(pretty_json_data)
+```
+
 ## Numpy create empty nan array
 ```{dropdown} code snippet
     import numpy as np
     a = np.empty((3,3,))
     a.fill(np.nan)
+```
+
+## Numpy indexing 
+```{dropdown} code snippet
+    x = np.array([[0,0,1],
+                 [1,1,2]])
+    # get the first 2 columns of the array
+    print(x[:, 1:3])
+```
+
+```{dropdown} code snippet
+    x = [[
+            [0,0,1],
+            [1,1,2]
+        ],
+        [
+            [1,1,0],
+            [2,2,2] 
+        ]]
+
+    x = np.array(x)
+    # get the first of each set and last 2 columns of each point
+    print(x[:, 0:1, 1:3])
+```
+
+## Numpy vectorize double for loop
+```{dropdown} code snippet
+    xyzs = [[0,0,1], [0,0,2], [0,0,3]]
+    polyxyzs = [[[1,1,1], [2,2,2], [3,3,3]], [[4,4,4], [5,5,5], [6,6,6]]]
+
+    xyzs_rep = np.repeat(xyzs, repeats=len(polyxyzs), axis=0)
+    print(xyzs_rep)
+
+    polyxyzs_rep = np.tile(polyxyzs, (len(xyzs), 1, 1))
+    print(polyxyzs_rep)
+
+    xyzs1 = [[0,0,1], [0,0,2], [0,0,3]]
+    xyzs2 = [[1,1,1], [2,2,2], [3,3,3]]
+
+    xyzs1_rep = np.repeat(xyzs1, repeats=len(xyzs2), axis=0)
+    print(xyzs1_rep)
+
+    xyzs2_rep = np.tile(xyzs2, (len(xyzs1), 1))
+    print(xyzs2_rep)
 ```
 
 ## Pandas 
@@ -212,7 +285,159 @@ print(dt_str)
     path = '/home/chenkianwee/kianwee_work/test.osm'
     m.save(path, True)
 ```
+```{dropdown} code snippet
+    # setup time
+    time9 = openstudio.openstudioutilitiestime.Time(0,9,0,0)
+    time17 = openstudio.openstudioutilitiestime.Time(0,17,0,0)
+    time24 = openstudio.openstudioutilitiestime.Time(0,24,0,0)
+    # region:setup schedule type limits
+    sch_type_lim_frac = osmod.ScheduleTypeLimits(osmodel)
+    sch_type_lim_frac.setName('fractional')
+    sch_type_lim_frac.setLowerLimitValue(0.0)
+    sch_type_lim_frac.setUpperLimitValue(1.0)
+    sch_type_lim_frac.setNumericType('Continuous')
 
+    sch_type_lim_temp = osmod.ScheduleTypeLimits(osmodel)
+    sch_type_lim_temp.setName('temperature')
+    sch_type_lim_temp.setLowerLimitValue(-60)
+    sch_type_lim_temp.setUpperLimitValue(200)
+    sch_type_lim_temp.setNumericType('Continuous')
+    sch_type_lim_temp.setUnitType('Temperature')
+
+    sch_type_lim_act = osmod.ScheduleTypeLimits(osmodel)
+    sch_type_lim_act.setName('activity')
+    sch_type_lim_act.setLowerLimitValue(0)
+    sch_type_lim_act.setNumericType('Continuous')
+    sch_type_lim_act.setUnitType('ActivityLevel')
+    # endregion:setup schedule type limits
+    # region: setup occ schedule
+    sch_day_occ = osmod.ScheduleDay(osmodel)
+    sch_day_occ.setName('weekday occupancy')
+    sch_day_occ.setScheduleTypeLimits(sch_type_lim_frac)
+    sch_day_occ.addValue(time9, 0.0)
+    sch_day_occ.addValue(time17, 1.0)
+
+    sch_ruleset_occ = osmod.ScheduleRuleset(osmodel)
+    sch_ruleset_occ.setName('occupancy schedule')
+    sch_ruleset_occ.setScheduleTypeLimits(sch_type_lim_frac)
+
+    sch_rule_occ = osmod.ScheduleRule(sch_ruleset_occ, sch_day_occ)
+    sch_rule_occ.setName('occupancy weekdays')
+    sch_rule_occ.setApplyWeekdays(True)
+    # endregion: setup occ schedule
+    # region: setup activity schedule
+    sch_day_act = osmod.ScheduleDay(osmodel)
+    sch_day_act.setName('weekday activity')
+    sch_day_act.setScheduleTypeLimits(sch_type_lim_act)
+    sch_day_act.addValue(time24, 70)
+
+    sch_ruleset_act = osmod.ScheduleRuleset(osmodel)
+    sch_ruleset_act.setName('activity schedule')
+    sch_ruleset_act.setScheduleTypeLimits(sch_type_lim_act)
+    sch_ruleset_act.setSummerDesignDaySchedule(sch_day_act)
+    sch_ruleset_act.setWinterDesignDaySchedule(sch_day_act)
+    sch_ruleset_act.setHolidaySchedule(sch_day_act)
+    sch_ruleset_act.setCustomDay1Schedule(sch_day_act)
+    sch_ruleset_act.setCustomDay2Schedule(sch_day_act)
+
+    sch_rule_act = osmod.ScheduleRule(sch_ruleset_act, sch_day_act)
+    sch_rule_act.setName('activity weekdays')
+    sch_rule_act.setApplyAllDays(True)
+    # endregion: setup activity schedule
+    # region: setup thermostat cooling setpoint
+    sch_day_cool_tstat = osmod.ScheduleDay(osmodel)
+    sch_day_cool_tstat.setName('thermostat cooling weekday schedule')
+    sch_day_cool_tstat.setScheduleTypeLimits(sch_type_lim_temp)
+    sch_day_cool_tstat.addValue(time9, 60.0)
+    sch_day_cool_tstat.addValue(time17, 25.0)
+    sch_day_cool_tstat.addValue(time24, 60.0)
+
+    sch_day_cool_tstat2 = osmod.ScheduleDay(osmodel)
+    sch_day_cool_tstat2.setName('thermostat cooling weekends schedule')
+    sch_day_cool_tstat2.setScheduleTypeLimits(sch_type_lim_temp)
+    sch_day_cool_tstat2.addValue(time24, 60.0)
+
+    sch_day_cool_tstat3 = osmod.ScheduleDay(osmodel)
+    sch_day_cool_tstat3.setName('thermostat cooling design day schedule')
+    sch_day_cool_tstat3.setScheduleTypeLimits(sch_type_lim_temp)
+    sch_day_cool_tstat3.addValue(time9, 25.0)
+    sch_day_cool_tstat3.addValue(time17, 25.0)
+    sch_day_cool_tstat3.addValue(time24, 25.0)
+
+    sch_ruleset_cool_tstat = osmod.ScheduleRuleset(osmodel)
+    sch_ruleset_cool_tstat.setName('thermostat cooling ruleset')
+    sch_ruleset_cool_tstat.setScheduleTypeLimits(sch_type_lim_temp)
+    sch_ruleset_cool_tstat.setSummerDesignDaySchedule(sch_day_cool_tstat3)
+
+    sch_rule_cool_tstat = osmod.ScheduleRule(sch_ruleset_cool_tstat, sch_day_cool_tstat)
+    sch_rule_cool_tstat.setName('thermostat cooling weekday rule')
+    sch_rule_cool_tstat.setApplyWeekdays(True)
+
+    sch_rule_cool_tstat = osmod.ScheduleRule(sch_ruleset_cool_tstat, sch_day_cool_tstat2)
+    sch_rule_cool_tstat.setName('thermostat cooling weekend rule')
+    sch_rule_cool_tstat.setApplyWeekends(True)
+    # endregion: setup thermostat cooling setpoint
+    # region: setup thermostat heating setpoint
+    sch_day_hot_tstat = osmod.ScheduleDay(osmodel)
+    sch_day_hot_tstat.setName('thermostat heating weekday schedule')
+    sch_day_hot_tstat.setScheduleTypeLimits(sch_type_lim_temp)
+    sch_day_hot_tstat.addValue(time9, 20.0)
+    sch_day_hot_tstat.addValue(time17, 20.0)
+    sch_day_hot_tstat.addValue(time24, 20.0)
+
+    sch_ruleset_hot_tstat = osmod.ScheduleRuleset(osmodel)
+    sch_ruleset_hot_tstat.setName('thermostat heating ruleset')
+    sch_ruleset_hot_tstat.setScheduleTypeLimits(sch_type_lim_temp)
+    sch_ruleset_cool_tstat.setWinterDesignDaySchedule(sch_day_hot_tstat)
+
+    sch_rule_hot_tstat = osmod.ScheduleRule(sch_ruleset_hot_tstat, sch_day_hot_tstat)
+    sch_rule_hot_tstat.setName('thermostat heating weekday rule')
+    sch_rule_hot_tstat.setApplyAllDays(True)
+    # endregion: setup thermostat heating setpoint
+    tstat = osmod.ThermostatSetpointDualSetpoint(osmodel)
+    tstat.setCoolingSetpointTemperatureSchedule(sch_ruleset_cool_tstat)
+    tstat.setHeatingSetpointTemperatureSchedule(sch_ruleset_hot_tstat)
+    # endregion: setup the schedules 
+    
+    # region: setup the thermalzones 
+    #------------------------------------------------------------------------------------------------------
+    # set the internal loads of the space
+    # setup the lighting schedule
+    light = openstudio_utils.setup_light_schedule(osmodel, sch_ruleset_occ)
+    # setup electric equipment schedule
+    elec_equip = openstudio_utils.setup_elec_equip_schedule(osmodel, sch_ruleset_occ)
+
+    spaces = osmod.getSpaces(osmodel)
+    # occ_numbers = [34, 71]
+    occ_numbers = [25, 50]
+    light_watts_m2 = 5
+    elec_watts_m2 = 10
+    thermal_zones =[]
+    for cnt, space in enumerate(spaces):
+        space_name = space.nameString()
+        space.autocalculateFloorArea()
+        outdoor_air = osmod.DesignSpecificationOutdoorAir(osmodel)
+        outdoor_air.setOutdoorAirFlowperPerson(0.006) #m3/s
+        space.setDesignSpecificationOutdoorAir(outdoor_air)
+        # setup people schedule
+        ppl = openstudio_utils.setup_ppl_schedule(osmodel, sch_ruleset_occ, sch_ruleset_act, name = space_name + '_people')
+        space.setNumberOfPeople(occ_numbers[cnt], ppl)
+        space.setLightingPowerPerFloorArea(light_watts_m2, light)
+        space.setElectricEquipmentPowerPerFloorArea(elec_watts_m2, elec_equip)
+        # setup the thermostat schedule
+        thermalzone = space.thermalZone()
+        if thermalzone.empty() == False:
+            thermalzone_real = thermalzone.get()
+            thermalzone_real.setThermostatSetpointDualSetpoint(tstat)
+            thermal_zones.append(thermalzone_real)
+    #------------------------------------------------------------------------------------------------------
+    # endregion: setup the thermalzones 
+    
+    #------------------------------------------------------------------------------------------------------
+    # endregion: setup openstudio model
+    #------------------------------------------------------------------------------------------------------
+    osmodel.save(osmod_path, True)
+```
 ## IFCopenShell Python
 ```{dropdown} code snippet
     import ifcopenshell

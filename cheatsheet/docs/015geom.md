@@ -22,6 +22,9 @@
 - point plane distance: https://mathworld.wolfram.com/Point-PlaneDistance.html
 - closest point to triangle: https://gdbooks.gitbooks.io/3dcollisions/content/Chapter4/closest_point_to_triangle.html
     - this algorithm will probably work for polygon too
+- defining a plane with a point and normal: http://mathonline.wikidot.com/point-normal-form-of-a-plane
+- project a point onto plane: https://gdbooks.gitbooks.io/3dcollisions/content/Chapter1/closest_point_on_plane.html
 - Gilbert–Johnson–Keerthi: https://stackoverflow.com/questions/2433298/distance-from-a-point-to-a-polyhedron-or-to-a-polygon
 - point in a convex solid: https://stackoverflow.com/questions/34379859/check-if-a-3d-point-lies-inside-a-3d-platonic-solid
 - boolean two polyhedron: https://liris.cnrs.fr/Documents/Liris-4883.pdf
+- Delauney algorithms: https://github.com/HakanSeven12/Delaunator-Python?tab=readme-ov-file

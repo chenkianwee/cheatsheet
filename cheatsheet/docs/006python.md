@@ -203,6 +203,40 @@ based on these:
 - https://github.com/ClimenteA/flaskwebgui
 - https://github.com/ClimenteA/pyvan
 
+### Writing Python Apps with Beeware
+- https://docs.beeware.org/en/latest/tutorial/tutorial-0.html
+
+1. create a virtual environment using the ubuntu system python 
+    ```
+    python3 -m venv venv/beeware
+    ```
+    ```
+    source venv/beeware/bin/activate
+    ```
+
+2. Install briefcase
+    ```
+    python -m pip install briefcase
+    ```
+3. create a briefcase tempplate 
+    ```
+    briefcase new
+    ```
+4. Put in the relevant pyqtgraph codes, and in the pyproject.toml file put in the requirements
+5. create scaffolding, then build the app, run your app to test it out. Lastly, build your installer.
+    ```
+    briefcase create
+    ```
+    ```
+    briefcase build
+    ```
+    ```
+    briefcase run
+    ```
+    ```
+    briefcase package
+    ```
+    
 ## Numpy and scipy resources
 ### Reducing numpy, scipy library size 
 - https://towardsdatascience.com/how-to-shrink-numpy-scipy-pandas-and-matplotlib-for-your-data-product-4ec8d7e86ee4
@@ -245,7 +279,10 @@ based on these:
     ```
     Ctrl + k Ctrl + i
     ```
-
+- go to terminal
+    ```
+    Ctrl + `
+    ```
 ### Folding in VScode
 - https://code.visualstudio.com/docs/editor/codebasics#_folding
 

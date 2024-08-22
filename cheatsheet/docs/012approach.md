@@ -11,6 +11,8 @@ Envision your goal so that you never lose sight of it. An example from experienc
 6. When proving the objective be clear about how it contirbutes to the project.
 ## Notes about software startup in AEC
 Interesting software companies:
+- https://rapidlasso.de/
+- https://datadrivenconstruction.io/
 - https://www.ladybug.tools
 - https://cove.tools/
 - https://www.digitalbluefoam.com/
@@ -21,6 +23,15 @@ Interesting software companies:
 - https://braaannigan.github.io/
 - https://d-alchemy.com/
 - https://diroots.com/
+- https://geometrygym.wordpress.com/
+- https://www.wallacei.com/
+- https://www.shapediver.com/
+- https://github.com/tt-acm
+- Digital Twinning: https://www.dripvisual.com/
+
+Taiwan:
+- https://rccn.dev/zh/https://www.shapediver.com/pricing
+- https://bimstudio.tabc.org.tw/
 
 ## Open source funding/revenue
 - https://opensource.guide/
