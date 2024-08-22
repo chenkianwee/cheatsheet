@@ -12,6 +12,7 @@ Envision your goal so that you never lose sight of it. An example from experienc
 ## Notes about software startup in AEC
 Interesting software companies:
 - https://rapidlasso.de/
+- https://datadrivenconstruction.io/
 - https://www.ladybug.tools
 - https://cove.tools/
 - https://www.digitalbluefoam.com/
