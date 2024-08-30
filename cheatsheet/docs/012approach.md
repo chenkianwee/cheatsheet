@@ -33,6 +33,10 @@ Taiwan:
 - https://rccn.dev/zh/https://www.shapediver.com/pricing
 - https://bimstudio.tabc.org.tw/
 
+## Online teaching 
+- https://bimcorner.com/
+- https://learngrasshopper.com/
+
 ## Open source funding/revenue
 - https://opensource.guide/
 - https://www.heavybit.com/library/video/commercial-open-source-business-strategies
@@ -51,6 +55,17 @@ Taiwan:
 ### Revenue
 - https://opencollective.com/
 - https://github.com/sponsors
+- https://patreon.com
+- https://ko-fi.com
+- https://buymeacoffee.com
+- https://digitalsoftwaremarkett.com/
+- https://download-monitor.com/selling-software/
+
+### Online teaching platform
+- https://instructor-academy.onlinecoursehost.com/udemy-alternatives/
+    - https://instructor-academy.onlinecoursehost.com/how-to-start-an-online-course-business/
+- [udemy](https://www.udemy.com/)
+- [skillshare](https://www.skillshare.com/en/)
 
 ## Teaching digital AEC through the computational approach
 You need students to have knowledge on all of these 3 area

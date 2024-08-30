@@ -66,6 +66,17 @@
 ```
 
 ## Python datetime
+```{dropdown} timezone with datetime.timezone
+    import datetime
+    utc_tz = datetime.timezone(datetime.timedelta(hours=0))
+    tz = datetime.timezone(datetime.timedelta(hours=8))
+    pydt = datetime.datetime.now()
+    dt_utc = pydt.replace(tzinfo=utc_tz)
+    dt_spore = dt_utc.astimezone(tz)
+    dtstr = dt_spore.isoformat()
+```
+
+
 ```{dropdown} code snippet
     import datetime
     from dateutil.parser import parse
@@ -82,7 +93,7 @@
     # replace the datetime tz
     dt_utc = dt.replace(tzinfo=pytz.utc)
     dt_str = dt_utc.isoformat(timespec='minutes')
-print(dt_str)
+    print(dt_str)
 ```
 
 ```{dropdown} gen days function
