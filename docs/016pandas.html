@@ -453,6 +453,8 @@ document.write(`
 <span class="c1"># resample the timeseries into 1 min interval taking the median of that minute</span>
 <span class="n">df_mini</span> <span class="o">=</span> <span class="n">df_mini</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;1T&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
 
+<span class="c1"># get the headers name</span>
+<span class="n">header_names</span> <span class="o">=</span> <span class="n">df_mini</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span>
 <span class="c1"># extract the columns of interest</span>
 <span class="n">mrt</span> <span class="o">=</span> <span class="n">df_mini</span><span class="p">[</span><span class="s1">&#39; TOTAL MLX LW&#39;</span><span class="p">]</span>
 <span class="n">air_temp</span> <span class="o">=</span> <span class="n">df_mini</span><span class="p">[</span><span class="s1">&#39; TEMP&#39;</span><span class="p">]</span>

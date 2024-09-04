@@ -29,6 +29,8 @@ df_mini = df_mini.loc[se_time_dt[0]:se_time_dt[1]]
 # resample the timeseries into 1 min interval taking the median of that minute
 df_mini = df_mini.resample('1T').median()
 
+# get the headers name
+header_names = df_mini.columns.values
 # extract the columns of interest
 mrt = df_mini[' TOTAL MLX LW']
 air_temp = df_mini[' TEMP']

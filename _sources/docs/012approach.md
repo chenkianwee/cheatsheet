@@ -37,6 +37,10 @@ Taiwan:
 - https://bimcorner.com/
 - https://learngrasshopper.com/
 
+## Online makespace shops
+- https://makersportal.com/
+- https://www.kippkitts.com/
+
 ## Open source funding/revenue
 - https://opensource.guide/
 - https://www.heavybit.com/library/video/commercial-open-source-business-strategies
