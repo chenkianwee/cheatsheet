@@ -181,6 +181,22 @@
     with open(csv_path, 'w') as f:
         f.write(pretty_json_data)
 ```
+```{dropdown} validate jsonschema
+    import json
+    from jsonschema import validate
+
+    path = 'schema.json'
+    with open(path) as f:
+        data = json.load(f)
+
+    path = 'instance.json'
+    with open(path) as f:
+        data2val = json.load(f)
+
+    is_valid = validate(instance=data2val, schema=data)
+    print(is_valid)
+    # if it is valid will not raise any error and give a None
+```
 
 ## Numpy create empty nan array
 ```{dropdown} code snippet
