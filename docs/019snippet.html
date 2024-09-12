@@ -615,6 +615,10 @@ filename = Path(__file__).name
 # get all the file in the dirctory
 files = Path(json_dir).glob(&#39;*.json&#39;)
 
+# get all file and folder
+p = Path(r&#39;C:\Users\akrio\Desktop\Test&#39;).glob(&#39;**/*&#39;)
+files = [x for x in p if x.is_file()]
+
 cwd = Path.cwd()
 print(cwd)
 print(join_path)

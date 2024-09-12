@@ -28,6 +28,26 @@ activate environment for ubuntu
 ```
 source bin/dir/activate
 ```
+## pip
+pip install
+```
+pip install <packagename==version>
+```
+
+pip uninstall
+```
+pip uninstall <packagename==version>
+```
+
+pip upgrade package
+```
+pip install --upgrade <packagename>
+```
+
+list all pip install packages
+```
+pip list
+```
 
 ## Conda
 create environment
@@ -52,7 +72,11 @@ This is written for a window system. Make changes accordingly to your OS.
 based on these:
 - https://packaging.python.org/en/latest/tutorials/packaging-projects/
 - https://www.geeksforgeeks.org/command-line-scripts-python-packaging/
-
+- include data packages:
+    - first need to have a manifest file: https://python-packaging.readthedocs.io/en/latest/non-code-files.html
+    - then setup the pyproject toml file: https://setuptools.pypa.io/en/latest/userguide/datafiles.html
+    - how to access data file during runtime: https://setuptools.pypa.io/en/latest/userguide/datafiles.html#accessing-data-files-at-runtime
+    
 1. Create a pyproject.toml in this project structure
     ```
     myproject/
