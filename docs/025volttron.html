@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>10.11. Interactive visualization with Jupyter-book &#8212; CKW cheatsheet</title>
+    <title>24. Volttron &#8212; CKW cheatsheet</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/011_9interactive';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/025volttron';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="11. Getting Things Done" href="012approach.html" />
-    <link rel="prev" title="10.10. Generate PDF" href="011_8pdf.html" />
+    <link rel="next" title="25. BACpypes" href="026bacpypes.html" />
+    <link rel="prev" title="23. Import background image and scale" href="024b3dimg.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -187,7 +187,7 @@
 <li class="toctree-l1"><a class="reference internal" href="008matplotlib.html">7. Matplotlib Scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="009git.html">8. Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="010opencv.html">9. OpenCV</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="011pubbk.html">10. Jupyter-book</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="011pubbk.html">10. Jupyter-book</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="011_1installation.html">10.3. Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="011_2createbook.html">10.4. Create a Book Template with Jupyter-book</a></li>
 <li class="toctree-l2"><a class="reference internal" href="011_3editbook.html">10.5. Edit the Book</a></li>
@@ -196,7 +196,7 @@
 <li class="toctree-l2"><a class="reference internal" href="011_6citation.html">10.8. Adding a Citation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="011_7pubonline.html">10.9. Publish your Book on Github</a></li>
 <li class="toctree-l2"><a class="reference internal" href="011_8pdf.html">10.10. Generate PDF</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">10.11. Interactive visualization with Jupyter-book</a></li>
+<li class="toctree-l2"><a class="reference internal" href="011_9interactive.html">10.11. Interactive visualization with Jupyter-book</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="012approach.html">11. Getting Things Done</a></li>
@@ -212,7 +212,7 @@
 <li class="toctree-l1"><a class="reference internal" href="022b3dsect.html">21. Sectional perspective with Blender3D and LibreCAD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="023b3dplane.html">22. Blender3D plane</a></li>
 <li class="toctree-l1"><a class="reference internal" href="024b3dimg.html">23. Import background image and scale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="025volttron.html">24. Volttron</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">24. Volttron</a></li>
 <li class="toctree-l1"><a class="reference internal" href="026bacpypes.html">25. BACpypes</a></li>
 </ul>
 
@@ -285,7 +285,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/011_9interactive.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/025volttron.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -315,7 +315,7 @@
       
       
       
-      <li><a href="../_sources/docs/011_9interactive.md" target="_blank"
+      <li><a href="../_sources/docs/025volttron.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -399,7 +399,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Interactive visualization with Jupyter-book</h1>
+    <h1>Volttron</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -409,9 +409,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hide-markdown">10.11.1. Hide Markdown</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotly-for-generating-interactive-visualization-on-jupyter-book">10.11.2. Plotly for generating interactive visualization on Jupyter-book</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hide-or-remove-code-cell-content">10.11.3. Hide or remove code cell content</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">24.1. Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-tutorials">24.2. Useful tutorials</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bacnet-scan">24.3. BACnet scan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuring-volttron-central">24.4. Configuring Volttron Central</a></li>
 </ul>
             </nav>
         </div>
@@ -423,83 +424,166 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="interactive-visualization-with-jupyter-book">
-<h1><span class="section-number">10.11. </span>Interactive visualization with Jupyter-book<a class="headerlink" href="#interactive-visualization-with-jupyter-book" title="Link to this heading">#</a></h1>
-<section id="hide-markdown">
-<h2><span class="section-number">10.11.1. </span>Hide Markdown<a class="headerlink" href="#hide-markdown" title="Link to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="volttron">
+<h1><span class="section-number">24. </span>Volttron<a class="headerlink" href="#volttron" title="Link to this heading">#</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://jupyterbook.org/en/stable/content/components.html#dropdowns">https://jupyterbook.org/en/stable/content/components.html#dropdowns</a></p></li>
+<li><p><a class="reference external" href="https://volttron.readthedocs.io/en/main/tutorials/quick-start.html">https://volttron.readthedocs.io/en/main/tutorials/quick-start.html</a></p></li>
+</ul>
+<section id="installation">
+<h2><span class="section-number">24.1. </span>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Platform installation: <a class="reference external" href="https://www.youtube.com/watch?v=UrRQ5LNF2xU&amp;amp;list=TLGGlihJ3pKI1vgxODA5MjAyNA">https://www.youtube.com/watch?v=UrRQ5LNF2xU&amp;list=TLGGlihJ3pKI1vgxODA5MjAyNA</a></p></li>
 </ul>
 <ol class="arabic">
-<li><p>Hide codes with the {toggle} directive. With the show tag the toggle will be open by default. For codes do another tab within the toggle directive for proper rendering of the codes.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    ```{toggle}
-    :show:
-    dropdown content
-        codes ....
-        ..... 
-    ```
+<li><p>Install all the dependencies. Volttron currenly only works with python3.10</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">python3</span><span class="o">-</span><span class="n">dev</span> <span class="n">python3</span><span class="o">-</span><span class="n">venv</span> <span class="n">openssl</span> <span class="n">libssl</span><span class="o">-</span><span class="n">dev</span> <span class="n">libevent</span><span class="o">-</span><span class="n">dev</span> <span class="n">git</span>
+
 </pre></div>
 </div>
 </li>
-<li><p>Hide codes with {dropdown} directive. With the show tag the toggle will be open by default. For codes do another tab within the toggle directive for proper rendering of the codes.For codes</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    ```{dropdown} my dropdown
-    :show:
-    dropdown content
-        codes ....
-        .....
-    ```
+<li><p>git clone the volttron repo</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">VOLTTRON</span><span class="o">/</span><span class="n">volttron</span>
+</pre></div>
+</div>
+</li>
+<li><p>setup the env with the following command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">bootstrap</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
 </li>
 </ol>
 </section>
-<section id="plotly-for-generating-interactive-visualization-on-jupyter-book">
-<h2><span class="section-number">10.11.2. </span>Plotly for generating interactive visualization on Jupyter-book<a class="headerlink" href="#plotly-for-generating-interactive-visualization-on-jupyter-book" title="Link to this heading">#</a></h2>
+<section id="useful-tutorials">
+<h2><span class="section-number">24.2. </span>Useful tutorials<a class="headerlink" href="#useful-tutorials" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>you can install plotly by following these instructions <a class="reference external" href="https://plotly.com/python/getting-started/">https://plotly.com/python/getting-started/</a></p></li>
-<li><p>refer to jupyter-book documentation here (<a class="reference external" href="https://jupyterbook.org/en/stable/interactive/interactive.html">https://jupyterbook.org/en/stable/interactive/interactive.html</a>)</p></li>
+<li><p>the driver framework:</p>
+<ul>
+<li><p>video: <a class="reference external" href="https://www.youtube.com/watch?v=bPE_-6nHuSY">https://www.youtube.com/watch?v=bPE_-6nHuSY</a></p></li>
+<li><p>docs:</p>
+<ul>
+<li><p>driver framework: <a class="reference external" href="https://volttron.readthedocs.io/en/develop/agent-framework/driver-framework/platform-driver/platform-driver.html#platform-driver">https://volttron.readthedocs.io/en/develop/agent-framework/driver-framework/platform-driver/platform-driver.html#platform-driver</a></p></li>
+<li><p><a class="reference external" href="https://volttron.readthedocs.io/en/develop/developing-volttron/developing-drivers/driver-development.html">https://volttron.readthedocs.io/en/develop/developing-volttron/developing-drivers/driver-development.html</a></p></li>
 </ul>
+</li>
+</ul>
+</li>
+<li><p>bacnet driver:</p>
+<ul>
+<li><p>video: <a class="reference external" href="https://www.youtube.com/watch?v=qQNL2n936AU">https://www.youtube.com/watch?v=qQNL2n936AU</a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="bacnet-scan">
+<h2><span class="section-number">24.3. </span>BACnet scan<a class="headerlink" href="#bacnet-scan" title="Link to this heading">#</a></h2>
 <ol class="arabic">
-<li><p>Install plotly</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">plotly</span><span class="o">==</span><span class="mf">5.20.0</span>
+<li><p>Startup a volttron instance. cd to the volttron directory, by default volltron will create a .volttron folder in you home directory to store all your config files for this instance. You can change the folder by specifying it with the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">VOLTTRON_HOME</span><span class="o">=~/.</span><span class="n">volttron1</span>
 </pre></div>
 </div>
 </li>
-<li><p>Refer to various example scripts to generate interactive graphs (<a class="reference external" href="https://jupyterbook.org/en/stable/interactive/interactive.html#plotly">https://jupyterbook.org/en/stable/interactive/interactive.html#plotly</a>)</p></li>
-<li><p>Load require.js into your jupyter-book to show the graphs. Include the below settings to your _config.yml</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx</span><span class="p">:</span>
-    <span class="n">config</span><span class="p">:</span>
-        <span class="n">html_js_files</span><span class="p">:</span>
-        <span class="o">-</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">cdnjs</span><span class="o">.</span><span class="n">cloudflare</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ajax</span><span class="o">/</span><span class="n">libs</span><span class="o">/</span><span class="n">require</span><span class="o">.</span><span class="n">js</span><span class="o">/</span><span class="mf">2.3.4</span><span class="o">/</span><span class="n">require</span><span class="o">.</span><span class="n">min</span><span class="o">.</span><span class="n">js</span>
+<li><p>execute the following to spin up volttron.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">start</span><span class="o">-</span><span class="n">volttron</span>  
 </pre></div>
 </div>
 </li>
-<li><p>A error might be generated with showing plotly interactive plots. You can suppress the error with this command.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx</span><span class="p">:</span>
-    <span class="n">config</span><span class="p">:</span>
-        <span class="n">suppress_warnings</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;mystnb.unknown_mime_type&quot;</span><span class="p">]</span>
+<li><p>install the listener agent with this command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vctl</span> <span class="n">install</span> <span class="n">examples</span><span class="o">/</span><span class="n">ListenerAgent</span><span class="o">/</span> <span class="o">--</span><span class="n">tag</span> <span class="n">listener</span>
+</pre></div>
+</div>
+</li>
+<li><p>install the platform driver</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vctl</span> <span class="n">install</span> <span class="n">services</span><span class="o">/</span><span class="n">core</span><span class="o">/</span><span class="n">PlatformDriverAgent</span>
+</pre></div>
+</div>
+</li>
+<li><p>store all your config files in configs folder</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">configs</span>
+</pre></div>
+</div>
+</li>
+<li><p>copy the bacpypes.ini file ot the config folder</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cp</span> <span class="n">scripts</span><span class="o">/</span><span class="n">bacnet</span><span class="o">/</span><span class="n">BACpypes</span><span class="o">.</span><span class="n">ini</span> <span class="n">configs</span>
+</pre></div>
+</div>
+</li>
+<li><p>change the BACpypes.ini address to your machine ip address. Make sure you are connected to the BACnet network. The rest of the parameters does not matter.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">BACpypes</span><span class="p">]</span>
+<span class="n">objectName</span><span class="p">:</span> <span class="n">something</span>
+<span class="n">address</span><span class="p">:</span> <span class="mf">192.168.1.1</span><span class="o">/</span><span class="mi">24</span>
+<span class="n">objectIdentifier</span><span class="p">:</span> <span class="mi">10</span>
+<span class="n">maxApduLengthAccepted</span><span class="p">:</span> <span class="mi">1024</span>
+<span class="n">segmentationSupported</span><span class="p">:</span> <span class="n">segmentedBoth</span>
+<span class="n">vendorIdentifier</span><span class="p">:</span> <span class="mi">15</span>
+</pre></div>
+</div>
+</li>
+<li><p>scan for bacnet points.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">scripts</span><span class="o">/</span><span class="n">bacnet</span><span class="o">/</span><span class="n">bacnet_scan</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">csv</span><span class="o">-</span><span class="n">out</span> <span class="n">configs</span><span class="o">/</span><span class="n">bacnet_scan</span><span class="o">.</span><span class="n">csv</span> <span class="o">--</span><span class="n">ini</span> <span class="n">configs</span><span class="o">/</span><span class="n">BACpypes</span><span class="o">.</span><span class="n">ini</span>
+</pre></div>
+</div>
+</li>
+<li><p>Once you have the bacnet_scan.csv file generate the driver config file</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">scripts</span><span class="o">/</span><span class="n">bacnet</span><span class="o">/</span><span class="n">grab_multiple_configs</span><span class="o">.</span><span class="n">py</span> <span class="n">configs</span><span class="o">/</span><span class="n">bacnet_scan</span><span class="o">.</span><span class="n">csv</span> <span class="o">--</span><span class="n">out</span><span class="o">-</span><span class="n">directory</span> <span class="n">configs</span><span class="o">/</span> <span class="o">--</span><span class="n">ini</span> <span class="n">configs</span><span class="o">/</span><span class="n">BACpypes</span><span class="o">.</span><span class="n">ini</span>
+</pre></div>
+</div>
+</li>
+<li><p>Now we need to setup a bacnet proxy to talk to the bacnet devices. copy the config file to the config folder</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cp</span> <span class="n">services</span><span class="o">/</span><span class="n">core</span><span class="o">/</span><span class="n">BACnetProxy</span><span class="o">/</span><span class="n">config</span> <span class="n">configs</span><span class="o">/</span><span class="n">bacnet_proxy</span><span class="o">.</span><span class="n">config</span>
+</pre></div>
+</div>
+</li>
+<li><p>make sure to change the device_address field to the right ip address of your device</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;device_address&quot;</span><span class="p">:</span> <span class="s2">&quot;192.168.1.1/24&quot;</span><span class="p">,</span>
+<span class="s2">&quot;max_apdu_length&quot;</span><span class="p">:</span> <span class="mi">1024</span><span class="p">,</span>
+<span class="s2">&quot;object_id&quot;</span><span class="p">:</span> <span class="mi">599</span><span class="p">,</span>
+<span class="s2">&quot;object_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Volttron BACnet driver&quot;</span><span class="p">,</span>
+<span class="s2">&quot;vendor_id&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+<span class="s2">&quot;segmentation_supported&quot;</span><span class="p">:</span> <span class="s2">&quot;segmentedBoth&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Install the bacnet proxy driver</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vctl</span> <span class="n">install</span> <span class="n">services</span><span class="o">/</span><span class="n">core</span><span class="o">/</span><span class="n">BACnetProxy</span><span class="o">/</span> <span class="o">-</span><span class="n">c</span> <span class="n">configs</span><span class="o">/</span><span class="n">bacnet_proxy</span><span class="o">.</span><span class="n">config</span> <span class="o">--</span><span class="n">tag</span> <span class="n">bacnet_proxy</span>
+</pre></div>
+</div>
+</li>
+<li><p>setup the device driver. Here I am setting up the driver for device 8.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vctl</span> <span class="n">config</span> <span class="n">store</span> <span class="n">platform</span><span class="o">.</span><span class="n">driver</span> <span class="n">devices</span><span class="o">/</span><span class="mi">8</span> <span class="n">configs</span><span class="o">/</span><span class="n">devices</span><span class="o">/</span><span class="mi">8</span>
+</pre></div>
+</div>
+</li>
+<li><p>setup the registry config</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vctl</span> <span class="n">config</span> <span class="n">store</span> <span class="n">platform</span><span class="o">.</span><span class="n">driver</span> <span class="n">registry_configs</span><span class="o">/</span><span class="mf">8.</span><span class="n">csv</span> <span class="n">configs</span><span class="o">/</span><span class="n">registry_configs</span><span class="o">/</span><span class="mf">8.</span><span class="n">csv</span> <span class="o">--</span><span class="n">csv</span>
+</pre></div>
+</div>
+</li>
+<li><p>you can check the platform.driver config using this</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vctl</span> <span class="n">config</span> <span class="nb">list</span> <span class="n">platform</span><span class="o">.</span><span class="n">driver</span>
+</pre></div>
+</div>
+</li>
+<li><p>start the platform driver</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vctl</span> <span class="n">start</span> <span class="o">--</span><span class="n">tag</span> <span class="n">driver</span>
+</pre></div>
+</div>
+</li>
+<li><p>You can look at the log with this command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tail</span> <span class="o">-</span><span class="n">f</span> <span class="n">volttron</span><span class="o">.</span><span class="n">log</span>
 </pre></div>
 </div>
 </li>
 </ol>
 </section>
-<section id="hide-or-remove-code-cell-content">
-<h2><span class="section-number">10.11.3. </span>Hide or remove code cell content<a class="headerlink" href="#hide-or-remove-code-cell-content" title="Link to this heading">#</a></h2>
+<section id="configuring-volttron-central">
+<h2><span class="section-number">24.4. </span>Configuring Volttron Central<a class="headerlink" href="#configuring-volttron-central" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://jupyterbook.org/en/stable/interactive/hiding.html#hide-code-cell-content">https://jupyterbook.org/en/stable/interactive/hiding.html#hide-code-cell-content</a></p></li>
-<li><p>for jupyter lab or jupyter notebook refer to this guide (<a class="reference external" href="https://jupyterbook.org/en/stable/content/metadata.html#jupyter-cell-tags">https://jupyterbook.org/en/stable/content/metadata.html#jupyter-cell-tags</a>)</p></li>
+<li><p><a class="reference external" href="https://volttron.readthedocs.io/en/develop/deploying-volttron/multi-platform/volttron-central-deployment.html#volttron-central-deployment">https://volttron.readthedocs.io/en/develop/deploying-volttron/multi-platform/volttron-central-deployment.html#volttron-central-deployment</a></p></li>
 </ul>
 <ol class="arabic simple">
-<li><p>On vscode editor. Click on the code cell, click on … (more actions) -&gt; Add Cell Tag. Then iinput the following tags to hide or remove the cell.</p>
-<ul class="simple">
-<li><p>hide-input: hide the input code cell</p></li>
-<li><p>hide-output: hide the output code cell</p></li>
-<li><p>hide-cell: hide both the input and output</p></li>
-<li><p>remove-input: remove the code cell</p></li>
-<li><p>remove-ouput: remove the output</p></li>
-<li><p>remove-cell: remove both input and output</p></li>
-</ul>
-</li>
+<li></li>
 </ol>
 </section>
 </section>
@@ -535,20 +619,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="011_8pdf.html"
+       href="024b3dimg.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">10.10. </span>Generate PDF</p>
+        <p class="prev-next-title"><span class="section-number">23. </span>Import background image and scale</p>
       </div>
     </a>
     <a class="right-next"
-       href="012approach.html"
+       href="026bacpypes.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>Getting Things Done</p>
+        <p class="prev-next-title"><span class="section-number">25. </span>BACpypes</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -568,9 +652,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hide-markdown">10.11.1. Hide Markdown</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotly-for-generating-interactive-visualization-on-jupyter-book">10.11.2. Plotly for generating interactive visualization on Jupyter-book</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hide-or-remove-code-cell-content">10.11.3. Hide or remove code cell content</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">24.1. Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-tutorials">24.2. Useful tutorials</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bacnet-scan">24.3. BACnet scan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuring-volttron-central">24.4. Configuring Volttron Central</a></li>
 </ul>
   </nav></div>
 

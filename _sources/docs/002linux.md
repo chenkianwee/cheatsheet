@@ -167,6 +167,8 @@ $ cat /etc/os-release
 ```
 
 ### Network
+- https://itsfoss.com/check-ip-address-ubuntu/
+
 Get ip
 ```
 hostname -i
