@@ -17,16 +17,100 @@
     ```
     python3 bootstrap.py
     ```
-## Useful tutorials
-- the driver framework: 
-    - video: https://www.youtube.com/watch?v=bPE_-6nHuSY
-    - docs: 
-        - driver framework: https://volttron.readthedocs.io/en/develop/agent-framework/driver-framework/platform-driver/platform-driver.html#platform-driver
-        - https://volttron.readthedocs.io/en/develop/developing-volttron/developing-drivers/driver-development.html
+## Understanding the Driver Framework
+- in order for a driver to communicate with devices. Each device needs to be defined by a device config file (JSON file) and a register_config file (csv or JSON file).
+- device configuration is a JSON file that requires these 3 fields "driver_config", "driver_type", "register_config"
+    - driver_config: tells the driver how to access the device that is going to be read e.g. BACnet : ip address, device id, CSV: the csv file path etc.
+    - driver_type: specifies the python file that is the driver
+    - registry_config: a path specifying the **register_config** file that explains metadata from the device.
 
-- bacnet driver: 
-    - video: https://www.youtube.com/watch?v=qQNL2n936AU
+- in the <your-driver-name>.py file you have two classes, Interface and Register.
+- the interface class you have 4 methods that is compulsory:
+    - configure - in the configure method, you read the device configuration json file "driver config" field to find the device to read. You also read the "register_config" file and pass all the necessary information to the Register class with self.insert_register.
+        - once the register object is populated you can find the object and use the properties to access the device. e.g. register.point_name etc.
+    - get_point - using the "self.get_register_by_name(point_name)" method get the point name of interest from the device
+    - _set_point - using the "self.get_register_by_name(point_name)" method get the point name of interest from the device and set a new value
+    - _scrape_all - using the self.get_registers_by_type("byte") and get all the points on the device
 
+### csvdriver example
+- developing a csvdriver eg: https://volttron.readthedocs.io/en/develop/developing-volttron/developing-drivers/driver-development.html
+
+
+1. Read through the example above. You can find a complete interface file in the example folder. Put the csvdriver.py in volttron -> services -> core -> PlatformDriverAgent -> platform_driver -> interfaces
+
+2. Startup a volttron instance. cd to the volttron directory, by default volltron will create a .volttron folder in you home directory to store all your config files for this instance. You can change the folder by specifying it with the following:
+    ```
+    export VOLTTRON_HOME=~/.volttron1
+    ```
+
+3. execute the following to spin up volttron. 
+    ```
+    ./start-volttron  
+    ```
+
+4. install the listener agent with this command.
+    ```
+    vctl install examples/ListenerAgent/ --tag listener
+    ```
+
+5. install the platform driver 
+    ```
+    vctl install services/core/PlatformDriverAgent --tag driver
+    ```
+
+6. store all your config files in configs folder
+    ```
+    mkdir configs
+    ``` 
+
+7. setup the device driver.
+    ```
+    vctl config store platform.driver devices/csv_driver configs/csv_driver.config
+    ```
+
+8. setup the registry config
+    ```
+    vctl config store platform.driver registry_configs/csv_registers.csv configs/csv_registers.csv --csv
+    ```
+
+9. you can check the platform.driver config using this 
+    ```
+    vctl config list platform.driver
+    ```
+
+10. start the platform driver 
+    ```
+    vctl start --tag driver
+    ```
+
+11. You can look at the log with this command
+    ```
+    tail -f volttron.log
+    ```
+
+### csv agent example
+- https://volttron.readthedocs.io/en/develop/developing-volttron/developing-agents/agent-development.html
+
+1. activate the volttron environment
+2. start the agent creation wizard
+    ```
+    vpkg init csvdriver_agent csvdriver_agent
+    ```
+3. Make the necessary changes to the agent.py file and config file. Take a look at the an example from volttron/examples/CSVDriver/CsvDriverAgent/CsvDriverAgent/agent.py and volttron/examples/CSVDriver/CsvDriverAgent/config
+
+4. Once you are done we can install the agent
+    ```
+    python -m scripts.install-agent -s csvdriver_agent/ -c csvdriver_agent/config -t csvagent
+    ```
+    ```
+    vctl install csvdriver_agent/ -c csvdriver_agent/config --tag csvagent
+    ```
+
+5. start the agent with 
+    ```
+    vctl start --tag csvagent
+    ```
+    
 ## BACnet scan
 1. Startup a volttron instance. cd to the volttron directory, by default volltron will create a .volttron folder in you home directory to store all your config files for this instance. You can change the folder by specifying it with the following:
     ```
@@ -45,7 +129,7 @@
 
 4. install the platform driver 
     ```
-    vctl install services/core/PlatformDriverAgent
+    vctl install services/core/PlatformDriverAgent --tag driver
     ```
 
 5. store all your config files in configs folder
@@ -129,3 +213,22 @@
 ## Configuring Volttron Central
 - https://volttron.readthedocs.io/en/develop/deploying-volttron/multi-platform/volttron-central-deployment.html#volttron-central-deployment
 1. 
+
+## Resources
+- the driver framework: 
+    - video: https://www.youtube.com/watch?v=bPE_-6nHuSY
+    - docs: 
+        - driver framework: https://volttron.readthedocs.io/en/develop/agent-framework/driver-framework/platform-driver/platform-driver.html#platform-driver
+        s
+- bacnet driver: 
+    - video: https://www.youtube.com/watch?v=qQNL2n936AU
+
+- modbus driver:
+    - video: https://volttron.org/videos/office-hours-%E2%80%93-august-16-2019
+    - docs: https://volttron.readthedocs.io/en/develop/agent-framework/driver-framework/modbus/modbus-tk-driver.html?highlight=modbus
+
+- Historian: https://volttron.readthedocs.io/en/develop/agent-framework/historian-agents/historian-framework.html#historian-video-tutorial
+
+- Developing an agent: https://volttron.readthedocs.io/en/develop/developing-volttron/developing-agents/agent-development.html
+
+- single machine deployment: https://volttron.readthedocs.io/en/develop/deploying-volttron/single-machine.html

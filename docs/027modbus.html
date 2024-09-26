@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>10.10. Generate PDF &#8212; CKW cheatsheet</title>
+    <title>26. modbus &#8212; CKW cheatsheet</title>
   
   
   
@@ -57,11 +57,10 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/011_8pdf';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/027modbus';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="10.11. Interactive visualization with Jupyter-book" href="011_9interactive.html" />
-    <link rel="prev" title="10.9. Publish your Book on Github" href="011_7pubonline.html" />
+    <link rel="prev" title="25. BACpypes" href="026bacpypes.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -187,7 +186,7 @@
 <li class="toctree-l1"><a class="reference internal" href="008matplotlib.html">7. Matplotlib Scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="009git.html">8. Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="010opencv.html">9. OpenCV</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="011pubbk.html">10. Jupyter-book</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="011pubbk.html">10. Jupyter-book</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="011_1installation.html">10.3. Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="011_2createbook.html">10.4. Create a Book Template with Jupyter-book</a></li>
 <li class="toctree-l2"><a class="reference internal" href="011_3editbook.html">10.5. Edit the Book</a></li>
@@ -195,7 +194,7 @@
 <li class="toctree-l2"><a class="reference internal" href="011_5hyperref.html">10.7. Reference to Other Documents, Hyperlink and Folder Structure</a></li>
 <li class="toctree-l2"><a class="reference internal" href="011_6citation.html">10.8. Adding a Citation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="011_7pubonline.html">10.9. Publish your Book on Github</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">10.10. Generate PDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="011_8pdf.html">10.10. Generate PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="011_9interactive.html">10.11. Interactive visualization with Jupyter-book</a></li>
 </ul>
 </li>
@@ -214,7 +213,7 @@
 <li class="toctree-l1"><a class="reference internal" href="024b3dimg.html">23. Import background image and scale</a></li>
 <li class="toctree-l1"><a class="reference internal" href="025volttron.html">24. Volttron</a></li>
 <li class="toctree-l1"><a class="reference internal" href="026bacpypes.html">25. BACpypes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="027modbus.html">26. modbus</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">26. modbus</a></li>
 </ul>
 
     </div>
@@ -286,7 +285,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/011_8pdf.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/027modbus.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -316,7 +315,7 @@
       
       
       
-      <li><a href="../_sources/docs/011_8pdf.md" target="_blank"
+      <li><a href="../_sources/docs/027modbus.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -387,7 +386,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -398,11 +399,19 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Generate PDF</h1>
+    <h1>modbus</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pymodbus">26.1. pymodbus</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -412,20 +421,117 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="generate-pdf">
-<h1><span class="section-number">10.10. </span>Generate PDF<a class="headerlink" href="#generate-pdf" title="Link to this heading">#</a></h1>
-<ol class="arabic">
-<li><p>Install pyppeteer with the following command.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pyppeteer</span>
-</pre></div>
-</div>
-</li>
-<li><p>Then build your book with the following command.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">build</span> <span class="n">mybookname</span><span class="o">/</span> <span class="o">--</span><span class="n">builder</span> <span class="n">pdfhtml</span>
-</pre></div>
-</div>
-</li>
+  <section class="tex2jax_ignore mathjax_ignore" id="modbus">
+<h1><span class="section-number">26. </span>modbus<a class="headerlink" href="#modbus" title="Link to this heading">#</a></h1>
+<section id="pymodbus">
+<h2><span class="section-number">26.1. </span>pymodbus<a class="headerlink" href="#pymodbus" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>install pymodbus using pip install pymodbus</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>This is the example script</p></li>
 </ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+example to read a power monitor<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import logging
+from enum import Enum
+from math import log10
+from time import sleep
+from pymodbus import pymodbus_apply_logging_config
+# --------------------------------------------------------------------------- #
+# import the various client implementations
+# --------------------------------------------------------------------------- #
+from pymodbus.client import ModbusTcpClient
+from pymodbus.exceptions import ModbusException
+from pymodbus.pdu import ExceptionResponse
+from pymodbus import FramerType
+
+HOST = “192.168.1.1” # change the to your own IP address
+PORT = 502
+CYCLES = 1
+pymodbus_apply_logging_config(logging.ERROR)
+logging.basicConfig(level=logging.DEBUG,
+                    format=‘%(asctime)s %(levelname)s %(message)s’)
+_logger = logging.getLogger(__file__)
+
+def main() -&gt; None:
+    “”&quot;Run client setup.“”&quot;
+    _logger.info(“### Client starting”)
+    client: ModbusTcpClient = ModbusTcpClient(
+        host=HOST,
+        port=PORT,
+        # Common optional parameters:
+        framer=FramerType.SOCKET,
+        timeout=5,
+    )
+    client.connect()
+    _logger.info(“### Client connected”)
+    sleep(1)
+    _logger.info(“### Client starting”)
+    write_register(client)
+    for count in range(CYCLES):
+        _logger.info(f”Running loop {count}“)
+        meter_calls(client)
+        sleep(5)  # scan interval
+    client.close()
+    _logger.info(“### End of Program”)
+
+def meter_calls(client: ModbusTcpClient) -&gt; None:
+    “”&quot;Read registers.“”&quot;
+    error = False
+    # check the modbus map and use that to fill in the necessary address to access the equip
+    for addr, format, factor, comment, unit in ( # data_type according to ModbusClientMixin.DATATYPE.value[0]
+        (16384, “f”, 1,     “freq_1&quot;,    “Hz”),
+        (16386, “f”, 1,     “voltage”,   “V”),
+        (16412, “f”, 20,    “power”,     “W”),
+        (16402, “f”, 20,    “current”,   “A”),
+    ):
+        if error:
+            error = False
+            client.close()
+            sleep(0.1)
+            client.connect()
+            sleep(1)
+        data_type = get_data_type(format)
+        count = data_type.value[1]
+        var_type = data_type.name
+        _logger.info(f”*** Reading {comment} ({var_type})“)
+        try:
+            rr = client.read_holding_registers(address=addr, count=count, slave=1)
+        except ModbusException as exc:
+            _logger.error(f”Modbus exception: {exc!s}“)
+            error = True
+            continue
+        if rr.isError():
+            _logger.error(f”Error”)
+            error = True
+            continue
+        if isinstance(rr, ExceptionResponse):
+            _logger.error(f”Response exception: {rr!s}“)
+            error = True
+            continue
+        value = client.convert_from_registers(rr.registers, data_type) * factor
+        if factor &lt; 1:
+            value = round(value, int(log10(factor) * -1))
+        _logger.info(f”*** READ *** {comment} = {value} {unit}“)
+
+def get_data_type(format: str) -&gt; Enum:
+    “”&quot;Return the ModbusTcpClient.DATATYPE according to the format”“”
+    for data_type in ModbusTcpClient.DATATYPE:
+        if data_type.value[0] == format:
+            return data_type
+
+if __name__ == “__main__“:
+    main()
+</pre></div>
+</div>
+</div>
+</details></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -459,22 +565,13 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="011_7pubonline.html"
+       href="026bacpypes.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">10.9. </span>Publish your Book on Github</p>
+        <p class="prev-next-title"><span class="section-number">25. </span>BACpypes</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="011_9interactive.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">10.11. </span>Interactive visualization with Jupyter-book</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -483,7 +580,20 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pymodbus">26.1. pymodbus</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
