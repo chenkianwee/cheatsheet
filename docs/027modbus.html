@@ -453,7 +453,6 @@ from pymodbus import FramerType
 
 HOST = &quot;192.168.1.1&quot; # change it to the modbus device of interest
 PORT = 502
-CYCLES = 1
 pymodbus_apply_logging_config(logging.ERROR)
 logging.basicConfig(level=logging.DEBUG,
                     format=&#39;%(asctime)s %(levelname)s %(message)s&#39;)
@@ -466,20 +465,33 @@ def main() -&gt; None:
         host=HOST,
         port=PORT,
         # Common optional parameters:
-        framer=FramerType.SOCKET,
-        timeout=5,
+        # framer=FramerType.SOCKET,
+        # timeout=5,
     )
     client.connect()
     _logger.info(&quot;### Client connected&quot;)
     sleep(1)
     _logger.info(&quot;### Client starting&quot;)
-    # write_register(client)
-    for count in range(CYCLES):
-        _logger.info(f&quot;Running loop {count}&quot;)
-        meter_calls(client)
-        sleep(5)  # scan interval
+    meter_calls(client)
+    write_register(client)
+    meter_calls(client)
     client.close()
     _logger.info(&quot;### End of Program&quot;)
+
+def write_register(client: ModbusTcpClient) -&gt; None:
+    &quot;&quot;&quot;Write a register.&quot;&quot;&quot;
+    for addr, value in ((4104, 5), 
+                        (4105, 200)):
+        try:
+            rr = client.write_registers(address=addr, values=[value], slave=1)
+            # TODO: cannot figure out why can&#39;t I use write_register instead
+            _logger.info(f&quot;write is {rr}, Value = {value}&quot;)
+        except ModbusException as exc:
+            _logger.error(f&quot;Modbus exception: {exc!s}&quot;)
+        if rr.isError():
+            _logger.error(f&quot;Error&quot;)
+        if isinstance(rr, ExceptionResponse):
+            _logger.error(f&quot;Response exception: {rr!s}&quot;)
 
 def meter_calls(client: ModbusTcpClient) -&gt; None:
     &quot;&quot;&quot;Read registers.&quot;&quot;&quot;
@@ -488,8 +500,10 @@ def meter_calls(client: ModbusTcpClient) -&gt; None:
     for addr, format, factor, comment, unit in ( # data_type according to ModbusClientMixin.DATATYPE.value[0]
         (16384, &quot;f&quot;, 1,     &quot;freq_1&quot;,    &quot;Hz&quot;),
         (16386, &quot;f&quot;, 1,     &quot;voltage&quot;,   &quot;V&quot;),
-        (16412, &quot;f&quot;, 20,    &quot;power&quot;,     &quot;W&quot;),
-        (16402, &quot;f&quot;, 20,    &quot;current&quot;,   &quot;A&quot;),
+        (16412, &quot;f&quot;, 1,    &quot;power&quot;,     &quot;W&quot;),
+        (16402, &quot;f&quot;, 1,    &quot;current&quot;,   &quot;A&quot;),
+        (4104,  &quot;H&quot;, 1,    &quot;ct1&quot;,   &quot;unitless&quot;),
+        (4105,  &quot;H&quot;, 1,    &quot;ct2&quot;,   &quot;unitless&quot;)
     ):
         if error:
             error = False

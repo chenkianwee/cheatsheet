@@ -19,7 +19,6 @@
 
     HOST = "192.168.1.1" # change it to the modbus device of interest
     PORT = 502
-    CYCLES = 1
     pymodbus_apply_logging_config(logging.ERROR)
     logging.basicConfig(level=logging.DEBUG,
                         format='%(asctime)s %(levelname)s %(message)s')
@@ -32,20 +31,33 @@
             host=HOST,
             port=PORT,
             # Common optional parameters:
-            framer=FramerType.SOCKET,
-            timeout=5,
+            # framer=FramerType.SOCKET,
+            # timeout=5,
         )
         client.connect()
         _logger.info("### Client connected")
         sleep(1)
         _logger.info("### Client starting")
-        # write_register(client)
-        for count in range(CYCLES):
-            _logger.info(f"Running loop {count}")
-            meter_calls(client)
-            sleep(5)  # scan interval
+        meter_calls(client)
+        write_register(client)
+        meter_calls(client)
         client.close()
         _logger.info("### End of Program")
+
+    def write_register(client: ModbusTcpClient) -> None:
+        """Write a register."""
+        for addr, value in ((4104, 5), 
+                            (4105, 200)):
+            try:
+                rr = client.write_registers(address=addr, values=[value], slave=1)
+                # TODO: cannot figure out why can't I use write_register instead
+                _logger.info(f"write is {rr}, Value = {value}")
+            except ModbusException as exc:
+                _logger.error(f"Modbus exception: {exc!s}")
+            if rr.isError():
+                _logger.error(f"Error")
+            if isinstance(rr, ExceptionResponse):
+                _logger.error(f"Response exception: {rr!s}")
 
     def meter_calls(client: ModbusTcpClient) -> None:
         """Read registers."""
@@ -54,8 +66,10 @@
         for addr, format, factor, comment, unit in ( # data_type according to ModbusClientMixin.DATATYPE.value[0]
             (16384, "f", 1,     "freq_1",    "Hz"),
             (16386, "f", 1,     "voltage",   "V"),
-            (16412, "f", 20,    "power",     "W"),
-            (16402, "f", 20,    "current",   "A"),
+            (16412, "f", 1,    "power",     "W"),
+            (16402, "f", 1,    "current",   "A"),
+            (4104,  "H", 1,    "ct1",   "unitless"),
+            (4105,  "H", 1,    "ct2",   "unitless")
         ):
             if error:
                 error = False
