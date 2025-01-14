@@ -7,6 +7,20 @@
     - Creating a built environment with free software, increased transparency, and a more ethical approach
 - ASHRAE Standards and Guideline (https://www.ashrae.org/technical-resources/standards-and-guidelines/read-only-versions-of-ashrae-standards)
 
+### Building Science Education
+- Society of building science educators: https://www.sbse.org/
+- https://bsesc.energy.gov/training-modules
+- https://www.sbse.org/courses/Smart-Building-Technologies
+- https://www.aia.org/resource-center/definitions-building-performance
+- Podcast Daniel and Jorge what is negative temperature (https://omny.fm/shows/daniel-and-jorge-explain-the-universe/what-is-negative-temperature)
+
+### Web-based tools
+- Psychrometric charts
+    - https://www.flycarpet.net/en/psyonline
+    - https://drajmarsh.bitbucket.io/psychro-chart2d.html
+- Weather data
+    - https://clima.cbe.berkeley.edu/
+
 ## Relevant Standards
 ### ASHRAE
 - Standard 90.1-2022 (S-I), Energy Standard for Buildings Except Low-Rise Residential Buildings (https://www.ashrae.org/technical-resources/standards-and-guidelines/read-only-versions-of-ashrae-standards)
@@ -138,6 +152,13 @@
 ## Collaboration
 - https://www.goodfirms.co/collaboration-software/blog/best-free-open-source-collaboration-software
 - https://kyro.ai/
+
+## Remote Desktops
+- Mac and windows: https://www.distantdesktop.com/
+- https://rustdesk.com/
+- chrome remote desktop - https://remotedesktop.google.com/
+- meshcentral - https://ylianst.github.io/MeshCentral/meshcentral/
+
 
 ## Reality Capture
 ### Photogrammetry

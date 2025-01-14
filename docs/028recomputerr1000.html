@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>2. Docker Commands &#8212; CKW cheatsheet</title>
+    <title>27. reComputer R1000 Getting Started &#8212; CKW cheatsheet</title>
   
   
   
@@ -57,11 +57,10 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/003docker';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/028recomputerr1000';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3. Vim" href="004vim.html" />
-    <link rel="prev" title="1. Linux commands" href="002linux.html" />
+    <link rel="prev" title="26. modbus" href="027modbus.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -179,7 +178,7 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cheat Sheets</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="002linux.html">1. Linux commands</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Docker Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="003docker.html">2. Docker Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="004vim.html">3. Vim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="005sql.html">4. SQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="006python.html">5. Python</a></li>
@@ -215,7 +214,7 @@
 <li class="toctree-l1"><a class="reference internal" href="025volttron.html">24. Volttron</a></li>
 <li class="toctree-l1"><a class="reference internal" href="026bacpypes.html">25. BACpypes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="027modbus.html">26. modbus</a></li>
-<li class="toctree-l1"><a class="reference internal" href="028recomputerr1000.html">27. reComputer R1000 Getting Started</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">27. reComputer R1000 Getting Started</a></li>
 </ul>
 
     </div>
@@ -287,7 +286,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/003docker.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/028recomputerr1000.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -317,7 +316,7 @@
       
       
       
-      <li><a href="../_sources/docs/003docker.md" target="_blank"
+      <li><a href="../_sources/docs/028recomputerr1000.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -388,9 +387,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -401,22 +398,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Docker Commands</h1>
+    <h1>reComputer R1000 Getting Started</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#container">2.1. Container</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#volume">2.2. Volume</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#network">2.3. Network</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image">2.4. Image</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -426,116 +412,22 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="docker-commands">
-<h1><span class="section-number">2. </span>Docker Commands<a class="headerlink" href="#docker-commands" title="Link to this heading">#</a></h1>
-<p>Check for running container</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker ps
+  <section class="tex2jax_ignore mathjax_ignore" id="recomputer-r1000-getting-started">
+<h1><span class="section-number">27. </span>reComputer R1000 Getting Started<a class="headerlink" href="#recomputer-r1000-getting-started" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Overview walkthrough: <a class="reference external" href="https://wiki.seeedstudio.com/recomputer_r1000_intro/">https://wiki.seeedstudio.com/recomputer_r1000_intro/</a></p></li>
+<li><p>Getting started guide: <a class="reference external" href="https://wiki.seeedstudio.com/recomputer_r1000_flash_OS/#for-linux">https://wiki.seeedstudio.com/recomputer_r1000_flash_OS/#for-linux</a></p></li>
+<li><p>install specific python version on your RPI: <a class="reference external" href="https://raspberrytips.com/install-latest-python-raspberry-pi/">https://raspberrytips.com/install-latest-python-raspberry-pi/</a></p>
+<ul>
+<li><p>volttron currently still only works on python3.10</p></li>
+</ul>
+</li>
+<li><p>the drivers do not work with ubuntu 22</p></li>
+<li><p>however volttron only works on ubuntu and not RPI OS</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<p>Check all container including stopped container</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker ps -a
-</pre></div>
-</div>
-<p>Build a docker image, -t allows you to specify Name and optionally a tag in the ‘name:tag’ format</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker build -t yourName/ImageName:tag
-</pre></div>
-</div>
-<p>Login to Docker Hub</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker login
-</pre></div>
-</div>
-<p>Push build image to Docker github</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker push yourName/ImageName:tag
-</pre></div>
-</div>
-<section id="container">
-<h2><span class="section-number">2.1. </span>Container<a class="headerlink" href="#container" title="Link to this heading">#</a></h2>
-<p>Go into the container</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker exec -it containername bash
-</pre></div>
-</div>
-<p>Go into the container as root user</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker exec -u root -it containername bash
-</pre></div>
-</div>
-<p>Copy file from container to host</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">docker</span> <span class="n">cp</span> <span class="n">containername</span><span class="p">:</span><span class="o">/</span><span class="n">file</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="ow">in</span><span class="o">/</span><span class="n">container</span> <span class="o">/</span><span class="n">file</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="ow">in</span><span class="o">/</span><span class="n">host</span>
-</pre></div>
-</div>
-<p>Copy file from host to container</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker cp /file/path/in/host containername:/file/path/in/container
-</pre></div>
-</div>
-<p>Restart a container</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker restart containername
-</pre></div>
-</div>
-<p>Start a container</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker start containername
-</pre></div>
-</div>
-<p>Stop a container</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker stop containername
-</pre></div>
-</div>
-<p>Run a container, will grab the image specified and set it up. -d runs the container in the background.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker run -d --name name repository/ImageName:tag
-</pre></div>
-</div>
-<p>Remove a container. -v remove volume associated with the container</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker rm containername -v
-</pre></div>
-</div>
-</section>
-<section id="volume">
-<h2><span class="section-number">2.2. </span>Volume<a class="headerlink" href="#volume" title="Link to this heading">#</a></h2>
-<p>Remove a volume</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker volume rm volume_name
-</pre></div>
-</div>
-<p>List all volumes</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker volume ls
-</pre></div>
-</div>
-</section>
-<section id="network">
-<h2><span class="section-number">2.3. </span>Network<a class="headerlink" href="#network" title="Link to this heading">#</a></h2>
-<p>Remove a network</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker network rm network_name
-</pre></div>
-</div>
-<p>List all networks</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker network ls
-</pre></div>
-</div>
-<p>Create a network</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker network create network_name
-</pre></div>
-</div>
-</section>
-<section id="image">
-<h2><span class="section-number">2.4. </span>Image<a class="headerlink" href="#image" title="Link to this heading">#</a></h2>
-<p>List all images</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker image ls
-</pre></div>
-</div>
-<p>Remove image</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker image rm imageName
-</pre></div>
-</div>
-<p>Download an image</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker image pull imageName
-</pre></div>
-</div>
-<p>Download and save Docker image to a tar file with this command.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker save fraunhoferiosb/frost-server:latest &gt; frost-server.tar
-</pre></div>
-</div>
-<p>Load the image with this command.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker load -i frost-server.tar
-</pre></div>
-</div>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -569,22 +461,13 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="002linux.html"
+       href="027modbus.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Linux commands</p>
+        <p class="prev-next-title"><span class="section-number">26. </span>modbus</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="004vim.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>Vim</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -593,23 +476,7 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#container">2.1. Container</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#volume">2.2. Volume</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#network">2.3. Network</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image">2.4. Image</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
+                <div class="bd-sidebar-secondary bd-toc"></div>
               
             
           </div>

@@ -215,6 +215,7 @@
 <li class="toctree-l1"><a class="reference internal" href="025volttron.html">24. Volttron</a></li>
 <li class="toctree-l1"><a class="reference internal" href="026bacpypes.html">25. BACpypes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="027modbus.html">26. modbus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="028recomputerr1000.html">27. reComputer R1000 Getting Started</a></li>
 </ul>
 
     </div>
@@ -421,16 +422,18 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system">1.1.8. System</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#network">1.1.9. Network</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#path">1.1.10. Path</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nvidia-cuda">1.1.11. Nvidia CUDA</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thunderbird-outlook-sync">1.1.12. Thunderbird outlook sync</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-appimage-as-an-ubuntu-desktop-app">1.1.13. Make appimage as an ubuntu desktop app</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libreoffice">1.1.14. LibreOffice</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-new-fonts">1.1.14.1. Install new fonts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ssh">1.1.11. SSH</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nvidia-cuda">1.1.12. Nvidia CUDA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thunderbird-outlook-sync">1.1.13. Thunderbird outlook sync</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-appimage-as-an-ubuntu-desktop-app">1.1.14. Make appimage as an ubuntu desktop app</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libreoffice">1.1.15. LibreOffice</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-new-fonts">1.1.15.1. Install new fonts</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-inkscape">1.1.15. Install Inkscape</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-run-files">1.1.16. Install .run files</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zip">1.1.17. 7zip</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-inkscape">1.1.16. Install Inkscape</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-run-files">1.1.17. Install .run files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zip">1.1.18. 7zip</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ffmpeg">1.1.19. ffmpeg</a></li>
 </ul>
 </li>
 </ul>
@@ -589,6 +592,12 @@ $ rm -rf foldername #delete all folders in folders
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ curl -L https://github.com/chenkianwee/masa3db/archive/0.02.zip &gt; masa3db-0.02.zip
 </pre></div>
 </div>
+<p>connect to wifi using cmd</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nmcli</span> <span class="n">d</span> <span class="n">wifi</span> <span class="nb">list</span>
+
+<span class="n">nmcli</span> <span class="n">d</span> <span class="n">wifi</span> <span class="n">connect</span> <span class="s2">&quot;test wifi network&quot;</span> <span class="n">password</span> <span class="s2">&quot;secret&quot;</span>
+</pre></div>
+</div>
 </section>
 <section id="read-and-write-text">
 <h3><span class="section-number">1.1.7. </span>Read and Write Text<a class="headerlink" href="#read-and-write-text" title="Link to this heading">#</a></h3>
@@ -660,8 +669,16 @@ $ rm -rf foldername #delete all folders in folders
 </pre></div>
 </div>
 </section>
+<section id="ssh">
+<h3><span class="section-number">1.1.11. </span>SSH<a class="headerlink" href="#ssh" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://linuxconfig.org/quick-guide-to-enabling-ssh-on-ubuntu-24-04">https://linuxconfig.org/quick-guide-to-enabling-ssh-on-ubuntu-24-04</a></p></li>
+<li><p><a class="reference external" href="https://linux-tips.us/use-your-hostname-with-ssh-instead-of-your-ip-address-in-ubuntu/">https://linux-tips.us/use-your-hostname-with-ssh-instead-of-your-ip-address-in-ubuntu/</a></p></li>
+<li><p>to ssh into a remote computer just need to add .local to the hostname of the computer</p></li>
+</ul>
+</section>
 <section id="nvidia-cuda">
-<h3><span class="section-number">1.1.11. </span>Nvidia CUDA<a class="headerlink" href="#nvidia-cuda" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.1.12. </span>Nvidia CUDA<a class="headerlink" href="#nvidia-cuda" title="Link to this heading">#</a></h3>
 <p>Configure ubuntu to detect nvidia gpu</p>
 <ul>
 <li><p><a class="reference external" href="https://www.linuxbabe.com/desktop-linux/switch-intel-nvidia-graphics-card-ubuntu">https://www.linuxbabe.com/desktop-linux/switch-intel-nvidia-graphics-card-ubuntu</a></p></li>
@@ -685,7 +702,7 @@ $ rm -rf foldername #delete all folders in folders
 </ul>
 </section>
 <section id="thunderbird-outlook-sync">
-<h3><span class="section-number">1.1.12. </span>Thunderbird outlook sync<a class="headerlink" href="#thunderbird-outlook-sync" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.1.13. </span>Thunderbird outlook sync<a class="headerlink" href="#thunderbird-outlook-sync" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://support.mozilla.org/en-US/questions/1363441">https://support.mozilla.org/en-US/questions/1363441</a></p></li>
 </ul>
@@ -704,7 +721,7 @@ $ rm -rf foldername #delete all folders in folders
 </ol>
 </section>
 <section id="make-appimage-as-an-ubuntu-desktop-app">
-<h3><span class="section-number">1.1.13. </span>Make appimage as an ubuntu desktop app<a class="headerlink" href="#make-appimage-as-an-ubuntu-desktop-app" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.1.14. </span>Make appimage as an ubuntu desktop app<a class="headerlink" href="#make-appimage-as-an-ubuntu-desktop-app" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://askubuntu.com/questions/902672/registering-appimage-files-as-a-desktop-app?rq=1">https://askubuntu.com/questions/902672/registering-appimage-files-as-a-desktop-app?rq=1</a></p></li>
 <li><p><a class="reference external" href="https://askubuntu.com/questions/162612/how-can-i-add-an-application-to-the-list-of-open-with-applications">https://askubuntu.com/questions/162612/how-can-i-add-an-application-to-the-list-of-open-with-applications</a></p></li>
@@ -738,11 +755,11 @@ $ rm -rf foldername #delete all folders in folders
 </ol>
 </section>
 <section id="libreoffice">
-<h3><span class="section-number">1.1.14. </span>LibreOffice<a class="headerlink" href="#libreoffice" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.1.15. </span>LibreOffice<a class="headerlink" href="#libreoffice" title="Link to this heading">#</a></h3>
 <p>Zotero plugin for libreoffice
 <a class="reference external" href="https://www.libreofficehelp.com/how-to-fix-libreoffice-requires-a-java-runtime-environment-error/">https://www.libreofficehelp.com/how-to-fix-libreoffice-requires-a-java-runtime-environment-error/</a></p>
 <section id="install-new-fonts">
-<h4><span class="section-number">1.1.14.1. </span>Install new fonts<a class="headerlink" href="#install-new-fonts" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">1.1.15.1. </span>Install new fonts<a class="headerlink" href="#install-new-fonts" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.libreofficehelp.com/install-fonts-libreoffice-openoffice/#GNULinux_Ubuntu_Linux_Mint_Fedora_etc">https://www.libreofficehelp.com/install-fonts-libreoffice-openoffice/#GNULinux_Ubuntu_Linux_Mint_Fedora_etc</a></p></li>
 <li><p>download the font file ttf or otf here (<a class="reference external" href="https://www.dafont.com/search.php?q=linux+libertine">https://www.dafont.com/search.php?q=linux+libertine</a>)</p></li>
@@ -751,7 +768,7 @@ $ rm -rf foldername #delete all folders in folders
 </section>
 </section>
 <section id="install-inkscape">
-<h3><span class="section-number">1.1.15. </span>Install Inkscape<a class="headerlink" href="#install-inkscape" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.1.16. </span>Install Inkscape<a class="headerlink" href="#install-inkscape" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.linuxcapable.com/how-to-install-inkscape-on-ubuntu-linux/">https://www.linuxcapable.com/how-to-install-inkscape-on-ubuntu-linux/</a></p></li>
 </ul>
@@ -774,7 +791,7 @@ $ rm -rf foldername #delete all folders in folders
 </ol>
 </section>
 <section id="install-run-files">
-<h3><span class="section-number">1.1.16. </span>Install .run files<a class="headerlink" href="#install-run-files" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.1.17. </span>Install .run files<a class="headerlink" href="#install-run-files" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.wikihow.com/Execute-.RUN-Files-in-Linux">https://www.wikihow.com/Execute-.RUN-Files-in-Linux</a></p></li>
 </ul>
@@ -792,7 +809,7 @@ $ rm -rf foldername #delete all folders in folders
 </ol>
 </section>
 <section id="zip">
-<h3><span class="section-number">1.1.17. </span>7zip<a class="headerlink" href="#zip" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.1.18. </span>7zip<a class="headerlink" href="#zip" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.e2encrypted.com/howtos/how-to-securely-encrypt-decrypt-with-7zip-via-command-line/">https://www.e2encrypted.com/howtos/how-to-securely-encrypt-decrypt-with-7zip-via-command-line/</a></p></li>
 </ul>
@@ -806,6 +823,23 @@ $ rm -rf foldername #delete all folders in folders
 </div>
 <p>extract a file</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">7</span><span class="n">zz</span> <span class="n">x</span> <span class="n">nameofyourfile</span><span class="mf">.7</span><span class="n">z</span>
+</pre></div>
+</div>
+</section>
+<section id="ffmpeg">
+<h3><span class="section-number">1.1.19. </span>ffmpeg<a class="headerlink" href="#ffmpeg" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://linuxconfig.org/recording-live-streams-on-linux-with-ffmpeg-examples-included">https://linuxconfig.org/recording-live-streams-on-linux-with-ffmpeg-examples-included</a></p></li>
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/67320808/splitting-an-audio-file-into-equal-lenght-segments-using-ffmpeg">https://stackoverflow.com/questions/67320808/splitting-an-audio-file-into-equal-lenght-segments-using-ffmpeg</a></p></li>
+<li><p>ffmpeg to record audio output - <a class="reference external" href="https://trac.ffmpeg.org/wiki/Capture/PulseAudio">https://trac.ffmpeg.org/wiki/Capture/PulseAudio</a></p></li>
+<li></li>
+</ul>
+<p>split mp3 into equal segments</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ffmpeg</span> <span class="o">-</span><span class="n">i</span> <span class="nb">input</span><span class="o">.</span><span class="n">mp3</span> <span class="o">-</span><span class="n">f</span> <span class="n">segment</span> <span class="o">-</span><span class="n">segment_time</span> <span class="mi">2</span> <span class="n">output_</span><span class="o">%</span><span class="mi">03</span><span class="n">d</span><span class="o">.</span><span class="n">mp3</span>
+</pre></div>
+</div>
+<p>split mp3 according to start end time</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ffmpeg</span> <span class="o">-</span><span class="n">i</span> <span class="nb">input</span><span class="o">.</span><span class="n">mp3</span> <span class="o">-</span><span class="n">ss</span> <span class="mi">00</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">00</span> <span class="o">-</span><span class="n">to</span> <span class="mi">00</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mi">00</span> <span class="o">-</span><span class="n">c</span> <span class="n">copy</span> <span class="n">output</span><span class="o">.</span><span class="n">mp3</span>
 </pre></div>
 </div>
 </section>
@@ -887,16 +921,18 @@ $ rm -rf foldername #delete all folders in folders
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system">1.1.8. System</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#network">1.1.9. Network</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#path">1.1.10. Path</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nvidia-cuda">1.1.11. Nvidia CUDA</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thunderbird-outlook-sync">1.1.12. Thunderbird outlook sync</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-appimage-as-an-ubuntu-desktop-app">1.1.13. Make appimage as an ubuntu desktop app</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libreoffice">1.1.14. LibreOffice</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-new-fonts">1.1.14.1. Install new fonts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ssh">1.1.11. SSH</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nvidia-cuda">1.1.12. Nvidia CUDA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thunderbird-outlook-sync">1.1.13. Thunderbird outlook sync</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-appimage-as-an-ubuntu-desktop-app">1.1.14. Make appimage as an ubuntu desktop app</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libreoffice">1.1.15. LibreOffice</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-new-fonts">1.1.15.1. Install new fonts</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-inkscape">1.1.15. Install Inkscape</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-run-files">1.1.16. Install .run files</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zip">1.1.17. 7zip</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-inkscape">1.1.16. Install Inkscape</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-run-files">1.1.17. Install .run files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zip">1.1.18. 7zip</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ffmpeg">1.1.19. ffmpeg</a></li>
 </ul>
 </li>
 </ul>

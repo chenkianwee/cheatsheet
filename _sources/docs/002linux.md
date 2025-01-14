@@ -138,6 +138,13 @@ Download a file from website with curl
 $ curl -L https://github.com/chenkianwee/masa3db/archive/0.02.zip > masa3db-0.02.zip
 ```
 
+connect to wifi using cmd
+```
+nmcli d wifi list
+
+nmcli d wifi connect "test wifi network" password "secret"
+```
+
 ### Read and Write Text
 Read a text file
 ```
@@ -202,6 +209,12 @@ To permanently add the path for everyone who uses the system, you need to put th
 ```
 sudo gedit /etc/profile
 ```
+
+### SSH
+- https://linuxconfig.org/quick-guide-to-enabling-ssh-on-ubuntu-24-04
+- https://linux-tips.us/use-your-hostname-with-ssh-instead-of-your-ip-address-in-ubuntu/
+
+- to ssh into a remote computer just need to add .local to the hostname of the computer
 
 ### Nvidia CUDA
 Configure ubuntu to detect nvidia gpu
@@ -313,4 +326,19 @@ zip a file with encryption
 extract a file
 ```
 7zz x nameofyourfile.7z
+```
+
+### ffmpeg
+- https://linuxconfig.org/recording-live-streams-on-linux-with-ffmpeg-examples-included
+- https://stackoverflow.com/questions/67320808/splitting-an-audio-file-into-equal-lenght-segments-using-ffmpeg
+- ffmpeg to record audio output - https://trac.ffmpeg.org/wiki/Capture/PulseAudio
+- 
+split mp3 into equal segments
+```
+ffmpeg -i input.mp3 -f segment -segment_time 2 output_%03d.mp3
+```
+
+split mp3 according to start end time
+```
+ffmpeg -i input.mp3 -ss 00:01:00 -to 00:02:00 -c copy output.mp3
 ```
