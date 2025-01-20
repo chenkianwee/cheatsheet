@@ -6,6 +6,9 @@
 - https://osarch.org/
     - Creating a built environment with free software, increased transparency, and a more ethical approach
 - ASHRAE Standards and Guideline (https://www.ashrae.org/technical-resources/standards-and-guidelines/read-only-versions-of-ashrae-standards)
+- https://newbuildings.org/
+- https://www.architecture2030.org/
+- A DATABASE OF SUSTAINABLE DESIGN PRINCIPLES, STRATEGIES, TOOLS AND RESOURCES AT YOUR FINGERTIPS: https://2030palette.org/
 
 ### Building Science Education
 - Society of building science educators: https://www.sbse.org/
@@ -33,6 +36,7 @@
     - https://open223.info/
     - https://github.com/open223
 - CDL ASHRAE Standard 231P
+- Standard 209-2018 -- Energy Simulation Aided Design for Buildings except Low-Rise Residential Buildings (ANSI Approved) 
 
 ## Datasets
 - US commercial building stocks (https://comstock.nrel.gov/)
