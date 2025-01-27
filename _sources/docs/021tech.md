@@ -24,6 +24,10 @@
 - Weather data
     - https://clima.cbe.berkeley.edu/
 
+## Design Guides
+### ASHRAE
+- https://www.ashrae.org/technical-resources/bookstore/ashrae-design-guides
+
 ## Relevant Standards
 ### ASHRAE
 - Standard 90.1-2022 (S-I), Energy Standard for Buildings Except Low-Rise Residential Buildings (https://www.ashrae.org/technical-resources/standards-and-guidelines/read-only-versions-of-ashrae-standards)
@@ -36,7 +40,8 @@
     - https://open223.info/
     - https://github.com/open223
 - CDL ASHRAE Standard 231P
-- Standard 209-2018 -- Energy Simulation Aided Design for Buildings except Low-Rise Residential Buildings (ANSI Approved) 
+- Guideline 13 Specifying BAS: https://store.accuristech.com/ashrae/standards/guideline-13-2015-specifying-building-automation-systems?product_id=1894498
+- Standard 209-2018 -- Energy Simulation Aided Design for Buildings except Low-Rise Residential Buildings (ANSI Approved)  
 
 ## Datasets
 - US commercial building stocks (https://comstock.nrel.gov/)

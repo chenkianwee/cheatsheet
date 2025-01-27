@@ -462,8 +462,9 @@ document.write(`
 <h3><span class="section-number">1.1.2. </span>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h3>
 <p>Update the OS</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
-
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">upgrade</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">upgrade</span>
 </pre></div>
 </div>
 <p>Remove unnecessary files after an OS upgrade.</p>
@@ -475,7 +476,16 @@ document.write(`
 </pre></div>
 </div>
 <p>Check if program is installed</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="nb">list</span> <span class="o">--</span><span class="n">installed</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">program_name</span>
+</pre></div>
+</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="nb">list</span> <span class="o">--</span><span class="n">installed</span> <span class="n">program_name</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="nb">list</span> <span class="o">--</span><span class="n">installed</span> <span class="n">program_name</span> <span class="o">|</span> <span class="n">less</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="nb">list</span> <span class="o">--</span><span class="n">installed</span> <span class="n">program_name</span> <span class="o">|</span> <span class="n">more</span>
 </pre></div>
 </div>
 <p>Remove program</p>

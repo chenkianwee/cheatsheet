@@ -11,25 +11,40 @@ sudo su - root
 Update the OS
 ```
 sudo apt-get update
-
+```
+```
 sudo apt-get upgrade
 ```
+
 Remove unnecessary files after an OS upgrade.
 ```
 sudo apt-get autoremove
 ```
+
 Install an app
 ```
 sudo apt-get app_name
 ```
+
 Check if program is installed
+```
+sudo apt list --installed | grep program_name
+```
 ```
 sudo apt list --installed program_name
 ```
+```
+sudo apt list --installed program_name | less
+```
+```
+sudo apt list --installed program_name | more
+```
+
 Remove program
 ```
 sudo apt-get remove --auto-remove program_name
 ```
+
 Purge program remove all config files
 ```
 sudo apt purge program_name
