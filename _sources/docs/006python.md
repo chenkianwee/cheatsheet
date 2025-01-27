@@ -34,6 +34,11 @@ pip install
 pip install <packagename==version>
 ```
 
+pip install a local library in development
+```
+pip install -e <packagename==version>
+```
+
 pip uninstall
 ```
 pip uninstall <packagename==version>
@@ -46,7 +51,10 @@ pip install --upgrade <packagename>
 
 list all pip install packages
 ```
-pip list
+pip list | grep package_name
+```
+```
+pip list 
 ```
 
 ## Conda
