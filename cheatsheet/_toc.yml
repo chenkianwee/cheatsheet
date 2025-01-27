@@ -40,3 +40,7 @@ parts:
   - file: docs/022b3dsect
   - file: docs/023b3dplane
   - file: docs/024b3dimg
+  - file: docs/025volttron
+  - file: docs/026bacpypes
+  - file: docs/027modbus
+  - file: docs/028recomputerr1000

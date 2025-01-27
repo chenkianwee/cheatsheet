@@ -36,6 +36,11 @@ Taiwan:
 ## Online teaching 
 - https://bimcorner.com/
 - https://learngrasshopper.com/
+- https://hrcompacta.com.br/
+
+## Online makerspace shops
+- https://makersportal.com/
+- https://www.kippkitts.com/
 
 ## Open source funding/revenue
 - https://opensource.guide/
@@ -61,11 +66,20 @@ Taiwan:
 - https://digitalsoftwaremarkett.com/
 - https://download-monitor.com/selling-software/
 
+### Book publishing
+- [no starch press](https://nostarch.com/writeforus)
+    - example: https://greenteapress.com/wp/
+- [oreilly](https://www.oreilly.com/work-with-us.html)
+
 ### Online teaching platform
 - https://instructor-academy.onlinecoursehost.com/udemy-alternatives/
     - https://instructor-academy.onlinecoursehost.com/how-to-start-an-online-course-business/
 - [udemy](https://www.udemy.com/)
 - [skillshare](https://www.skillshare.com/en/)
+- [oreilly](https://www.oreilly.com/work-with-us.html)
+
+### Online job platform
+- list of job platform: https://www.bluehost.com/blog/best-freelancer-websites-consider-popular-niche/?utm_campaign=pmax_PPC&utm_source=googleads&utm_medium=genericsearch&channelid=P61C101S570N0B5578A2D4499E0000V338&ds_k=&gad_source=5&gclid=EAIaIQobChMI7pO24easiAMVkEpHAR019xS3EAAYAiAAEgI4t_D_BwE&gclsrc=aw.ds
 
 ## Teaching digital AEC through the computational approach
 You need students to have knowledge on all of these 3 area

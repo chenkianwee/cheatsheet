@@ -123,6 +123,10 @@
     # get all the file in the dirctory
     files = Path(json_dir).glob('*.json')
 
+    # get all file and folder
+    p = Path(r'C:\Users\akrio\Desktop\Test').glob('**/*')
+    files = [x for x in p if x.is_file()]
+
     cwd = Path.cwd()
     print(cwd)
     print(join_path)
@@ -180,6 +184,22 @@
     pretty_json_data = json.dumps(mat_json, indent=4)
     with open(csv_path, 'w') as f:
         f.write(pretty_json_data)
+```
+```{dropdown} validate jsonschema
+    import json
+    from jsonschema import validate
+
+    path = 'schema.json'
+    with open(path) as f:
+        data = json.load(f)
+
+    path = 'instance.json'
+    with open(path) as f:
+        data2val = json.load(f)
+
+    is_valid = validate(instance=data2val, schema=data)
+    print(is_valid)
+    # if it is valid will not raise any error and give a None
 ```
 
 ## Numpy create empty nan array

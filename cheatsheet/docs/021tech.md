@@ -6,6 +6,42 @@
 - https://osarch.org/
     - Creating a built environment with free software, increased transparency, and a more ethical approach
 - ASHRAE Standards and Guideline (https://www.ashrae.org/technical-resources/standards-and-guidelines/read-only-versions-of-ashrae-standards)
+- https://newbuildings.org/
+- https://www.architecture2030.org/
+- A DATABASE OF SUSTAINABLE DESIGN PRINCIPLES, STRATEGIES, TOOLS AND RESOURCES AT YOUR FINGERTIPS: https://2030palette.org/
+
+### Building Science Education
+- Society of building science educators: https://www.sbse.org/
+- https://bsesc.energy.gov/training-modules
+- https://www.sbse.org/courses/Smart-Building-Technologies
+- https://www.aia.org/resource-center/definitions-building-performance
+- Podcast Daniel and Jorge what is negative temperature (https://omny.fm/shows/daniel-and-jorge-explain-the-universe/what-is-negative-temperature)
+
+### Web-based tools
+- Psychrometric charts
+    - https://www.flycarpet.net/en/psyonline
+    - https://drajmarsh.bitbucket.io/psychro-chart2d.html
+- Weather data
+    - https://clima.cbe.berkeley.edu/
+
+## Design Guides
+### ASHRAE
+- https://www.ashrae.org/technical-resources/bookstore/ashrae-design-guides
+
+## Relevant Standards
+### ASHRAE
+- Standard 90.1-2022 (S-I), Energy Standard for Buildings Except Low-Rise Residential Buildings (https://www.ashrae.org/technical-resources/standards-and-guidelines/read-only-versions-of-ashrae-standards)
+- Standard 90.2-2018, Energy Efficient Design of Low-Rise Residential Buildings (https://ashrae.iwrapper.com/ASHRAE_PREVIEW_ONLY_STANDARDS/STD_90.2_2018)
+- Standard 189.1-2020, Standard for the Design of High-Performance Green Buildings (https://www.ashrae.org/technical-resources/standards-and-guidelines/read-only-versions-of-ashrae-standards)
+- Standard 183-2007 (RA 2020) -- Peak Cooling and Heating Load Calculations in Buildings Except Low-Rise Residential Buildings (ACCA Co-sponsored) (https://ashrae.iwrapper.com/ASHRAE_PREVIEW_ONLY_STANDARDS/STD_183_2007_RA_2020)
+- Guideline 36-2021 -- High-Performance Sequences of Operation for HVAC Systems (https://ashrae.iwrapper.com/ASHRAE_PREVIEW_ONLY_STANDARDS/GL_36_2021) 
+- Standard 135-2020, BACnetTM A Data Communication Protocol for Building Automation and Control Networks (https://ashrae.iwrapper.com/ASHRAE_PREVIEW_ONLY_STANDARDS/STD_135_2020)
+- Semantic Modeling for Building systems ASHRAE 223P
+    - https://open223.info/
+    - https://github.com/open223
+- CDL ASHRAE Standard 231P
+- Guideline 13 Specifying BAS: https://store.accuristech.com/ashrae/standards/guideline-13-2015-specifying-building-automation-systems?product_id=1894498
+- Standard 209-2018 -- Energy Simulation Aided Design for Buildings except Low-Rise Residential Buildings (ANSI Approved)  
 
 ## Datasets
 - US commercial building stocks (https://comstock.nrel.gov/)
@@ -54,21 +90,15 @@
 ### Building Performance Simulation
 - https://intofuture.org/index.html
 - Openstudio Model (https://openstudio.net/) 
-- Standard 90.1-2022 (S-I), Energy Standard for Buildings Except Low-Rise Residential Buildings (https://www.ashrae.org/technical-resources/standards-and-guidelines/read-only-versions-of-ashrae-standards)
-- Standard 90.2-2018, Energy Efficient Design of Low-Rise Residential Buildings (https://ashrae.iwrapper.com/ASHRAE_PREVIEW_ONLY_STANDARDS/STD_90.2_2018)
-- Standard 189.1-2020, Standard for the Design of High-Performance Green Buildings (https://www.ashrae.org/technical-resources/standards-and-guidelines/read-only-versions-of-ashrae-standards)
-- Standard 183-2007 (RA 2020) -- Peak Cooling and Heating Load Calculations in Buildings Except Low-Rise Residential Buildings (ACCA Co-sponsored) (https://ashrae.iwrapper.com/ASHRAE_PREVIEW_ONLY_STANDARDS/STD_183_2007_RA_2020)
+
 
 ### Building Operations
 - BACNet: https://thebacnetinstitute.org/
 - Brick Schema (https://brickschema.org/)
-- Guideline 36-2021 -- High-Performance Sequences of Operation for HVAC Systems (https://ashrae.iwrapper.com/ASHRAE_PREVIEW_ONLY_STANDARDS/GL_36_2021) 
-- Standard 135-2020, BACnetTM A Data Communication Protocol for Building Automation and Control Networks (https://ashrae.iwrapper.com/ASHRAE_PREVIEW_ONLY_STANDARDS/STD_135_2020)
+
 - CDL (https://obc.lbl.gov/specification/cdl.html#overview-of-cdl-and-terminology)
 - Project Haystack (https://project-haystack.org/)
-- ASHRAE 223P
-    - https://open223.info/
-    - https://github.com/open223
+
 - BOPTest simulation based controls https://github.com/ibpsa/project1-boptest?tab=readme-ov-file
 
 ## 3D Modeling
@@ -130,6 +160,14 @@
 
 ## Collaboration
 - https://www.goodfirms.co/collaboration-software/blog/best-free-open-source-collaboration-software
+- https://kyro.ai/
+
+## Remote Desktops
+- Mac and windows: https://www.distantdesktop.com/
+- https://rustdesk.com/
+- chrome remote desktop - https://remotedesktop.google.com/
+- meshcentral - https://ylianst.github.io/MeshCentral/meshcentral/
+
 
 ## Reality Capture
 ### Photogrammetry
