@@ -55,28 +55,42 @@ Check size of a directory
 ```
 $ du -sh /path/to/folder
 ```
+
 Check volumes in system
 ```
 $ df -h
 ```
+
 List a directory
 ```
-$ ls
+ls
 ```
+
 List with details, or show all hidden files
 ```
-$ ls -lh file/foldername (will be able to see size in human readable way)
-
-$ ls -l file/foldername
-
-$ ls -la file/foldername
+ls -la file/foldername
 ```
+```
+ls -l file/foldername
+```
+
+Will be able to see size in human readable way
+```
+ls -lh file/foldername
+```
+
+Only see the hidden file
+```
+ls -ld .?* 
+```
+
 Copy file
 ```
 $ cp /path/to/file1 /path/to/file2
 
 $ cp -r /path/to/folder /path/to/folder
 ```
+
 Remove a file.
 ```
 $ rm filename
