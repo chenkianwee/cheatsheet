@@ -303,6 +303,36 @@ Configure ubuntu to detect nvidia gpu
     ```
 3. put the file in ~/.local/share/applications 
 
+### FreeCAD default app for .fcstd extension
+- https://forum.freecad.org/viewtopic.php?style=5&f=4&t=63536
+- https://askubuntu.com/questions/1180012/how-to-change-default-program-for-files-ending-in-one-extension
+
+- This is for freecad installed with snap.
+1. Go to /usr/share/mime/packages, cut and paste the following xml (freecad.xml) file into it.
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
+	<mime-type type="application/x-extension-fcstd">
+		<sub-class-of type="application/zip"/>
+		<comment>FreeCAD document files</comment>
+		<glob pattern="*.fcstd"/>
+	</mime-type>
+</mime-info>
+```
+```
+sudo cp path/to/freecad.xml /usr/share/mime/packages/
+```
+2. Once you have copied the file. Go to /var/lib/snapd/desktop/applications/freecad_freecad.desktop and you can see the desktop file. Make sure the following is in the file.
+```
+MimeType=application/x-extension-fcstd
+```
+3. Update your mimetype database with the following command.
+```
+sudo update-mime-database /usr/share/mime
+```
+4. Now you should be able to double click fcstd files and open it with freecad.
+
+
 ### LibreOffice
 Zotero plugin for libreoffice
 https://www.libreofficehelp.com/how-to-fix-libreoffice-requires-a-java-runtime-environment-error/
