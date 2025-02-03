@@ -410,14 +410,15 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thunderbird-outlook-sync">1.1.13. Thunderbird outlook sync</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-appimage-as-an-ubuntu-desktop-app">1.1.14. Make appimage as an ubuntu desktop app</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#freecad-default-app-for-fcstd-extension">1.1.15. FreeCAD default app for .fcstd extension</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libreoffice">1.1.16. LibreOffice</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-new-fonts">1.1.16.1. Install new fonts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#openstudio-default-app-for-osm-extension">1.1.16. Openstudio default app for .osm extension</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libreoffice">1.1.17. LibreOffice</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-new-fonts">1.1.17.1. Install new fonts</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-inkscape">1.1.17. Install Inkscape</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-run-files">1.1.18. Install .run files</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zip">1.1.19. 7zip</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ffmpeg">1.1.20. ffmpeg</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-inkscape">1.1.18. Install Inkscape</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-run-files">1.1.19. Install .run files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zip">1.1.20. 7zip</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ffmpeg">1.1.21. ffmpeg</a></li>
 </ul>
 </li>
 </ul>
@@ -794,12 +795,42 @@ $ rm -rf foldername #delete all folders in folders
 <li><p>Now you should be able to double click fcstd files and open it with freecad.</p></li>
 </ol>
 </section>
+<section id="openstudio-default-app-for-osm-extension">
+<h3><span class="section-number">1.1.16. </span>Openstudio default app for .osm extension<a class="headerlink" href="#openstudio-default-app-for-osm-extension" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Go to /usr/share/applications and go to the openstudioapp.desktop file. Make sure the following is in the file</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MimeType</span><span class="o">=</span><span class="n">application</span><span class="o">/</span><span class="n">x</span><span class="o">-</span><span class="n">openstudio</span><span class="p">;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Go to /usr/share/mime/packages, cut and paste the following xml (openstudioapp.xml) file into it.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;mime-info xmlns=&#39;http://www.freedesktop.org/standards/shared-mime-info&#39;&gt;
+	&lt;mime-type type=&quot;application/x-openstudio&quot;&gt;
+		&lt;comment&gt;Openstudio Application document files&lt;/comment&gt;
+		&lt;glob pattern=&quot;*.osm&quot;/&gt;
+	&lt;/mime-type&gt;
+&lt;/mime-info&gt;
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">cp</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">openstudioapp</span><span class="o">.</span><span class="n">xml</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">mime</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Update your mimetype database with the following command.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">update</span><span class="o">-</span><span class="n">mime</span><span class="o">-</span><span class="n">database</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">mime</span>
+</pre></div>
+</div>
+</section>
 <section id="libreoffice">
-<h3><span class="section-number">1.1.16. </span>LibreOffice<a class="headerlink" href="#libreoffice" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.1.17. </span>LibreOffice<a class="headerlink" href="#libreoffice" title="Link to this heading">#</a></h3>
 <p>Zotero plugin for libreoffice
 <a class="reference external" href="https://www.libreofficehelp.com/how-to-fix-libreoffice-requires-a-java-runtime-environment-error/">https://www.libreofficehelp.com/how-to-fix-libreoffice-requires-a-java-runtime-environment-error/</a></p>
 <section id="install-new-fonts">
-<h4><span class="section-number">1.1.16.1. </span>Install new fonts<a class="headerlink" href="#install-new-fonts" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">1.1.17.1. </span>Install new fonts<a class="headerlink" href="#install-new-fonts" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.libreofficehelp.com/install-fonts-libreoffice-openoffice/#GNULinux_Ubuntu_Linux_Mint_Fedora_etc">https://www.libreofficehelp.com/install-fonts-libreoffice-openoffice/#GNULinux_Ubuntu_Linux_Mint_Fedora_etc</a></p></li>
 <li><p>download the font file ttf or otf here (<a class="reference external" href="https://www.dafont.com/search.php?q=linux+libertine">https://www.dafont.com/search.php?q=linux+libertine</a>)</p></li>
@@ -808,8 +839,9 @@ $ rm -rf foldername #delete all folders in folders
 </section>
 </section>
 <section id="install-inkscape">
-<h3><span class="section-number">1.1.17. </span>Install Inkscape<a class="headerlink" href="#install-inkscape" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.1.18. </span>Install Inkscape<a class="headerlink" href="#install-inkscape" title="Link to this heading">#</a></h3>
 <ul class="simple">
+<li><p>with ubuntu 24.04 you can just install it using the snap store. It is the latest of inkscape.</p></li>
 <li><p><a class="reference external" href="https://www.linuxcapable.com/how-to-install-inkscape-on-ubuntu-linux/">https://www.linuxcapable.com/how-to-install-inkscape-on-ubuntu-linux/</a></p></li>
 </ul>
 <ol class="arabic">
@@ -831,7 +863,7 @@ $ rm -rf foldername #delete all folders in folders
 </ol>
 </section>
 <section id="install-run-files">
-<h3><span class="section-number">1.1.18. </span>Install .run files<a class="headerlink" href="#install-run-files" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.1.19. </span>Install .run files<a class="headerlink" href="#install-run-files" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.wikihow.com/Execute-.RUN-Files-in-Linux">https://www.wikihow.com/Execute-.RUN-Files-in-Linux</a></p></li>
 </ul>
@@ -849,7 +881,7 @@ $ rm -rf foldername #delete all folders in folders
 </ol>
 </section>
 <section id="zip">
-<h3><span class="section-number">1.1.19. </span>7zip<a class="headerlink" href="#zip" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.1.20. </span>7zip<a class="headerlink" href="#zip" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.e2encrypted.com/howtos/how-to-securely-encrypt-decrypt-with-7zip-via-command-line/">https://www.e2encrypted.com/howtos/how-to-securely-encrypt-decrypt-with-7zip-via-command-line/</a></p></li>
 </ul>
@@ -867,7 +899,7 @@ $ rm -rf foldername #delete all folders in folders
 </div>
 </section>
 <section id="ffmpeg">
-<h3><span class="section-number">1.1.20. </span>ffmpeg<a class="headerlink" href="#ffmpeg" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.1.21. </span>ffmpeg<a class="headerlink" href="#ffmpeg" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://linuxconfig.org/recording-live-streams-on-linux-with-ffmpeg-examples-included">https://linuxconfig.org/recording-live-streams-on-linux-with-ffmpeg-examples-included</a></p></li>
 <li><p><a class="reference external" href="https://stackoverflow.com/questions/67320808/splitting-an-audio-file-into-equal-lenght-segments-using-ffmpeg">https://stackoverflow.com/questions/67320808/splitting-an-audio-file-into-equal-lenght-segments-using-ffmpeg</a></p></li>
@@ -967,14 +999,15 @@ $ rm -rf foldername #delete all folders in folders
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thunderbird-outlook-sync">1.1.13. Thunderbird outlook sync</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-appimage-as-an-ubuntu-desktop-app">1.1.14. Make appimage as an ubuntu desktop app</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#freecad-default-app-for-fcstd-extension">1.1.15. FreeCAD default app for .fcstd extension</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libreoffice">1.1.16. LibreOffice</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-new-fonts">1.1.16.1. Install new fonts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#openstudio-default-app-for-osm-extension">1.1.16. Openstudio default app for .osm extension</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libreoffice">1.1.17. LibreOffice</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-new-fonts">1.1.17.1. Install new fonts</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-inkscape">1.1.17. Install Inkscape</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-run-files">1.1.18. Install .run files</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zip">1.1.19. 7zip</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ffmpeg">1.1.20. ffmpeg</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-inkscape">1.1.18. Install Inkscape</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-run-files">1.1.19. Install .run files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zip">1.1.20. 7zip</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ffmpeg">1.1.21. ffmpeg</a></li>
 </ul>
 </li>
 </ul>

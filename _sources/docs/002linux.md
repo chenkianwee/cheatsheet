@@ -332,6 +332,28 @@ sudo update-mime-database /usr/share/mime
 ```
 4. Now you should be able to double click fcstd files and open it with freecad.
 
+### Openstudio default app for .osm extension
+1. Go to /usr/share/applications and go to the openstudioapp.desktop file. Make sure the following is in the file
+```
+MimeType=application/x-openstudio;
+```
+2. Go to /usr/share/mime/packages, cut and paste the following xml (openstudioapp.xml) file into it.
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
+	<mime-type type="application/x-openstudio">
+		<comment>Openstudio Application document files</comment>
+		<glob pattern="*.osm"/>
+	</mime-type>
+</mime-info>
+```
+```
+sudo cp path/to/openstudioapp.xml /usr/share/mime/packages/
+```
+3. Update your mimetype database with the following command.
+```
+sudo update-mime-database /usr/share/mime
+```
 
 ### LibreOffice
 Zotero plugin for libreoffice
@@ -343,6 +365,7 @@ https://www.libreofficehelp.com/how-to-fix-libreoffice-requires-a-java-runtime-e
 - extract and put it in the share font folder in ubuntu, /usr/share/fonts.
 
 ### Install Inkscape
+- with ubuntu 24.04 you can just install it using the snap store. It is the latest of inkscape.
 - https://www.linuxcapable.com/how-to-install-inkscape-on-ubuntu-linux/
 
 1. Install dependencies
