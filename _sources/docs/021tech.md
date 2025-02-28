@@ -16,6 +16,8 @@
 - https://www.sbse.org/courses/Smart-Building-Technologies
 - https://www.aia.org/resource-center/definitions-building-performance
 - Podcast Daniel and Jorge what is negative temperature (https://omny.fm/shows/daniel-and-jorge-explain-the-universe/what-is-negative-temperature)
+- https://scied.ucar.edu/image/radiation-budget-diagram-earth-atmosphere
+- Sustainable building design by autodesk for venture well: https://sustainabilityworkshop.venturewell.org/building-design/concepts.html
 
 ### Web-based tools
 - Psychrometric charts
@@ -23,6 +25,8 @@
     - https://drajmarsh.bitbucket.io/psychro-chart2d.html
 - Weather data
     - https://clima.cbe.berkeley.edu/
+- climate
+    - https://docs.ladybug.tools/ladybug-tools-academy/climate-analysis/climate-zone-classification
 
 ## Design Guides
 ### ASHRAE

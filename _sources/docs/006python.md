@@ -268,7 +268,26 @@ based on these:
     ```
     briefcase package
     ```
+6. if you updated your requirement for third party library you need to do update
+    ```
+    briefcase update -r
+    ```
+    ```
+    briefcase build
+    ```
+    ```
+    briefcase run
+    ```
+7. Beeware web app
+    - beeware will try to load the local linux python wheel which will not work with pyscript.
+    - after it is compiled you need to edit build/helloworld/web/static/www/pyscript.toml
+    - in the packages field put in geomie3d or numpy
+    - then do briefcase run web
     
+8. Openstudio sdk still do not have a wasm version.
+
+9. You can download a wasm version of ifcopenshell here (https://github.com/IfcOpenShell/wasm-wheels)
+
 ## Numpy and scipy resources
 ### Reducing numpy, scipy library size 
 - https://towardsdatascience.com/how-to-shrink-numpy-scipy-pandas-and-matplotlib-for-your-data-product-4ec8d7e86ee4
@@ -412,6 +431,7 @@ based on these:
 - https://jupyter.org/
 - https://pyodide.org/en/stable/
 - https://realpython.com/pyscript-python-in-browser/
+- https://medium.com/@andrewdass/how-to-start-using-pyscript-11036f998cef 
 
 ### Jupyter lab shortcut key
 - change cell to markdown

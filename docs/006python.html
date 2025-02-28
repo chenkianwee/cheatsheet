@@ -748,6 +748,27 @@ based on these:</p>
 </pre></div>
 </div>
 </li>
+<li><p>if you updated your requirement for third party library you need to do update</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">briefcase</span> <span class="n">update</span> <span class="o">-</span><span class="n">r</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">briefcase</span> <span class="n">build</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">briefcase</span> <span class="n">run</span>
+</pre></div>
+</div>
+</li>
+<li><p>Beeware web app</p>
+<ul class="simple">
+<li><p>beeware will try to load the local linux python wheel which will not work with pyscript.</p></li>
+<li><p>after it is compiled you need to edit build/helloworld/web/static/www/pyscript.toml</p></li>
+<li><p>in the packages field put in geomie3d or numpy</p></li>
+<li><p>then do briefcase run web</p></li>
+</ul>
+</li>
+<li><p>Openstudio sdk still do not have a wasm version.</p></li>
+<li><p>You can download a wasm version of ifcopenshell here (<a class="github reference external" href="https://github.com/IfcOpenShell/wasm-wheels">IfcOpenShell/wasm-wheels</a>)</p></li>
 </ol>
 </section>
 </section>
@@ -945,6 +966,7 @@ based on these:</p>
 <li><p><a class="reference external" href="https://jupyter.org/">https://jupyter.org/</a></p></li>
 <li><p><a class="reference external" href="https://pyodide.org/en/stable/">https://pyodide.org/en/stable/</a></p></li>
 <li><p><a class="reference external" href="https://realpython.com/pyscript-python-in-browser/">https://realpython.com/pyscript-python-in-browser/</a></p></li>
+<li><p><a class="reference external" href="https://medium.com/&#64;andrewdass/how-to-start-using-pyscript-11036f998cef">https://medium.com/&#64;andrewdass/how-to-start-using-pyscript-11036f998cef</a></p></li>
 </ul>
 <section id="jupyter-lab-shortcut-key">
 <h3><span class="section-number">5.12.1. </span>Jupyter lab shortcut key<a class="headerlink" href="#jupyter-lab-shortcut-key" title="Link to this heading">#</a></h3>
