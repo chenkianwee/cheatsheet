@@ -66,6 +66,7 @@ Taiwan:
 - https://buymeacoffee.com
 - https://digitalsoftwaremarkett.com/
 - https://download-monitor.com/selling-software/
+- https://gumroad.com 
 
 ### Book publishing
 - [no starch press](https://nostarch.com/writeforus)

@@ -18,6 +18,9 @@
 - Podcast Daniel and Jorge what is negative temperature (https://omny.fm/shows/daniel-and-jorge-explain-the-universe/what-is-negative-temperature)
 - https://scied.ucar.edu/image/radiation-budget-diagram-earth-atmosphere
 - Sustainable building design by autodesk for venture well: https://sustainabilityworkshop.venturewell.org/building-design/concepts.html
+- thermal mass: 
+    - https://www.greenspec.co.uk/building-design/thermal-mass/
+    - https://irp-cdn.multiscreensite.com/e3960383/files/uploaded/2014%20I%20Thermal%20mass.pdf
 
 ### Web-based tools
 - Psychrometric charts
