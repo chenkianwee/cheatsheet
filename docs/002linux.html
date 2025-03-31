@@ -904,7 +904,8 @@ $ rm -rf foldername #delete all folders in folders
 <li><p><a class="reference external" href="https://linuxconfig.org/recording-live-streams-on-linux-with-ffmpeg-examples-included">https://linuxconfig.org/recording-live-streams-on-linux-with-ffmpeg-examples-included</a></p></li>
 <li><p><a class="reference external" href="https://stackoverflow.com/questions/67320808/splitting-an-audio-file-into-equal-lenght-segments-using-ffmpeg">https://stackoverflow.com/questions/67320808/splitting-an-audio-file-into-equal-lenght-segments-using-ffmpeg</a></p></li>
 <li><p>ffmpeg to record audio output - <a class="reference external" href="https://trac.ffmpeg.org/wiki/Capture/PulseAudio">https://trac.ffmpeg.org/wiki/Capture/PulseAudio</a></p></li>
-<li></li>
+<li><p>ffmpeg and youtube-dl: <a class="reference external" href="https://linuxconfig.org/how-to-rip-songs-from-youtube-videos">https://linuxconfig.org/how-to-rip-songs-from-youtube-videos</a></p></li>
+<li><p>ytdlp: <a class="reference external" href="https://www.unixmen.com/yt-dlp-download-youtube-videos/">https://www.unixmen.com/yt-dlp-download-youtube-videos/</a></p></li>
 </ul>
 <p>split mp3 into equal segments</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ffmpeg</span> <span class="o">-</span><span class="n">i</span> <span class="nb">input</span><span class="o">.</span><span class="n">mp3</span> <span class="o">-</span><span class="n">f</span> <span class="n">segment</span> <span class="o">-</span><span class="n">segment_time</span> <span class="mi">2</span> <span class="n">output_</span><span class="o">%</span><span class="mi">03</span><span class="n">d</span><span class="o">.</span><span class="n">mp3</span>
@@ -912,6 +913,34 @@ $ rm -rf foldername #delete all folders in folders
 </div>
 <p>split mp3 according to start end time</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ffmpeg</span> <span class="o">-</span><span class="n">i</span> <span class="nb">input</span><span class="o">.</span><span class="n">mp3</span> <span class="o">-</span><span class="n">ss</span> <span class="mi">00</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">00</span> <span class="o">-</span><span class="n">to</span> <span class="mi">00</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mi">00</span> <span class="o">-</span><span class="n">c</span> <span class="n">copy</span> <span class="n">output</span><span class="o">.</span><span class="n">mp3</span>
+</pre></div>
+</div>
+<p>convert .webm to .mp4</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ffmpeg</span> <span class="o">-</span><span class="n">i</span> <span class="nb">input</span><span class="o">.</span><span class="n">webm</span><span class="s1">&#39; -c:v libx264 -c:a aac output.mp4</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">you</span> <span class="n">get</span> <span class="n">similar</span> <span class="n">error</span> <span class="p">[</span><span class="n">libx264</span> <span class="o">@</span> <span class="mh">0x55de9ce50a40</span><span class="p">]</span> <span class="n">height</span> <span class="ow">not</span> <span class="n">divisible</span> <span class="n">by</span> <span class="mi">2</span> <span class="p">(</span><span class="mi">1850</span><span class="n">x977</span><span class="p">)</span> <span class="n">add</span> <span class="n">the</span> <span class="o">-</span><span class="n">vf</span> <span class="n">command</span>
+<span class="n">ffmpeg</span> <span class="o">-</span><span class="n">i</span> <span class="nb">input</span><span class="o">.</span><span class="n">webm</span><span class="s1">&#39; -c:v libx264 -c:a aac -vf &quot;pad=ceil(iw/2)*2:ceil(ih/2)*2&quot; output.mp4</span>
+</pre></div>
+</div>
+<p>compress mp4 good quality</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ffmpeg</span> <span class="o">-</span><span class="n">i</span> <span class="nb">input</span><span class="o">.</span><span class="n">mp4</span> <span class="o">-</span><span class="n">vcodec</span> <span class="n">h264</span> <span class="o">-</span><span class="n">acodec</span> <span class="n">mp2</span> <span class="n">out</span><span class="o">.</span><span class="n">mp4</span>
+</pre></div>
+</div>
+<p>compress mp4 ok quality but smaller</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ffmpeg</span> <span class="o">-</span><span class="n">i</span> <span class="nb">input</span><span class="o">.</span><span class="n">mp4</span> <span class="o">-</span><span class="n">s</span> <span class="mi">1280</span><span class="n">x720</span> <span class="o">-</span><span class="n">acodec</span> <span class="n">copy</span> <span class="o">-</span><span class="n">y</span> <span class="n">output</span><span class="o">.</span><span class="n">mp4</span>
+</pre></div>
+</div>
+<p>compress mp4 lowest quality</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ffmpeg</span> <span class="o">-</span><span class="n">i</span> <span class="nb">input</span><span class="o">.</span><span class="n">mp4</span> <span class="o">-</span><span class="n">vcodec</span> <span class="n">h264</span> <span class="o">-</span><span class="n">b</span><span class="p">:</span><span class="n">v</span> <span class="mi">1000</span><span class="n">k</span> <span class="o">-</span><span class="n">acodec</span> <span class="n">mp3</span> <span class="n">output</span><span class="o">.</span><span class="n">mp4</span>
+</pre></div>
+</div>
+<p>get only the audio, -ab can be 128k or 256k</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ffmpeg</span> <span class="o">-</span><span class="n">i</span> <span class="s2">&quot;something.mkv&quot;</span> <span class="o">-</span><span class="n">ab</span> <span class="mi">320</span><span class="n">k</span> <span class="s1">&#39;something.mp3&#39;</span>
+</pre></div>
+</div>
+<p>download video with url</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yt</span><span class="o">-</span><span class="n">dlp</span> <span class="s2">&quot;something.com&quot;</span>
 </pre></div>
 </div>
 </section>

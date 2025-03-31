@@ -414,7 +414,9 @@ extract a file
 - https://linuxconfig.org/recording-live-streams-on-linux-with-ffmpeg-examples-included
 - https://stackoverflow.com/questions/67320808/splitting-an-audio-file-into-equal-lenght-segments-using-ffmpeg
 - ffmpeg to record audio output - https://trac.ffmpeg.org/wiki/Capture/PulseAudio
-- 
+- ffmpeg and youtube-dl: https://linuxconfig.org/how-to-rip-songs-from-youtube-videos
+- ytdlp: https://www.unixmen.com/yt-dlp-download-youtube-videos/
+
 split mp3 into equal segments
 ```
 ffmpeg -i input.mp3 -f segment -segment_time 2 output_%03d.mp3
@@ -423,4 +425,38 @@ ffmpeg -i input.mp3 -f segment -segment_time 2 output_%03d.mp3
 split mp3 according to start end time
 ```
 ffmpeg -i input.mp3 -ss 00:01:00 -to 00:02:00 -c copy output.mp3
+```
+
+convert .webm to .mp4
+```
+ffmpeg -i input.webm' -c:v libx264 -c:a aac output.mp4
+```
+```
+if you get similar error [libx264 @ 0x55de9ce50a40] height not divisible by 2 (1850x977) add the -vf command
+ffmpeg -i input.webm' -c:v libx264 -c:a aac -vf "pad=ceil(iw/2)*2:ceil(ih/2)*2" output.mp4
+```
+
+compress mp4 good quality
+```
+ffmpeg -i input.mp4 -vcodec h264 -acodec mp2 out.mp4
+```
+
+compress mp4 ok quality but smaller
+```
+ffmpeg -i input.mp4 -s 1280x720 -acodec copy -y output.mp4
+```
+
+compress mp4 lowest quality
+```
+ffmpeg -i input.mp4 -vcodec h264 -b:v 1000k -acodec mp3 output.mp4
+```
+
+get only the audio, -ab can be 128k or 256k
+```
+ffmpeg -i "something.mkv" -ab 320k 'something.mp3'
+```
+
+download video with url
+```
+yt-dlp "something.com"
 ```

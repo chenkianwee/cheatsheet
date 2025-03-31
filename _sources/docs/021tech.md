@@ -21,6 +21,7 @@
 - thermal mass: 
     - https://www.greenspec.co.uk/building-design/thermal-mass/
     - https://irp-cdn.multiscreensite.com/e3960383/files/uploaded/2014%20I%20Thermal%20mass.pdf
+    - https://www.thenbs.com/knowledge/what-is-a-u-value-heat-loss-thermal-mass-and-online-calculators-explained
 
 ### Web-based tools
 - Psychrometric charts

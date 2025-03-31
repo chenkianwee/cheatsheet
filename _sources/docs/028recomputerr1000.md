@@ -7,4 +7,5 @@
 - the drivers do not work with ubuntu 22
 - however volttron only works on ubuntu and not RPI OS
 
-```
+## Arduino Opta
+- https://opta.findernet.com/en/tutorial/getting-started

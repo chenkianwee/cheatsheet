@@ -38,6 +38,11 @@ Taiwan:
 - https://bimcorner.com/
 - https://learngrasshopper.com/
 - https://hrcompacta.com.br/
+- https://www.firstinarchitecture.co.uk/
+- https://archademia.com/
+- https://www.bimpure.com/
+- https://sourcecad.com/
+- https://sketchlikeanarchitect.teachable.com/
 
 ## Online makerspace shops
 - https://makersportal.com/
@@ -79,6 +84,7 @@ Taiwan:
 - [udemy](https://www.udemy.com/)
 - [skillshare](https://www.skillshare.com/en/)
 - [oreilly](https://www.oreilly.com/work-with-us.html)
+- [eduwik](https://eduwik.com/)
 
 ### Online job platform
 - list of job platform: https://www.bluehost.com/blog/best-freelancer-websites-consider-popular-niche/?utm_campaign=pmax_PPC&utm_source=googleads&utm_medium=genericsearch&channelid=P61C101S570N0B5578A2D4499E0000V338&ds_k=&gad_source=5&gclid=EAIaIQobChMI7pO24easiAMVkEpHAR019xS3EAAYAiAAEgI4t_D_BwE&gclsrc=aw.ds
