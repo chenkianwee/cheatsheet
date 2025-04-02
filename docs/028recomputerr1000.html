@@ -393,7 +393,11 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arduino-opta">27.1. Arduino Opta</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arduino-opta">27.1. Arduino Opta</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-windows">27.1.1. For Windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-ubuntu">27.1.2. For Ubuntu</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -422,7 +426,35 @@
 <h2><span class="section-number">27.1. </span>Arduino Opta<a class="headerlink" href="#arduino-opta" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://opta.findernet.com/en/tutorial/getting-started">https://opta.findernet.com/en/tutorial/getting-started</a></p></li>
+<li><p><a class="reference external" href="https://forum.arduino.cc/t/opta-upload-failed-no-dfu-capable-usb-device-available/1149001/6">https://forum.arduino.cc/t/opta-upload-failed-no-dfu-capable-usb-device-available/1149001/6</a></p></li>
 </ul>
+<section id="for-windows">
+<h3><span class="section-number">27.1.1. </span>For Windows<a class="headerlink" href="#for-windows" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Follow the instruction here <a class="reference external" href="https://forum.arduino.cc/t/opta-upload-failed-no-dfu-capable-usb-device-available/1149001/3">https://forum.arduino.cc/t/opta-upload-failed-no-dfu-capable-usb-device-available/1149001/3</a></p></li>
+</ol>
+</section>
+<section id="for-ubuntu">
+<h3><span class="section-number">27.1.2. </span>For Ubuntu<a class="headerlink" href="#for-ubuntu" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Add a new file ‘60-dfu.rules’ into ‘/etc/udev/rules.d/60-dfu.rules’. The ‘60-dfu.rules’ file should contain the following:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ACTION</span><span class="o">==</span><span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="n">SUBSYSTEM</span><span class="o">==</span><span class="s2">&quot;usb&quot;</span><span class="p">,</span> <span class="n">ATTRS</span><span class="p">{</span><span class="n">idVendor</span><span class="p">}</span><span class="o">==</span><span class="s2">&quot;2341&quot;</span><span class="p">,</span> <span class="n">ATTRS</span><span class="p">{</span><span class="n">idProduct</span><span class="p">}</span><span class="o">==</span><span class="s2">&quot;0364&quot;</span><span class="p">,</span> <span class="n">TAG</span><span class="o">+=</span><span class="s2">&quot;uaccess&quot;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>You can check for the idvendor and idproduct by plugging in your opta typing the following in the cmd.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">dmesg</span> <span class="o">-</span><span class="n">w</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Then double click the ‘RESET’ button on the opta board and you will see the information</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>Restart arduio ide and follow the getting started tutorial. You should be able to upload the data onto the controller.</p></li>
+</ol>
+</section>
 </section>
 </section>
 
@@ -482,7 +514,11 @@
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arduino-opta">27.1. Arduino Opta</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arduino-opta">27.1. Arduino Opta</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-windows">27.1.1. For Windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-ubuntu">27.1.2. For Ubuntu</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
