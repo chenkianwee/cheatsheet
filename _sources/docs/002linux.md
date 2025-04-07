@@ -458,5 +458,5 @@ ffmpeg -i "something.mkv" -ab 320k 'something.mp3'
 
 download video with url
 ```
-yt-dlp "something.com"
+yt-dlp -o new_name.mp4 "something.com"
 ```

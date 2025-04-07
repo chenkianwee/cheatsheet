@@ -26,5 +26,5 @@ sudo dmesg -w
 ```
 - Then double click the 'RESET' button on the opta board and you will see the information
 
-3. Restart arduio ide and follow the getting started tutorial. You should be able to upload the data onto the controller.
+3. Restart arduino ide and follow the getting started tutorial. You should be able to upload the data onto the controller.
 
