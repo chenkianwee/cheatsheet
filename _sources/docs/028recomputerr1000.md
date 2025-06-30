@@ -10,6 +10,9 @@
 ## Arduino Opta
 - https://opta.findernet.com/en/tutorial/getting-started
 - https://forum.arduino.cc/t/opta-upload-failed-no-dfu-capable-usb-device-available/1149001/6
+- opta modbus tcp: https://docs.arduino.cc/tutorials/opta/getting-started-with-modbus-tcp/
+- opta modbus rs485: https://docs.arduino.cc/tutorials/opta/getting-started-with-modbus-rtu/
+- modbus example: https://docs.arduino.cc/tutorials/opta/smart-compressor-app-note/
 
 ### For Windows
 1. Follow the instruction here https://forum.arduino.cc/t/opta-upload-failed-no-dfu-capable-usb-device-available/1149001/3

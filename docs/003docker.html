@@ -398,6 +398,11 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#volume">2.2. Volume</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#network">2.3. Network</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image">2.4. Image</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-an-image-for-multipleos">2.5. Build an image for multipleOS</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#old-manifest-way">2.5.1. Old Manifest way</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#not-working-on-my-machine">2.5.2. Not working on my machine</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -519,6 +524,45 @@
 </pre></div>
 </div>
 </section>
+<section id="build-an-image-for-multipleos">
+<h2><span class="section-number">2.5. </span>Build an image for multipleOS<a class="headerlink" href="#build-an-image-for-multipleos" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.docker.com/blog/multi-arch-build-and-images-the-simple-way/">https://www.docker.com/blog/multi-arch-build-and-images-the-simple-way/</a></p></li>
+</ul>
+<section id="old-manifest-way">
+<h3><span class="section-number">2.5.1. </span>Old Manifest way<a class="headerlink" href="#old-manifest-way" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>build and push your linux-amd64 image</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">docker</span> <span class="n">build</span> <span class="o">.</span> <span class="o">-</span><span class="n">t</span> <span class="n">chenkianwee</span><span class="o">/</span><span class="n">yun2inf</span><span class="p">:</span><span class="mf">0.0.8</span><span class="o">-</span><span class="n">linuxamd64</span>
+<span class="n">sudo</span> <span class="n">docker</span> <span class="n">push</span> <span class="n">chenkianwee</span><span class="o">/</span><span class="n">yun2inf</span><span class="p">:</span><span class="mf">0.0.8</span><span class="o">-</span><span class="n">linuxamd64</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>build and push your linux-arm64 image</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">docker</span> <span class="n">build</span> <span class="o">.</span> <span class="o">-</span><span class="n">t</span> <span class="n">chenkianwee</span><span class="o">/</span><span class="n">yun2inf</span><span class="p">:</span><span class="mf">0.0.8</span><span class="o">-</span><span class="n">linuxarm64</span>
+<span class="n">sudo</span> <span class="n">docker</span> <span class="n">push</span> <span class="n">chenkianwee</span><span class="o">/</span><span class="n">yun2inf</span><span class="p">:</span><span class="mf">0.0.8</span><span class="o">-</span><span class="n">linuxarm64</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>consolidate the image with manifest and push it to the repository</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">docker</span> <span class="n">manifest</span> <span class="n">create</span> <span class="n">chenkianwee</span><span class="o">/</span><span class="n">yun2inf</span><span class="p">:</span><span class="mf">0.0.8</span> <span class="o">--</span><span class="n">amend</span> <span class="n">chenkianwee</span><span class="o">/</span><span class="n">yun2inf</span><span class="p">:</span><span class="mf">0.0.8</span><span class="o">-</span><span class="n">linuxamd64</span> <span class="o">--</span><span class="n">amend</span> <span class="n">chenkianwee</span><span class="o">/</span><span class="n">yun2inf</span><span class="p">:</span><span class="mf">0.0.8</span><span class="o">-</span><span class="n">linuxarm64</span>
+<span class="n">sudo</span> <span class="n">docker</span> <span class="n">manifest</span> <span class="n">push</span> <span class="n">chenkianwee</span><span class="o">/</span><span class="n">yun2inf</span><span class="p">:</span><span class="mf">0.0.8</span>
+</pre></div>
+</div>
+</section>
+<section id="not-working-on-my-machine">
+<h3><span class="section-number">2.5.2. </span>Not working on my machine<a class="headerlink" href="#not-working-on-my-machine" title="Link to this heading">#</a></h3>
+<p>Build an image of multiple OS/Arch</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">docker</span> <span class="n">buildx</span> <span class="n">build</span> <span class="o">--</span><span class="n">push</span> <span class="o">--</span><span class="n">platform</span> <span class="n">linux</span><span class="o">/</span><span class="n">arm64</span> <span class="o">--</span><span class="n">tag</span> <span class="n">chenkianwee</span><span class="o">/</span><span class="n">yun2inf</span><span class="p">:</span><span class="mf">0.0.8</span> <span class="o">.</span>
+
+<span class="n">sudo</span> <span class="n">docker</span> <span class="n">buildx</span> <span class="n">build</span> <span class="o">--</span><span class="n">push</span> <span class="o">--</span><span class="n">platform</span> <span class="n">linux</span><span class="o">/</span><span class="n">amd64</span> <span class="o">--</span><span class="n">tag</span> <span class="n">chenkianwee</span><span class="o">/</span><span class="n">yun2inf</span><span class="p">:</span><span class="mf">0.0.8</span> <span class="o">.</span>
+</pre></div>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -590,6 +634,11 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#volume">2.2. Volume</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#network">2.3. Network</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image">2.4. Image</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-an-image-for-multipleos">2.5. Build an image for multipleOS</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#old-manifest-way">2.5.1. Old Manifest way</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#not-working-on-my-machine">2.5.2. Not working on my machine</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

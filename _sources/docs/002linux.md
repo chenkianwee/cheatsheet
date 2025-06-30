@@ -460,3 +460,8 @@ download video with url
 ```
 yt-dlp -o new_name.mp4 "something.com"
 ```
+## RaspberryPi
+- change wifi cmd
+```
+sudo raspi-config
+```

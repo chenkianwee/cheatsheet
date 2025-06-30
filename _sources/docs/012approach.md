@@ -29,6 +29,7 @@ Interesting software companies:
 - https://github.com/tt-acm
 - Digital Twinning: https://www.dripvisual.com/
 - computational design: https://www.novatr.com/blog/computational-design-guide
+- Open-source GIS: https://kartoza.com/
 
 Taiwan:
 - https://rccn.dev/zh/https://www.shapediver.com/pricing
