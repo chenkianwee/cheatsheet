@@ -136,14 +136,27 @@ Zip a file
 ```
 zip archivename.zip filename1
 ```
+
 Zip a directory
 ```
 zip -r archivename.zip directory_name
 ```
+
+zip a folder but exclude certain folder
+```
+zip -r ../archive.zip folder2zip -x "folder2zip/folder2/*"
+```
+
+zip a folder but include certain folder
+```
+zip -r ../archive.zip folder2zip folder2zip/folder2include
+```
+
 Unzip a file
 ```
 unzip filename
 ```
+
 Search for a file or directory with a name
 ```
 grep -r -i "name2search" /directory/to/search

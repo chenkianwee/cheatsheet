@@ -567,6 +567,14 @@ $ rm -rf foldername #delete all folders in folders
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">zip</span> <span class="o">-</span><span class="n">r</span> <span class="n">archivename</span><span class="o">.</span><span class="n">zip</span> <span class="n">directory_name</span>
 </pre></div>
 </div>
+<p>zip a folder but exclude certain folder</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">zip</span> <span class="o">-</span><span class="n">r</span> <span class="o">../</span><span class="n">archive</span><span class="o">.</span><span class="n">zip</span> <span class="n">folder2zip</span> <span class="o">-</span><span class="n">x</span> <span class="s2">&quot;folder2zip/folder2/*&quot;</span>
+</pre></div>
+</div>
+<p>zip a folder but include certain folder</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">zip</span> <span class="o">-</span><span class="n">r</span> <span class="o">../</span><span class="n">archive</span><span class="o">.</span><span class="n">zip</span> <span class="n">folder2zip</span> <span class="n">folder2zip</span><span class="o">/</span><span class="n">folder2include</span>
+</pre></div>
+</div>
 <p>Unzip a file</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unzip</span> <span class="n">filename</span>
 </pre></div>
