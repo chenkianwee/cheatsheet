@@ -103,3 +103,32 @@ Load the image with this command.
 ```
 $ sudo docker load -i frost-server.tar
 ```
+## Build an image for multipleOS
+- https://www.docker.com/blog/multi-arch-build-and-images-the-simple-way/
+
+### Old Manifest way
+- build and push your linux-amd64 image
+```
+sudo docker build . -t chenkianwee/yun2inf:0.0.8-linuxamd64
+sudo docker push chenkianwee/yun2inf:0.0.8-linuxamd64
+```
+
+- build and push your linux-arm64 image
+```
+sudo docker build . -t chenkianwee/yun2inf:0.0.8-linuxarm64
+sudo docker push chenkianwee/yun2inf:0.0.8-linuxarm64
+```
+
+- consolidate the image with manifest and push it to the repository
+```
+sudo docker manifest create chenkianwee/yun2inf:0.0.8 --amend chenkianwee/yun2inf:0.0.8-linuxamd64 --amend chenkianwee/yun2inf:0.0.8-linuxarm64
+sudo docker manifest push chenkianwee/yun2inf:0.0.8
+```
+
+### Not working on my machine
+Build an image of multiple OS/Arch
+```
+sudo docker buildx build --push --platform linux/arm64 --tag chenkianwee/yun2inf:0.0.8 .
+
+sudo docker buildx build --push --platform linux/amd64 --tag chenkianwee/yun2inf:0.0.8 .
+```

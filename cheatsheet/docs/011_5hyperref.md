@@ -65,7 +65,7 @@
 
     ```
     if your section heading have space replace it with hyphens. All letters in small cap.
-    [something](002linux.html#read-and-write-text)
+    [something](002linux.md#read-and-write-text)
 
     ../ for file outside of this folder
     ```

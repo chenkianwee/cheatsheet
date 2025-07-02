@@ -136,14 +136,27 @@ Zip a file
 ```
 zip archivename.zip filename1
 ```
+
 Zip a directory
 ```
 zip -r archivename.zip directory_name
 ```
+
+zip a folder but exclude certain folder
+```
+zip -r ../archive.zip folder2zip -x "folder2zip/folder2/*"
+```
+
+zip a folder but include certain folder
+```
+zip -r ../archive.zip folder2zip folder2zip/folder2include
+```
+
 Unzip a file
 ```
 unzip filename
 ```
+
 Search for a file or directory with a name
 ```
 grep -r -i "name2search" /directory/to/search
@@ -303,6 +316,58 @@ Configure ubuntu to detect nvidia gpu
     ```
 3. put the file in ~/.local/share/applications 
 
+### FreeCAD default app for .fcstd extension
+- https://forum.freecad.org/viewtopic.php?style=5&f=4&t=63536
+- https://askubuntu.com/questions/1180012/how-to-change-default-program-for-files-ending-in-one-extension
+
+- This is for freecad installed with snap.
+1. Go to /usr/share/mime/packages, cut and paste the following xml (freecad.xml) file into it.
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
+	<mime-type type="application/x-extension-fcstd">
+		<sub-class-of type="application/zip"/>
+		<comment>FreeCAD document files</comment>
+		<glob pattern="*.fcstd"/>
+	</mime-type>
+</mime-info>
+```
+```
+sudo cp path/to/freecad.xml /usr/share/mime/packages/
+```
+2. Once you have copied the file. Go to /var/lib/snapd/desktop/applications/freecad_freecad.desktop and you can see the desktop file. Make sure the following is in the file.
+```
+MimeType=application/x-extension-fcstd
+```
+3. Update your mimetype database with the following command.
+```
+sudo update-mime-database /usr/share/mime
+```
+4. Now you should be able to double click fcstd files and open it with freecad.
+
+### Openstudio default app for .osm extension
+1. Go to /usr/share/applications and go to the openstudioapp.desktop file. Make sure the following is in the file
+```
+MimeType=application/x-openstudio;
+```
+2. Go to /usr/share/mime/packages, cut and paste the following xml (openstudioapp.xml) file into it.
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
+	<mime-type type="application/x-openstudio">
+		<comment>Openstudio Application document files</comment>
+		<glob pattern="*.osm"/>
+	</mime-type>
+</mime-info>
+```
+```
+sudo cp path/to/openstudioapp.xml /usr/share/mime/packages/
+```
+3. Update your mimetype database with the following command.
+```
+sudo update-mime-database /usr/share/mime
+```
+
 ### LibreOffice
 Zotero plugin for libreoffice
 https://www.libreofficehelp.com/how-to-fix-libreoffice-requires-a-java-runtime-environment-error/
@@ -313,6 +378,7 @@ https://www.libreofficehelp.com/how-to-fix-libreoffice-requires-a-java-runtime-e
 - extract and put it in the share font folder in ubuntu, /usr/share/fonts.
 
 ### Install Inkscape
+- with ubuntu 24.04 you can just install it using the snap store. It is the latest of inkscape.
 - https://www.linuxcapable.com/how-to-install-inkscape-on-ubuntu-linux/
 
 1. Install dependencies
@@ -361,7 +427,9 @@ extract a file
 - https://linuxconfig.org/recording-live-streams-on-linux-with-ffmpeg-examples-included
 - https://stackoverflow.com/questions/67320808/splitting-an-audio-file-into-equal-lenght-segments-using-ffmpeg
 - ffmpeg to record audio output - https://trac.ffmpeg.org/wiki/Capture/PulseAudio
-- 
+- ffmpeg and youtube-dl: https://linuxconfig.org/how-to-rip-songs-from-youtube-videos
+- ytdlp: https://www.unixmen.com/yt-dlp-download-youtube-videos/
+
 split mp3 into equal segments
 ```
 ffmpeg -i input.mp3 -f segment -segment_time 2 output_%03d.mp3
@@ -370,4 +438,43 @@ ffmpeg -i input.mp3 -f segment -segment_time 2 output_%03d.mp3
 split mp3 according to start end time
 ```
 ffmpeg -i input.mp3 -ss 00:01:00 -to 00:02:00 -c copy output.mp3
+```
+
+convert .webm to .mp4
+```
+ffmpeg -i input.webm' -c:v libx264 -c:a aac output.mp4
+```
+```
+if you get similar error [libx264 @ 0x55de9ce50a40] height not divisible by 2 (1850x977) add the -vf command
+ffmpeg -i input.webm' -c:v libx264 -c:a aac -vf "pad=ceil(iw/2)*2:ceil(ih/2)*2" output.mp4
+```
+
+compress mp4 good quality
+```
+ffmpeg -i input.mp4 -vcodec h264 -acodec mp2 out.mp4
+```
+
+compress mp4 ok quality but smaller
+```
+ffmpeg -i input.mp4 -s 1280x720 -acodec copy -y output.mp4
+```
+
+compress mp4 lowest quality
+```
+ffmpeg -i input.mp4 -vcodec h264 -b:v 1000k -acodec mp3 output.mp4
+```
+
+get only the audio, -ab can be 128k or 256k
+```
+ffmpeg -i "something.mkv" -ab 320k 'something.mp3'
+```
+
+download video with url
+```
+yt-dlp -o new_name.mp4 "something.com"
+```
+## RaspberryPi
+- change wifi cmd
+```
+sudo raspi-config
 ```
