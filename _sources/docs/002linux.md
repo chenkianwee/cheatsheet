@@ -61,6 +61,11 @@ Check volumes in system
 $ df -h
 ```
 
+check the size of top level directories 
+```
+sudo du -sh /*
+```
+
 List a directory
 ```
 ls
