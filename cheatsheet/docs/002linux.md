@@ -61,6 +61,11 @@ Check volumes in system
 $ df -h
 ```
 
+check the size of top level directories 
+```
+sudo du -sh /*
+```
+
 List a directory
 ```
 ls
@@ -472,6 +477,11 @@ ffmpeg -i "something.mkv" -ab 320k 'something.mp3'
 download video with url
 ```
 yt-dlp -o new_name.mp4 "something.com"
+```
+
+download audio-only with url 
+```
+yt-dlp -x --extract-audio --audio-format mp3 --audio-quality 128k -o something.m4a something.com
 ```
 ## RaspberryPi
 - change wifi cmd

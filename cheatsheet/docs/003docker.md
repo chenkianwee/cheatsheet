@@ -20,6 +20,14 @@ Push build image to Docker github
 ```
 $ sudo docker push yourName/ImageName:tag
 ```
+purge the system to free up space, this is useful to clean the /var/lib/docker/overlay2 folder
+```
+sudo docker prune -a 
+```
+check how much space docker is using
+```
+sudo docker system df
+```
 ## Container
 Go into the container
 ```

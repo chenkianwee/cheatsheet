@@ -541,3 +541,36 @@
     #     print(a_zair)
 ```
 
+## Asyncio Python
+- https://www.pythontutorial.net/python-concurrency/python-asyncio-create_task/
+- https://www.slingacademy.com/article/python-using-async-await-with-loops/
+- https://superfastpython.com/python-async-requests/
+
+```{dropdown} code snippet
+    import asyncio
+    import time
+
+    async def call_api(json_payload, cookies):
+        url = 'https://example.com'
+        r1 = await asyncio.to_thread(requests.post, url, json=json_payload, cookies=cookies)
+        res_json = r1.json()
+        r1.close()
+
+    async def main():
+        start = time.perf_counter()
+        json_payload = {}
+        cookies = {}
+        task_1 = asyncio.create_task(
+            call_api(json_payload, cookies)
+        )
+
+        task_2 = asyncio.create_task(
+            call_api(json_payload, cookies)
+        )
+
+        tasks = [task1, task2]
+
+        prices = await asyncio.gather(*tasks)
+
+    asyncio.run(main())
+```

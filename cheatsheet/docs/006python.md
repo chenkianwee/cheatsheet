@@ -431,7 +431,11 @@ based on these:
 - https://jupyter.org/
 - https://pyodide.org/en/stable/
 - https://realpython.com/pyscript-python-in-browser/
-- https://medium.com/@andrewdass/how-to-start-using-pyscript-11036f998cef 
+- https://medium.com/@andrewdass/how-to-start-using-pyscript-11036f998cef
+
+### Tutorial
+- https://docs.pyscript.net/2025.7.3/beginning-pyscript/
+- uploading files - https://pyscript.recipes/latest/basic/file-upload/
 
 ### Jupyter lab shortcut key
 - change cell to markdown
@@ -446,6 +450,11 @@ based on these:
 
 ## Panda3d for 3D game development
 - https://github.com/ArsThaumaturgis/Panda3DTutorial.io
+
+## Async io
+- https://www.pythontutorial.net/python-concurrency/python-asyncio-create_task/
+- https://www.slingacademy.com/article/python-using-async-await-with-loops/
+- https://superfastpython.com/python-async-requests/
 
 ## Resources
 - Computer Scientist website on alot of python resources and career advice (https://third-bit.com/)
