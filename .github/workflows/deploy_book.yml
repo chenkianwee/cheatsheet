@@ -31,7 +31,7 @@ jobs:
         cache: pip # Implicitly uses requirements.txt for cache key
 
     - name: Install dependencies
-      run: pip install -r requirements.txt
+      run: pip install -r /cheatsheet/requirements.txt
 
     # (optional) Cache your executed notebooks between runs
     # if you have config:
@@ -41,7 +41,7 @@ jobs:
       uses: actions/cache@v4
       with:
         path: _build/.jupyter_cache
-        key: jupyter-book-cache-${{ hashFiles('requirements.txt') }}
+        key: jupyter-book-cache-${{ hashFiles('/cheatsheet/requirements.txt') }}
 
     # Build the book
     - name: Build the book
