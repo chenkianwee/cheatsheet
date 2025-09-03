@@ -54,6 +54,8 @@ Taiwan:
 - https://www.heavybit.com/library/video/commercial-open-source-business-strategies
 - https://www.linkedin.com/advice/0/what-most-effective-ways-fund-sustain-open-source
 - https://fundedby.community/#blog
+- Open tech funding - https://www.opentech.fund/
+- Open tech incubator - https://otincubator.com/
 
 ### Funding
 - https://nlnet.nl/
