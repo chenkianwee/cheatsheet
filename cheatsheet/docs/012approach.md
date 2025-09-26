@@ -9,6 +9,7 @@ Envision your goal so that you never lose sight of it. An example from experienc
 4. When collecting data from the experiment/modeling be clear about what you want to find and how it will be visualize and presented in your paper.
 5. When visualizing and presenting the data be clear how the data is proving the objective.
 6. When proving the objective be clear about how it contirbutes to the project.
+
 ## Notes about software startup in AEC
 Interesting software companies:
 - https://rapidlasso.de/
@@ -92,6 +93,16 @@ Taiwan:
 ### Online job platform
 - list of job platform: https://www.bluehost.com/blog/best-freelancer-websites-consider-popular-niche/?utm_campaign=pmax_PPC&utm_source=googleads&utm_medium=genericsearch&channelid=P61C101S570N0B5578A2D4499E0000V338&ds_k=&gad_source=5&gclid=EAIaIQobChMI7pO24easiAMVkEpHAR019xS3EAAYAiAAEgI4t_D_BwE&gclsrc=aw.ds
 
+### Opensource business model
+- indicators for an open source project 
+1. Is there a community that contributes and support your open source product: e.g. github stars, number of contributors
+2. Is there a need for your open source product: e.g. number of downloads for your product, usage number of your product
+3. If both (1) and (2) what is the value your company can bring to the users of your product.
+4. There are 3 main business model
+    - provide support and service for your open source product: e.g. redhat -> their biz is strong capability to deliver services and support whenever you need them.
+    - Software as a service (SaaS): e.g. TimescaleDB, provide hosting and make it much easier for your users to use your software
+    - Open core and provide paid features: e.g. cesiumJS 
+
 ## Teaching digital AEC through the computational approach
 You need students to have knowledge on all of these 3 area
 - Models: 
@@ -104,3 +115,4 @@ You need students to have knowledge on all of these 3 area
 1. Data structures and algorithms: study and development of the most efficient data structure and algorithms to perform the required task.
 2. Software development: as no existing software solution satisfy your requirements, you develop your own software solution to achieve the task.
 3. Information technology: using the appropriate existing software to achieve the task.
+
