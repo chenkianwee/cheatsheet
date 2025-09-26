@@ -36,7 +36,7 @@ pip install <packagename==version>
 
 pip install a local library in development
 ```
-pip install -e <packagename==version>
+pip install -e /path/to/local/library
 ```
 
 pip uninstall
@@ -288,6 +288,39 @@ based on these:
 
 9. You can download a wasm version of ifcopenshell here (https://github.com/IfcOpenShell/wasm-wheels)
 
+### Changing the logo of the app
+- based on this resource https://docs.beeware.org/en/latest/tutorial/topics/custom-icons.html
+- at the pyproject.toml file specify the add icon line
+    ```
+    icon = "icons/myapp"
+    sources = [
+        "src/myapp",
+    ]
+    ```
+- add the icon folder in your directory and put all the icons inside
+    ```
+    myapp/
+    |--- CHANGELOG
+    |--- LICENSE
+    |--- pyproject.toml
+    |--- README.rst
+    |--- src/
+    |--- tests/
+    |--- icons/
+        |--- myapp.ico
+        |--- myapp-16.png
+        |--- myapp-32.png
+        |--- myapp-64.png
+        |--- myapp-128.png
+        |--- myapp-256.png
+        |--- myapp-512.png
+
+    ```
+- use inkscape and gimp to produce the image. The .ico can be 256x256 px, and the rest can be 16 x 16 and so on ... In gimp you export to .ico 
+- run the following command to update the resources
+    ```
+    briefcase update --update-resources
+    ```
 ## Numpy and scipy resources
 ### Reducing numpy, scipy library size 
 - https://towardsdatascience.com/how-to-shrink-numpy-scipy-pandas-and-matplotlib-for-your-data-product-4ec8d7e86ee4
