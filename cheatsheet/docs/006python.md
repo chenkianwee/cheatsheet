@@ -321,6 +321,30 @@ based on these:
     ```
     briefcase update --update-resources
     ```
+
+### Writing test for your app
+- test tutorial - https://docs.beeware.org/en/latest/tutorial/topics/testing.html
+- for multiple apps in a single project arrange your tests folder as such
+    ```
+    proj_folder
+        |--- src
+        |--- tests
+            |--- app1
+                |--- test_app.py
+            |--- app2
+                |--- test_app.py
+            |--- app1.py
+            |--- app2.py
+    ```
+- in the app1.py change the script as follows: so that when you run the command 'briefcase dev --test --app app1' it will search the app1 folder for test cases. Do the same for the app2 script.
+    ```
+    # Determine any args to pass to pytest. If there aren't any,
+    # default to running the whole test suite.
+    args = sys.argv[1:]
+    if len(args) == 0:
+        args = ["tests/app1"]
+    ```
+
 ## Numpy and scipy resources
 ### Reducing numpy, scipy library size 
 - https://towardsdatascience.com/how-to-shrink-numpy-scipy-pandas-and-matplotlib-for-your-data-product-4ec8d7e86ee4
