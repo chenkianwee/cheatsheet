@@ -344,7 +344,22 @@ based on these:
     if len(args) == 0:
         args = ["tests/app1"]
     ```
+- if you need to test an async function in your test_app.py file you will need to install pytest-asyncio. Include this in your pyproject.toml test sources
+    ```
+    test_requires = [
+        "pytest",
+        "pytest-asyncio",
+    ]
+    ```
+- In your test_app.py file write your async function as follows 
+    ```
+    import pytest
 
+    @pytest.mark.asyncio
+    async def test():
+        res1 =  await some_functions()
+        assert res1 == 2
+    ```
 ## Numpy and scipy resources
 ### Reducing numpy, scipy library size 
 - https://towardsdatascience.com/how-to-shrink-numpy-scipy-pandas-and-matplotlib-for-your-data-product-4ec8d7e86ee4
