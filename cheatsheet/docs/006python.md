@@ -360,6 +360,12 @@ based on these:
         res1 =  await some_functions()
         assert res1 == 2
     ```
+
+- put this setting in your pyproject.toml file to avoid deprecating warning 
+    ```
+    [tool.pytest.ini_options]
+    asyncio_default_fixture_loop_scope = "function"
+    ```
 ## Numpy and scipy resources
 ### Reducing numpy, scipy library size 
 - https://towardsdatascience.com/how-to-shrink-numpy-scipy-pandas-and-matplotlib-for-your-data-product-4ec8d7e86ee4
