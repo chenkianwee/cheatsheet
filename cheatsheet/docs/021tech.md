@@ -36,6 +36,18 @@
 ### ASHRAE
 - https://www.ashrae.org/technical-resources/bookstore/ashrae-design-guides
 
+## Design Processes
+- Circular Design <a href="https://ellenmacarthurfoundation.org/" target="_blank">(Link 1)</a>, <a href="https://ce-toolkit.dhub.arup.com/" target="_blank">(Link 2)</a>
+- Factor 10 Engineering (10XE)
+- Performance-based Building Design
+- Integrated Design Process
+- Integrated Project Delivery
+- AIA Framework for Design Excellence
+- AIA Architecture 2030 <a href="http://www.2030palette.org/" target="_blank">(Link 1)</a>, <a href="https://materialspalette.org//" target="_blank">(Link 2)</a>, <a href="https://architecture2030.org/education/" target="_blank">(Link 3)</a>
+- Zerocode <a href="https://zero-code.org/zero-code/" target="_blank">(Link 1)</a>
+- Geodesign
+- Form-Based Code
+
 ## Relevant Standards
 ### ASHRAE
 - Standard 90.1-2022 (S-I), Energy Standard for Buildings Except Low-Rise Residential Buildings (https://www.ashrae.org/technical-resources/standards-and-guidelines/read-only-versions-of-ashrae-standards)
