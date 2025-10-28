@@ -31,6 +31,7 @@ Interesting software companies:
 - Digital Twinning: https://www.dripvisual.com/
 - computational design: https://www.novatr.com/blog/computational-design-guide
 - Open-source GIS: https://kartoza.com/
+- custom software development: https://www.scnsoft.com/software-development
 
 Taiwan:
 - https://rccn.dev/zh/https://www.shapediver.com/pricing
@@ -116,3 +117,16 @@ You need students to have knowledge on all of these 3 area
 2. Software development: as no existing software solution satisfy your requirements, you develop your own software solution to achieve the task.
 3. Information technology: using the appropriate existing software to achieve the task.
 
+## Running a small business
+### Simple accounting
+- to create a stable monthly income for your small biz
+- You need 3 accts
+    - operational: where all your revenue goes to
+    - tax: 30% of the revenue goes here to pay taxes
+    - basic salary: your own basic salary. The basic salary == revenue you hit at least 75% of the time
+- once your operational acct has at least a two months baseline you can consider increasing your basic salary etc.
+
+### Passive income for consultancy
+- course on my expertise, launch it on udemy
+- content, tutorials -> sell ads on this website
+- sell tools and content -> data pack, donation for tools
