@@ -366,13 +366,13 @@ based on these:
     [tool.pytest.ini_options]
     asyncio_default_fixture_loop_scope = "function"
     ```
+
 ## Numpy and scipy resources
 ### Reducing numpy, scipy library size 
 - https://towardsdatascience.com/how-to-shrink-numpy-scipy-pandas-and-matplotlib-for-your-data-product-4ec8d7e86ee4
 
 ### Indexing and slicing on numpy
 - https://numpy.org/doc/stable/user/basics.indexing.html#
-
 
 ## VScode Python IDE
 - https://code.visualstudio.com/docs/python/environments
@@ -510,6 +510,20 @@ based on these:
 - https://pyodide.org/en/stable/
 - https://realpython.com/pyscript-python-in-browser/
 - https://medium.com/@andrewdass/how-to-start-using-pyscript-11036f998cef
+
+### Developing webapp with pyscript
+- to develop your webapp locally on your computer you need to create a simple server with python as follows
+    - https://github.com/pyscript/pyscript/issues/257#issuecomment-1119595062
+
+1. first go to the directory where your webapp is located
+    ```
+    cd <path_of_your_directory>
+    ```
+2. use the following command to serve the directory 
+    ```
+    python3 -m http.server
+    ```
+3. go to 'localhost:8000' or 'http://127.0.0.1:8000/' and see your webapp.
 
 ### Tutorial
 - https://docs.pyscript.net/2025.7.3/beginning-pyscript/
