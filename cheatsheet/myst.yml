@@ -1,0 +1,57 @@
+version: 1
+project:
+  title: CKW cheatsheet
+  authors:
+    - name: Chen Kian Wee
+  github: executablebooks/jupyter-book
+  bibliography:
+    - references.bib
+  exports:
+    - format: pdf
+      template: plain_latex_book
+      output: exports/book.pdf
+  toc:
+    - file: docs/001intro.md
+    - title: Cheat Sheets
+      children:
+        - file: docs/002linux.md
+        - file: docs/003docker.md
+        - file: docs/004vim.md
+        - file: docs/005sql.md
+        - file: docs/006python.md
+        - file: docs/007pywebframe.md
+        - file: docs/008matplotlib.md
+        - file: docs/009git.md
+        - file: docs/010opencv.md
+        - file: docs/011pubbk.md
+          children:
+            - file: docs/011_1installation.md
+            - file: docs/011_2createbook.md
+            - file: docs/011_3editbook.md
+            - file: docs/011_4addfig.md
+            - file: docs/011_5hyperref.md
+            - file: docs/011_6citation.md
+            - file: docs/011_7pubonline.md
+            - file: docs/011_8pdf.md
+            - file: docs/011_9interactive.md
+        - file: docs/012approach.md
+        - file: docs/013server.md
+        - file: docs/014jupyterlab.md
+        - file: docs/015geom.md
+        - file: docs/016pandas.md
+        - file: docs/017experiment.md
+        - file: docs/018micro_proj.md
+        - file: docs/019snippet.md
+        - file: docs/020sft_tips.md
+        - file: docs/021tech.md
+        - file: docs/022b3dsect.md
+        - file: docs/023b3dplane.md
+        - file: docs/024b3dimg.md
+        - file: docs/025volttron.md
+        - file: docs/026bacpypes.md
+        - file: docs/027modbus.md
+        - file: docs/028recomputerr1000.md
+site:
+  options:
+    folders: true
+  template: book-theme
