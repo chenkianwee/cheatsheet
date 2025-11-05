@@ -18,7 +18,3 @@
     ```
 ## Example
 I want to cite this article {cite}`chen_exploring_2020`.
-
-## Bibliography
-```{bibliography} ../references.bib
-```

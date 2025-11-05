@@ -3,7 +3,7 @@
 1. [Register a Github account](https://github.com)
 2. Once registered. Create a new repository as shown ({numref}`Figure %s <create_repo>`).
     ```{figure} /_static/steps/create_repo.png
-    :scale: 80%
+    :width: 80%
     :name: create_repo
 
     Create a repository on Github
@@ -21,7 +21,7 @@
 
     Commit and sync the files onto the github repository
     ```
-6. Install ghp-import to compile and host your book on Github-pages. Go to your anaconda environment and activate your jupyterbook environment as shown here {doc}`011_1installation`. Once you activated the environment, execute this command.
+6. Install ghp-import to compile and host your book on Github-pages. Go to your anaconda environment and activate your jupyterbook environment as shown here [](011_1installation). Once you activated the environment, execute this command.
     ```
     pip install ghp-import
     ```

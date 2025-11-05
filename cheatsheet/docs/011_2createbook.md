@@ -11,7 +11,7 @@
 3. Go into the "mynewbook" folder. You will see the files shown below. {numref}`Figure %s <template_book>`
     <br/><br/>
     ```{figure} /_static/steps/template_book.png
-    :scale: 100%
+    :width: 100%
     :name: template_book
 
     Structure of a template book
@@ -21,7 +21,7 @@
     jupyter-book build mynewbook
     ```
     ```{figure} /_static/steps/build_book.png
-    :scale: 100%
+    :width: 100%
     :name: build_book
 
     Success message of a build

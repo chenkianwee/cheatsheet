@@ -509,7 +509,7 @@ based on these:
 - https://jupyter.org/
 - https://pyodide.org/en/stable/
 - https://realpython.com/pyscript-python-in-browser/
-- https://medium.com/@andrewdass/how-to-start-using-pyscript-11036f998cef
+- https://medium.com/andrewdass/how-to-start-using-pyscript-11036f998cef
 
 ### Developing webapp with pyscript
 - to develop your webapp locally on your computer you need to create a simple server with python as follows

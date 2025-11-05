@@ -15,7 +15,7 @@
 
     The folder structure of the book in Atom IDE
     ```
-4. To change the title of the book, go to the "_config.yml" file. Change the title of the book from "My sample book" -> "My notebook". Change the author to your name ({numref}`Figure %s <atom_config>`). Save the change. Build the book with the command from the 4th Step of {doc}`011_2createbook`.
+4. To change the title of the book, go to the "_config.yml" file. Change the title of the book from "My sample book" -> "My notebook". Change the author to your name ({numref}`Figure %s <atom_config>`). Save the change. Build the book with the command from the 4th Step of [](011_2createbook).
     <br/><br/>
     ```{figure} /_static/steps/atom_config.png
     :name: atom_config
