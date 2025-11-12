@@ -525,9 +525,15 @@ based on these:
     ```
 3. go to 'localhost:8000' or 'http://127.0.0.1:8000/' and see your webapp.
 
+### pyscript with threejs
+- https://threejsdemos.com/demos/basics/points-cloud
+
 ### Tutorial
 - https://docs.pyscript.net/2025.7.3/beginning-pyscript/
 - uploading files - https://pyscript.recipes/latest/basic/file-upload/
+
+### Examples
+- good pyscript examples: https://jeff.glass/post/7-guis-pyscript/#timer-header
 
 ### Jupyter lab shortcut key
 - change cell to markdown
