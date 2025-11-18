@@ -527,6 +527,8 @@ based on these:
 
 ### pyscript with threejs
 - https://threejsdemos.com/demos/basics/points-cloud
+- https://threejsdemos.com/tutorials/3d-point-cloud
+- https://github.com/Python-Ninja-Hebi/pyscript-threejs?tab=readme-ov-file
 
 ### Tutorial
 - https://docs.pyscript.net/2025.7.3/beginning-pyscript/

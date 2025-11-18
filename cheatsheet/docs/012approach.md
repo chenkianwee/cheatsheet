@@ -37,6 +37,9 @@ Taiwan:
 - https://rccn.dev/zh/https://www.shapediver.com/pricing
 - https://bimstudio.tabc.org.tw/
 
+## Building Energy Modeling
+- https://enginerio.com/pricing/
+
 ## Online teaching 
 - https://bimcorner.com/
 - https://learngrasshopper.com/

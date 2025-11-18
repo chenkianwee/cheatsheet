@@ -488,3 +488,17 @@ yt-dlp -x --extract-audio --audio-format mp3 --audio-quality 128k -o something.m
 ```
 sudo raspi-config
 ```
+
+## Fix window time syncing issue with ubuntu dual boot
+- change window time to utc - https://www.youtube.com/watch?v=xO0lPxrtFCw
+    - https://askubuntu.com/questions/169376/clock-time-is-off-on-dual-boot#:~:text=If%20you%20were%20to%20just,default/rcS%20and%20press%20Enter%20.&text=If%20you%20do%2C%20change%20UTC,sure%20it%20says%20UTC=no%20.
+
+1. In Windows, go to Settings > Time & language > Date & time.
+2. Toggle Set time automatically off.
+3. Click Sync now under "Sync your clock" to manually set the time.
+4. You will need to perform a registry edit to make Windows use UTC.
+5. Press Windows Key + R, type regedit, and press Enter.
+6. Navigate to HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation.
+7. Right-click in the right pane, choose New > DWORD (32-bit) Value, and name it RealTimeIsUniversal.
+8. Double-click the new value, set its Value data to 1, and click OK.
+9. Restart your computer. 
