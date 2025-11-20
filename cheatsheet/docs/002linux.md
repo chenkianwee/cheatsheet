@@ -517,7 +517,7 @@ sudo raspi-config
     ```
      cd /opt/paloaltonetworks/globalprotect
     ```
-4. Add  "<default-browser>yes</default-browser>" under "<Settings>" (Note: Do not add quotations.)
+4. Add  <default-browser>yes</default-browser> under <Settings> (Note: Do not add quotations.)
     ```
     sudo nano pangps.xml
     ```
