@@ -533,3 +533,8 @@ sudo raspi-config
     ```
 3. For the printer driver Generic -> PostScript -> Generic PostScript Printer Foomatic 
 4. Might need to be connected to vpn to print, currently doesnt work for direct print from browser.
+
+## TigerLab printer for Ubuntu
+- Use the web interface
+
+1. go to the ip address 192.168.xx.xx and login with our company code and can do direct print from there.
