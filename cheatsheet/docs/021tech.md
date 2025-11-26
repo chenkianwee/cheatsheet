@@ -62,6 +62,8 @@
 - CDL ASHRAE Standard 231P
 - Guideline 13 Specifying BAS: https://store.accuristech.com/ashrae/standards/guideline-13-2015-specifying-building-automation-systems?product_id=1894498
 - Standard 209-2018 -- Energy Simulation Aided Design for Buildings except Low-Rise Residential Buildings (ANSI Approved)  
+- Guideline 1.4-2019 -- Preparing Systems Manuals for Facilities (https://store.accuristech.com/standards/guideline-1-4-2019-preparing-systems-manuals-for-facilities?product_id=2078671)
+- Guideline 20-2010 (RA 2016) -- Documenting HVAC&R Work Processes and Data Exchange Requirements (https://store.accuristech.com/standards/guideline-20-2010-ra-2016-documenting-hvac-r-work-processes-and-data-exchange-requirements?product_id=1909429)
 
 ## Datasets
 - US commercial building stocks (https://comstock.nrel.gov/)
