@@ -281,7 +281,9 @@
     import openstudio
     from openstudio import model as osmod
 
-    m = osmod.Model()
+    os_model = osmod.Model.load(osmod_path).get() # read from existing file
+
+    m = osmod.Model() # create new file
     mat = osmod.StandardOpaqueMaterial(m)
     mat.setThickness(0.3)
     print(mat)
