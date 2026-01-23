@@ -22,6 +22,9 @@
     ```
 3. go to 'localhost:8000' or 'http://127.0.0.1:8000/' and see your webapp.
 
+## pyscript using LTK
+- example
+    - pyalgoviz: https://github.com/laffra/pyalgoviz-pyscript/tree/main
 ## pyscript with threejs
 - https://threejsdemos.com/demos/basics/points-cloud
 - https://threejsdemos.com/tutorials/3d-point-cloud
