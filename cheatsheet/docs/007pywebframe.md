@@ -1,3 +1,40 @@
+# Python Web
+
+# Pyscript
+
+## Python in the browser
+- https://jupyter.org/
+- https://pyodide.org/en/stable/
+- https://realpython.com/pyscript-python-in-browser/
+- https://medium.com/andrewdass/how-to-start-using-pyscript-11036f998cef
+
+## Developing webapp with pyscript
+- to develop your webapp locally on your computer you need to create a simple server with python as follows
+    - https://github.com/pyscript/pyscript/issues/257#issuecomment-1119595062
+
+1. first go to the directory where your webapp is located
+    ```
+    cd <path_of_your_directory>
+    ```
+2. use the following command to serve the directory 
+    ```
+    python3 -m http.server
+    ```
+3. go to 'localhost:8000' or 'http://127.0.0.1:8000/' and see your webapp.
+
+## pyscript with threejs
+- https://threejsdemos.com/demos/basics/points-cloud
+- https://threejsdemos.com/tutorials/3d-point-cloud
+- https://github.com/Python-Ninja-Hebi/pyscript-threejs?tab=readme-ov-file
+
+## Tutorial
+- https://docs.pyscript.net/2025.7.3/beginning-pyscript/
+- uploading files - https://pyscript.recipes/latest/basic/file-upload/
+
+## Examples
+- good pyscript examples: https://jeff.glass/post/7-guis-pyscript/#timer-header
+
+
 # Django
 - good django tutorial: https://realpython.com/django-nginx-gunicorn/
 - packaging django app (https://docs.djangoproject.com/en/4.2/intro/reusable-apps/)
