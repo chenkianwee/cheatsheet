@@ -37,6 +37,51 @@
 ## Examples
 - good pyscript examples: https://jeff.glass/post/7-guis-pyscript/#timer-header
 
+# Pelican
+- https://docs.getpelican.com/en/latest/quickstart.html
+
+1. Kickstart your website with the following command
+    ```
+    pelican-quickstart
+    ```
+
+2. Add some content https://docs.getpelican.com/en/latest/content.html. Put a file in your 'content' folder
+    ```
+    Title: My super title
+    Date: 2010-12-03 10:20
+    Modified: 2010-12-05 19:30
+    Category: Python
+    Tags: pelican, publishing
+    Slug: my-super-post
+    Authors: Alexis Metaireau, Conan Doyle
+    Summary: Short version for index and feeds
+
+    This is the content of my super blog post.
+    ```
+
+3. Generate the content for your static pages. The -t command let you specify the theme. If the theme is installed you can just specify the name, you can also specify the directory of themes you downloaded in your computer.
+    ```
+    pelican content -t notmyidea
+    ```
+
+4. Preview your site with the following command
+    ```
+    pelican -l
+    ```
+
+## Installing a Pelican theme
+- https://docs.getpelican.com/en/latest/pelican-themes.html
+
+1. list themes installed with the following command
+    ```
+    pelican-themes -v -l
+    ```
+
+2. Install a pelican theme with the following command
+    ```
+    pelican-themes --install ~/Dev/Python/pelican-themes/notmyidea-cms --verbose
+    ```
+
 
 # Django
 - good django tutorial: https://realpython.com/django-nginx-gunicorn/
