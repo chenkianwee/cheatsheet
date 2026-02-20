@@ -471,6 +471,7 @@
     #------------------------------------------------------------------------------------------------------
     osmodel.save(osmod_path, True)
 ```
+
 ## IFCopenShell Python
 ```{dropdown} code snippet
     import ifcopenshell
@@ -576,3 +577,17 @@
 
     asyncio.run(main())
 ```
+
+## Pytest
+
+```{dropdown} code snippet
+    if __name__ == "__main__":
+        # This is equivalent to running 'pytest' in the terminal
+        exit_code = pytest.main()
+        
+        if exit_code == 0:
+            print("Tests passed!")
+        else:
+            print(f"Tests failed with exit code {exit_code}")
+```
+
