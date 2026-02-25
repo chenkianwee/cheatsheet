@@ -50,6 +50,7 @@ Taiwan:
 - https://www.bimpure.com/
 - https://sourcecad.com/
 - https://sketchlikeanarchitect.teachable.com/
+- https://www.statology.org/
 
 ## Online makerspace shops
 - https://makersportal.com/
