@@ -87,6 +87,8 @@ Taiwan:
 - [no starch press](https://nostarch.com/writeforus)
     - example: https://greenteapress.com/wp/
 - [oreilly](https://www.oreilly.com/work-with-us.html)
+- https://www.blurb.com/
+- https://lulu.com
 
 ### Online teaching platform
 - https://instructor-academy.onlinecoursehost.com/udemy-alternatives/

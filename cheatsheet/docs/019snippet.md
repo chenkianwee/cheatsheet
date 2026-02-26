@@ -133,6 +133,14 @@
     # to turn the path into str you can either to str() or .__str__()
     print(str(parent))
     print(filename.__str__())
+
+    # get all the files and dir in the folder (first level)
+    dirs = p.iterdir()
+    for d in dirs:
+        if d.is_dir():
+            print('this is a folder')
+        if d.is_file():
+            print('this is a file')
 ```
 
 ## Python Chain to flatten one dimension of a list
