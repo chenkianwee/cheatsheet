@@ -32,7 +32,7 @@ Interesting software companies:
 - computational design: https://www.novatr.com/blog/computational-design-guide
 - Open-source GIS: https://kartoza.com/
 - custom software development: https://www.scnsoft.com/software-development
-
+- independent research lab: https://www.inkandswitch.com/
 Taiwan:
 - https://rccn.dev/zh/https://www.shapediver.com/pricing
 - https://bimstudio.tabc.org.tw/
