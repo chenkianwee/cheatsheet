@@ -28,6 +28,23 @@ activate environment for ubuntu
 ```
 source bin/dir/activate
 ```
+## Install Python on raspberry pi 
+- Enable snap on Rpi and install uv: https://snapcraft.io/install/astral-uv/raspbian
+- use uv to install the latest Python: https://docs.astral.sh/uv/guides/install-python/#getting-started
+
+1. Install snap with the following commands
+    ```
+    sudo apt update
+    sudo apt install snapd
+    sudo reboot
+    sudo snap install snapd
+    sudo snap install astral-uv --classic
+    ```
+2. use uv to install the latest python with the following command
+    ```
+    uv python install 3.14
+    ```
+
 ## pip
 pip install
 ```
