@@ -489,6 +489,23 @@ yt-dlp -x --extract-audio --audio-format mp3 --audio-quality 128k -o something.m
 sudo raspi-config
 ```
 
+- Use wifi for internet when ethernet cable is plugged in
+
+```
+# show the connection table, ethernet will be higher on the table
+nmcli connection show
+
+# give your wifi a lower metric and move it up the table, needs to be above ethernet
+sudo nmcli connection modify "YourWiFiName" ipv4.route-metric 50
+
+# give your ethernet a higher metric and move it down the table, needs to be below wifi
+sudo nmcli connection modify "Wired connection 1" ipv4.route-metric 100
+
+# restart both network for it to take effect
+sudo nmcli connection up "YourWiFiName"
+sudo nmcli connection up "Wired connection 1"
+```
+
 ## Fix window time syncing issue with ubuntu dual boot
 - change window time to utc - https://www.youtube.com/watch?v=xO0lPxrtFCw
     - https://askubuntu.com/questions/169376/clock-time-is-off-on-dual-boot#:~:text=If%20you%20were%20to%20just,default/rcS%20and%20press%20Enter%20.&text=If%20you%20do%2C%20change%20UTC,sure%20it%20says%20UTC=no%20.

@@ -484,6 +484,16 @@ based on these:
     ```
     Esc + y
     ```
+### Remote SSH development using VSCode 
+- https://code.visualstudio.com/docs/remote/ssh-tutorial
+
+1. Install the remote ssh plugin from the extension store (Ctrl + Shift + x)
+
+2. Once installed, a >< like icone will appear tt the far left bottom corner of vscode. Click on it and connect to a ssh connection, 'Connect to host ...'. Log into ssh with your username and host name
+    ```
+    username@host.local
+    ```
+3. You will be prompted for the password. Once correctly input you can start developing.
 
 ## Generate xml file from xsd using Python
 ### Using generateDS.py to generate Python files from xsd
