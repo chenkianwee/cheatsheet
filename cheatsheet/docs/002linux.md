@@ -220,6 +220,14 @@ Check distribution
 $ cat /etc/os-release
 ```
 
+- check for running processes
+```
+ps aux | grep python # greps filter the process and look for python processes
+
+pgrep -af python
+
+``` 
+
 ### Network
 - https://itsfoss.com/check-ip-address-ubuntu/
 
