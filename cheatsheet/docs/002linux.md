@@ -443,7 +443,7 @@ extract a file
 - ffmpeg and youtube-dl: https://linuxconfig.org/how-to-rip-songs-from-youtube-videos
 - ytdlp: https://www.unixmen.com/yt-dlp-download-youtube-videos/
 
-split mp3 into equal segments
+split mp3 into equal segments, -f indicates the the segment muxer to use, -segment_time 2 is each segment is 2 seconds long 
 ```
 ffmpeg -i input.mp3 -f segment -segment_time 2 output_%03d.mp3
 ```
