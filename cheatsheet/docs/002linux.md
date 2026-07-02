@@ -482,6 +482,11 @@ get only the audio, -ab can be 128k or 256k
 ffmpeg -i "something.mkv" -ab 320k 'something.mp3'
 ```
 
+install yt-dlp, daily motion
+```
+pip install yt-dlp[default,curl-cffi]
+```
+
 download video with url
 ```
 yt-dlp -o new_name.mp4 "something.com"
