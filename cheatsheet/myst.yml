@@ -49,6 +49,7 @@ project:
     - file: docs/026bacpypes.md
     - file: docs/027modbus.md
     - file: docs/028recomputerr1000.md
+    - file: docs/029llm.md
 site:
   options:
     folders: true
