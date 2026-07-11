@@ -173,6 +173,23 @@ Ctrl+U: Cut the part of the line before the cursor, adding it to the clipboard.
 
 Ctrl+Y: Paste the last thing you cut from the clipboard. The y here stands for “yank”
 
+### Printer
+- Stop Ubuntu From Automatically Adding Printers
+- https://xenomorph.net/linux/ubuntu/issues/automatic-printers/
+- https://askubuntu.com/questions/345083/how-do-i-disable-automatic-remote-printer-installation
+
+    - open this file /etc/avahi/avahi-daemon.conf
+        - add this line/uncomment this line enable-dbus=no
+
+    - stop cups browsed
+        ```
+        sudo systemctl stop cups-browsed
+        sudo systemctl disable cups-browsed
+        ```
+    - turn it back on with 
+        ```
+        sudo systemctl start cups-browsed
+        ```
 ### Shellscript
 Execute a shellscript
 ```
@@ -274,6 +291,9 @@ sudo gedit /etc/profile
 ### Nvidia CUDA
 Configure ubuntu to detect nvidia gpu
 - https://www.linuxbabe.com/desktop-linux/switch-intel-nvidia-graphics-card-ubuntu
+- install nvidia cuda : 
+    - https://linuxize.com/post/how-to-install-nvidia-cuda-toolkit-on-ubuntu-26-04/
+    - https://linuxcapable.com/how-to-install-cuda-on-ubuntu-linux/
 
 - use this command to check which is the recommended driver
     ```
