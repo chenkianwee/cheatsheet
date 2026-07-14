@@ -578,11 +578,11 @@ sudo nmcli connection up "Wired connection 1"
     ```
      cd /opt/paloaltonetworks/globalprotect
     ```
-4. <del>Add  \<default-browser\>yes\</default-browser\> under \<Settings\> (Note: Do not add quotations.)
+4. <del>Add  \<default-browser\>yes\</default-browser\> under \<Settings\> (Note: Do not add quotations.)</del>
     ```
     sudo nano pangps.xml
     ```
-5. Go to the startup application program and untick globalprotect so that it does not auto start everytime.</del>
+5. <del>Go to the startup application program and untick globalprotect so that it does not auto start everytime.</del>
 
 ## Princeton University Printer
 1. Go to the ubuntu software center and download the printer settings application from the debian packages channel
