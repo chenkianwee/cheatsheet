@@ -558,6 +558,7 @@ sudo nmcli connection up "Wired connection 1"
 - northwestern university guide - https://services.northwestern.edu/TDClient/30/Portal/KB/ArticleDet?ID=1420
 
 ### recommended
+- globalprotect-openconnect: https://github.com/yuezk/GlobalProtect-openconnect
 1. Install the following globalproectec open connect with these commands.
     ```
     sudo add-apt-repository ppa:yuezk/globalprotect-openconnect
