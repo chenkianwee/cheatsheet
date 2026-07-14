@@ -568,21 +568,21 @@ sudo nmcli connection up "Wired connection 1"
 2. once installed follow the princeton university guide article to log into vpn.
 
 ### Does not work
-1. ~~Download the global protect installation file using the princeton university guide~~
-2. ~~install it with the following command ~~
+1. <del>Download the global protect installation file using the princeton university guide</del>
+2. <del>install it with the following command</del>
     ```
     sudo apt-get install libqt5webkit5
     sudo dpkg -i GlobalProtect_UI_deb-6.2.1.1-276.deb
     ```
-3. ~~Once installed go to the installed directory~~
+3. <del>Once installed go to the installed directory</del>
     ```
      cd /opt/paloaltonetworks/globalprotect
     ```
-4. ~~Add  \<default-browser\>yes\</default-browser\> under \<Settings\> (Note: Do not add quotations.)~~
+4. <del>Add  \<default-browser\>yes\</default-browser\> under \<Settings\> (Note: Do not add quotations.)
     ```
     sudo nano pangps.xml
     ```
-5. ~~Go to the startup application program and untick globalprotect so that it does not auto start everytime.~~
+5. Go to the startup application program and untick globalprotect so that it does not auto start everytime.</del>
 
 ## Princeton University Printer
 1. Go to the ubuntu software center and download the printer settings application from the debian packages channel
