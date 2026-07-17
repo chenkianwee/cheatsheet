@@ -516,6 +516,23 @@ download audio-only with url
 ```
 yt-dlp -x --extract-audio --audio-format mp3 --audio-quality 128k -o something.m4a something.com
 ```
+
+### fixing slow  copying of large file to usb with fat32 system
+
+- open the file 
+    ```
+    sudo nano /etc/sysctl.conf
+    ```
+- add in the following line
+    ```
+    vm.dirty_background_ratio = 5
+    vm.dirty_ratio = 10
+    ```
+- activate the change
+    ```
+    sudo sysctl -p
+    ```
+
 ## RaspberryPi
 - change wifi cmd
 ```

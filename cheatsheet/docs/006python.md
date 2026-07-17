@@ -384,6 +384,11 @@ based on these:
     asyncio_default_fixture_loop_scope = "function"
     ```
 
+### Using the toga positron extension for writing web-based gui
+- toga-positron [Link](https://github.com/beeware/toga/blob/main/positron/README.md)
+- example [Link](https://readmex.com/en-US/beeware/toga/page-9f488f073-9cbc-4152-b2ab-3c24e2cee8d8)
+
+
 ## Numpy and scipy resources
 ### Reducing numpy, scipy library size 
 - https://towardsdatascience.com/how-to-shrink-numpy-scipy-pandas-and-matplotlib-for-your-data-product-4ec8d7e86ee4
