@@ -583,6 +583,14 @@ sudo nmcli connection up "Wired connection 1"
     sudo apt-get install globalprotect-openconnect
     ```
 2. once installed follow the princeton university guide article to log into vpn.
+3. The GUI requires a license but you can just use the commandline to connect with the following command
+    ```
+    sudo gpclient connect vpn.princeton.edu
+    ```
+4. To disconnect either kill the process using ctrl+c or the following command on another terminal
+    ```
+    sudo gpclient disconnect -v
+    ```
 
 ### Does not work
 1. <del>Download the global protect installation file using the princeton university guide</del>
