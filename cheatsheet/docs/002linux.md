@@ -314,20 +314,7 @@ Configure ubuntu to detect nvidia gpu
 - you can change the primary graphic card to use with the nvidia-settings application
 
 #### Freezing when connected to external monitor
-Disable Dynamic Power Management via Driver Parameters
-If switching PRIME modes didn't fully resolve hard lockups during hot-plugging:
-
-Open your GRUB configuration:
-sudo nano /etc/default/grub
-Find the line starting with GRUB_CMDLINE_LINUX_DEFAULT and add nvidia.NVreg_DynamicPowerManagement=0x00 inside the quotes:
-
-GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nvidia.NVreg_DynamicPowerManagement=0x00"
-
-Update GRUB and reboot:
-
-Bash
-sudo update-grub
-sudo reboot
+- make sure the resolution and refresh rate is the same
 
 ### Thunderbird outlook sync
 - https://support.mozilla.org/en-US/questions/1363441
