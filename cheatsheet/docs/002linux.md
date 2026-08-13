@@ -316,6 +316,117 @@ Configure ubuntu to detect nvidia gpu
 #### Freezing when connected to external monitor
 - make sure the resolution and refresh rate is the same
 
+### Adjusting swap memory for smoother operation
+
+- Creating a swap file is generally recommended because it is easier to create, resize, and manage than partitioning a disk space.
+
+- Step 1: Check Current Swap Status Before making any changes, check if you currently have any swap space enabled:
+    ```
+    sudo swapon --show
+    free -h
+    ```
+
+- Step 2: Create a New Swap File (Example) Let's create a 4GB swap file for demonstration purposes. You can adjust the size (4G) based on your needs.
+- Create the file: Use the fallocate command to quickly create a file of the desired size.
+    ```
+    sudo fallocate -l 4G /swapfile
+    ```
+
+- Set correct permissions: Ensure only root can read/write the file for security.
+
+    ```
+    sudo chmod 600 /swapfile
+    ```
+
+- Set up the swap area: Format the file as a Linux swap space.
+
+    ```
+    sudo mkswap /swapfile
+    ```
+
+- Enable the swap file: Turn the new swap space on immediately.
+    ```
+    sudo swapon /swapfile
+    ```
+
+- Step 3: Make the Swap Permanent (Crucial). To ensure the swap file is automatically enabled every time you boot your computer, you must add an entry to the /etc/fstab file. Open the fstab file for editing:
+    ```
+    sudo nano /etc/fstab
+    ```
+
+- Add the following line to the end of the file:
+    ```
+    /swapfile none swap sw 0 0
+    ```
+
+- Step 4: Verify the Changes. Check the status one last time to confirm everything is working correctly:
+    ```
+    sudo swapon --show
+    free -h
+    ```
+#### Editing the swap memory
+- This process involves temporarily disabling the swap, shrinking the file, and then re-enabling it with the new, smaller size.
+
+- Step 1: Check Current Status. First, confirm the name of your swap file and its current configuration. Note down the exact path of your swap file (e.g., /swapfile).
+
+    ```
+    sudo swapon --show
+    free -h
+    ```
+
+- Step 2: Disable the Swap File. You must turn off the swap space before you can modify the file size. (Replace /path/to/your/swapfile with the actual path you found in Step 1.)
+    ```
+    sudo swapoff /path/to/your/swapfile
+    ```
+
+- Step 3: Resize (Reduce) the Swap File. You will use the truncate command to reduce the file size. You need to specify the new, smaller size. Example: If your current file is 8GB and you want to reduce it to 4GB: (Replace 4G with the desired smaller size.)
+    ```
+    sudo truncate -s 4G /path/to/your/swapfile
+    ```
+
+- Step 4: Reformat the Swap File. After resizing, you must reformat the file so that the kernel recognizes it as a valid swap area.
+    ```
+    sudo mkswap /path/to/your/swapfile
+    ```
+
+- Step 5: Re-enable the Swap File. Turn the newly sized and formatted swap space back on.
+    ```
+    sudo swapon /path/to/your/swapfile
+    ```
+
+- Step 6: Final Verification. Check the status one last time to ensure the new size is active and correct.
+    ```
+    sudo swapon --show
+    free -h
+    ```
+
+#### Change swappiness
+- By adjusting swappiness, you tell the kernel how to decide which memory pages to move to disk, which can improve responsiveness during normal operation.
+- Step 1: Check Current Swappiness Value. Check the current setting:
+    ```
+    cat /proc/sys/vm/swappiness
+    ```
+
+- Step 2: Change the swappiness Value. To change the value, you need to edit the system configuration file /etc/sysctl.conf. Open the configuration file:
+    ```
+    sudo nano /etc/sysctl.conf
+    ```
+
+- Add or modify the line for vm.swappiness at the bottom of the file: To make it less aggressive (preferring to drop cache over swapping):
+    ```
+    vm.swappiness=10
+    ```
+
+- To use the default setting​:
+    ```
+    vm.swappiness=60
+    ```
+
+- Step 3: Apply the Changes. For the changes to take effect immediately without rebooting, run the following command:
+    ```
+    sudo sysctl -p
+    ```
+
 ### Thunderbird outlook sync
 - https://support.mozilla.org/en-US/questions/1363441
 
