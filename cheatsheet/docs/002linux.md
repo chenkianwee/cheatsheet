@@ -317,6 +317,7 @@ Configure ubuntu to detect nvidia gpu
 - make sure the resolution and refresh rate is the same
 
 ### Adjusting swap memory for smoother operation
+- https://oneuptime.com/blog/post/2026-01-15-setup-swap-space-ubuntu/view
 
 - Creating a swap file is generally recommended because it is easier to create, resize, and manage than partitioning a disk space.
 
@@ -407,9 +408,9 @@ Configure ubuntu to detect nvidia gpu
     cat /proc/sys/vm/swappiness
     ```
 
-- Step 2: Change the swappiness Value. To change the value, you need to edit the system configuration file /etc/sysctl.conf. Open the configuration file:
+- Step 2: Change the swappiness Value. To change the value, you need to edit the system configuration file /etc/sysctl.d/99-custom-swappiness.conf. Open the configuration file:
     ```
-    sudo nano /etc/sysctl.conf
+    sudo nano /etc/sysctl.d/99-custom-swappiness.conf
     ```
 
 - Add or modify the line for vm.swappiness at the bottom of the file: To make it less aggressive (preferring to drop cache over swapping):
