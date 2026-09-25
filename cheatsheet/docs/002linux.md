@@ -595,6 +595,15 @@ split mp3 according to start end time
 ffmpeg -i input.mp3 -ss 00:01:00 -to 00:02:00 -c copy output.mp3
 ```
 
+split mp3 according to start end time
+```
+# reencode the video
+ffmpeg -i input.mp4 -ss 00:01:30 -t 00:01:15 output.mp4
+
+# just copy the video
+ffmpeg -i input.mp4 -ss 00:01:30 -t 00:01:15 -c copy output.mp4
+```
+
 convert .webm to .mp4
 ```
 ffmpeg -i input.webm' -c:v libx264 -c:a aac output.mp4

@@ -39,6 +39,14 @@ Taiwan:
 
 ## Building Energy Modeling
 - https://enginerio.com/pricing/
+- https://www.logecoconsulting.com/home
+
+## QGIS Paid Plugins
+- https://buntinglabs.com/ - a geospatial software company backed by Y Combinator (Summer 2022 batch)
+- https://public.geoedge.com.au/
+- https://terra-lab.ai/
+- https://www.geodatafarm.com/
+- https://www.opengis.ch/
 
 ## Online teaching 
 - https://www.archisoup.com/
@@ -82,6 +90,7 @@ Taiwan:
 - https://digitalsoftwaremarkett.com/
 - https://download-monitor.com/selling-software/
 - https://gumroad.com 
+- https://www.lemonsqueezy.com/
 
 ### Book publishing
 - [no starch press](https://nostarch.com/writeforus)
