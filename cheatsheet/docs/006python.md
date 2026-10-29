@@ -499,6 +499,17 @@ based on these:
     username@host.local
     ```
 3. You will be prompted for the password. Once correctly input you can start developing.
+### Dealing with 'Does not contain antialiasing keyword' when running matplotlib and pyqtgraph
+1. Go to ~/.config/Code/User/settings.json
+
+2. Force vscode to use x11 for backend
+    ```
+    {
+        "terminal.integrated.env.linux": {
+            "GDK_BACKEND": "x11"
+        }
+    }
+    ```
 
 ## Generate xml file from xsd using Python
 ### Using generateDS.py to generate Python files from xsd
